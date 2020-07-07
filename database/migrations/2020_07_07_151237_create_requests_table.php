@@ -21,7 +21,9 @@ class CreateRequestsTable extends Migration
             $table->string('cognome');
             $table->timestamps();
 
-            $table->foreignId('flat_id');
+            $table->foreignId('flat_id')
+                  ->references('id')
+                  ->on('flats');
         });
     }
 
