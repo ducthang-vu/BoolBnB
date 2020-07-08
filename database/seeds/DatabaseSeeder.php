@@ -18,7 +18,7 @@ class DatabaseSeeder extends Seeder
             ServiceSeeder::class,
             FlatServiceSeeder::class,
             RequestTableSeeder::class,
-            // FlatSponsorshipSeeder::class
+            FlatSponsorshipSeeder::class
          ]);
     }
 }
