@@ -14,7 +14,9 @@ class DatabaseSeeder extends Seeder
         $this->call([
             UserSeeder::class,
             FlatSeeder::class,
-            SponsorshipSeeder::class
+            SponsorshipSeeder::class,
+            ServiceSeeder::class,
+            FlatServiceSeeder::class
             ]
         );
     }
