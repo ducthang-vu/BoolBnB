@@ -64,6 +64,8 @@
         </style>
     </head>
     <body>
+        @include('shared.header')
+
         <div class="flex-center position-ref full-height">
             @if (Route::has('login'))
                 <div class="top-right links">

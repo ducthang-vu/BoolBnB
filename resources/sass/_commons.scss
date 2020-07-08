@@ -1,0 +1,34 @@
+// General Settings
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 1140px;
+    margin: 0 auto;
+}
+
+// Margins and Paddings
+
+.mr-5 {
+    margin-right: 5px;
+}
+
+.mt-20 {
+    margin-top: 20px;
+}
+
+.pd-20 {
+    padding-top: 20px;
+}
+
+// Buttons
+
+.li-button {
+    border: 0.5px solid #cac9c9;
+    border-radius: 18px;
+    padding: 10px;
+    box-shadow: -1px 1px 1px 0px #cac9c9;
+}
