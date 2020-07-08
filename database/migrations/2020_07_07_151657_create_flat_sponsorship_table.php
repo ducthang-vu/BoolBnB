@@ -18,8 +18,8 @@ class CreateFlatSponsorshipTable extends Migration
             $table->foreignId('sponsorship_id');
             $table->foreignId('flat_id');
             $table->string('braintree_code');
-            $table->date('start');
-            $table->date('end');
+            $table->datetime('start');
+            $table->datetime('end');
             $table->timestamps();
 
             // relationships
