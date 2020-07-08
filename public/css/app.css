@@ -1,4 +1,9 @@
-@import url(https://fonts.googleapis.com/css?family=Nunito);.navbar {
+@import url(https://fonts.googleapis.com/css?family=Nunito);header {
+  width: 1140px;
+  margin: 0 auto;
+}
+
+.navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -36,27 +41,121 @@
   text-decoration: none;
 }
 
+.main-footer {
+  background: #f7f7f7;
+  width: 100%;
+  border-top: 1px solid #cac9c9;
+  color: #222222;
+  font-weight: 500;
+}
+
+.nav-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  vertical-align: middle;
+  width: 1140px;
+  margin: 0 auto;
+}
+
+.nav-footer:last-child {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  vertical-align: middle;
+  border-top: 1px solid #cac9c9;
+}
+
+.nav-footer:last-child .footer-title,
+.nav-footer:last-child ul li {
+  display: inline;
+}
+
+.nav-footer:last-child .footer-column:last-child {
+  justify-content: space-between;
+}
+
+.nav-footer:last-child .footer-column:last-child a {
+  text-decoration: underline;
+}
+
+.nav-footer:last-child .footer-column:last-child a:hover {
+  opacity: 0.8;
+}
+
+.nav-footer:last-child i {
+  vertical-align: middle;
+  margin-right: 10px;
+  font-size: 14px;
+}
+
+.footer-column {
+  align-self: flex-start;
+}
+
+.footer-column ul li,
+.footer-column a {
+  list-style: none;
+  text-decoration: none;
+  color: #222222;
+  font-size: 12px;
+  padding-bottom: 8px;
+}
+
+.footer-column a:hover {
+  text-decoration: underline;
+}
+
+.footer-title {
+  font-size: 10px;
+  font-weight: 900;
+  padding-bottom: 8px;
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-body {
-  width: 1140px;
-  margin: 0 auto;
-}
-
 .mr-5 {
   margin-right: 5px;
+}
+
+.mt-10 {
+  margin-top: 10px;
 }
 
 .mt-20 {
   margin-top: 20px;
 }
 
-.pd-20 {
+.mb-10 {
+  margin-bottom: 10px;
+}
+
+.mr-10 {
+  margin-right: 10px;
+}
+
+.mr-20 {
+  margin-right: 20px;
+}
+
+.mr-30 {
+  margin-right: 30px;
+}
+
+.pt-20 {
   padding-top: 20px;
+}
+
+.pb-20 {
+  padding-bottom: 20px;
+}
+
+.inline {
+  display: inline;
 }
 
 .li-button {
