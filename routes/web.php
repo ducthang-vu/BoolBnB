@@ -14,12 +14,19 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-Route::get('/', function () {
-    return view('guest.home');
-});
+Route::get('/', 'HomeController@index')->name('home');
 
 Auth::routes();
 
+Route::resource('flats', 'FlatController');
+
+Route::prefix('admin')->name('admin.')->namespace('Admin')->middleware('auth')->group(function(){
+
+    Route::get('/home_admin', 'HomeController@index')->name('home');
+
+    Route::resource('flats', 'FlatController');
+    
+});
 
 
 
