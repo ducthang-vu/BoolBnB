@@ -16,8 +16,8 @@ class DatabaseSeeder extends Seeder
             FlatSeeder::class,
             SponsorshipSeeder::class,
             ServiceSeeder::class,
-            FlatServiceSeeder::class
-            ]
-        );
+            FlatServiceSeeder::class,
+            RequestTableSeeder::class,
+         ]);
     }
 }
