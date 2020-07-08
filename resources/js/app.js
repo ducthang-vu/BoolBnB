@@ -30,3 +30,44 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 const app = new Vue({
     el: '#app',
 });
+
+place();
+
+
+/***********
+ * FUNCTIONS
+ ***********/
+
+// Geolocation searchbar
+function place() {
+    var places = require('places.js');
+    var address = document.querySelector('#address');
+
+    var placesAutocomplete = places({
+        appId: 'pl9SBUILJO03',
+        apiKey: '707374d54fdaf7af334afaba53bce3c3',
+        container: address,
+        accessibility: {
+            pinButton: {
+                'aria-label': 'use browser geolocation',
+                'tab-index': 12,
+            },
+            clearButton: {
+                'tab-index': 13,
+            }
+        }
+    });
+
+    var address = document.querySelector('#address-value');
+    
+    placesAutocomplete.on('change', function (e) {
+        // acquisizione lat e long
+        address = e.suggestion.latlng;
+        // passa lat e long all'input nascosto
+        document.querySelector('#latlong').value = [address.lat, address.lng];
+    });
+
+    placesAutocomplete.on('clear', function () {
+        address.textContent = 'none';
+    });
+}

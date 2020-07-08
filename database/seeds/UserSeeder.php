@@ -22,7 +22,7 @@ class UserSeeder extends Seeder
         $dummyUser->date_of_birth = $faker->date($format = 'Y-m-d', $max = '-18 years');
         $dummyUser->save();
 
-        for($i = 0; $i < 5; $i++) {
+        for($i = 0; $i < 33; $i++) {
             $newUser = new User();
             $newUser->surname = $faker->lastName();
             $newUser->name = $faker->firstName();

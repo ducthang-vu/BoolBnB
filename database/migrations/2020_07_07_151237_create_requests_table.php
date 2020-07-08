@@ -15,13 +15,14 @@ class CreateRequestsTable extends Migration
     {
         Schema::create('requests', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('flat_id');
             $table->text('message');
             $table->string('email');
             $table->string('nome');
             $table->string('cognome');
             $table->timestamps();
 
-            $table->foreignId('flat_id')
+            $table->foreign('flat_id')
                   ->references('id')
                   ->on('flats');
         });
