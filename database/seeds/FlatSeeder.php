@@ -20,7 +20,7 @@ class FlatSeeder extends Seeder
             $new_flat->user_id = User::all()->random()->id;
             $new_flat->title = $faker->text(50);
             $new_flat->description = $faker->text(500);
-            $new_flat->number_of_rooms = $faker->randomNumber(1);
+            $new_flat->number_of_rooms = rand(1, 5);
             $new_flat->number_of_beds = $new_flat->number_of_rooms * 2;
             $new_flat->number_of_bathrooms = rand(1, 3);
             $new_flat->square_meters = rand(25, 255);
