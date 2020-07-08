@@ -26,6 +26,7 @@ class FlatSeeder extends Seeder
             $new_flat->square_meters = rand(25, 255);
             $new_flat->address = $faker->address();
             $new_flat->image = $faker->imageUrl(400, 200);
+            $new_flat->visualisations = rand(0, 1000);
 
             // geolocalization
             $lng = 7.6824 + $i * 0.09;
