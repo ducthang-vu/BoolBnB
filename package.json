@@ -24,6 +24,7 @@
         "vue-template-compiler": "^2.6.10"
     },
     "dependencies": {
+        "@fortawesome/fontawesome-free": "^5.13.1",
         "leaflet": "^1.6.0",
         "places.js": "^1.19.0"
     }
