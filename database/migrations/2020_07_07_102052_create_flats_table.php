@@ -18,10 +18,10 @@ class CreateFlatsTable extends Migration
             $table->foreignId('user_id');
             $table->string('title');
             $table->text('description');
-            $table->tinyInteger('number_of_rooms');
-            $table->tinyInteger('number_of_beds');
-            $table->tinyInteger('number_of_bathrooms');
-            $table->tinyInteger('square_meters');
+            $table->unsignedTinyInteger('number_of_rooms');
+            $table->unsignedTinyInteger('number_of_beds');
+            $table->unsignedTinyInteger('number_of_bathrooms');
+            $table->unsignedTinyInteger('square_meters');
             $table->string('address');
             $table->string('image');
             $table->point('geolocation');

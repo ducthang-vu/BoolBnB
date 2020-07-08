@@ -23,4 +23,20 @@ class Flat extends Model
     {
         return $this->hasMany('App\Request');
     }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function services()
+    {
+        return $this->belongsToMany('App\Service');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function sponsorships()
+    {
+        return $this->belongsToMany('App\Sponsorship');
+    }
 }
