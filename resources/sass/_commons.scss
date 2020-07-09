@@ -1,0 +1,60 @@
+// General Settings
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+// Margins and Paddings
+
+.mr-5 {
+    margin-right: 5px;
+}
+
+.mt-10 {
+    margin-top: 10px;
+}
+
+.mt-20 {
+    margin-top: 20px;
+}
+
+.mb-10 {
+    margin-bottom: 10px;
+}
+
+.mr-10 {
+    margin-right: 10px;
+}
+
+.mr-20 {
+    margin-right: 20px;
+}
+
+.mr-30 {
+    margin-right: 30px;
+}
+
+.pt-20 {
+    padding-top: 20px;
+}
+
+.pb-20 {
+    padding-bottom: 20px;
+}
+
+// Display
+
+.inline {
+    display: inline;
+}
+
+
+// Buttons
+
+.li-button {
+    border: 0.5px solid #cac9c9;
+    border-radius: 18px;
+    padding: 10px;
+    box-shadow: -1px 1px 1px 0px #cac9c9;
+}
