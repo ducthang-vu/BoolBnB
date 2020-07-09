@@ -6,6 +6,8 @@
 
 {{-- Searchbar w. geolocation --}}
 
+
+
 <form action="#" method="GET">
     @csrf
     @method('GET')

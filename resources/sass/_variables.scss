@@ -17,3 +17,15 @@ $yellow: #ffed4a;
 $green: #38c172;
 $teal: #4dc0b5;
 $cyan: #6cb2eb;
+//colors airbnb
+$black: #000;
+$white: #ffffff;
+$footerbg: #f7f7f7;
+$text: #222222;
+
+@mixin text_gradient {
+    background: linear-gradient(to right, rgb(146, 23, 77) 9.38%, rgb(228, 29, 92) 88.54%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
