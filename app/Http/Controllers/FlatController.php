@@ -1,10 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Support\Facades\DB;
 use App\Flat;
 
 use Illuminate\Http\Request;
-use App\Flat;
 
 class FlatController extends Controller
 {
@@ -15,8 +15,16 @@ class FlatController extends Controller
      */
     public function index()
     {
+            $activeSponsorships = DB::table('flat_sponsorship')
+                ->where('end', '>=', date("Y-m-d H:i:s"))
+                ->inRandomOrder()
+                ->get();
+            $sponsoredFlats = [];
+            foreach($activeSponsorships as $activeSponsorship) {
+                $sponsoredFlats[] = Flat::find($activeSponsorship->flat_id);
+            }
+            return view('guest.flats.index', compact('sponsoredFlats'));
 
-        return view('guest.flats.index');
     }
 
     /**

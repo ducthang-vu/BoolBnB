@@ -11,7 +11,7 @@
 <body>
     <header class="main-header">
         <nav class="navbar main-content mt-20">
-            <a id="logo" href="#" class=""><i class="fab fa-airbnb mr-5"></i><span>boolbnb</span></a>
+            <a id="logo" href="{{route ('home')}}" class=""><i class="fab fa-airbnb mr-5"></i><span>boolbnb</span></a>
             @if (Route::has('login'))
                 @auth
                     <ul>
