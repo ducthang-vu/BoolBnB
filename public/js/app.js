@@ -60135,9 +60135,13 @@ module.exports = function(module) {
 /*!*****************************!*\
   !*** ./resources/js/app.js ***!
   \*****************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var places_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! places.js */ "./node_modules/places.js/index.js");
+/* harmony import */ var places_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(places_js__WEBPACK_IMPORTED_MODULE_0__);
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -60166,17 +60170,12 @@ Vue.component('example-component', __webpack_require__(/*! ./components/ExampleC
 var app = new Vue({
   el: '#app'
 });
+
 place();
-/***********
- * FUNCTIONS
- ***********/
-// Geolocation searchbar
 
 function place() {
-  var places = __webpack_require__(/*! places.js */ "./node_modules/places.js/index.js");
-
   var address = document.querySelector('#address');
-  var placesAutocomplete = places({
+  var placesAutocomplete = places_js__WEBPACK_IMPORTED_MODULE_0___default()({
     appId: 'pl9SBUILJO03',
     apiKey: '707374d54fdaf7af334afaba53bce3c3',
     container: address,
@@ -60192,9 +60191,8 @@ function place() {
   });
   var address = document.querySelector('#address-value');
   placesAutocomplete.on('change', function (e) {
-    // acquisizione lat e long
-    address = e.suggestion.latlng; // passa lat e long all'input nascosto
-
+    address = e.suggestion;
+    console.log(address.latlng, address);
     document.querySelector('#latlong').value = [address.lat, address.lng];
   });
   placesAutocomplete.on('clear', function () {
@@ -60336,8 +60334,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Boolean\Esercizi\final_project\BoolBnB\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Boolean\Esercizi\final_project\BoolBnB\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/riccardo1/Documents/Boolean/BoolBnB/progetto/BoolBnB/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/riccardo1/Documents/Boolean/BoolBnB/progetto/BoolBnB/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ }),

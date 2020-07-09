@@ -31,16 +31,12 @@ const app = new Vue({
     el: '#app',
 });
 
+
+import places from 'places.js';
+
 place();
 
-
-/***********
- * FUNCTIONS
- ***********/
-
-// Geolocation searchbar
 function place() {
-    var places = require('places.js');
     var address = document.querySelector('#address');
 
     var placesAutocomplete = places({
@@ -59,15 +55,15 @@ function place() {
     });
 
     var address = document.querySelector('#address-value');
-    
     placesAutocomplete.on('change', function (e) {
-        // acquisizione lat e long
-        address = e.suggestion.latlng;
-        // passa lat e long all'input nascosto
+        address = e.suggestion;
+        console.log(address.latlng, address);
         document.querySelector('#latlong').value = [address.lat, address.lng];
     });
+
 
     placesAutocomplete.on('clear', function () {
         address.textContent = 'none';
     });
+
 }
