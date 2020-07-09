@@ -20,7 +20,7 @@
                         <li><a href="">Proponi un'esperienza</a></li>
                         <li><a href="">Assistenza</a></li>
                         <li class="li-button">
-                            <a class="dropdown-item" href="{{ route('logout') }}"
+                            <a class="" href="{{ route('logout') }}"
                             onclick="event.preventDefault();
                                         document.getElementById('logout-form').submit();">
                             {{ __('Logout') }}
