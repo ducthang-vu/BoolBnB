@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Flat;
 
 use Illuminate\Http\Request;
 use App\Flat;
@@ -45,9 +46,9 @@ class FlatController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show()
+    public function show(Flat $flat)
     {
-        return view('guest.flats.show');
+        return view('guest.flats.show', compact('flat'));
     }
 
     /**

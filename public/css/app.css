@@ -117,6 +117,7 @@
 
 body {
   display: flex;
+  height: 100vh;
   flex-direction: column;
 }
 
@@ -255,6 +256,29 @@ form #address:focus {
 
 .title-home {
   padding-bottom: 50px;
+}
+
+.jumbotron img {
+  width: 100%;
+  height: 400px;
+}
+
+.jumbotron h1 {
+  margin: 20px 0;
+  text-align: center;
+}
+
+.description {
+  justify-content: space-between;
+}
+
+.description .desc {
+  width: 50%;
+  line-height: 25px;
+}
+
+.description .desc-list ul > li {
+  margin-bottom: 5px;
 }
 
 /*!
