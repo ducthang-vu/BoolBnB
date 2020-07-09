@@ -17,7 +17,7 @@
 
 <div class="sponsorship-card d-flex">
     @foreach($sponsoredFlats as $sponsoredFlat)
-    <a class="card m-10" href="">
+    <a class="card" href="">
 
     <img src="{{$sponsoredFlat->image}}" alt="{{$sponsoredFlat->title}}">
 
