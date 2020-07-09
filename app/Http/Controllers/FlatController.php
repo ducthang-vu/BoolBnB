@@ -12,10 +12,17 @@ class FlatController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+        $latlong = $request->input('latlong');
 
-        return view('guest.flats.index');
+        $flatsInRange = [];
+        foreach (Flat::all() as $flat) {
+            if ($flat->isInRange($latlong, 20)) {
+                $flatsInRange[] = $flat;
+            }
+        }
+        return view('guest.flats.index', compact('flatsInRange'));
     }
 
     /**

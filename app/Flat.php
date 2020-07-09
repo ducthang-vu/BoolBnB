@@ -30,15 +30,23 @@ class Flat extends Model
     /* UTILITIES */
     public function getGeolocation() {
         preg_match_all("(-?\d+.\d{6})", $this->geolocation, $matches);
-        return $matches;
+        return $matches[0];
     }
 
     public function getLat() {
-        return $this->getGeolocation()[0];
+        return floatval($this->getGeolocation()[0][0]);
     }
 
     public function getLong() {
-        return $this->getGeolocation()[1];
+        return floatval($this->getGeolocation()[0][1]);
+    }
+
+    public function isInRange($center, $distance)
+    {
+        $latDist = ($this->getLat() - $center[0]) * 111;
+        $longDist = ($this->getLong() - $center[1]) * 111;
+
+        return $latDist ** 2 + $longDist ** 2 <= $distance;
     }
 
 
