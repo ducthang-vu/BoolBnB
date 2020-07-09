@@ -60173,49 +60173,52 @@ var app = new Vue({
   el: '#app'
 });
 
-place();
 
-function place() {
-  var address = document.querySelector('#address');
-  var latlng = {
-    lat: 0,
-    lng: 0
-  };
-  var placesAutocomplete = places_js__WEBPACK_IMPORTED_MODULE_0___default()({
-    appId: 'pl9SBUILJO03',
-    apiKey: '707374d54fdaf7af334afaba53bce3c3',
-    container: address,
-    accessibility: {
-      pinButton: {
-        'aria-label': 'use browser geolocation',
-        'tab-index': 12
-      },
-      clearButton: {
-        'tab-index': 13
-      }
-    }
-  });
-  var address = document.querySelector('#address-value');
-  placesAutocomplete.on('change', function (e) {
-    latlng = {
-      lat: e.suggestion.latlng.lat,
-      lng: e.suggestion.latlng.lng
+try {
+  var place = function place() {
+    var address = document.querySelector('#address');
+    var latlng = {
+      lat: 0,
+      lng: 0
     };
-    address = e.suggestion;
-    console.log(latlng, address.value);
-    console.log(address);
-    console.log(this); // this.configure({
-    //     aroundLatLng: latlng.lat + ',' + latlng.lng,
-    //     aroundRadius: 20 * 1000
-    // });
+    var placesAutocomplete = places_js__WEBPACK_IMPORTED_MODULE_0___default()({
+      appId: 'pl9SBUILJO03',
+      apiKey: '707374d54fdaf7af334afaba53bce3c3',
+      container: address,
+      accessibility: {
+        pinButton: {
+          'aria-label': 'use browser geolocation',
+          'tab-index': 12
+        },
+        clearButton: {
+          'tab-index': 13
+        }
+      }
+    });
+    var address = document.querySelector('#address-value');
+    placesAutocomplete.on('change', function (e) {
+      latlng = {
+        lat: e.suggestion.latlng.lat,
+        lng: e.suggestion.latlng.lng
+      };
+      address = e.suggestion;
+      console.log(latlng, address.value);
+      console.log(address);
+      console.log(this); // this.configure({
+      //     aroundLatLng: latlng.lat + ',' + latlng.lng,
+      //     aroundRadius: 20 * 1000
+      // });
 
-    document.querySelector('#latlong').value = [latlng.lat, latlng.lng];
-    console.log(_typeof(latlng.lat));
-  });
-  placesAutocomplete.on('clear', function () {
-    address.textContent = 'none';
-  });
-}
+      document.querySelector('#latlong').value = [latlng.lat, latlng.lng];
+      console.log(_typeof(latlng.lat));
+    });
+    placesAutocomplete.on('clear', function () {
+      address.textContent = 'none';
+    });
+  };
+
+  place();
+} catch (_unused) {} //do nothing
 
 /***/ }),
 
@@ -60351,8 +60354,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/riccardo1/Documents/Boolean/BoolBnB/progetto/BoolBnB/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Users/riccardo1/Documents/Boolean/BoolBnB/progetto/BoolBnB/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Boolean\Esercizi\final_project\BoolBnB\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Boolean\Esercizi\final_project\BoolBnB\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ }),

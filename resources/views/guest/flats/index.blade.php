@@ -1,9 +1,10 @@
 @extends('layouts.main')
 
 
-@section('content')
+@section('page-content')
 
 <h1>Mockup 2</h1>
-@dd($flatsInRange)
+
+@dump($flatsInRange)
 
 @endsection

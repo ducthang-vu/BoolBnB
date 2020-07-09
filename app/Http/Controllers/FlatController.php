@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 use App\Flat;
 
 use Illuminate\Http\Request;
-use App\Flat;
+
 
 class FlatController extends Controller
 {
@@ -15,14 +15,18 @@ class FlatController extends Controller
      */
     public function index(Request $request)
     {
-        $latlong = $request->input('latlong');
-
+        $latlong = explode(',', $request->input('latlong'));
+        $latlong = array_map(function($a) {return floatval($a);}, $latlong);
+        //dd($latlong);
         $flatsInRange = [];
         foreach (Flat::all() as $flat) {
-            if ($flat->isInRange($latlong, 20)) {
+            if ($flat->getDistance($latlong) <= 20) {
                 $flatsInRange[] = $flat;
             }
         }
+        //dd(array_map(function($a) {return $a->id;}, $flatsInRange));
+        //dd(Flat::all()->toArray());
+        //dd(array_map(function($a) {return $a->getDistance([45.0678,  7.68249]);}, iterator_to_array(Flat::all())));
         return view('guest.flats.index', compact('flatsInRange'));
     }
 

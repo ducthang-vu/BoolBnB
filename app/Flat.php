@@ -51,7 +51,7 @@ class Flat extends Model
 
         $raw_distance = 2 * $r * asin(sqrt(
             sin($delta_lat/2)**2 + cos($f_lat) * cos($l_lat) * sin($delta_long/2)**2));
-        return round($raw_distance, 0);
+        return intval($raw_distance);
     }
 
 
