@@ -43,7 +43,7 @@ class Flat extends Model
 
     function getDistance($location) {
         $r = 6356.752;  // Earth radius
-        // coordinates and distance in radiants for f(lat) and l(ocation)
+        // coordinates and distances in radians for f(lat) and l(ocation)
         $f_lat = $this->getLat()  * M_PI / 180;
         $l_lat = $location[0] * M_PI / 180;
         $delta_lat = ($this->getLat()  - $location[0]) * M_PI / 180;
