@@ -1,5 +1,107 @@
 @import url(https://fonts.googleapis.com/css?family=Nunito);@charset "UTF-8";
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  height: 100vh;
+  flex-direction: column;
+}
+
+main {
+  flex-grow: 1;
+}
+
+.main-content {
+  width: 1200px;
+  margin: 0 auto;
+}
+
+.m-5 {
+  margin: 5px;
+}
+
+.m-10 {
+  margin: 10px;
+}
+
+.m-15 {
+  margin: 15px;
+}
+
+.m-20 {
+  margin: 20px;
+}
+
+.mt-10 {
+  margin-top: 10px;
+}
+
+.mt-20 {
+  margin-top: 20px;
+}
+
+.mb-10 {
+  margin-bottom: 10px;
+}
+
+.mr-10 {
+  margin-right: 10px;
+}
+
+.mr-20 {
+  margin-right: 20px;
+}
+
+.mr-30 {
+  margin-right: 30px;
+}
+
+.pt-20 {
+  padding-top: 20px;
+}
+
+.pb-20 {
+  padding-bottom: 20px;
+}
+
+.inline {
+  display: inline;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.li-button {
+  border: 0.5px solid #cac9c9;
+  border-radius: 18px;
+  padding: 10px;
+  box-shadow: -1px 1px 1px 0px #cac9c9;
+}
+
+.button-home {
+  background: linear-gradient(to right, #92174d 9.38%, #e41d5c 88.54%);
+  color: #ffffff;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 5px;
+  border: 1px solid transparent;
+  height: 50px;
+  width: 70px;
+}
+
+/* Tablets (tablets, 768px and up) */
+
+/* Desktops (desktops, 992px and up) */
+
+/* Large desktops (large desktops, 1200px and up) */
+
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -107,102 +209,6 @@
   font-size: 10px;
   font-weight: 900;
   padding-bottom: 8px;
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  display: flex;
-  height: 100vh;
-  flex-direction: column;
-}
-
-main {
-  flex-grow: 1;
-}
-
-.main-content {
-  width: 1200px;
-  margin: 0 auto;
-}
-
-.m-5 {
-  margin: 5px;
-}
-
-.m-10 {
-  margin: 10px;
-}
-
-.m-15 {
-  margin: 15px;
-}
-
-.m-20 {
-  margin: 20px;
-}
-
-.mt-10 {
-  margin-top: 10px;
-}
-
-.mt-20 {
-  margin-top: 20px;
-}
-
-.mb-10 {
-  margin-bottom: 10px;
-}
-
-.mr-10 {
-  margin-right: 10px;
-}
-
-.mr-20 {
-  margin-right: 20px;
-}
-
-.mr-30 {
-  margin-right: 30px;
-}
-
-.pt-20 {
-  padding-top: 20px;
-}
-
-.pb-20 {
-  padding-bottom: 20px;
-}
-
-.inline {
-  display: inline;
-}
-
-.d-flex {
-  display: flex;
-}
-
-.li-button {
-  border: 0.5px solid #cac9c9;
-  border-radius: 18px;
-  padding: 10px;
-  box-shadow: -1px 1px 1px 0px #cac9c9;
-}
-
-.button-home {
-  background: linear-gradient(to right, #92174d 9.38%, #e41d5c 88.54%);
-  color: #ffffff;
-  cursor: pointer;
-  font-size: 16px;
-  font-weight: 600;
-  border-radius: 5px;
-  border: 1px solid transparent;
-  height: 50px;
-  width: 70px;
 }
 
 .sponsorship-card {
