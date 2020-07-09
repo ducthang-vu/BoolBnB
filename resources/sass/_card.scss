@@ -1,0 +1,14 @@
+.sponsorship-card{
+    flex-wrap: wrap;
+    .card{
+        display: block;
+        text-decoration: none;
+        color: $black;
+        flex-basis: calc((100% / 3 ) - 20px);
+        img{
+            width: 380px;
+            border-radius: 5px;
+        }
+    }
+    padding-bottom: 20px;
+}
