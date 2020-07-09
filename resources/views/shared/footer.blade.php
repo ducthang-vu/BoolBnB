@@ -67,3 +67,6 @@
         </div>
     </nav>
 </footer>
+
+{{-- JS --}}
+<script src="{{ asset('js/app.js') }}"></script>

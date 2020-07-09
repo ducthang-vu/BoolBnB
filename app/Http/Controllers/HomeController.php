@@ -15,8 +15,7 @@ class HomeController extends Controller
             ->get();
         $sponsoredFlats = [];
         foreach($activeSponsorships as $activeSponsorship) {
-            $id = $activeSponsorship->flat_id;
-            $sponsoredFlats[] = Flat::find($id);
+            $sponsoredFlats[] = Flat::find($activeSponsorship->flat_id);
         }
         return view('guest.home', compact('sponsoredFlats'));
     }

@@ -5,9 +5,11 @@
 @import 'variables';
 
 // Utilities
+@import 'commons';
+@import 'responsive_util';
 @import 'header';
 @import 'footer';
-@import 'commons';
+
 
 
 // Card
@@ -15,11 +17,11 @@
 @import 'home';
 
 // Bootstrap
-// @import '~bootstrap/scss/bootstrap';
+@import '~bootstrap/scss/bootstrap';
 
 // Fontawesome
-@import "~@fortawesome/fontawesome-free/scss/fontawesome";
-@import "~@fortawesome/fontawesome-free/scss/solid";
-@import "~@fortawesome/fontawesome-free/scss/brands.scss";
+// @import "~@fortawesome/fontawesome-free/scss/fontawesome";
+// @import "~@fortawesome/fontawesome-free/scss/solid";
+// @import "~@fortawesome/fontawesome-free/scss/brands.scss";
 
 
