@@ -9,8 +9,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css">
 </head>
 <body>
-    <header class="main-header mt-20">
-        <nav class="navbar mt-20">
+    <header class="main-header">
+        <nav class="navbar main-content mt-20">
             <a id="logo" href="#" class=""><i class="fab fa-airbnb mr-5"></i><span>boolbnb</span></a>
             @if (Route::has('login'))
                 @auth
