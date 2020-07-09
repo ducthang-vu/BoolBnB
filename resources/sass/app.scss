@@ -5,12 +5,24 @@
 @import 'variables';
 
 // Utilities
+@import 'commons';
+@import 'responsive_util';
 @import 'header';
 @import 'footer';
-@import 'commons';
+
+
+
+// Card
+@import 'card';
+
+// home page style
+@import 'home';
+
+// show page styles
+@import 'show';
 
 // Bootstrap
-// @import '~bootstrap/scss/bootstrap';
+@import '~bootstrap/scss/bootstrap';
 
 // Fontawesome
 // @import "~@fortawesome/fontawesome-free/scss/fontawesome";

@@ -5,10 +5,37 @@
     box-sizing: border-box;
 }
 
+body {
+    display: flex;
+    height: 100vh;
+    flex-direction: column;
+}
+
+main{
+    flex-grow: 1;
+}
+
+.main-content {
+    width: 1200px;
+    margin: 0 auto;
+}
+
 // Margins and Paddings
 
-.mr-5 {
-    margin-right: 5px;
+.m-5{
+    margin: 5px;
+}
+
+.m-10{
+    margin: 10px;
+}
+
+.m-15{
+    margin: 15px;
+}
+
+.m-20{
+    margin: 20px;
 }
 
 .mt-10 {
@@ -49,6 +76,10 @@
     display: inline;
 }
 
+.d-flex {
+    display: flex;
+}
+
 
 // Buttons
 
@@ -57,4 +88,8 @@
     border-radius: 18px;
     padding: 10px;
     box-shadow: -1px 1px 1px 0px #cac9c9;
+}
+
+.button-home {
+    @include button-serach-home;
 }

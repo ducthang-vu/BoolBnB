@@ -29,24 +29,29 @@ class Flat extends Model
 
     /* UTILITIES */
     public function getGeolocation() {
-        preg_match_all("(-?\d+.\d{6})", $this->geolocation, $matches);
+        preg_match_all("(-?\d+.?\d*)", $this->geolocation, $matches);
         return $matches[0];
     }
 
     public function getLat() {
-        return floatval($this->getGeolocation()[0][0]);
+        return floatval($this->getGeolocation()[0]);
     }
 
     public function getLong() {
-        return floatval($this->getGeolocation()[0][1]);
+        return floatval($this->getGeolocation()[1]);
     }
 
-    public function isInRange($center, $distance)
-    {
-        $latDist = ($this->getLat() - $center[0]) * 111;
-        $longDist = ($this->getLong() - $center[1]) * 111;
+    function getDistance($location) {
+        $r = 6356.752;  // Earth radius
+        // coordinates and distance in radiants for f(lat) and l(ocation)
+        $f_lat = $this->getLat()  * M_PI / 180;
+        $l_lat = $location[0] * M_PI / 180;
+        $delta_lat = ($this->getLat()  - $location[0]) * M_PI / 180;
+        $delta_long = ($this->getLong() - $location[1]) * M_PI / 180;
 
-        return $latDist ** 2 + $longDist ** 2 <= $distance;
+        $raw_distance = 2 * $r * asin(sqrt(
+            sin($delta_lat/2)**2 + cos($f_lat) * cos($l_lat) * sin($delta_long/2)**2));
+        return round($raw_distance, 0);
     }
 
 

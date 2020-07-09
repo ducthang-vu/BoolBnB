@@ -1,0 +1,20 @@
+.sponsorship-card{
+    flex-wrap: wrap;
+    padding-bottom: 20px;
+    .card{
+        display: block;
+        text-decoration: none;
+        color: $black;
+        flex-basis: calc((100% / 3 ) - 20px);
+        margin: 0 20px 20px 0;
+        &:nth-of-type(3n) {
+            margin-right: 0;
+        }
+        img{
+            max-width: 385px;
+            margin-bottom: 5px;
+            border-radius: 5px;
+        }
+
+    }
+}
