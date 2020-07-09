@@ -38,6 +38,11 @@ place();
 
 function place() {
     var address = document.querySelector('#address');
+    
+    var latlng = {
+        lat: 0,
+        lng: 0
+    };
 
     var placesAutocomplete = places({
         appId: 'pl9SBUILJO03',
@@ -55,13 +60,27 @@ function place() {
     });
 
     var address = document.querySelector('#address-value');
+
     placesAutocomplete.on('change', function (e) {
+        latlng = {
+            lat: e.suggestion.latlng.lat,
+            lng: e.suggestion.latlng.lng
+        };
+
         address = e.suggestion;
-        console.log(address.latlng, address);
-        document.querySelector('#latlong').value = [address.lat, address.lng];
+        console.log(latlng, address.value);
+        console.log(address);
+        console.log(this);
+        
+        // this.configure({
+        //     aroundLatLng: latlng.lat + ',' + latlng.lng,
+        //     aroundRadius: 20 * 1000
+        // });
+        document.querySelector('#latlong').value = [latlng.lat, latlng.lng];
+        console.log(typeof(latlng.lat));
+        
     });
-
-
+    
     placesAutocomplete.on('clear', function () {
         address.textContent = 'none';
     });
