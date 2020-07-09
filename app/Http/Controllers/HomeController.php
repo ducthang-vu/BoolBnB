@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Flat;
 
 class HomeController extends Controller
 {
@@ -12,6 +13,11 @@ class HomeController extends Controller
             ->where('end', '>=', date("Y-m-d H:i:s"))
             ->inRandomOrder()
             ->get();
-        return view('guest.home', compact('activeSponsorships'));
+        $sponsoredFlats = [];
+        foreach($activeSponsorships as $activeSponsorship) {
+            $id = $activeSponsorship->flat_id;
+            $sponsoredFlats[] = Flat::find($id);
+        }
+        return view('guest.home', compact('sponsoredFlats'));
     }
 }
