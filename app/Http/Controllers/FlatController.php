@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Flat;
 
 use Illuminate\Http\Request;
+use App\Flat;
 
 class FlatController extends Controller
 {
@@ -14,6 +15,7 @@ class FlatController extends Controller
      */
     public function index()
     {
+
         return view('guest.flats.index');
     }
 

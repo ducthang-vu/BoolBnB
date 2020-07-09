@@ -1,17 +1,7 @@
 @extends('layouts.main')
 
-
 @section('page-content')
-
-<div class="search-home d-flex">
-    <form action="#" method="GET">
-        @csrf
-        @method('GET')
-        <input type="text" name="address" id="address" placeholder="Cerca un appartamento">
-        <input type="hidden" name="latlong" id="latlong">
-        <input type="submit" value="Cerca" class="button-home">
-    </form>
-</div>
+    @include('shared.components.formAlgolia')
 
 <h1 class="title-home">Appartamenti sponsorizzati</h1>
 
@@ -33,8 +23,4 @@
 
     @endforeach
 </div>
-    
-
-
-
 @endsection
