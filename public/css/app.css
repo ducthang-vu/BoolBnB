@@ -1,10 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=Nunito);@charset "UTF-8";
 
-header {
-  width: 1140px;
-  margin: 0 auto;
-}
-
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -120,8 +115,34 @@ header {
   box-sizing: border-box;
 }
 
-.mr-5 {
-  margin-right: 5px;
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex-grow: 1;
+}
+
+.main-content {
+  width: 1200px;
+  margin: 0 auto;
+}
+
+.m-5 {
+  margin: 5px;
+}
+
+.m-10 {
+  margin: 10px;
+}
+
+.m-15 {
+  margin: 15px;
+}
+
+.m-20 {
+  margin: 20px;
 }
 
 .mt-10 {
@@ -160,11 +181,74 @@ header {
   display: inline;
 }
 
+.d-flex {
+  display: flex;
+}
+
 .li-button {
   border: 0.5px solid #cac9c9;
   border-radius: 18px;
   padding: 10px;
   box-shadow: -1px 1px 1px 0px #cac9c9;
+}
+
+.button-home {
+  background: linear-gradient(to right, #92174d 9.38%, #e41d5c 88.54%);
+  color: #ffffff;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 5px;
+  border: 1px solid transparent;
+  height: 50px;
+  width: 70px;
+}
+
+.sponsorship-card {
+  flex-wrap: wrap;
+  padding-bottom: 20px;
+}
+
+.sponsorship-card .card {
+  display: block;
+  text-decoration: none;
+  color: #000;
+  flex-basis: calc((100% / 3 ) - 20px);
+}
+
+.sponsorship-card .card img {
+  width: 380px;
+  border-radius: 5px;
+}
+
+.search-home {
+  align-items: center;
+  justify-content: center;
+  height: 250px;
+}
+
+form {
+  display: flex;
+  align-items: center;
+}
+
+form #address {
+  width: 800px;
+  height: 60px;
+  font-size: 25px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  padding: 5px;
+  margin-right: 5px;
+}
+
+form #address:hover,
+form #address:focus {
+  border: 2px solid #929292;
+}
+
+.title-home {
+  padding-bottom: 50px;
 }
 
 /*!
