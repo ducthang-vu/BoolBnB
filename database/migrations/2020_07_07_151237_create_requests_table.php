@@ -24,7 +24,8 @@ class CreateRequestsTable extends Migration
 
             $table->foreign('flat_id')
                   ->references('id')
-                  ->on('flats');
+                  ->on('flats')
+                  ->onDelete('cascade');
         });
     }
 

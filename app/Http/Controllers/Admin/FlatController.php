@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Flat;
 
 class FlatController extends Controller
 {
@@ -43,9 +44,9 @@ class FlatController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Flat $flat)
     {
-        //
+        return view('admin.flats.show', compact('flat'));
     }
 
     /**
@@ -77,8 +78,22 @@ class FlatController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Flat $flat)
     {
-        //
+        if (empty($flat)){
+            abort('404');
+        }
+
+        $id = $flat->id;
+
+        $flat->sponsorships()->detach();
+        $flat->services()->detach();
+        // $flat->request()->
+
+        $deleted = $flat->delete();
+
+        if($deleted) {
+            return redirect()->route('admin.home')->with('flat-deleted', $id);
+        }
     }
 }

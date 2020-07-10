@@ -92,6 +92,19 @@ main {
   display: flex;
 }
 
+.df-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.s-between {
+  justify-content: space-between;
+}
+
+.align-center {
+  align-items: center;
+}
+
 .li-button {
   border: 0.5px solid #cac9c9;
   border-radius: 18px;
@@ -109,6 +122,48 @@ main {
   border: 1px solid transparent;
   height: 50px;
   width: 70px;
+}
+
+.btn {
+  background: #f3f0f1;
+  border-radius: 32px;
+  padding: 10px;
+  text-decoration: none;
+  box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.8), 6px 6px 10px rgba(0, 0, 0, 0.2);
+  color: #6f6cde;
+  transition: all 0.1s ease-in-out;
+}
+
+.btn:hover {
+  opacity: 0.5;
+  box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.8), 6px 6px 10px rgba(0, 0, 0, 0.2);
+}
+
+.btn-spons {
+  color: #f6993f;
+}
+
+.btn-edit {
+  color: #3490dc;
+}
+
+.btn-delete {
+  color: #e3342f;
+  border: 0;
+  cursor: pointer;
+}
+
+.btn-delete:active {
+  border: 0;
+}
+
+.btn-add {
+  color: #38c172;
+  height: 50px;
+}
+
+.btn-add:hover {
+  content: "<i class=" fas fa-plus "></i>";
 }
 
 /* Tablets (tablets, 768px and up) */
@@ -323,16 +378,16 @@ main {
   border-radius: 5px;
 }
 
-.card-serach {
+.card-row {
   text-decoration: none;
   align-items: center;
 }
 
-.card-serach .desc-search {
+.card-row .desc-card {
   color: #222222;
 }
 
-.card-serach .desc-search p {
+.card-row .desc-card p {
   line-height: 25px;
 }
 

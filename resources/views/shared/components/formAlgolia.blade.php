@@ -1,5 +1,5 @@
 <div class="search-home d-flex">
-    <form action=" {{ route('flats.index') }}" method="GET">
+    <form action=" {{ route('search') }}" method="GET">
         @csrf
         @method('GET')
         <input type="text" name="address" id="address" placeholder="Cerca un appartamento">

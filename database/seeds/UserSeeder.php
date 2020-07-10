@@ -27,7 +27,7 @@ class UserSeeder extends Seeder
             $newUser->surname = $faker->lastName();
             $newUser->name = $faker->firstName();
             $newUser->email = $faker->email();
-            $newUser->password = Hash::make('mypassword');
+            $newUser->password = bcrypt('prova');
             $newUser->date_of_birth = $faker->date($format = 'Y-m-d', $max = '-18 years');
             $newUser->save();
         }

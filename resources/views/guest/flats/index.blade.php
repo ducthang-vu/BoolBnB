@@ -10,28 +10,11 @@
         @dump($service)
     @endforeach --}}
 </div>
-
-@foreach($sponsoredFlats as $sponsoredFlat)
-    
-        <a class="card-serach d-flex mb-20" href="{{ route('flats.show' , $sponsoredFlat->id) }}">
-
-            <img src="{{$sponsoredFlat->image}}" alt="{{$sponsoredFlat->title}}">
-
-            <div class="desc-search ml-10">
-                <h2 class="mb-10">{{$sponsoredFlat->title}}</h2>
-
-                <p>{{$sponsoredFlat->description}}</p>
-            </div>
-            
-        </a>
-
-        @if ($loop->index == 1)
-            @break;
-        
-        @endif
-
+@foreach ($flatsInRange as $flat)
+    <p>{{ $flat->id }}</p>
 @endforeach
 
 @dump($flatsInRange)
+
 
 @endsection
