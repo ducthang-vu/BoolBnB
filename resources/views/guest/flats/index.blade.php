@@ -10,7 +10,11 @@
         @dump($service)
     @endforeach --}}
 </div>
+@foreach ($flatsInRange as $flat)
+    <p>{{ $flat->id }}</p>
+@endforeach
 
 @dump($flatsInRange)
+
 
 @endsection
