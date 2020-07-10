@@ -1,0 +1,10 @@
+.card-serach{
+    text-decoration: none;
+    align-items: center;
+    .desc-search{
+        color: $text;
+        p{
+            line-height: 25px;
+        }
+    }
+}
