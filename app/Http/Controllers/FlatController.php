@@ -16,11 +16,12 @@ class FlatController extends Controller
     public function index(Request $request)
     {
         $latlong = explode(',', $request->input('latlong'));
+        //dd($latlong);
         $latlong = array_map(function($a) {return floatval($a);}, $latlong);
         //dd($latlong);
         $flatsInRange = [];
         foreach (Flat::all() as $flat) {
-            if ($flat->getDistance($latlong) <= 20) {
+            if ($flat->getDistance($latlong) <= 40) {
                 $flatsInRange[] = $flat;
             }
         }
