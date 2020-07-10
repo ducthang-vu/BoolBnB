@@ -4,9 +4,10 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Flat;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
-class FlatController extends Controller
+class SponsorshipController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,6 +16,11 @@ class FlatController extends Controller
      */
     public function index()
     {
+        $sponsorships = DB::table('flat_sponsorship')
+            ->join('flats', 'flat_sponsorship.id', '=', 'flats.id')
+            ->where('flats.user_id', Auth::id())
+            ->orderBy('flat_sponsorship.start','desc');
+        return view('admin.sponsorships.index', compact('sponsorships'));
     }
 
     /**
@@ -24,7 +30,7 @@ class FlatController extends Controller
      */
     public function create()
     {
-        return view('admin.sponsorships.create');
+        //
     }
 
     /**
@@ -44,9 +50,9 @@ class FlatController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Flat $flat)
+    public function show($id)
     {
-        return view('admin.flats.show', compact('flat'));
+        abort(404);
     }
 
     /**
@@ -57,7 +63,7 @@ class FlatController extends Controller
      */
     public function edit($id)
     {
-        //
+        abort(404);
     }
 
     /**
@@ -69,7 +75,7 @@ class FlatController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        abort(404);
     }
 
     /**
@@ -78,22 +84,8 @@ class FlatController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Flat $flat)
+    public function destroy($id)
     {
-        if (empty($flat)){
-            abort('404');
-        }
-
-        $id = $flat->id;
-
-        $flat->sponsorships()->detach();
-        $flat->services()->detach();
-        // $flat->request()->
-
-        $deleted = $flat->delete();
-
-        if($deleted) {
-            return redirect()->route('admin.home')->with('flat-deleted', $id);
-        }
+        abort(404);
     }
 }
