@@ -17,7 +17,7 @@
                 @auth
                     <ul>
                         <li><a href=""><i class="fas fa-globe mr-5"></i><i class="fas fa-angle-down"></i></a></li>
-                    <li><a href="{{ route('admin.home') }}">Home</a></li>
+                        <li><a href="{{ route('admin.home') }}">Home</a></li>
                         <li><a href="">Proponi un'esperienza</a></li>
                         <li><a href="">Assistenza</a></li>
                         <li class="li-button">
@@ -38,9 +38,21 @@
                         <li><a href="">Diventa un host</a></li>
                         <li><a href="">Proponi un'esperienza</a></li>
                         <li><a href="">Assistenza</a></li>
-                        <li><a href="{{ route('login') }}">Accedi</a></li>
-                        <li class="li-button"><a href="{{ route('register') }}">Registrati</a></li>
+                        <li><button id="login-button" onclick="showPopUpLogin()">Accedi</button></li>
+                        <li><button id="register-button" onclick="showPopUpRegister()">Registrati</button></li>
                     </ul>
+                    <div id="login-popup-div" class="popup popup-animation" style="display:none">
+                        <span onclick="closePopUpLogin()" class="close popup-animation"><i class="fas fa-times"></i></span>
+                        <form id="login-popup" class="popup-form" action="{{ route('login') }}" method="POST">
+                            @include('auth.login')
+                        </form>
+                    </div>
+                    <div id="register-popup-div" class="popup popup-animation" style="display:none">
+                        <span onclick="closePopUpRegister()" class="close popup-animation"><i class="fas fa-times"></i></span>                    
+                        <form id="register-popup" class="popup-form" action="{{ route('register') }}" method="POST">
+                            @include('auth.register')
+                        </form>
+                    </div>
                 @endauth   
             @endif
         </nav>
