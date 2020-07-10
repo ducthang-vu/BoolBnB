@@ -1,7 +1,7 @@
-@extends('layouts.app')
+@extends('layouts.main')
 
 
-@section('content')
+@section('page-content')
 
 <h1>HOME account</h1>
 

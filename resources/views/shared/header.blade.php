@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>BoolBnB</title>
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet"> 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css">
 </head>
 <body>
@@ -16,7 +17,7 @@
                 @auth
                     <ul>
                         <li><a href=""><i class="fas fa-globe mr-5"></i><i class="fas fa-angle-down"></i></a></li>
-                        <li><a href="">Diventa un host</a></li>
+                    <li><a href="{{ route('admin.home') }}">Home</a></li>
                         <li><a href="">Proponi un'esperienza</a></li>
                         <li><a href="">Assistenza</a></li>
                         <li class="li-button">
