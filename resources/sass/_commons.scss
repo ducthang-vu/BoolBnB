@@ -93,8 +93,23 @@ main{
     display: inline;
 }
 
+// Flex
+
 .d-flex {
     display: flex;
+}
+
+.df-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.s-between{
+    justify-content: space-between;
+}
+
+.align-center {
+    align-items: center;
 }
 
 
@@ -109,4 +124,45 @@ main{
 
 .button-home {
     @include button-serach-home;
+}
+
+.btn{
+    background: #f3f0f1;
+    border-radius: 32px;
+    padding: 10px;
+    text-decoration: none;
+    box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.8),
+        6px 6px 10px rgba(0, 0, 0, 0.2);
+        color: #6f6cde;
+    transition: all 0.1s ease-in-out;
+    &:hover{
+        opacity: 0.5;
+        box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.8),
+        6px 6px 10px rgba(0, 0, 0, 0.2);
+    }
+}
+
+.btn-spons{
+    color: $orange;
+}
+
+.btn-edit{
+    color: $blue;
+}
+
+.btn-delete{
+    color: $red;
+    border: 0;
+    cursor: pointer;
+    &:active{
+        border: 0;
+    }
+}
+
+.btn-add{
+    color: $green;
+    height: 50px;
+    &:hover{
+        content: "<i class="fas fa-plus"></i>"
+    }
 }
