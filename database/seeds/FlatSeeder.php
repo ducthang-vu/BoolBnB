@@ -30,7 +30,9 @@ class FlatSeeder extends Seeder
 
             // geolocalization
             $lng = 7.6824 + $i * 0.013;
-            $new_flat->geolocation = DB::raw("(GeomFromText('POINT(45.0677 " . $lng . ")'))");
+            $new_flat->lat = 45.0677;
+            $new_flat->lng = $lng;
+            // $new_flat->geolocation = DB::raw("(GeomFromText('POINT(45.0677 " . $lng . ")'))");
 
             $new_flat->save();
         }
