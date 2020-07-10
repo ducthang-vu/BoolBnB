@@ -32,4 +32,6 @@
 
 @endforeach
 
+@dump($flatsInRange)
+
 @endsection
