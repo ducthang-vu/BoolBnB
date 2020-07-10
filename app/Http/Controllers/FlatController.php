@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 use App\Flat;
-
 use Illuminate\Http\Request;
 
 
