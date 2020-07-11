@@ -1,6 +1,6 @@
 @extends('layouts.main')
 
-@section('page-content')
+{{-- @section('page-content')
     @include('shared.components.formAlgolia')
 
 <h1 class="title-home">Appartamenti sponsorizzati</h1>
@@ -22,4 +22,4 @@
 
     @endforeach
 </div>
-@endsection
+@endsection --}}
