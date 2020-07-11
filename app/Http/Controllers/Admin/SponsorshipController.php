@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use App\Flat;
 
 class SponsorshipController extends Controller
 {
@@ -18,9 +19,12 @@ class SponsorshipController extends Controller
     {
         $sponsorships = DB::table('flat_sponsorship')
             ->join('flats', 'flat_sponsorship.id', '=', 'flats.id')
+            ->join('sponsorships', 'flat_sponsorship.sponsorship_id', '=', 'sponsorships.id')
             ->where('flats.user_id', Auth::id())
-            ->orderBy('flat_sponsorship.start','desc');
-        return view('admin.requests.index', compact('sponsorships'));
+            ->orderBy('flat_sponsorship.start','desc')
+            ->get();
+        //dd($sponsorships);
+        return view('admin.sponsorships.index', compact('sponsorships'));
     }
 
     /**
@@ -28,9 +32,9 @@ class SponsorshipController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Flat $flat)
     {
-        //
+        return view('admin.sponsorships.create', ['flat' => $flat]);
     }
 
     /**
