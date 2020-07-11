@@ -14,10 +14,12 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
+// Home
 Route::get('/', 'HomeController@index')->name('home');
 
 Auth::routes();
 
+// Guest routes
 Route::resource('flats', 'FlatController');
 //Route::resource('requests', 'RequestController');
 

@@ -13,6 +13,17 @@ class Flat extends Model
     //
     protected $geometry = ['geolocation'];
     protected $geometryAsText = true;
+    protected $fillable = [
+        'user_id',
+        'title',
+        'description',
+        'number_of_rooms',
+        'number_of_beds',
+        'number_of_bathrooms',
+        'square_meters',
+        'address',
+        'image',
+    ];
 
     /* Decode attribute 'geolocation' in string */
     // public function newQuery($excludeDeleted = true)
