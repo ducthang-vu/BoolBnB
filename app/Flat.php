@@ -42,6 +42,7 @@ class Flat extends Model
     // }
 
     /* UTILITIES */
+
     // public function getGeolocation() {
     //     preg_match_all("(-?\d+.?\d*)", $this->geolocation, $matches);
     //     return $matches[0];

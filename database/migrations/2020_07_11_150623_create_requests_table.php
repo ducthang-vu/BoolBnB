@@ -18,7 +18,7 @@ class CreateRequestsTable extends Migration
             $table->unsignedBigInteger('flat_id');
             $table->string('surname', 250);
             $table->string('name', 250);
-            $table->string('email', 250)->unique();
+            $table->string('email', 250);
             $table->text('message');
             $table->timestamps();
 
