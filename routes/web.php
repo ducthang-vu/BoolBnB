@@ -14,20 +14,25 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
+// Home
 Route::get('/', 'HomeController@index')->name('home');
 
 Auth::routes();
 
+// Guest routes
 Route::resource('flats', 'FlatController');
 
-Route::prefix('admin')->name('admin.')->namespace('Admin')->middleware('auth')->group(function(){
+// Admin routes
+Route::prefix('admin')
+    ->name('admin.')
+    ->namespace('Admin')
+    ->middleware('auth')
+    ->group(function(){
+        Route::get('/home_admin', 'HomeController@index')->name('home');
+        Route::resource('flats', 'FlatController');
+    });
 
-    Route::get('/home_admin', 'HomeController@index')->name('home');
-
-    Route::resource('flats', 'FlatController');
-    
-});
-
+// Scout
 Route::get('search', 'FlatController@index')->name('search');
 
 
