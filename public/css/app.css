@@ -84,6 +84,10 @@ main {
   padding-bottom: 20px;
 }
 
+li {
+  list-style: none;
+}
+
 .inline {
   display: inline;
 }
@@ -441,10 +445,6 @@ form #address:focus {
 .jumbotron h1 {
   margin: 20px 0;
   text-align: center;
-}
-
-.description {
-  justify-content: space-between;
 }
 
 .description .desc {
