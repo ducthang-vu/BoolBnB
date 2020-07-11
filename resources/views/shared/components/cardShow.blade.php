@@ -7,7 +7,7 @@
 
     </div>
 
-    {{-- <div class="description d-flex s-between">
+    <div class="description d-flex s-between">
         <div class="desc">
             <h2 class="mb-10">Descrizione</h2>
             <p>{{$flat->description}}</p>
@@ -103,5 +103,5 @@
                       
             @endguest
         </div>
-    </div> --}}
+    </div>
 </div>

@@ -1,7 +1,8 @@
 .jumbotron{
     text-align: center;
     img{
-        width: 200px;
+        width: 90%;
+        border-radius: 5px;
     }
     h1{
         font-size: 20px;
@@ -9,10 +10,12 @@
     }
 }
 .description{
-    width: 80%;
+    width: 100%;
+    padding: 10px;
     flex-direction: column;
+    line-height: 25px;
     .desc{
-        line-height: 25px;
+        padding-bottom: 10px;
     }
     .desc-list{
         ul>li {
@@ -29,9 +32,9 @@
         width: 100%;
         display: flex;
         flex-direction: column;
-        justify-content: center;
         .accountholder,
         .accountholder-mail{
+            flex-direction: column;
             width: 100%;
             .form-group{
                 margin-right: 10px;
@@ -49,7 +52,7 @@
         }
         .accountholder-mail{
             input{
-                width: 520px;
+                width: 100%px;
             }
         }
         .form-group{
@@ -64,7 +67,7 @@
                     border-bottom: 1px solid #ccc;
                     font-size: 16px;
                     padding: 5px;
-                    width: 520px;
+                    width: 250px;
                     &:focus{
                         outline: none;
                     }

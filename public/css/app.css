@@ -587,7 +587,8 @@ form #address:focus {
 }
 
 .jumbotron img {
-  width: 200px;
+  width: 90%;
+  border-radius: 5px;
 }
 
 .jumbotron h1 {
@@ -596,12 +597,14 @@ form #address:focus {
 }
 
 .description {
-  width: 80%;
+  width: 100%;
+  padding: 10px;
   flex-direction: column;
+  line-height: 25px;
 }
 
 .description .desc {
-  line-height: 25px;
+  padding-bottom: 10px;
 }
 
 .description .desc-list ul > li {
@@ -620,11 +623,11 @@ form #address:focus {
   width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
 }
 
 .map-description form .accountholder,
 .map-description form .accountholder-mail {
+  flex-direction: column;
   width: 100%;
 }
 
@@ -648,7 +651,7 @@ form #address:focus {
 }
 
 .map-description form .accountholder-mail input {
-  width: 520px;
+  width: 100% px;
 }
 
 .map-description form .form-group {
@@ -665,7 +668,7 @@ form #address:focus {
   border-bottom: 1px solid #ccc;
   font-size: 16px;
   padding: 5px;
-  width: 520px;
+  width: 250px;
 }
 
 .map-description form .form-group-message textarea:focus {
