@@ -1,6 +1,6 @@
 @extends('layouts.main')
 
-{{-- @section('page-content')
+@section('page-content')
     @include('shared.components.formAlgolia')
 
 <h1 class="title-home">Appartamenti sponsorizzati</h1>
@@ -17,10 +17,9 @@
         </a>
 
         @if ($loop->index == 5)
-            @break;
-        
+            @break
         @endif
 
     @endforeach
 </div>
-@endsection --}}
+@endsection

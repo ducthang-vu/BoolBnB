@@ -129,6 +129,7 @@ li {
 }
 
 .btn {
+  border: 0;
   background: #f3f0f1;
   border-radius: 32px;
   padding: 10px;
@@ -153,7 +154,6 @@ li {
 
 .btn-delete {
   color: #e3342f;
-  border: 0;
   cursor: pointer;
 }
 
@@ -161,13 +161,10 @@ li {
   border: 0;
 }
 
-.btn-add {
+.btn-add,
+.btn-message {
   color: #38c172;
   height: 50px;
-}
-
-.btn-add:hover {
-  content: "<i class=" fas fa-plus "></i>";
 }
 
 /* Tablets (tablets, 768px and up) */
@@ -183,6 +180,37 @@ li {
 .main-header .navbar {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+}
+
+.main-header .navbar #logo {
+  text-decoration: none;
+  background: linear-gradient(to right, #92174d 9.38%, #e41d5c 88.54%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: flex;
+  align-items: center;
+}
+
+.main-header .navbar #logo i {
+  font-size: 30px;
+}
+
+.main-header .navbar #logo span {
+  font-weight: 900;
+}
+
+.main-header .navbar #hamburger-btn {
+  background: #ffffff;
+  border: none;
+}
+
+.main-header .navbar #hamburger-btn:focus {
+  outline: none;
+}
+
+.main-header .navbar #hamburger-btn i {
+  font-size: 20px;
 }
 
 .main-header .mobile-navbar {
@@ -252,6 +280,12 @@ li {
 }
 
 /* Desktops (desktops, 992px and up) */
+
+@media (min-width: 992px) {
+  .main-content {
+    width: 1200px;
+  }
+}
 
 .main-footer {
   background: #f7f7f7;
@@ -344,12 +378,15 @@ li {
 
 @media (min-width: 992px) {
   .nav-footer {
-    display: flex;
-    justify-content: space-between;
     align-items: center;
     vertical-align: middle;
     max-width: 1140px;
     margin: 0 auto;
+  }
+
+  .nav-footer .footer-column {
+    flex-basis: 25%;
+    padding-bottom: 20px;
   }
 }
 
@@ -364,23 +401,59 @@ li {
   display: block;
   text-decoration: none;
   color: #000;
-  flex-basis: calc((100% / 3 ) - 20px);
-  margin: 0 20px 20px 0;
-}
-
-.sponsorship-card .card:nth-of-type(3n) {
-  margin-right: 0;
+  margin: 20px 10px;
+  text-align: center;
 }
 
 .sponsorship-card .card img {
-  max-width: 385px;
+  max-width: 350px;
   margin-bottom: 5px;
   border-radius: 5px;
 }
 
+/* Tablets (tablets, 768px and up) */
+
+@media (min-width: 768px) {
+  .sponsorship-card .card {
+    flex-basis: calc((100% / 2 ) - 20px);
+    margin: 0 20px 20px 0;
+  }
+
+  .sponsorship-card .card:nth-of-type(2n) {
+    margin-right: 0;
+  }
+}
+
+/* Desktops (desktops, 992px and up) */
+
+@media (min-width: 992px) {
+  .sponsorship-card .card {
+    flex-basis: calc((100% / 3 ) - 20px);
+    margin: 0 20px 20px 0;
+  }
+
+  .sponsorship-card .card:nth-of-type(3n) {
+    margin-right: 0;
+  }
+
+  .sponsorship-card .card img {
+    max-width: 385px;
+  }
+}
+
+/* Large desktops (large desktops, 1200px and up) */
+
 .card-row {
+  flex-direction: column;
   text-decoration: none;
   align-items: center;
+  text-align: center;
+}
+
+.card-row img {
+  max-width: 350px;
+  margin-bottom: 5px;
+  border-radius: 5px;
 }
 
 .card-row .desc-card {
@@ -388,13 +461,38 @@ li {
 }
 
 .card-row .desc-card p {
-  line-height: 25px;
+  display: none;
+}
+
+/* Tablets (tablets, 768px and up) */
+
+@media (min-width: 768px) {
+  .card-row {
+    flex-direction: row;
+    text-align: left;
+  }
+
+  .card-row img {
+    max-width: 350px;
+    margin: 0;
+  }
+}
+
+/* Desktops (desktops, 992px and up) */
+
+/* Large desktops (large desktops, 1200px and up) */
+
+@media (min-width: 1200px) {
+  .card-row .desc-card p {
+    display: block;
+    line-height: 25px;
+  }
 }
 
 .search-home {
   align-items: center;
   justify-content: center;
-  height: 250px;
+  height: 120px;
 }
 
 form {
@@ -403,9 +501,9 @@ form {
 }
 
 form #address {
-  width: 800px;
-  height: 60px;
-  font-size: 25px;
+  width: 80%;
+  height: 45px;
+  font-size: 16px;
   border-radius: 5px;
   border: 1px solid #ccc;
   padding: 5px;
@@ -427,28 +525,280 @@ form #address:focus {
   border: 1px solid transparent;
   height: 50px;
   width: 70px;
+  height: 40px;
 }
 
 .title-home {
-  padding-bottom: 50px;
+  font-size: 22px;
+  text-align: center;
+  padding-bottom: 15px;
 }
 
-.jumbotron img {
-  width: 100%;
-  height: 400px;
+/* Tablets (tablets, 768px and up) */
+
+@media (min-width: 768px) {
+  .search-home {
+    height: 170px;
+  }
+
+  form #address {
+    width: 100%;
+    height: 40px;
+    font-size: 20px;
+  }
+
+  form .btn-search {
+    margin-left: 20px;
+    height: 35px;
+  }
+
+  .title-home {
+    text-align: left;
+    font-size: 30px;
+  }
 }
 
-.jumbotron h1 {
-  margin: 20px 0;
+/* Desktops (desktops, 992px and up) */
+
+@media (min-width: 992px) {
+  .search-home {
+    height: 250px;
+  }
+
+  form #address {
+    width: 800px;
+    height: 60px;
+    font-size: 25px;
+  }
+
+  form .btn-search {
+    height: 50px;
+  }
+
+  form .title-home {
+    font-size: 35px;
+  }
+}
+
+/* Large desktops (large desktops, 1200px and up) */
+
+.jumbotron {
   text-align: center;
 }
 
+.jumbotron img {
+  width: 200px;
+}
+
+.jumbotron h1 {
+  font-size: 20px;
+  margin: 20px 0;
+}
+
+.description {
+  width: 80%;
+  flex-direction: column;
+}
+
 .description .desc {
-  width: 50%;
   line-height: 25px;
 }
 
 .description .desc-list ul > li {
   margin-bottom: 5px;
 }
+
+.map-description {
+  flex-direction: column;
+}
+
+.map-description .map {
+  padding-bottom: 20px;
+}
+
+.map-description form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.map-description form .accountholder,
+.map-description form .accountholder-mail {
+  width: 100%;
+}
+
+.map-description form .accountholder .form-group,
+.map-description form .accountholder-mail .form-group {
+  margin-right: 10px;
+}
+
+.map-description form .accountholder .form-group input,
+.map-description form .accountholder-mail .form-group input {
+  border: none;
+  border-bottom: 1px solid #ccc;
+  height: 30px;
+  font-size: 16px;
+  padding: 5px;
+}
+
+.map-description form .accountholder .form-group input:focus,
+.map-description form .accountholder-mail .form-group input:focus {
+  outline: none;
+}
+
+.map-description form .accountholder-mail input {
+  width: 520px;
+}
+
+.map-description form .form-group {
+  padding: 10px;
+}
+
+.map-description form .form-group-message {
+  width: 100%;
+  padding: 10px;
+}
+
+.map-description form .form-group-message textarea {
+  border: none;
+  border-bottom: 1px solid #ccc;
+  font-size: 16px;
+  padding: 5px;
+  width: 520px;
+}
+
+.map-description form .form-group-message textarea:focus {
+  outline: none;
+}
+
+/* Tablets (tablets, 768px and up) */
+
+@media (min-width: 768px) {
+  .jumbotron {
+    text-align: center;
+  }
+
+  .jumbotron img {
+    width: 90%;
+    height: 300px;
+  }
+
+  .jumbotron h1 {
+    margin: 20px 0;
+    text-align: center;
+  }
+
+  .description {
+    padding-bottom: 50px;
+  }
+
+  .description .desc {
+    width: 100%;
+    line-height: 25px;
+  }
+
+  .description .desc-list {
+    padding-left: 20px;
+  }
+
+  .description .desc-list ul > li {
+    margin-bottom: 5px;
+  }
+
+  .map-description {
+    flex-direction: column;
+  }
+
+  .map-description .map {
+    padding-bottom: 20px;
+  }
+
+  .map-description form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .map-description form .accountholder,
+  .map-description form .accountholder-mail {
+    width: 100%;
+  }
+
+  .map-description form .accountholder .form-group,
+  .map-description form .accountholder-mail .form-group {
+    margin-right: 10px;
+  }
+
+  .map-description form .accountholder .form-group input,
+  .map-description form .accountholder-mail .form-group input {
+    border: none;
+    border-bottom: 1px solid #ccc;
+    height: 30px;
+    font-size: 16px;
+    padding: 5px;
+  }
+
+  .map-description form .accountholder .form-group input:focus,
+  .map-description form .accountholder-mail .form-group input:focus {
+    outline: none;
+  }
+
+  .map-description form .accountholder-mail input {
+    width: 520px;
+  }
+
+  .map-description form .form-group {
+    padding: 10px;
+  }
+
+  .map-description form .form-group-message {
+    width: 100%;
+    padding: 10px;
+  }
+
+  .map-description form .form-group-message textarea {
+    border: none;
+    border-bottom: 1px solid #ccc;
+    font-size: 16px;
+    padding: 5px;
+    width: 520px;
+  }
+
+  .map-description form .form-group-message textarea:focus {
+    outline: none;
+  }
+}
+
+/* Desktops (desktops, 992px and up) */
+
+@media (min-width: 992px) {
+  .jumbotron img {
+    height: 400px;
+  }
+
+  .description {
+    padding-bottom: 50px;
+  }
+
+  .description .desc {
+    width: 50%;
+  }
+
+  .description .desc-list {
+    padding-left: 0;
+  }
+
+  .map-description {
+    flex-direction: row;
+  }
+
+  .map-description .map {
+    width: 50%;
+    padding-bottom: 0;
+  }
+}
+
+/* Large desktops (large desktops, 1200px and up) */
 

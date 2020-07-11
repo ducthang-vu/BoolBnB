@@ -78,12 +78,14 @@
 /* Desktops (desktops, 992px and up) */
 @include desktop {
     .nav-footer {
-        display: flex;
-        justify-content: space-between;
         align-items: center;
         vertical-align: middle;
         max-width: 1140px;
         margin: 0 auto;
+        .footer-column{
+            flex-basis: 25%;
+            padding-bottom: 20px;
+        }
     }
 
 }
