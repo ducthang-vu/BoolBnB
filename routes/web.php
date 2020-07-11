@@ -19,14 +19,18 @@ Route::get('/', 'HomeController@index')->name('home');
 Auth::routes();
 
 Route::resource('flats', 'FlatController');
+Route::resource('requests', 'RequestController');
 
-Route::prefix('admin')->name('admin.')->namespace('Admin')->middleware('auth')->group(function(){
-
-    Route::get('/home_admin', 'HomeController@index')->name('home');
-
+Route::prefix('admin')
+    ->name('admin.')
+    ->namespace('Admin')
+    ->middleware('auth')
+    ->group(function(){
+    Route::get('home_admin', 'HomeController@index')->name('home');
     Route::resource('flats', 'FlatController');
-    
+    Route::resource('sponsorships', 'SponsorshipController');
 });
 
+Route::get('search', 'FlatController@index')->name('search');
 
 

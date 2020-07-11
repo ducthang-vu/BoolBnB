@@ -14,7 +14,7 @@ class FlatSeeder extends Seeder
      */
     public function run(Faker $faker)
     {
-        
+
         for ($i = 0; $i < 100; $i++) {
             $new_flat = new Flat();
             $new_flat->user_id = User::all()->random()->id;
@@ -29,8 +29,10 @@ class FlatSeeder extends Seeder
             $new_flat->visualisations = rand(0, 1000);
 
             // geolocalization
-            $lng = 7.6824 + $i * 0.09;
-            $new_flat->geolocation = DB::raw("(GeomFromText('POINT(45.0677 " . $lng . ")'))");
+            $lng = 7.6824 + $i * 0.013;
+            $new_flat->lat = 45.0677;
+            $new_flat->lng = $lng;
+            // $new_flat->geolocation = DB::raw("(GeomFromText('POINT(45.0677 " . $lng . ")'))");
 
             $new_flat->save();
         }
