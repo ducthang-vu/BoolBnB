@@ -88,7 +88,6 @@ class FlatController extends Controller
 
         $flat->sponsorships()->detach();
         $flat->services()->detach();
-        // $flat->request()->
 
         $deleted = $flat->delete();
 

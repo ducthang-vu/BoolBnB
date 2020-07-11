@@ -13,11 +13,11 @@
 
 @foreach($sponsoredFlats as $sponsoredFlat)
     
-        <a class="card-serach d-flex mb-20" href="{{ route('flats.show' , $sponsoredFlat->id) }}">
+        <a class="card-row d-flex mb-20" href="{{ route('flats.show' , $sponsoredFlat->id) }}">
 
             <img src="{{$sponsoredFlat->image}}" alt="{{$sponsoredFlat->title}}">
 
-            <div class="desc-search ml-10">
+            <div class="desc-card ml-10">
                 <h2 class="mb-10">{{$sponsoredFlat->title}}</h2>
 
                 <p>{{$sponsoredFlat->description}}</p>
