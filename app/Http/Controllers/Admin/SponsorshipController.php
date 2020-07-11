@@ -20,7 +20,7 @@ class SponsorshipController extends Controller
             ->join('flats', 'flat_sponsorship.id', '=', 'flats.id')
             ->where('flats.user_id', Auth::id())
             ->orderBy('flat_sponsorship.start','desc');
-        return view('admin.sponsorships.index', compact('sponsorships'));
+        return view('admin.requests.index', compact('sponsorships'));
     }
 
     /**

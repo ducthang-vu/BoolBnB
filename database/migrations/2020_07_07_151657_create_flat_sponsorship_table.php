@@ -25,7 +25,7 @@ class CreateFlatSponsorshipTable extends Migration
             // relationships
             $table->foreign('sponsorship_id')
                 ->references('id')
-                ->on('sponsorships');
+                ->on('requests');
             $table->foreign('flat_id')
                 ->references('id')
                 ->on('flats');

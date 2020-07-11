@@ -16,10 +16,10 @@ class CreateRequestsTable extends Migration
         Schema::create('requests', function (Blueprint $table) {
             $table->id();
             $table->foreignId('flat_id');
-            $table->text('message');
+            $table->string('surname');
+            $table->string('name');
             $table->string('email');
-            $table->string('nome');
-            $table->string('cognome');
+            $table->text('message');
             $table->timestamps();
 
             $table->foreign('flat_id')

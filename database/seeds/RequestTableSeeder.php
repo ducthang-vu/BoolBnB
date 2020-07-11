@@ -14,17 +14,17 @@ class RequestTableSeeder extends Seeder
      */
     public function run(Faker $faker)
     {
-        for ($i=0; $i < 100; $i++) { 
-            $nweRequest = new Request();
+        for ($i=0; $i < 100; $i++) {
+            $newRequest = new Request();
 
-            $nweRequest->flat_id = Flat::all()->random()->id;
+            $newRequest->flat_id = Flat::all()->random()->id;
 
-            $nweRequest->message =  $faker->paragraph(3 , true);
-            $nweRequest->email = $faker->email();
-            $nweRequest->nome = $faker->firstName();
-            $nweRequest->cognome = $faker->lastName();
+            $newRequest->surname = $faker->lastName();
+            $newRequest->name = $faker->firstName();
+            $newRequest->email = $faker->email();
+            $newRequest->message =  $faker->paragraph(3 , true);
 
-            $nweRequest->save();
+            $newRequest->save();
         }
     }
 }
