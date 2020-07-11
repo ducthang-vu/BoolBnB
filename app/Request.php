@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Request extends Model
 {
+    /*
     protected $fillable = [
         'flat_id',
         'surname',
@@ -13,6 +14,7 @@ class Request extends Model
         'email',
         'message'
     ];
+    */
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
