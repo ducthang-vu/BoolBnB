@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Flat;
+use App\Request as RequestFlat;
 
-class FlatController extends Controller
+class RequestController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,6 +15,7 @@ class FlatController extends Controller
      */
     public function index()
     {
+        abort(404);
     }
 
     /**
@@ -22,9 +23,9 @@ class FlatController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Flat $flat)
     {
-        return view('admin.requests.create');
+        return view('guest.requests.create', ['flat' => $flat]);
     }
 
     /**
@@ -35,7 +36,24 @@ class FlatController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //dd($request)
+        $request->validate([
+            'flat_id' => 'required',
+            'surname' => 'required|max:255',
+            'name' => 'required|max:255',
+            'email' => 'required|max:255|email:rfc,dns',
+            'message' => 'required|max:5000',
+        ]);
+        // need validation of id flat
+        $data = $request->all();
+
+        $newRequest = new RequestFlat;
+        $newRequest->fill($data);
+        $saved = $newRequest->save();
+
+        if ($saved) {
+            return redirect()->route('flats.show', $data->flat_id)->with('created', true);
+        }
     }
 
     /**
@@ -44,9 +62,9 @@ class FlatController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Flat $flat)
+    public function show($id)
     {
-        return view('admin.flats.show', compact('flat'));
+        abort(404);
     }
 
     /**
@@ -57,7 +75,7 @@ class FlatController extends Controller
      */
     public function edit($id)
     {
-        //
+        abort(404);
     }
 
     /**
@@ -69,7 +87,7 @@ class FlatController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        abort(404);
     }
 
     /**
@@ -78,22 +96,8 @@ class FlatController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Flat $flat)
+    public function destroy($id)
     {
-        if (empty($flat)){
-            abort('404');
-        }
-
-        $id = $flat->id;
-
-        $flat->sponsorships()->detach();
-        $flat->services()->detach();
-        // $flat->request()->
-
-        $deleted = $flat->delete();
-
-        if($deleted) {
-            return redirect()->route('admin.home')->with('flat-deleted', $id);
-        }
+        abort(404);
     }
 }
