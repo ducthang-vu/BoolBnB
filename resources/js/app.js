@@ -26,10 +26,11 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
-
+/*
 const app = new Vue({
     el: '#app',
 });
+*/
 
 
 import places from 'places.js';
@@ -87,9 +88,17 @@ try {
     }
 } catch {} //do nothing
 
-btnHamburger = document.getElementById('hamburger-btn');
+try {
+    let mobileNavbar = document.getElementById('mobile-navbar');
 
-btnHamburger.addEventListener('click', function() {
-    console.log('prova')
-    document.getElementById('mobile-navbar').classList.add('show');
-})
+    let btnHamburger = document.getElementById('hamburger-btn');
+    btnHamburger.addEventListener('click', function() {
+        console.log('prova')
+        mobileNavbar.classList.add('show');
+    })
+
+    let btnHamburgerClose = document.getElementById('hamburger-close-btn')
+    btnHamburgerClose.addEventListener('click', function() {
+        mobileNavbar.classList.remove('show')
+    })
+} catch {} // do nothing

@@ -60169,9 +60169,12 @@ Vue.component('example-component', __webpack_require__(/*! ./components/ExampleC
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-var app = new Vue({
-  el: '#app'
+/*
+const app = new Vue({
+    el: '#app',
 });
+*/
+
 
 
 try {
@@ -60220,11 +60223,19 @@ try {
   place();
 } catch (_unused) {} //do nothing
 
-btnHamburger = document.getElementById('hamburger-btn');
-btnHamburger.addEventListener('click', function () {
-  console.log('prova');
-  document.getElementById('mobile-navbar').classList.add('show');
-});
+
+try {
+  var mobileNavbar = document.getElementById('mobile-navbar');
+  var btnHamburger = document.getElementById('hamburger-btn');
+  btnHamburger.addEventListener('click', function () {
+    console.log('prova');
+    mobileNavbar.classList.add('show');
+  });
+  var btnHamburgerClose = document.getElementById('hamburger-close-btn');
+  btnHamburgerClose.addEventListener('click', function () {
+    mobileNavbar.classList.remove('show');
+  });
+} catch (_unused2) {} // do nothing
 
 /***/ }),
 
@@ -60360,8 +60371,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\danle\Desktop\project\BoolBnB\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\danle\Desktop\project\BoolBnB\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Boolean\Esercizi\final_project\BoolBnB\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Boolean\Esercizi\final_project\BoolBnB\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ }),
