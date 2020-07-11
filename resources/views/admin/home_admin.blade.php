@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 
-@section('page-content')
+{{-- @section('page-content')
 
 <div class="section-home-admin mt-20">
     @if (session('saved-flat'))
@@ -54,15 +54,9 @@
 
     @endif
 
-
     <div class="link-paginate">
         {{ $flats->links() }}
     </div>
 </div>
 
-
-
-
-
-
-@endsection
+@endsection --}}

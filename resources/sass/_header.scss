@@ -1,33 +1,76 @@
 //HEADER
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    vertical-align: middle;
-    #logo {
-        text-decoration: none;
-        @include text_gradient;
-        i {
-            font-size: 30px;
-            vertical-align: middle;
-        }
-        span {
-            font-weight: 900;
+.main-header {
+    padding: 10px;
+    .navbar{
+        display: flex;
+        justify-content: space-between;
+    }
+    .mobile-navbar{
+        display: none;
+        &.show{
+            display: block;
         }
     }
-    ul {
-        li {
-            display: inline;
-            text-align: right;
-            list-style: none;
+    .big-navbar{
+        display: none;
+    }
+}
+
+@include mobile {
+
+    
+}
+/* Tablets (tablets, 768px and up) */
+@include tablet {
+    .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        vertical-align: middle;
+        #logo {
             text-decoration: none;
-            margin-right: 8px;
-            font-size: 12px;
-            font-weight: 700;
-            a {
-                color: $text;
-                text-decoration: none;
+            @include text_gradient;
+            i {
+                font-size: 30px;
+                vertical-align: middle;
+            }
+            span {
+                font-weight: 900;
             }
         }
+        ul {
+            li {
+                display: inline;
+                text-align: right;
+                list-style: none;
+                text-decoration: none;
+                margin-right: 8px;
+                font-size: 12px;
+                font-weight: 700;
+                a {
+                    color: $text;
+                    text-decoration: none;
+                }
+            }
+        }
+        .hamburger{
+            display: none;
+        }
+        .big-navbar{
+            display: block;
+        }
     }
+    .main-content {
+        width: 720px;
+    }
+}
+
+/* Desktops (desktops, 992px and up) */
+@include desktop {
+    .navbar {
+    }
+}
+
+@include large-desktop{
+    
 }

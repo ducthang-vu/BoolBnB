@@ -21,18 +21,18 @@ Auth::routes();
 
 // Guest routes
 Route::resource('flats', 'FlatController');
+//Route::resource('requests', 'RequestController');
 
-// Admin routes
 Route::prefix('admin')
     ->name('admin.')
     ->namespace('Admin')
     ->middleware('auth')
     ->group(function(){
-        Route::get('/home_admin', 'HomeController@index')->name('home');
-        Route::resource('flats', 'FlatController');
-    });
+    Route::get('home_admin', 'HomeController@index')->name('home');
+    Route::resource('flats', 'FlatController');
+    Route::resource('sponsorships', 'SponsorshipController');
+});
 
-// Scout
 Route::get('search', 'FlatController@index')->name('search');
 
 
