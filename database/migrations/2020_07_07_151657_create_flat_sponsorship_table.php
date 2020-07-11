@@ -15,8 +15,8 @@ class CreateFlatSponsorshipTable extends Migration
     {
         Schema::create('flat_sponsorship', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('sponsorship_id');
-            $table->foreignId('flat_id');
+            $table->unsignedBigInteger('sponsorship_id');
+            $table->unsignedBigInteger('flat_id');
             $table->string('braintree_code');
             $table->datetime('start');
             $table->datetime('end');

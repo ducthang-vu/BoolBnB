@@ -60142,6 +60142,8 @@ module.exports = function(module) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var places_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! places.js */ "./node_modules/places.js/index.js");
 /* harmony import */ var places_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(places_js__WEBPACK_IMPORTED_MODULE_0__);
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -60167,44 +60169,73 @@ Vue.component('example-component', __webpack_require__(/*! ./components/ExampleC
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-var app = new Vue({
-  el: '#app'
+/*
+const app = new Vue({
+    el: '#app',
 });
+*/
 
-place();
 
-function place() {
-  var address = document.querySelector('#address');
-  var placesAutocomplete = places_js__WEBPACK_IMPORTED_MODULE_0___default()({
-    appId: 'pl9SBUILJO03',
-    apiKey: '707374d54fdaf7af334afaba53bce3c3',
-    container: address,
-    accessibility: {
-      pinButton: {
-        'aria-label': 'use browser geolocation',
-        'tab-index': 12
-      },
-      clearButton: {
-        'tab-index': 13
+
+try {
+  var place = function place() {
+    var address = document.querySelector('#address');
+    var latlng = {
+      lat: 0,
+      lng: 0
+    };
+    var placesAutocomplete = places_js__WEBPACK_IMPORTED_MODULE_0___default()({
+      appId: 'pl9SBUILJO03',
+      apiKey: '707374d54fdaf7af334afaba53bce3c3',
+      container: address,
+      accessibility: {
+        pinButton: {
+          'aria-label': 'use browser geolocation',
+          'tab-index': 12
+        },
+        clearButton: {
+          'tab-index': 13
+        }
       }
-    }
-  });
-  var address = document.querySelector('#address-value');
-  placesAutocomplete.on('change', function (e) {
-    address = e.suggestion;
-    console.log(address.latlng, address);
-    document.querySelector('#latlong').value = [address.lat, address.lng];
-  });
-  placesAutocomplete.on('clear', function () {
-    address.textContent = 'none';
-  });
-}
+    });
+    var address = document.querySelector('#address-value');
+    placesAutocomplete.on('change', function (e) {
+      latlng = {
+        lat: e.suggestion.latlng.lat,
+        lng: e.suggestion.latlng.lng
+      };
+      address = e.suggestion;
+      console.log(latlng, address.value);
+      console.log(address);
+      console.log(this); // this.configure({
+      //     aroundLatLng: latlng.lat + ',' + latlng.lng,
+      //     aroundRadius: 20 * 1000
+      // });
 
-btnHamburger = document.getElementById('hamburger-btn');
-btnHamburger.addEventListener('click', function () {
-  console.log('prova');
-  document.getElementById('mobile-navbar').classList.add('show');
-});
+      document.querySelector('#latlong').value = [latlng.lat, latlng.lng];
+      console.log(_typeof(latlng.lat));
+    });
+    placesAutocomplete.on('clear', function () {
+      address.textContent = 'none';
+    });
+  };
+
+  place();
+} catch (_unused) {} //do nothing
+
+
+try {
+  var mobileNavbar = document.getElementById('mobile-navbar');
+  var btnHamburger = document.getElementById('hamburger-btn');
+  btnHamburger.addEventListener('click', function () {
+    console.log('prova');
+    mobileNavbar.classList.add('show');
+  });
+  var btnHamburgerClose = document.getElementById('hamburger-close-btn');
+  btnHamburgerClose.addEventListener('click', function () {
+    mobileNavbar.classList.remove('show');
+  });
+} catch (_unused2) {} // do nothing
 
 /***/ }),
 
@@ -60340,8 +60371,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\nicol\OneDrive\Desktop\project\BoolBnB\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\nicol\OneDrive\Desktop\project\BoolBnB\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Boolean\Esercizi\final_project\BoolBnB\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Boolean\Esercizi\final_project\BoolBnB\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ }),

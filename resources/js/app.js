@@ -26,51 +26,79 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
-
+/*
 const app = new Vue({
     el: '#app',
 });
+*/
 
 
 import places from 'places.js';
+try {
+    place();
 
-place();
+    function place() {
+        var address = document.querySelector('#address');
 
-function place() {
-    var address = document.querySelector('#address');
+        var latlng = {
+            lat: 0,
+            lng: 0
+        };
 
-    var placesAutocomplete = places({
-        appId: 'pl9SBUILJO03',
-        apiKey: '707374d54fdaf7af334afaba53bce3c3',
-        container: address,
-        accessibility: {
-            pinButton: {
-                'aria-label': 'use browser geolocation',
-                'tab-index': 12,
-            },
-            clearButton: {
-                'tab-index': 13,
+        var placesAutocomplete = places({
+            appId: 'pl9SBUILJO03',
+            apiKey: '707374d54fdaf7af334afaba53bce3c3',
+            container: address,
+            accessibility: {
+                pinButton: {
+                    'aria-label': 'use browser geolocation',
+                    'tab-index': 12,
+                },
+                clearButton: {
+                    'tab-index': 13,
+                }
             }
-        }
-    });
+        });
 
-    var address = document.querySelector('#address-value');
-    placesAutocomplete.on('change', function (e) {
-        address = e.suggestion;
-        console.log(address.latlng, address);
-        document.querySelector('#latlong').value = [address.lat, address.lng];
-    });
+        var address = document.querySelector('#address-value');
 
+        placesAutocomplete.on('change', function (e) {
+            latlng = {
+                lat: e.suggestion.latlng.lat,
+                lng: e.suggestion.latlng.lng
+            };
 
-    placesAutocomplete.on('clear', function () {
-        address.textContent = 'none';
-    });
+            address = e.suggestion;
+            console.log(latlng, address.value);
+            console.log(address);
+            console.log(this);
 
-}
+            // this.configure({
+            //     aroundLatLng: latlng.lat + ',' + latlng.lng,
+            //     aroundRadius: 20 * 1000
+            // });
+            document.querySelector('#latlong').value = [latlng.lat, latlng.lng];
+            console.log(typeof (latlng.lat));
 
-btnHamburger = document.getElementById('hamburger-btn');
+        });
 
-btnHamburger.addEventListener('click', function() {
-    console.log('prova')
-    document.getElementById('mobile-navbar').classList.add('show');
-})
+        placesAutocomplete.on('clear', function () {
+            address.textContent = 'none';
+        });
+    }
+} catch {} //do nothing
+
+try {
+    let mobileNavbar = document.getElementById('mobile-navbar');
+
+    let btnHamburger = document.getElementById('hamburger-btn');
+    btnHamburger.addEventListener('click', function() {
+        console.log('prova')
+        mobileNavbar.classList.add('show');
+    })
+
+    let btnHamburgerClose = document.getElementById('hamburger-close-btn')
+    btnHamburgerClose.addEventListener('click', function() {
+        mobileNavbar.classList.remove('show')
+    })
+} catch {} // do nothing

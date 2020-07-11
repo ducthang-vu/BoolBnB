@@ -15,17 +15,17 @@ class CreateRequestsTable extends Migration
     {
         Schema::create('requests', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('flat_id');
+            $table->unsignedBigInteger('flat_id');
+            $table->string('surname', 250);
+            $table->string('name', 250);
+            $table->string('email', 250)->unique();
             $table->text('message');
-            $table->string('email');
-            $table->string('nome');
-            $table->string('cognome');
             $table->timestamps();
 
             $table->foreign('flat_id')
-                  ->references('id')
-                  ->on('flats')
-                  ->onDelete('cascade');
+                ->references('id')
+                ->on('flats')
+                ->onDelete('cascade');
         });
     }
 

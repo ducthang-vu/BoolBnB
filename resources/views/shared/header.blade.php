@@ -16,6 +16,7 @@
             <div class="big-navbar">
                 @include ('shared.components.headerNavbar')
             </div>
+            
             <div class="hamburger">
                 <button id="hamburger-btn"><i class="fas fa-bars"></i></button>
                 <div id="mobile-navbar" class="mobile-navbar">
