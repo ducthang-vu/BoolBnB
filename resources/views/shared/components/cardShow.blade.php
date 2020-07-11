@@ -1,4 +1,4 @@
-<div class="car-show">
+<div class="card-show">
     <div class="jumbotron pt-20 pb-20">
 
         <img src="{{$flat->image}}" alt="">
@@ -7,7 +7,7 @@
 
     </div>
 
-    <div class="description d-flex s-between pb-20">
+    <div class="description d-flex s-between">
         <div class="desc">
             <h2 class="mb-10">Descrizione</h2>
             <p>{{$flat->description}}</p>
@@ -42,42 +42,45 @@
                 <form action="#" method="POST">
                     @csrf
                     @method('POST')
-            
-                    <div class="form-group">
-                        <label for="title">Cognome</label>
-                        <input
-                            type="text"
-                            class="form-control"
-                            name="surname"
-                            id="surname"
-                            value="{{ old('title') }}"
-                        >
+                    <div class="accountholder d-flex">
+                        <div class="form-group">
+                            <label for="title">Cognome </label>
+                            <input
+                                type="text"
+                                class="form-control"
+                                name="surname"
+                                id="surname"
+                                value="{{ old('title') }}"
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label for="title">Nome </label>
+                            <input
+                                type="text"
+                                class="form-control"
+                                name="name"
+                                id="name"
+                                value="{{ old('title') }}"
+                            >
+                        </div>
+                    </div>
+                    
+                    <div class="accountholder-mail d-flex">
+                        <div class="form-group">
+                            <label for="title">Email </label>
+                            <input
+                                type="email"
+                                class="form-control"
+                                name="email"
+                                id="email"
+                                value="{{ old('title') }}"
+                            >
+                        </div>
                     </div>
             
-                    <div class="form-group">
-                        <label for="title">Nome</label>
-                        <input
-                            type="text"
-                            class="form-control"
-                            name="name"
-                            id="name"
-                            value="{{ old('title') }}"
-                        >
-                    </div>
-            
-                    <div class="form-group">
-                        <label for="title">Email</label>
-                        <input
-                            type="email"
-                            class="form-control"
-                            name="email"
-                            id="email"
-                            value="{{ old('title') }}"
-                        >
-                    </div>
-            
-                    <div class="form-group">
-                        <label for="body">Message</label>
+                    <div class="form-group-message d-flex">
+                        <label for="body">Message </label>
                         <textarea
                             name="message"
                             id="message"
@@ -96,7 +99,7 @@
                         id="flat_id"
                         value=""
                     >
-                    <input type="submit" value="Create">
+                    <input type="submit" value="Invia" class="btn btn-message">
                       
             @endguest
         </div>

@@ -1,15 +1,15 @@
 .search-home{
     align-items: center;
     justify-content: center;
-    height: 250px;
+    height:120px;
 }
 form{
     display: flex;
     align-items: center;
     #address{
-        width: 800px;
-        height: 60px;
-        font-size: 25px;
+        width: 80%;
+        height: 45px;
+        font-size: 16px;
         border-radius: 5px;
         border : 1px solid #ccc;
         padding: 5px;
@@ -23,8 +23,59 @@ form{
 
 .btn-search {
     @include button-serach-home;
+    height: 40px;
 }
 
 .title-home {
-    padding-bottom: 50px;
+    font-size: 22px;
+    text-align: center;
+    padding-bottom: 15px;
+}
+
+@include mobile {
+    
+}
+/* Tablets (tablets, 768px and up) */
+@include tablet {
+    .search-home{
+        height: 170px;
+    }
+    form{
+        #address{
+            width: 100%;
+            height: 40px;
+            font-size: 20px;
+        }
+        .btn-search {
+            margin-left: 20px;
+            height: 35px;
+        }
+    }
+    .title-home {
+        text-align: left;
+        font-size: 30px;
+    }
+}
+/* Desktops (desktops, 992px and up) */
+@include desktop {
+    .search-home{
+        height: 250px;
+    }
+    form{
+        #address{
+            width: 800px;
+            height: 60px;
+            font-size: 25px;
+        }
+        .btn-search {
+            height: 50px;
+        }
+        .title-home {
+            font-size: 35px;
+        }
+    }
+}
+/* Large desktops (large desktops, 1200px and up) */
+@include large-desktop {
+    
 }

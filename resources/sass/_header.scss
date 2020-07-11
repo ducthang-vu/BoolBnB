@@ -4,6 +4,29 @@
     .navbar{
         display: flex;
         justify-content: space-between;
+        align-items: center;
+        #logo {
+            text-decoration: none;
+            @include text_gradient;
+            display: flex;
+            align-items: center;
+            i {
+                font-size: 30px;
+            }
+            span {
+                font-weight: 900;
+            }
+        }
+        #hamburger-btn {
+            background: $white;
+            border: none;
+            &:focus {
+                outline: none;
+            }
+            i{
+                font-size: 20px;
+            }
+        }
     }
     .mobile-navbar{
         display: none;
@@ -67,7 +90,8 @@
 
 /* Desktops (desktops, 992px and up) */
 @include desktop {
-    .navbar {
+    .main-content {
+        width: 1200px;
     }
 }
 

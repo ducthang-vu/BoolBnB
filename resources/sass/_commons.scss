@@ -133,6 +133,7 @@ li {
 }
 
 .btn{
+    border: 0;
     background: #f3f0f1;
     border-radius: 32px;
     padding: 10px;
@@ -158,17 +159,14 @@ li {
 
 .btn-delete{
     color: $red;
-    border: 0;
     cursor: pointer;
     &:active{
         border: 0;
     }
 }
 
-.btn-add{
+.btn-add,
+.btn-message {
     color: $green;
     height: 50px;
-    &:hover{
-        content: "<i class="fas fa-plus"></i>"
-    }
 }
