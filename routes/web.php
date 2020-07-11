@@ -19,7 +19,7 @@ Route::get('/', 'HomeController@index')->name('home');
 Auth::routes();
 
 Route::resource('flats', 'FlatController');
-Route::resource('requests', 'RequestController');
+//Route::resource('requests', 'RequestController');
 
 Route::prefix('admin')
     ->name('admin.')

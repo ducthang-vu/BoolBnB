@@ -15,7 +15,7 @@ class CreateRequestsTable extends Migration
     {
         Schema::create('requests', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('flat_id');
+            $table->unsignedBigInteger('flat_id');
             $table->string('surname');
             $table->string('name');
             $table->string('email');
@@ -23,9 +23,9 @@ class CreateRequestsTable extends Migration
             $table->timestamps();
 
             $table->foreign('flat_id')
-                  ->references('id')
-                  ->on('flats')
-                  ->onDelete('cascade');
+                ->references('id')
+                ->on('flats')
+                ->onDelete('cascade');
         });
     }
 
