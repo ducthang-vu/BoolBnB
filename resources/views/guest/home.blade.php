@@ -15,4 +15,5 @@
             @if ($loop->index == 5)
                 @break;
             @endif
+        @endforeach
 @endsection
