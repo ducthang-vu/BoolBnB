@@ -25,7 +25,9 @@ class CreateFlatsTable extends Migration
             $table->string('address');
             $table->string('image');
             $table->integer('visualisations');
-            $table->point('geolocation');
+            $table->float('lat', 6, 4);
+            $table->float('lng', 7, 4);
+            // $table->point('geolocation');
             $table->timestamps();
 
             $table->foreign('user_id')

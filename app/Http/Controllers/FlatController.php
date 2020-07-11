@@ -1,9 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-use Illuminate\Support\Facades\DB;
 use App\Flat;
 use Illuminate\Http\Request;
+
 
 class FlatController extends Controller
 {
@@ -12,18 +12,37 @@ class FlatController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-            $activeSponsorships = DB::table('flat_sponsorship')
-                ->where('end', '>=', date("Y-m-d H:i:s"))
-                ->inRandomOrder()
-                ->get();
-            $sponsoredFlats = [];
-            foreach($activeSponsorships as $activeSponsorship) {
-                $sponsoredFlats[] = Flat::find($activeSponsorship->flat_id);
-            }
-            return view('guest.flats.index', compact('sponsoredFlats'));
+        // $latlong = explode(',', $request->input('latlong'));
+        // //dd($latlong);
+        // $latlong = array_map(function($a) {return floatval($a);}, $latlong);
+        // //dd($latlong);
+        // $flatsInRange = [];
+        // foreach (Flat::all() as $flat) {
+        //     if ($flat->getDistance($latlong) <= 40) {
+        //         $flatsInRange[] = $flat;
+        //     }
+        // }
+        //dd(array_map(function($a) {return $a->id;}, $flatsInRange));
+        //dd(Flat::all()->toArray());
+        //dd(array_map(function($a) {return $a->getDistance([45.0678,  7.68249]);}, iterator_to_array(Flat::all())));
 
+        $query = $request->all();
+
+        $latlong = explode(',', $request->input('latlong'));
+        $latlong = array_map(function($a) {return floatval($a);}, $latlong);
+        
+        // dd($latlong);
+
+        $flatsInRange = Flat::search()
+        ->with([
+            'aroundLatLng' => $latlong,
+            'aroundRadius' => 20000,
+            'hitsPerPage' => 1000
+        ])->get();
+
+        return view('guest.flats.index', compact('flatsInRange'));
     }
 
     /**
