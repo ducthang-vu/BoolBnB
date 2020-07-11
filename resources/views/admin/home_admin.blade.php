@@ -25,7 +25,7 @@
      @foreach($flats as $flat)
         <a class="card-row d-flex mb-10" href="{{ route('admin.flats.show' , $flat->id) }}">
 
-            <img src="{{$flat->image}}" alt="{{$flat->title}}">
+            <img src="{{ asset('storage') . '/' . $flat->image}}" alt="{{$flat->title}}">
 
             <div class="desc-card ml-10">
                 <h2 class="mb-10">{{$flat->title}}</h2>

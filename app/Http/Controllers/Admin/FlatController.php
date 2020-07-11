@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use App\Flat;
+use App\Service;
 
 class FlatController extends Controller
 {
@@ -26,7 +27,9 @@ class FlatController extends Controller
      */
     public function create()
     {
-        return view('admin.flats.create');
+        $services = Service::all();
+
+        return view('admin.flats.create', compact('services'));
     }
 
     /**
@@ -43,15 +46,17 @@ class FlatController extends Controller
         // get lat long
         $latlong = explode(',', $request->input('latlong'));
     
-        // set image
-        $data['image'] = Storage::put('images', $data['image']);
-
+        
         $new_flat = new Flat();
         $new_flat->user_id = Auth::id();
-        $new_flat->fill($data);
         $new_flat->lat = $latlong[0];
         $new_flat->lng = $latlong[1];
         
+        // set image
+        $data['image'] = Storage::disk('public')->put('images', $data['image']);
+        $new_flat->image = $data['image'];
+        
+        $new_flat->fill($data);
         $saved = $new_flat->save();
 
         if ($saved) {
@@ -59,7 +64,7 @@ class FlatController extends Controller
                 $new_flat->services()->attach($data['services']);
             }
 
-            return redirect()->route('home')->with('saved-flat', $new_flat->title);
+            return redirect()->route('admin.home')->with('saved-flat', $new_flat->title);
         }
     }
 
@@ -134,7 +139,7 @@ class FlatController extends Controller
             'number_of_beds' => 'required|min:1|max:30',
             'number_of_bathrooms' => 'required|min:1|max:10',
             'square_meters' => 'required|min:1|max:999',
-            'image' => 'image',
+            'image' => 'required|image',
             'services.*' => 'exists:services,id'
         ];
     }

@@ -17,6 +17,12 @@
     <input type="text" name="address" id="address" value="{{ old('address') }}">
     <label for="image">Immagine</label>
     <input type="file" name="image" id="image" accept="image/*">
+    @foreach ($services as $service)
+    <div>
+        <input type="checkbox" name="services[]" id="service-{{ $loop->iteration }}" value="{{ $service->id }}">
+        <label for="ag-{{ $loop->iteration }}">{{ $service->type }}</label>
+    </div>
+    @endforeach
 
     {{-- Acquisizione lat e long --}}
     <input type="hidden" name="latlong" id="latlong">
