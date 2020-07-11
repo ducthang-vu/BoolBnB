@@ -1,6 +1,6 @@
 <footer class="main-footer">
     <nav class="nav-footer mb-10 pt-20">
-        <div class="footer-column">
+        <div class="footer-column mb-10">
             <div class="footer-title">INFORMAZIONI</div>
             <ul>
                 <li><a href="">Come funziona Airbnb</a></li>
@@ -12,7 +12,7 @@
                 <li><a href="">Newsroom</a></li>
             </ul>
         </div>
-        <div class="footer-column">
+        <div class="footer-column mb-20">
             <div class="footer-title">COMMUNITY</div>
             <ul>
                 <li><a href="">Airbnb Magazine</a></li>
@@ -22,7 +22,7 @@
                 <li><a href="">Opportunità di lavoro</a></li>
             </ul>
         </div>
-        <div class="footer-column">
+        <div class="footer-column mb-20">
             <div class="footer-title">OSPITA</div>
             <ul>
                 <li><a href="">Diventa un host</a></li>
@@ -34,7 +34,7 @@
                 <li><a href="">Community Center</a></li>
             </ul>
         </div>
-        <div class="footer-column">
+        <div class="footer-column mb-20">
             <div class="footer-title">ASSISTENZA</div>
             <ul>
                 <li><a href="">Aggiornamenti sulla pandemia di COVID-19</a></li>

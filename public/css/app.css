@@ -16,7 +16,7 @@ main {
 }
 
 .main-content {
-  width: 1200px;
+  max-width: 1200px;
   margin: 0 auto;
 }
 
@@ -176,43 +176,82 @@ li {
 
 /* Large desktops (large desktops, 1200px and up) */
 
-.navbar {
+.main-header {
+  padding: 10px;
+}
+
+.main-header .navbar {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  vertical-align: middle;
 }
 
-.navbar #logo {
-  text-decoration: none;
-  background: linear-gradient(to right, #92174d 9.38%, #e41d5c 88.54%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+.main-header .mobile-navbar {
+  display: none;
 }
 
-.navbar #logo i {
-  font-size: 30px;
-  vertical-align: middle;
+.main-header .mobile-navbar.show {
+  display: block;
 }
 
-.navbar #logo span {
-  font-weight: 900;
+.main-header .big-navbar {
+  display: none;
 }
 
-.navbar ul li {
-  display: inline;
-  text-align: right;
-  list-style: none;
-  text-decoration: none;
-  margin-right: 8px;
-  font-size: 12px;
-  font-weight: 700;
+/* Tablets (tablets, 768px and up) */
+
+@media (min-width: 768px) {
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    vertical-align: middle;
+  }
+
+  .navbar #logo {
+    text-decoration: none;
+    background: linear-gradient(to right, #92174d 9.38%, #e41d5c 88.54%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .navbar #logo i {
+    font-size: 30px;
+    vertical-align: middle;
+  }
+
+  .navbar #logo span {
+    font-weight: 900;
+  }
+
+  .navbar ul li {
+    display: inline;
+    text-align: right;
+    list-style: none;
+    text-decoration: none;
+    margin-right: 8px;
+    font-size: 12px;
+    font-weight: 700;
+  }
+
+  .navbar ul li a {
+    color: #222222;
+    text-decoration: none;
+  }
+
+  .navbar .hamburger {
+    display: none;
+  }
+
+  .navbar .big-navbar {
+    display: block;
+  }
+
+  .main-content {
+    width: 720px;
+  }
 }
 
-.navbar ul li a {
-  color: #222222;
-  text-decoration: none;
-}
+/* Desktops (desktops, 992px and up) */
 
 .main-footer {
   background: #f7f7f7;
@@ -220,15 +259,15 @@ li {
   border-top: 1px solid #cac9c9;
   color: #222222;
   font-weight: 500;
+  padding: 20px;
 }
 
 .nav-footer {
   display: flex;
   justify-content: space-between;
+  flex-direction: column;
   align-items: center;
   vertical-align: middle;
-  width: 1140px;
-  margin: 0 auto;
 }
 
 .nav-footer:last-child {
@@ -280,10 +319,41 @@ li {
 }
 
 .footer-title {
-  font-size: 10px;
+  font-size: 16px;
   font-weight: 900;
   padding-bottom: 8px;
 }
+
+/* Tablets (tablets, 768px and up) */
+
+@media (min-width: 768px) {
+  .nav-footer {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .nav-footer .footer-column {
+    flex-basis: 50%;
+    padding-bottom: 20px;
+  }
+}
+
+/* Desktops (desktops, 992px and up) */
+
+@media (min-width: 992px) {
+  .nav-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    vertical-align: middle;
+    max-width: 1140px;
+    margin: 0 auto;
+  }
+}
+
+/* Large desktops (large desktops, 1200px and up) */
 
 .sponsorship-card {
   flex-wrap: wrap;

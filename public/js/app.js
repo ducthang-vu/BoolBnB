@@ -60200,6 +60200,12 @@ function place() {
   });
 }
 
+btnHamburger = document.getElementById('hamburger-btn');
+btnHamburger.addEventListener('click', function () {
+  console.log('prova');
+  document.getElementById('mobile-navbar').classList.add('show');
+});
+
 /***/ }),
 
 /***/ "./resources/js/bootstrap.js":
