@@ -30,10 +30,11 @@
                     </div>
 
                     <div class="button-card mb-20 d-flex s-between">
+                        @dump($flat->id)
                         <div class="left-btn">
                             <a
                                 class="btn btn-spons mb-5"
-                                href="{{ route('admin.sponsorships.create', $flat) }}"
+                                href="{{ route('admin.sponsorships.create', ['flat_id' => $flat->id]) }}"
                             >Sponsorizza
                             </a>
                             <a class="btn btn-edit mb-5" href="">Modifica</a>

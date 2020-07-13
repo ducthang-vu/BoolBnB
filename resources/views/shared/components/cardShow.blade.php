@@ -1,3 +1,8 @@
+{{--
+DOCUMENTATION:
+This template need to be include with a parameter of model App\Flat
+--}}
+
 <div class="card-show">
     <div class="jumbotron pt-20 pb-20">
 
@@ -31,7 +36,7 @@
 
         <div class="button-card mb-20">
             @auth
-                <a class="btn btn-spons mb-5" href="{{ route('admin.sponsorships.create', $flat) }}">Sponsorizza</a>
+                <a class="btn btn-spons mb-5" href="{{ route('admin.sponsorships.create', ['flat_id' => $flat->id]) }}">Sponsorizza</a>
                 <a class="btn btn-edit mb-5" href="">Modifica</a>
                 <a class=" btn btn-delete mb-5" href="">Elimina</a>
             @endauth

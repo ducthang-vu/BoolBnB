@@ -115,6 +115,14 @@ class Flat extends Model
      */
     public function sponsorships()
     {
-        return $this->belongsToMany('App\Sponsorship');
+        return $this->belongsToMany('App\Sponsorship')->withPivot('start', 'end');
+    }
+
+    public function hasActiveSponsorship() {
+        $activeSponsorships = DB::table('flat_sponsorship')
+            ->where('flat_id', $this->id)
+            ->where('end', '>=', date("Y-m-d H:i:s"))
+            ->get();
+        return $activeSponsorships->isNotEmpty();
     }
 }

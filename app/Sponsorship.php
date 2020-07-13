@@ -16,6 +16,10 @@ class Sponsorship extends Model
         return intval($this->getHoursDurationAsStr());
     }
 
+    public function getPriceDecimallComma() {
+        return floatval(str_replace(['.', ','], [','. '.'], strval($this->price)));
+    }
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
