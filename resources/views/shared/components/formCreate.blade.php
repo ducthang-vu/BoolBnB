@@ -16,7 +16,7 @@
     <label for="address">Indirizzo</label>
     <input type="text" name="address" id="address" value="{{ old('address') }}">
     <label for="image">Immagine</label>
-    <input type="file" name="image" id="image" accept="image/*">
+    <input type="file" name="image" id="image" accept="image/*" value="{{ old('image') }}">
     @foreach ($services as $service)
     <div>
         <input type="checkbox" name="services[]" id="service-{{ $loop->iteration }}" value="{{ $service->id }}">

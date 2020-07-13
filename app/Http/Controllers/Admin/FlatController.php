@@ -63,7 +63,7 @@ class FlatController extends Controller
                 $new_flat->services()->attach($data['services']);
             }
 
-            return redirect()->route('admin.home')->with('saved-flat', $new_flat->title);
+            return redirect()->route('admin.home')->with('flat-saved', $new_flat->title);
         }
     }
 
@@ -84,9 +84,11 @@ class FlatController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Flat $flat)
     {
-        //
+        $services = Service::all();
+
+        return view('admin.flats.edit', compact('flat', 'services'));
     }
 
     /**
@@ -96,9 +98,38 @@ class FlatController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Flat $flat)
     {
-        //
+        $request->validate($this->validateRules());
+
+        $data = $request->all();
+        $data['user_id'] = Auth::id();
+
+        // get lat long
+        $latlong = explode(',', $request->input('latlong'));
+        $flat->lat = $latlong[0];
+        $flat->lng = $latlong[1];
+
+        // set immagine
+        // delete vecchia immagine
+        if (!empty($flat->image)) {
+            Storage::disk('public')->delete($flat->image);
+        }
+        // store nuova immagine
+        $data['image'] = Storage::disk('public')->put('images', $data['image']);
+        $flat->image = $data['image'];
+
+        $updated = $flat->update($data);
+
+        if ($updated) {
+            if (!empty($data['services'])) {
+                $flat->services()->sync($data['services']);
+            } else {
+                $flat->services()->detach();
+            }
+
+            return redirect()->route('admin.flats.show', $flat->id)->with('flat-updated', $flat->title);
+        }
     }
 
     /**
@@ -121,6 +152,8 @@ class FlatController extends Controller
         $deleted = $flat->delete();
 
         if($deleted) {
+            Storage::disk('public')->delete($flat->image);
+            
             return redirect()->route('admin.home')->with('flat-deleted', $id);
         }
     }

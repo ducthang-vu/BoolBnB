@@ -18,7 +18,7 @@
             </div>
         @endif
         
-        @include('shared.components.formCreate')
+        @include('shared.components.formCreateEdit')
 
     </div>
 @endsection
