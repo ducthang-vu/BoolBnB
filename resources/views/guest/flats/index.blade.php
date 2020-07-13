@@ -3,29 +3,27 @@
 
 @section('page-content')
 
-    
+
     @include('shared.components.formAlgolia')
         <style>
             #mapid {
                 height: 300px
             }
-        
+
             ;
         </style>
 
     <div class="service-section">
-        {{-- @foreach ($services as $service)
-            @dump($service)
-            @endforeach --}}
-        </div>
+    </div>
+    
         @foreach ($flatsInRange as $flat)
         {{-- <p class="card" data-coordinates="{{$flat->getLatLngAsStr() }}">{{ $flat->id }}</p> --}}
         <a class="card" href="{{ route('flats.show', $flat->id)}}" data-coordinates="{{$flat->getLatLngAsStr() }}"> {{$flat->id}}</a>
 
         @endforeach
-            
+
         <div id="mapid">
-    
+
         </div>
 @endsection
 
@@ -60,7 +58,7 @@
     cardsData.forEach(element => {
         const { linkShow, coordinates } = element;
         console.log(linkShow, coordinates);
-        [ lat, lng ] = coordinates.split('-'); 
+        [ lat, lng ] = coordinates.split('-');
         let popup = L.popup().setContent('<a href="' + linkShow + '">Appartamento</a>');
 
         L.marker([lat, lng]).addTo(map).bindPopup(popup);

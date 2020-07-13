@@ -129,4 +129,8 @@ class Flat extends Model
             ->get();
         return $activeSponsorships->isNotEmpty();
     }
+
+    public function getServicesId() {
+        return $this->services->map(function($flat) {return $flat->id;});
+    }
 }

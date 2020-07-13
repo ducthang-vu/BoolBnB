@@ -5,6 +5,7 @@
     text-align: center;
     img{
         max-width: 350px;
+        min-width: 350px;
         margin-bottom: 5px;
         border-radius: 5px;
     }
@@ -25,7 +26,6 @@
         flex-direction: row;
         text-align: left;
         img{
-            max-width: 350px;
             margin: 0;
         }
     }
@@ -33,10 +33,6 @@
 }
 /* Desktops (desktops, 992px and up) */
 @include desktop {
-    
-}
-/* Large desktops (large desktops, 1200px and up) */
-@include large-desktop {
     .card-row{
         .desc-card{
             p{
@@ -45,4 +41,7 @@
             }
         }
     }
+}
+/* Large desktops (large desktops, 1200px and up) */
+@include large-desktop {
 }

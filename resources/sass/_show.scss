@@ -1,3 +1,6 @@
+.card-show {
+    padding: 0 5px;
+}
 .jumbotron{
     text-align: center;
     img{
@@ -11,7 +14,7 @@
 }
 .description{
     width: 100%;
-    padding: 10px;
+    padding: 10px 0;
     flex-direction: column;
     line-height: 25px;
     .desc{
@@ -28,7 +31,11 @@
     .map{
         padding-bottom: 20px;
     }
-    form{
+    .form-message{
+        label{
+            display: inline-block;
+            width: 100px;
+        }
         width: 100%;
         display: flex;
         flex-direction: column;
@@ -80,13 +87,10 @@
 /* Tablets (tablets, 768px and up) */
 @include tablet {
     .jumbotron{
-        text-align: center;
         img{
-            width: 90%;
             height: 300px;
         }
         h1{
-            margin: 20px 0;
             text-align: center;
         }
     }
@@ -96,66 +100,7 @@
             width: 100%;
             line-height: 25px;
         }
-        .desc-list{
-            padding-left: 20px;
-            ul>li {
-                margin-bottom: 5px;
-            }
-        }
     }
-    .map-description{
-        flex-direction: column;
-        .map{
-            padding-bottom: 20px;
-        }
-        form{
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            .accountholder,
-            .accountholder-mail{
-                width: 100%;
-                .form-group{
-                    margin-right: 10px;
-                    input{
-                        border: none;
-                        border-bottom: 1px solid #ccc;
-                        height: 30px;
-                        font-size: 16px;
-                        padding: 5px;
-                        &:focus{
-                            outline: none;
-                        }
-                    }
-                }
-            }
-            .accountholder-mail{
-                input{
-                    width: 520px;
-                }
-            }
-            .form-group{
-                padding: 10px;
-            }
-
-            .form-group-message{
-                width: 100%;
-                padding: 10px;
-                    textarea{
-                        border: none;
-                        border-bottom: 1px solid #ccc;
-                        font-size: 16px;
-                        padding: 5px;
-                        width: 520px;
-                        &:focus{
-                            outline: none;
-                        }
-                    }
-            }
-        }
-    }
-
 }
 /* Desktops (desktops, 992px and up) */
 @include desktop {
@@ -166,6 +111,7 @@
     }
     .description{
         padding-bottom: 50px;
+        flex-direction: row;
         .desc{
             width: 50%;
         }
