@@ -42,6 +42,10 @@ class Flat extends Model
     // }
 
     /* UTILITIES */
+    public function getLatLngAsStr() {
+        
+        return $this->lat . '-' . $this->lng;
+    }
 
     // public function getGeolocation() {
     //     preg_match_all("(-?\d+.?\d*)", $this->geolocation, $matches);

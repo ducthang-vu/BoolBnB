@@ -34,6 +34,8 @@ const app = new Vue({
 
 
 import places from 'places.js';
+import L from 'leaflet/dist/leaflet.js';
+
 try {
     place();
 
@@ -73,20 +75,23 @@ try {
             console.log(address);
             console.log(this);
 
-            // this.configure({
-            //     aroundLatLng: latlng.lat + ',' + latlng.lng,
-            //     aroundRadius: 20 * 1000
-            // });
             document.querySelector('#latlong').value = [latlng.lat, latlng.lng];
             console.log(typeof (latlng.lat));
-
+            
         });
-
+        
         placesAutocomplete.on('clear', function () {
             address.textContent = 'none';
         });
+        
+        // Leaflet map
+        console.log(lat, lng);
+        mapView(lat, lng);
     }
+    
 } catch {} //do nothing
+
+
 
 try {
     let mobileNavbar = document.getElementById('mobile-navbar');
