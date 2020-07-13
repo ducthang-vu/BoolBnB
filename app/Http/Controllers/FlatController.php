@@ -39,7 +39,8 @@ class FlatController extends Controller
             'aroundRadius' => 20000,
             'hitsPerPage' => 1000
         ])->get();
-        return view('guest.flats.index', compact('flatsInRange'));
+
+        return view('guest.flats.index', compact('flatsInRange', 'latlong'));
     }
 
 
