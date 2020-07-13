@@ -4,9 +4,14 @@
 @section('page-content')
 
 <div class="section-home-admin mt-20">
-    @if (session('saved-flat'))
+    @if (session('flat-saved'))
     <div>
-        <p>{{ session('saved-flat') }} aggiunto correttamente.</p>
+        <p>{{ session('flat-saved') }} aggiunto correttamente.</p>
+    </div> 
+    @endif
+    @if (session('flat-deleted'))
+    <div>
+        <p>Appartamento n. {{ session('flat-deleted') }} eliminato correttamente.</p>
     </div>
     
     @endif
@@ -36,7 +41,7 @@
             <div class="button-card mb-20 d-flex s-between">
                 <div class="left-btn">
                     <a class="btn btn-spons mb-5" href="">Sponsorizza</a>
-                    <a class="btn btn-edit mb-5" href="">Modifica</a>
+                    <a class="btn btn-edit mb-5" href="{{ route('admin.flats.edit', $flat->id) }}">Modifica</a>
                 </div>
                 
                 <form action="{{ route('admin.flats.destroy', $flat->id) }}" method="POST">
