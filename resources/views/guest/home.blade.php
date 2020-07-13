@@ -9,7 +9,7 @@
 
             <a class="card" href="{{ route('flats.show' , $sponsoredFlat->id) }}">
                 @if (!empty($sponsoredFlat->image))
-                    <img src="{{ asset('storage/' . $sponsoredFlat->image ) }}" alt="{{$sponsoredFlat->image -> title}}">
+                    <img src="{{ asset('storage/' . $sponsoredFlat->image ) }}" alt="{{$sponsoredFlat->title}}">
                 @else
                     <img src="https://i.ibb.co/bRN3hZD/casa.jpg" alt="casa">
                 @endif
