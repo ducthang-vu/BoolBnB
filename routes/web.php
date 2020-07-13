@@ -34,5 +34,3 @@ Route::prefix('admin')
     Route::resource('requests', 'RequestController');
     Route::resource('sponsorships', 'SponsorshipController')->only(['index', 'create', 'store']);
 });
-
-Route::get('search', 'FlatController@index')->name('search');

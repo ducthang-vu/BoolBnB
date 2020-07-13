@@ -6,7 +6,7 @@
       @if (session('flat-saved'))
       <div>
           <p>{{ session('flat-saved') }} aggiunto correttamente.</p>
-      </div> 
+      </div>
       @endif
       @if (session('flat-deleted'))
       <div>
@@ -39,7 +39,10 @@
 
               <div class="button-card mb-20 d-flex s-between">
                   <div class="left-btn">
-                      <a class="btn btn-spons mb-5" href="">Sponsorizza</a>
+                      <a
+                          class="btn btn-spons mb-5"
+                          href="{{ route('admin.sponsorships.create', ['flat_id' => $flat->id]) }}"
+                      >Sponsorizza</a>
                       <a class="btn btn-edit mb-5" href="{{ route('admin.flats.edit', $flat->id) }}">Modifica</a>
                   </div>
 
@@ -48,7 +51,7 @@
                       @method('DELETE')
                       <input class="btn btn-delete" type="submit" value="Elimina">
                   </form>
-              </div>           
+              </div>
           </a>
       @endforeach
 
