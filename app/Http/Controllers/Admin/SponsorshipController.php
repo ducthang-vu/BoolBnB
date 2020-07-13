@@ -94,12 +94,14 @@ class SponsorshipController extends Controller
             ]
         );
         if ($validator->fails()) {
+            dd('valizione');
             return abort(403);
         }
         preg_match('/flat_id=(\d\d)/', $request->session()->get('_previous')['url'], $matches);
         try {
             $flat_id = $matches[1];
         } catch (Exception $e) {
+            dd('id->flat');
             return abort(403);
         }
 
