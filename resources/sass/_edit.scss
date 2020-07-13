@@ -1,0 +1,72 @@
+.edit-form{
+    padding: 0 5px;
+    label{
+        font-weight: 600;
+        margin-bottom: 5px;
+    }
+    input,
+    textarea{
+        width: 300px;
+        margin-bottom: 10px;
+        border: none;
+        border-bottom: 1px solid #ccc;
+        padding: 5px;
+        font-size: 18px;
+
+    }
+}
+
+
+@include mobile {
+    
+}
+/* Tablets (tablets, 768px and up) */
+@include tablet {
+}
+/* Desktops (desktops, 992px and up) */
+@include desktop {
+    .edit-form{
+        label{
+        margin-bottom: 5px;
+        }
+        input,
+        textarea{
+            width: 500px;
+            margin-bottom: 30px;
+        }
+        .edit-description{
+            width: 100%;
+            display: flex;
+            .desc-one{
+                width: 50%;
+                padding-right: 30px;
+            }
+            .desc-two{
+                width: 50%;
+                input{
+                    width: 400px;
+                    margin-bottom: 20px;
+                }
+            }
+        }
+        .services{
+            padding: 20px 0;
+            flex-direction: row;
+            label{
+                font-weight: 600;
+            }
+            input{
+                width: 80px;
+                margin-bottom: 0px;
+                border: none;
+                border-bottom: 1px solid #ccc;
+                padding: 0px;
+                font-size: 18px;
+            }
+        }
+    }
+}
+/* Large desktops (large desktops, 1200px and up) */
+@include large-desktop {
+    
+}

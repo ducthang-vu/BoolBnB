@@ -1,0 +1,40 @@
+.section-home-admin{
+    padding: 0 5px;
+    .title-flts{
+        padding-bottom: 20px;
+        h1{
+            font-size: 25px;
+        }
+        .btn-add{
+            padding: 20px;
+            display: flex;
+            align-items: center;
+        }
+    }
+
+    .button-card{
+        justify-content: center;
+        form{
+            display: inline-block;
+        }
+    }
+}
+
+/* Tablets (tablets, 768px and up) */
+@include tablet {
+    
+}
+/* Desktops (desktops, 992px and up) */
+@include desktop {
+
+    .section-home-admin{
+        .button-card{
+            justify-content: end;
+        }
+    }
+    
+}
+/* Large desktops (large desktops, 1200px and up) */
+@include large-desktop {
+    
+}

@@ -1,6 +1,7 @@
 @extends('layouts.main')
 
 @section('page-content')
+<div class="card-show">
     @if (session('flat-updated'))
     <div>
         <p>{{ session('flat-updated') }} modificato correttamente.</p>
@@ -10,13 +11,17 @@
 
   <div class="jumbotron pt-20 pb-20">
 
-      <img src="{{$flat->image}}" alt="">
+    @if (!empty($flat->image))
+        <img src="{{ asset('storage/' . $flat->image ) }}" alt="{{$flat -> title}}">
+    @else
+        <img src="https://i.ibb.co/bRN3hZD/casa.jpg" alt="casa">
+    @endif
 
-      <h1>{{$flat->title}}</h1>   
+    <h1>{{$flat->title}}</h1>   
 
   </div>
 
-  <div class="description d-flex pb-20">
+  <div class="description d-flex s-between pb-20">
       <div class="desc">
           <h2 class="mb-10">Descrizione</h2>
           <p>{{$flat->description}}</p>
@@ -38,9 +43,9 @@
           <h3>Mappa</h3>
       </div>
 
-      <div class="button-card mb-20">
-          <a class="btn btn-spons mb-5" href="">Sponsorizza</a>
-          <a class="btn btn-edit mb-5" href="{{ route('admin.flats.edit', $flat->id) }}">Modifica</a>
+      <div class="button-card d-flex mb-20">
+          <a class="btn btn-spons mb-5 mr-5" href="{{ route('admin.sponsorships.create', ['flat_id' => $flat->id]) }}">Sponsorizza</a>
+          <a class="btn btn-edit mb-5 mr-5" href="{{ route('admin.flats.edit', $flat->id) }}">Modifica</a>
           <form action="{{ route('admin.flats.destroy', $flat->id) }}" method="POST">
             @csrf
             @method('DELETE')
@@ -48,4 +53,5 @@
         </form>
       </div>
   </div>
+</div>
 @endsection

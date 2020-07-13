@@ -19,9 +19,13 @@
 
 // home page style
 @import 'home';
+@import 'home_admin';
 
 // show page styles
 @import 'show';
+
+// edit & show page styles
+@import 'edit';
 
 // Bootstrap
 // @import '~bootstrap/scss/bootstrap';
