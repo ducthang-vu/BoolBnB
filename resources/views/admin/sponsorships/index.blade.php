@@ -1,6 +1,21 @@
 @extends('layouts.main')
 
 @section('page-content')
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+    @if (session('transactionId'))
+        <div class="alert alert-success position-absolute container p-3 transition-invisible">
+            <strong>Payment made with id: #{{ session('transactionId') }} </strong>
+        </div>
+    @endif
+
     <a href="{{ route('admin.home') }}">Go back to flat list</a>
     <table class="table">
         <thead>

@@ -29,10 +29,8 @@ class FlatController extends Controller
         //dd(array_map(function($a) {return $a->getDistance([45.0678,  7.68249]);}, iterator_to_array(Flat::all())));
 
         $query = $request->all();
-
         $latlong = explode(',', $request->input('latlong'));
         $latlong = array_map(function($a) {return floatval($a);}, $latlong);
-        
         // dd($latlong);
 
         $flatsInRange = Flat::search()
@@ -41,73 +39,12 @@ class FlatController extends Controller
             'aroundRadius' => 20000,
             'hitsPerPage' => 1000
         ])->get();
-
         return view('guest.flats.index', compact('flatsInRange'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show(Flat $flat)
     {
         return view('guest.flats.show', compact('flat'));
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
     }
 }

@@ -20,7 +20,7 @@ Route::get('/', 'HomeController@index')->name('home');
 Auth::routes();
 
 // Guest routes
-Route::resource('flats', 'FlatController');
+Route::resource('flats', 'FlatController')->only(['index', 'show']);
 Route::post('flats/requests', 'RequestController@store')->name('requests');
 
 // Admin route
@@ -31,9 +31,8 @@ Route::prefix('admin')
     ->group(function(){
     Route::get('home_admin', 'HomeController@index')->name('home');
     Route::resource('flats', 'FlatController');
-    Route::resource('sponsorships', 'SponsorshipController');
+    Route::resource('requests', 'RequestController');
+    Route::resource('sponsorships', 'SponsorshipController')->only(['index', 'create', 'store']);
 });
 
 Route::get('search', 'FlatController@index')->name('search');
-
-
