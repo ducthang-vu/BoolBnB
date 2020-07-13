@@ -61,8 +61,8 @@ class FlatController extends Controller
             $collection = $collection->filter(function($flat) use ($services_required) {
                 return $services_required->every(function($service) use ($flat) {
                     return  $flat->getServicesId()->contains($service);
-                })
-            ;});
+                });
+            });
         }
 
         $result['response'] = $collection;

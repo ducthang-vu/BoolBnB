@@ -11,8 +11,8 @@ class Flat extends Model
     use Searchable;
 
     //
-    protected $geometry = ['geolocation'];
-    protected $geometryAsText = true;
+    //protected $geometry = ['geolocation'];
+    //protected $geometryAsText = true;
     protected $fillable = [
         'user_id',
         'title',

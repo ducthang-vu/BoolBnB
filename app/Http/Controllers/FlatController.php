@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Flat;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 
 class FlatController extends Controller
@@ -45,6 +46,7 @@ class FlatController extends Controller
 
     public function show(Flat $flat)
     {
+        DB::table('flats')->where('id', $flat->id)->increment('visualisations');
         return view('guest.flats.show', compact('flat'));
     }
 }
