@@ -28,7 +28,6 @@ class FlatController extends Controller
     public function create()
     {
         $services = Service::all();
-
         return view('admin.flats.create', compact('services'));
     }
 
@@ -45,17 +44,17 @@ class FlatController extends Controller
 
         // get lat long
         $latlong = explode(',', $request->input('latlong'));
-    
-        
+
+
         $new_flat = new Flat();
         $new_flat->user_id = Auth::id();
         $new_flat->lat = $latlong[0];
         $new_flat->lng = $latlong[1];
-        
+
         // set image
         $data['image'] = Storage::disk('public')->put('images', $data['image']);
         $new_flat->image = $data['image'];
-        
+
         $new_flat->fill($data);
         $saved = $new_flat->save();
 
@@ -149,7 +148,6 @@ class FlatController extends Controller
 
         $flat->sponsorships()->detach();
         $flat->services()->detach();
-        // $flat->request()->
 
         $deleted = $flat->delete();
 

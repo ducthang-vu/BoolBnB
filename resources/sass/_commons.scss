@@ -17,7 +17,7 @@ main{
 }
 
 .main-content {
-    width: 1200px;
+    max-width: 1200px;
     margin: 0 auto;
 }
 
@@ -87,6 +87,12 @@ main{
     padding-bottom: 20px;
 }
 
+// Style li
+
+li {
+    list-style: none;
+}
+
 // Display
 
 .inline {
@@ -127,6 +133,7 @@ main{
 }
 
 .btn{
+    border: 0;
     background: #f3f0f1;
     border-radius: 32px;
     padding: 10px;
@@ -152,17 +159,14 @@ main{
 
 .btn-delete{
     color: $red;
-    border: 0;
     cursor: pointer;
     &:active{
         border: 0;
     }
 }
 
-.btn-add{
+.btn-add,
+.btn-message {
     color: $green;
     height: 50px;
-    &:hover{
-        content: "<i class="fas fa-plus"></i>"
-    }
 }

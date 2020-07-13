@@ -20,19 +20,19 @@ Route::get('/', 'HomeController@index')->name('home');
 Auth::routes();
 
 // Guest routes
-Route::resource('flats', 'FlatController');
+Route::resource('flats', 'FlatController')->only(['index', 'show']);
+Route::post('flats/requests', 'RequestController@store')->name('requests');
 
-// Admin routes
+// Admin route
 Route::prefix('admin')
     ->name('admin.')
     ->namespace('Admin')
     ->middleware('auth')
     ->group(function(){
-        Route::get('/home_admin', 'HomeController@index')->name('home');
-        Route::resource('flats', 'FlatController');
-    });
+    Route::get('home_admin', 'HomeController@index')->name('home');
+    Route::resource('flats', 'FlatController');
+    Route::resource('requests', 'RequestController');
+    Route::resource('sponsorships', 'SponsorshipController')->only(['index', 'create', 'store']);
+});
 
-// Scout
 Route::get('search', 'FlatController@index')->name('search');
-
-

@@ -5,16 +5,48 @@
         display: block;
         text-decoration: none;
         color: $black;
-        flex-basis: calc((100% / 3 ) - 20px);
-        margin: 0 20px 20px 0;
-        &:nth-of-type(3n) {
-            margin-right: 0;
-        }
+        margin: 20px 10px;
+        text-align: center;
         img{
-            max-width: 385px;
+            max-width: 350px;
             margin-bottom: 5px;
             border-radius: 5px;
         }
-
     }
+}
+
+@include mobile {
+    
+}
+/* Tablets (tablets, 768px and up) */
+@include tablet {
+    .sponsorship-card{
+        .card{
+            flex-basis: calc((100% / 2 ) - 20px);
+            margin: 0 20px 20px 0;
+            &:nth-of-type(2n) {
+                margin-right: 0;
+            }
+        }
+    }
+}
+/* Desktops (desktops, 992px and up) */
+@include desktop {
+    .sponsorship-card{
+        .card{
+            flex-basis: calc((100% / 3 ) - 20px);
+            margin: 0 20px 20px 0;
+            &:nth-of-type(3n) {
+                margin-right: 0;
+            }
+            img{
+                max-width: 385px;
+            }
+    
+        }
+    }
+}
+/* Large desktops (large desktops, 1200px and up) */
+@include large-desktop {
+    
 }
