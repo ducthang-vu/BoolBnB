@@ -39,14 +39,15 @@ This template need to be include with a parameter of model App\Flat
         </div>
 
         <div class="button-card mb-20">
-            @if ($flat->user_id == Auth::user()->id)
                 @auth
+                    @if ($flat->user_id == Auth::user()->id)
                     <a class="btn btn-spons mb-5" href="{{ route('admin.sponsorships.create', ['flat_id' => $flat->id]) }}">Sponsorizza</a>
                     <a class="btn btn-edit mb-5" href="">Modifica</a>
                     <a class=" btn btn-delete mb-5" href="">Elimina</a>
                 @endauth
-            @else
+                @else
                 @guest
+                
                     <h3>Scrivi al proprietario</h3>
 
                     <form class= "form-message" action="{{ route('requests') }}" method="POST">
