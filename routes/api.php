@@ -21,5 +21,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 */
 
 Route::namespace('Api')->group(function() {
-    Route::get('flats/api', 'FlatController@get');
+    Route::get('flats/', 'FlatController@get');
 });
