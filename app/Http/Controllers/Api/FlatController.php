@@ -21,7 +21,7 @@ class FlatController extends Controller
          */
         $errors = [];
         if (!$request->filled ('rooms_min', 'beds_min', 'required_services', 'lat', 'lng', 'distance')) {
-            $errors[] = 'Missing parameters.' .
+            $errors[] = 'Missing parameters. ' .
                 'The following parameters must be filled: rooms_min, beds_min, required_services, lat, lng, distance.';
         }
         if ($request->rooms_min < 1 ||
@@ -46,7 +46,7 @@ class FlatController extends Controller
         if (!empty($result['error'])) return response()->json($result, 400);
 
         //within distance
-        $collection = Flat::search()
+        $rawCollection = Flat::search()
             ->with([
                 'aroundLatLng' => [floatval($request->lat), floatval($request->lng)],
                 'aroundRadius' => 1000 * $request->distance,
@@ -55,16 +55,17 @@ class FlatController extends Controller
                 'hitsPerPage' => 1000
             ])
             ->get();
-
         if ($request->required_services) {
             $services_required = collect(explode('-', $request->required_services));
-            $collection = $collection->filter(function($flat) use ($services_required) {
+            $rawCollection = $rawCollection->filter(function($flat) use ($services_required) {
                 return $services_required->every(function($service) use ($flat) {
                     return  $flat->getServicesId()->contains($service);
                 });
-            });
+            })->flatten();
         }
-
+        $collection = $rawCollection->map(function ($item) {
+                return $item->only(['id', 'title', 'description', 'address', 'image', 'lat', 'lng']);
+            });
         $result['response'] = $collection;
         $result['number_records'] = $collection->count();
         return response()->json($result);
