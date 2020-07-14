@@ -146,6 +146,7 @@ try {
             }
         }
     )
+}
 catch {} // do nothing
 
 try {
@@ -162,4 +163,52 @@ try {
         isFilterOpen = !isFilterOpen
     })
 
+} catch {} // do nothing
+
+try {
+    const Handlebars = require("handlebars")
+    const source = document.getElementById("card-template").innerHTML
+    const template = Handlebars.compile(source)
+    const form = document.getElementById('algoliaForm')
+
+    function getLatLng(id) {
+        return document.getElementById(id).value.split(',')
+    }
+
+    function getServices(className) {
+        let services_array = []
+        Array.from(document.getElementsByClassName(className)).forEach(item => {
+            if (item.checked) {
+                services_array.push(item.value)
+            }
+        })
+        return services_array.length ? services_array.join('-') : '0'
+    }
+
+    function getUrlApi() {
+        const base_url = window.location.protocol + '//' +  window.location.host + '/api/flats/?'
+        let params = new URLSearchParams({
+            lat: getLatLng('latlong')[0],
+            lng: getLatLng('latlong')[1],
+            rooms_min: document.querySelector('#rooms_min').value,
+            beds_min: document.querySelector('#beds_min').value,
+            required_services: getServices('service-checkbox'),
+            distance: document.querySelector('#distance').value
+        })
+        return base_url + params
+    }
+
+    function repopulateCards(data) {
+        let container = document.getElementById('search-cards')
+        console.log(data)
+        container.innerHTML = template({flats: data.response})
+    }
+
+    form.addEventListener('submit', e => {
+        e.preventDefault()
+        fetch(getUrlApi())
+            .then(response => response.json())
+            .then(data => {repopulateCards(data)})
+            .catch(e => console.log('Api error'))
+    })
 } catch {} // do nothing

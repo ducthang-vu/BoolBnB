@@ -50,16 +50,16 @@
 }
 
 @include mobile {
-    
+
 }
 /* Tablets (tablets, 768px and up) */
 @include tablet {
-    
+
     .search-home--two{
         margin-top: 20px;
     }
-    
-    .search-card{
+
+    .search-cards{
         flex-basis: 40%;
     }
     .map{
@@ -69,7 +69,7 @@
             height: 400px;
         }
     }
-    
+
 }
 /* Desktops (desktops, 992px and up) */
 @include desktop {
@@ -104,10 +104,10 @@
         }
     }
     }
-    
-    
+
+
 }
 /* Large desktops (large desktops, 1200px and up) */
 @include large-desktop {
-    
+
 }
