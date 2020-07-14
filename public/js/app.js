@@ -60243,14 +60243,18 @@ try {
 
 try {
   var mobileNavbar = document.getElementById('mobile-navbar');
+  var isMenuOpen = false;
   var btnHamburger = document.getElementById('hamburger-btn');
   btnHamburger.addEventListener('click', function () {
-    console.log('prova');
-    mobileNavbar.classList.add('show');
-  });
-  var btnHamburgerClose = document.getElementById('hamburger-close-btn');
-  btnHamburgerClose.addEventListener('click', function () {
-    mobileNavbar.classList.remove('show');
+    if (isMenuOpen) {
+      mobileNavbar.classList.remove('show');
+      console.log('premuto open');
+    } else {
+      mobileNavbar.classList.add('show');
+      console.log('premuto close');
+    }
+
+    isMenuOpen = !isMenuOpen;
   });
 } catch (_unused2) {} // do nothing
 

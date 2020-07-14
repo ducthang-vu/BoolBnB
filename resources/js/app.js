@@ -77,18 +77,18 @@ try {
 
             document.querySelector('#latlong').value = [latlng.lat, latlng.lng];
             console.log(typeof (latlng.lat));
-            
+
         });
-        
+
         placesAutocomplete.on('clear', function () {
             address.textContent = 'none';
         });
-        
+
         // Leaflet map
         console.log(lat, lng);
         mapView(lat, lng);
     }
-    
+
 } catch {} //do nothing
 
 
@@ -96,14 +96,17 @@ try {
 try {
     let mobileNavbar = document.getElementById('mobile-navbar');
 
+    let isMenuOpen = false
     let btnHamburger = document.getElementById('hamburger-btn');
     btnHamburger.addEventListener('click', function() {
-        console.log('prova')
-        mobileNavbar.classList.add('show');
+        if (isMenuOpen) {
+            mobileNavbar.classList.remove('show')
+            console.log('premuto open')
+        } else {
+            mobileNavbar.classList.add('show');
+            console.log('premuto close')
+        }
+        isMenuOpen = !isMenuOpen
     })
 
-    let btnHamburgerClose = document.getElementById('hamburger-close-btn')
-    btnHamburgerClose.addEventListener('click', function() {
-        mobileNavbar.classList.remove('show')
-    })
 } catch {} // do nothing
