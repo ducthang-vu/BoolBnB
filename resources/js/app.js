@@ -100,18 +100,16 @@ try {
     let btnHamburger = document.getElementById('hamburger-btn');
     btnHamburger.addEventListener('click', function() {
         if (isMenuOpen) {
-            mobileNavbar.classList.remove('show')
-            console.log('premuto open')
+            mobileNavbar.classList.remove('mobile-navbar--open')
         } else {
-            mobileNavbar.classList.add('show');
-            console.log('premuto close')
+            mobileNavbar.classList.add('mobile-navbar--open');
         }
         isMenuOpen = !isMenuOpen
     })
 
 } catch {} // do nothing
 
-//try {
+try {
     const canvasVisualisations = document.getElementById('chart-visualisations');
     const canvasNumberOfRequests = document.getElementById('chart-numberOfRequests');
 
@@ -148,4 +146,20 @@ try {
             }
         }
     )
-// catch {} //
+catch {} // do nothing
+
+try {
+    let animationService = document.getElementById('animation--service');
+
+    let isFilterOpen = false
+    let btnFilter = document.getElementById('filter');
+    btnFilter.addEventListener('click', function() {
+        if (isFilterOpen) {
+            animationService.classList.remove('animation--service--open')
+        } else {
+            animationService.classList.add('animation--service--open');
+        }
+        isFilterOpen = !isFilterOpen
+    })
+
+} catch {} // do nothing

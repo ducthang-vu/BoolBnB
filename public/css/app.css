@@ -109,6 +109,10 @@ li {
   justify-content: space-between;
 }
 
+.s-center {
+  justify-content: center;
+}
+
 .align-center {
   align-items: center;
 }
@@ -220,11 +224,19 @@ li {
 }
 
 .main-header .mobile-navbar {
-  display: none;
+  z-index: 10;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #fff;
+  width: 250px;
+  height: 100vh;
+  transform: translateX(-100%);
+  transition: all 1s cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 
-.main-header .mobile-navbar.show {
-  display: block;
+.main-header .mobile-navbar--open {
+  transform: translateX(0);
 }
 
 .main-header .big-navbar {
@@ -572,6 +584,28 @@ li {
 }
 
 /* Large desktops (large desktops, 1200px and up) */
+
+.search-card {
+  flex-wrap: wrap;
+  height: 100vh;
+  overflow: auto;
+  margin-right: 10px;
+}
+
+.search-card .card {
+  display: block;
+  flex-basis: 100%;
+  text-decoration: none;
+  color: #000;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.search-card .card img {
+  max-width: 350px;
+  margin-bottom: 5px;
+  border-radius: 5px;
+}
 
 .search-home {
   align-items: center;
@@ -928,6 +962,127 @@ form #address:focus {
     border-bottom: 1px solid #ccc;
     padding: 0px;
     font-size: 18px;
+  }
+}
+
+/* Large desktops (large desktops, 1200px and up) */
+
+.search-home {
+  display: flex;
+  flex-direction: column;
+  height: 100px;
+}
+
+.search-home .btn-filter {
+  margin: 10px 0;
+}
+
+.animation--service {
+  overflow: hidden;
+  max-height: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: all 1s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.animation--service .search-services {
+  display: flex;
+  flex-direction: column;
+}
+
+.animation--service .search-services label {
+  display: inline-block;
+  font-weight: 500;
+  width: 240px;
+  margin-bottom: 5px;
+}
+
+.animation--service .search-services input {
+  width: 60px;
+  margin-right: 10px;
+}
+
+.animation--service .checkbox-services {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.animation--service .checkbox-services label {
+  display: inline-block;
+  width: 285px;
+  margin-bottom: 5px;
+  font-weight: 500;
+}
+
+.animation--service .checkbox-services input {
+  margin-right: 10px;
+}
+
+.animation--service--open {
+  max-height: 300px;
+}
+
+.map {
+  display: none;
+}
+
+/* Tablets (tablets, 768px and up) */
+
+@media (min-width: 768px) {
+  .search-home--two {
+    margin-top: 20px;
+  }
+
+  .search-card {
+    flex-basis: 40%;
+  }
+
+  .map {
+    display: inline-block;
+    flex-basis: 60%;
+  }
+
+  .map #mapid {
+    height: 400px;
+  }
+}
+
+/* Desktops (desktops, 992px and up) */
+
+@media (min-width: 992px) {
+  .animation--service .search-services {
+    flex-direction: row;
+  }
+
+  .animation--service .search-services label {
+    width: 225px;
+    margin-bottom: 5px;
+  }
+
+  .animation--service .search-services input {
+    width: 60px;
+    margin-right: 10px;
+  }
+
+  .animation--service .search-services:last-child label {
+    width: 80px;
+  }
+
+  .animation--service .checkbox-services {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+  }
+
+  .animation--service .checkbox-services label {
+    width: 100px;
+    font-weight: 500;
+  }
+
+  .animation--service .checkbox-services input {
+    margin-right: 15px;
   }
 }
 

@@ -1,0 +1,113 @@
+.search-home{
+    display: flex;
+    flex-direction: column;
+    height: 100px;
+    .btn-filter{
+        margin: 10px 0;
+    }
+}
+.animation--service{
+    overflow: hidden;
+    max-height: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: all 1s cubic-bezier(.215, .61, .355, 1);
+    .search-services{
+        display: flex;
+        flex-direction: column;
+        label{
+            display: inline-block;
+            font-weight: 500;
+            width: 240px;
+            margin-bottom: 5px;
+        }
+        input{
+            width: 60px;
+            margin-right: 10px;
+        }
+    }
+    .checkbox-services{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        label{
+            display: inline-block;
+            width: 285px;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+        input{
+            margin-right: 10px;
+        }
+    }
+}
+.animation--service--open{
+    max-height: 300px;
+}
+.map{
+    display: none;
+}
+
+@include mobile {
+    
+}
+/* Tablets (tablets, 768px and up) */
+@include tablet {
+    
+    .search-home--two{
+        margin-top: 20px;
+    }
+    
+    .search-card{
+        flex-basis: 40%;
+    }
+    .map{
+        display: inline-block;
+        flex-basis: 60%;
+        #mapid{
+            height: 400px;
+        }
+    }
+    
+}
+/* Desktops (desktops, 992px and up) */
+@include desktop {
+
+    .animation--service{
+        .search-services{
+        flex-direction: row;
+        label{
+            width: 225px;
+            margin-bottom: 5px;
+        }
+        input{
+            width: 60px;
+            margin-right: 10px;
+        }
+        &:last-child{
+            label{
+                width: 80px;
+            }
+        }
+    }
+    .checkbox-services{
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        label{
+            width: 100px;
+            font-weight: 500;
+        }
+        input{
+            margin-right: 15px;
+        }
+    }
+    }
+    
+    
+}
+/* Large desktops (large desktops, 1200px and up) */
+@include large-desktop {
+    
+}

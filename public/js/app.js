@@ -97602,11 +97602,9 @@ try {
   var btnHamburger = document.getElementById('hamburger-btn');
   btnHamburger.addEventListener('click', function () {
     if (isMenuOpen) {
-      mobileNavbar.classList.remove('show');
-      console.log('premuto open');
+      mobileNavbar.classList.remove('mobile-navbar--open');
     } else {
-      mobileNavbar.classList.add('show');
-      console.log('premuto close');
+      mobileNavbar.classList.add('mobile-navbar--open');
     }
 
     isMenuOpen = !isMenuOpen;
@@ -97643,6 +97641,22 @@ var chartNumberOfRequests = new Chart(canvasNumberOfRequests, {
     }]
   }
 }); // catch {} //
+
+
+try {
+  var animationService = document.getElementById('animation--service');
+  var isFilterOpen = false;
+  var btnFilter = document.getElementById('filter');
+  btnFilter.addEventListener('click', function () {
+    if (isFilterOpen) {
+      animationService.classList.remove('animation--service--open');
+    } else {
+      animationService.classList.add('animation--service--open');
+    }
+
+    isFilterOpen = !isFilterOpen;
+  });
+} catch (_unused3) {} // do nothing
 
 /***/ }),
 
@@ -97778,8 +97792,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Boolean\Esercizi\final_project\BoolBnB\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Boolean\Esercizi\final_project\BoolBnB\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\nicol\OneDrive\Desktop\project\BoolBnB\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\nicol\OneDrive\Desktop\project\BoolBnB\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ }),

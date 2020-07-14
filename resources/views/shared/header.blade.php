@@ -20,7 +20,9 @@
             </div>
             
             <div class="hamburger">
-                <button id="hamburger-btn"><i class="fas fa-bars"></i></button>
+                <div class="menu-icon">
+                    <button id="hamburger-btn"><i class="fas fa-bars"></i></button>
+                </div>
                 <div id="mobile-navbar" class="mobile-navbar">
                     @include ('shared.components.headerNavbar')
                 </div>
