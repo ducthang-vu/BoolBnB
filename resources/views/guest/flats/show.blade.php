@@ -8,5 +8,4 @@
         </div>
     @endif
     @include('shared.components.cardShow')
-
 @endsection
