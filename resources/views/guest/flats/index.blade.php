@@ -4,8 +4,8 @@
     @include('shared.components.formAlgoliaApi')
         <style>
             #mapid {
-                height: 300px
-            };
+                height: 300px;
+            }
         </style>
 
     @foreach ($flatsInRange as $flat)
