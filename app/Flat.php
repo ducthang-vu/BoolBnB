@@ -43,7 +43,7 @@ class Flat extends Model
 
     /* UTILITIES */
     public function getLatLngAsStr() {
-        
+
         return $this->lat . '-' . $this->lng;
     }
 
@@ -132,5 +132,9 @@ class Flat extends Model
 
     public function getServicesId() {
         return $this->services->map(function($flat) {return $flat->id;});
+    }
+
+    public function getNumberOfRequests() {
+        return $this->requests()->count();
     }
 }
