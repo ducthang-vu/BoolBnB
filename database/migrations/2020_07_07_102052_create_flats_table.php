@@ -22,7 +22,7 @@ class CreateFlatsTable extends Migration
             $table->unsignedTinyInteger('number_of_beds');
             $table->unsignedTinyInteger('number_of_bathrooms');
             $table->unsignedTinyInteger('square_meters');
-            $table->string('address');
+            $table->string('address')->unique();
             $table->string('image');
             $table->integer('visualisations')->default(0);
             $table->float('lat', 6, 4);

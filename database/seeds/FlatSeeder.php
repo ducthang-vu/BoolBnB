@@ -4,6 +4,7 @@ use Illuminate\Database\Seeder;
 use App\Flat;
 use App\User;
 use Faker\Generator as Faker;
+use Illuminate\Support\Facades\Storage;
 
 class FlatSeeder extends Seeder
 {
@@ -24,14 +25,13 @@ class FlatSeeder extends Seeder
             $new_flat->number_of_beds = $new_flat->number_of_rooms * 2;
             $new_flat->number_of_bathrooms = rand(1, 3);
             $new_flat->square_meters = rand(25, 255);
-            $new_flat->address = $faker->address();
+            $new_flat->address = $faker->unique()->address();
             $new_flat->image = '';
             $new_flat->visualisations = rand(0, 1000);
 
             // geolocalization
-            $lng = 7.6824 + $i * 0.013;
             $new_flat->lat = 45.0677;
-            $new_flat->lng = $lng;
+            $new_flat->lng =  7.6824 + $i * 0.013;
             // $new_flat->geolocation = DB::raw("(GeomFromText('POINT(45.0677 " . $lng . ")'))");
 
             $new_flat->save();
