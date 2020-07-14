@@ -61,7 +61,7 @@ class FlatController extends Controller
                 return $services_required->every(function($service) use ($flat) {
                     return  $flat->getServicesId()->contains($service);
                 });
-            })->flatten();
+            })->flatten()->shuffle();
         }
         $collection = $rawCollection->map(function ($item) {
                 return $item->only(['id', 'title', 'description', 'address', 'image', 'lat', 'lng']);

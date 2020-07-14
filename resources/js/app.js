@@ -166,11 +166,10 @@ try {
 } catch {} // do nothing
 
 try {
-    const Handlebars = require("handlebars");
-    const source = document.getElementById("card-template").innerHTML;
-    const template = Handlebars.compile(source);
-    console.log(template)
-
+    const Handlebars = require("handlebars")
+    const source = document.getElementById("card-template").innerHTML
+    const template = Handlebars.compile(source)
+    
     const form = document.getElementById('algoliaForm')
 
     function getLatLng(id) {
@@ -187,8 +186,7 @@ try {
         return services_array.length ? services_array.join('-') : '0'
     }
 
-    form.addEventListener('submit', e => {
-        e.preventDefault()
+    function getUrlApi() {
         const base_url = window.location.protocol + '//' +  window.location.host + '/api/flats/?'
         let params = new URLSearchParams({
             lat: getLatLng('latlong')[0],
@@ -197,10 +195,21 @@ try {
             beds_min: document.querySelector('#beds_min').value,
             required_services: getServices('service-checkbox'),
             distance: document.querySelector('#distance').value
-        });
-        console.log(base_url + params)
-        fetch(base_url + params)
+        })
+        return base_url + params
+    }
+
+    function repopulateCards(data) {
+        let container = document.getElementById('search-cards')
+        console.log(data)
+        container.innerHTML = template({flats: data.response})
+    }
+
+    form.addEventListener('submit', e => {
+        e.preventDefault()
+        fetch(getUrlApi())
             .then(response => response.json())
-            .then(data => console.log(data));
+            .then(data => {repopulateCards(data)})
+            .catch(e => console.log('Api error'))
     })
-} catch {}
+} catch {} // do nothing
