@@ -3,6 +3,7 @@
     padding-bottom: 20px;
     .card{
         display: block;
+        flex-basis: 100%;
         text-decoration: none;
         color: $black;
         margin: 20px 10px;
@@ -16,7 +17,7 @@
 }
 
 @include mobile {
-    
+
 }
 /* Tablets (tablets, 768px and up) */
 @include tablet {
@@ -44,11 +45,11 @@
             img{
                 max-width: 385px;
             }
-    
+
         }
     }
 }
 /* Large desktops (large desktops, 1200px and up) */
 @include large-desktop {
-    
+
 }

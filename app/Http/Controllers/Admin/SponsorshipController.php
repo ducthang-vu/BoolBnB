@@ -20,7 +20,7 @@ class SponsorshipController extends Controller
 {
     public function __construct()
     {
-        //$this->middleware('protectPaymentRoute', ['only' => 'create']);
+        $this->middleware('protectPaymentRoute', ['only' => 'create']);
     }
 
     /* UTILITIES fro Braintree*/
