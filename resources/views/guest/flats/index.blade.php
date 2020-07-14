@@ -31,18 +31,18 @@
     </div>
 </div>
 
-<script id="card-template" type="text/x-handlebars-template">
-    @{{#each flats}}
-        <a class="card" href="{{ url('flats') }}/@{{ id }}" >
-            <div class="image">
-                {{--<img src="{{ url('storage') }}/@{{ image }}" alt="@{{ title }}">--}}
-                <img src="https://i.ibb.co/bRN3hZD/casa.jpg" alt="casa">
-            </div>
-            <div class="desc-card ml-10">
-                <h2 class="mb-10">@{{ title }}</h2>
-            </div>
-        </a>
-    @{{/each}}
-</script>
+    <script id="card-template" type="text/x-handlebars-template">
+        @{{#each flats}}
+            <a class="card" href="{{ url('flats') }}/@{{ id }}" >
+                <div class="image">
+                    {{--<img src="{{ url('storage') }}/@{{ image }}" alt="@{{ title }}">--}}
+                    <img src="https://i.ibb.co/bRN3hZD/casa.jpg" alt="casa">
+                </div>
+                <div class="desc-card ml-10">
+                    <h2 class="mb-10">@{{ title }}</h2>
+                </div>
+            </a>
+        @{{/each}}
+    </script>
 @endsection
 

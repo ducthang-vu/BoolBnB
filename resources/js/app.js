@@ -169,6 +169,7 @@ try {
     const Handlebars = require("handlebars")
     const source = document.getElementById("card-template").innerHTML
     const template = Handlebars.compile(source)
+    
     const form = document.getElementById('algoliaForm')
 
     function getLatLng(id) {

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Flat;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 
@@ -47,7 +48,9 @@ class FlatController extends Controller
 
     public function show(Flat $flat)
     {
-        DB::table('flats')->where('id', $flat->id)->increment('visualisations');
+        if (Auth::id() != $flat->user_id ) {
+            DB::table('flats')->where('id', $flat->id)->increment('visualisations');
+        }
         return view('guest.flats.show', compact('flat'));
     }
 }
