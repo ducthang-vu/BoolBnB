@@ -29,10 +29,18 @@
         }
     }
     .mobile-navbar{
-        display: none;
-        &.show{
-            display: block;
-        }
+        z-index: 10;
+        position: fixed;
+        top: 0;
+        left: 0;
+        background: #fff;
+        width: 250px;
+        height: 100vh;
+        transform: translateX(-100%);
+        transition: all 1s cubic-bezier(.215, .61, .355, 1);
+    }
+    .mobile-navbar--open{
+        transform: translateX(0);
     }
     .big-navbar{
         display: none;

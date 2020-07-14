@@ -4,9 +4,13 @@
         @method('GET')
         <input type="text" name="address" id="address" placeholder="Cerca un appartamento">
         <input type="hidden" name="latlong" id="latlong">
-        @yield('formAlgoliaSupplement')
         <input type="submit" value="Cerca" class="btn-search">
-    </form>
+    </form>   
+    
+    <button id="filter"  class="btn btn-filter">Filtri</button>
 </div>
 
 
+<div class="search-home--two">
+        @yield('formAlgoliaSupplement')
+</div>
