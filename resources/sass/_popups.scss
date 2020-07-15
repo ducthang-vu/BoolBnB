@@ -1,15 +1,3 @@
-//Wrapper per oscurare la pagina
-#popup-wrapper {
-    display: none;
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.8);
-    z-index: 4;
-}
 //Buttons
 #login-button {
     background: none;
@@ -31,26 +19,15 @@
 	cursor: pointer;
 	outline: inherit;
 }
-//close
-.close {
-    float: right;
-    text-align: right;
-    color: $white;
-    opacity: 0.9;
-    font-size: 20px;
-    font-weight: bold;
-    cursor: pointer;
-}
-.close:hover {
-    color: $text;
-}
-.container {
-    display: flex;
-    flex-direction: column;
-    margin: 0 auto;
+//Popup wrapper
+.popup {
+    display: none;
+    position: fixed;
+    left: 45%;
+    top: 20%;
     width: 100%;
     height: 100%;
-    .card-popup { 
+    .card-popup {
         height: 100%;
         .card-header {
             justify-content: space-between;
@@ -85,10 +62,10 @@
 //Popup form
 .popup-form {
     background: $white;
-    border: 0px solid transparent;
+    border: 1px solid black;
     border-radius: 10px;
-    height: 100%;
-    color: $text;
+    margin: 5% auto 15% auto;
+    padding: 30px 20px;
     -webkit-animation: fadeIn 0.7s;
     animation: fadeIn 0.7s;
 }
@@ -108,82 +85,9 @@
 @-webkit-keyframes fadeIn {
     from {transform: scale(0)}
     to {transform: scale(1)}
-} 
+}
 @keyframes fadeIn {
     from {transform: scale(0)}
     to {transform: scale(1)}
 }
-@include mobile {
-   
-}
-/* Tablets (tablets, 768px and up) */
-@include tablet {
-    //Popup form
-    .popup-form {
-        background: $white;
-        border: 0px solid transparent;
-        border-radius: 10px;
-        height: auto;
-        color: $text;
-        -webkit-animation: fadeIn 0.7s;
-        animation: fadeIn 0.7s;
-    }
-    //Popup wrapper
-    .popup {
-        display: none;
-        position: fixed;
-        left: 50%;
-        top: 20%;
-        transform: translateX(-50%);
-        height: 100%;
-        width: 300px;
-        overflow: auto;
-        z-index: 10;
-    }
-    .container {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        margin: 0 auto;
-        width: 100%;
-        height: 100%;
-        .card { 
-            height: 100%;
-            .card-header {
-                justify-content: space-between;
-                padding: 0 auto 20px;
-                border-bottom: 1px solid black;
-                border-radius: 10px 10px 0 0;
-                padding: 5px 7px;
-                background: $bg_airbnb;
-                color: $white;
-            }
-            .card-body {
-                margin: 10px 0;
-                padding: 5px 7px;
-                text-align: center;
-                input {
-                    border-radius: 8px;
-                    padding: 5px;
-                    width: 80%;
-                }
-                button {
-                    cursor: pointer;
-                }
-            }
-            .form-group {
-                margin: 10px 0;
-            }
-        }
-    }
-}
 
-
-/* Desktops (desktops, 992px and up) */
-@include desktop {
-
-}
-
-@include large-desktop {
-    
-}

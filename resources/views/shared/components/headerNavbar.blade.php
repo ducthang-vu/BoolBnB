@@ -24,7 +24,7 @@
                 <li><a href="">Diventa un host</a></li>
                 <li><a href="">Assistenza</a></li>
                 <li><button id="login-button" onclick="showPopUpLogin()">Accedi</button></li>
-                <li><button id="register-button" onclick="showPopUpRegister()">Registrati</button></li> 
+                <li><button id="register-button" onclick="showPopUpRegister()">Registrati</button></li>
             </ul>
         @endauth
     @endif
