@@ -136,20 +136,6 @@ li {
   width: 70px;
 }
 
-.btn-popup {
-  padding: 10px;
-  background: linear-gradient(to right, #92174d 9.38%, #e41d5c 88.54%);
-  color: #ffffff;
-  font-size: 13px;
-  font-weight: 500;
-  border-radius: 5px;
-  border: 1px solid transparent;
-}
-
-.btn-popup:hover {
-  border: 1.5px solid #ffffff;
-}
-
 .btn {
   height: 40px;
   display: inline-block;
@@ -238,114 +224,23 @@ li {
 }
 
 .main-header .mobile-navbar {
-  display: none;
-}
-
-.main-header .mobile-navbar.show {
-  display: block;
-}
-
-.main-header .big-navbar ul li {
-  display: none;
-}
-
-.hamburger {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  vertical-align: middle;
-}
-
-.hamburger #logo {
-  text-decoration: none;
-  background: linear-gradient(to right, #92174d 9.38%, #e41d5c 88.54%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.hamburger #logo i {
-  font-size: 30px;
-  vertical-align: middle;
-}
-
-.hamburger #logo span {
-  font-weight: 900;
-}
-
-.hamburger .mobile-navbar {
+  z-index: 10;
   position: fixed;
-  top: 36px;
-  right: 10px;
-  background: #f7f7f7;
-  border: 1px solid #222222;
-  border-radius: 10px 0 0 10px;
-  z-index: 3;
-  -webkit-animation: fadeIn 0.4s;
-  animation: fadeIn 0.4s;
+  top: 0;
+  left: 0;
+  background: #fff;
+  width: 250px;
+  height: 100vh;
+  transform: translateX(-100%);
+  transition: all 1s cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 
-.hamburger .mobile-navbar .mobile-navbar-header {
-  padding: 0;
-  margin: 0;
-  height: 10%;
-  width: 100%;
-  background: linear-gradient(to left, #92174d 9.38%, #e41d5c 88.54%);
-  border-radius: 9.4px 0 0 0;
+.main-header .mobile-navbar--open {
+  transform: translateX(0);
 }
 
-.hamburger .mobile-navbar ul {
-  padding: 5px;
-}
-
-.hamburger .mobile-navbar ul i {
+.main-header .big-navbar {
   display: none;
-}
-
-.hamburger .mobile-navbar ul li {
-  text-align: left;
-  list-style: none;
-  text-decoration: none;
-  padding: 5px;
-  margin-right: 8px;
-  font-size: 12px;
-  font-weight: 500;
-}
-
-.hamburger .mobile-navbar ul li a {
-  color: #222222;
-  text-decoration: none;
-}
-
-.hamburger .mobile-navbar ul li #register-button {
-  background: none;
-  color: inherit;
-  border: none;
-  padding: 0;
-  font: inherit;
-  cursor: pointer;
-  outline: inherit;
-  box-shadow: none;
-  border-radius: none;
-}
-
-@-webkit-keyframes fadeIn {
-  from {
-    transform: scale(0);
-  }
-
-  to {
-    transform: scale(1);
-  }
-}
-
-@keyframes fadeIn {
-  from {
-    transform: scale(0);
-  }
-
-  to {
-    transform: scale(1);
-  }
 }
 
 /* Tablets (tablets, 768px and up) */
@@ -395,10 +290,6 @@ li {
 
   .navbar .big-navbar {
     display: block;
-  }
-
-  .navbar .big-navbar ul li {
-    display: inline;
   }
 
   .main-content {
@@ -519,18 +410,6 @@ li {
 
 /* Large desktops (large desktops, 1200px and up) */
 
-#popup-wrapper {
-  display: none;
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.8);
-  z-index: 4;
-}
-
 #login-button {
   background: none;
   color: inherit;
@@ -553,86 +432,36 @@ li {
   outline: inherit;
 }
 
-.close {
-  float: right;
-  text-align: right;
-  color: #ffffff;
-  opacity: 0.9;
-  font-size: 20px;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-.close:hover {
-  color: #222222;
-}
-
-.container {
-  display: flex;
-  flex-direction: column;
-  margin: 0 auto;
+.popup {
+  display: none;
+  position: fixed;
+  left: 45%;
+  top: 20%;
   width: 100%;
   height: 100%;
-}
-
-.container .card {
-  height: 100%;
-}
-
-.container .card .card-header {
-  justify-content: space-between;
-  padding: 0 auto 20px;
-  border-bottom: 1px solid black;
-  border-radius: 10px 10px 0 0;
-  padding: 5px 7px;
-  background: #e41d5c;
-  color: #ffffff;
-}
-
-.container .card .card-body {
-  margin: 10px 0;
-  padding: 5px 7px;
-  text-align: center;
-}
-
-.container .card .card-body input {
-  border-radius: 8px;
-  padding: 5px;
-  width: 80%;
-}
-
-.container .card .card-body button {
-  cursor: pointer;
-}
-
-.container .card .form-group {
-  margin: 10px 0;
-}
-
-.container .card #remember {
-  width: 1px;
+  width: 12%;
+  overflow: auto;
+  z-index: 10;
 }
 
 .popup-form {
   background: #ffffff;
-  border: 0px solid transparent;
+  border: 1px solid black;
   border-radius: 10px;
-  height: 100%;
-  color: #222222;
+  margin: 5% auto 15% auto;
+  padding: 30px 20px;
   -webkit-animation: fadeIn 0.7s;
   animation: fadeIn 0.7s;
 }
 
-.popup {
-  display: none;
-  position: fixed;
-  left: 50%;
-  top: 0;
-  transform: translateX(-50%);
-  height: 100%;
-  width: 100%;
-  overflow: auto;
-  z-index: 10;
+.close {
+  position: absolute;
+  right: 15px;
+  top: 20px;
+  color: #000;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
 }
 
 @-webkit-keyframes fadeIn {
@@ -654,77 +483,6 @@ li {
     transform: scale(1);
   }
 }
-
-/* Tablets (tablets, 768px and up) */
-
-@media (min-width: 768px) {
-  .popup-form {
-    background: #ffffff;
-    border: 0px solid transparent;
-    border-radius: 10px;
-    height: auto;
-    color: #222222;
-    -webkit-animation: fadeIn 0.7s;
-    animation: fadeIn 0.7s;
-  }
-
-  .popup {
-    display: none;
-    position: fixed;
-    left: 50%;
-    top: 20%;
-    transform: translateX(-50%);
-    height: 100%;
-    width: 300px;
-    overflow: auto;
-    z-index: 10;
-  }
-
-  .container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin: 0 auto;
-    width: 100%;
-    height: 100%;
-  }
-
-  .container .card {
-    height: 100%;
-  }
-
-  .container .card .card-header {
-    justify-content: space-between;
-    padding: 0 auto 20px;
-    border-bottom: 1px solid black;
-    border-radius: 10px 10px 0 0;
-    padding: 5px 7px;
-    background: #e41d5c;
-    color: #ffffff;
-  }
-
-  .container .card .card-body {
-    margin: 10px 0;
-    padding: 5px 7px;
-    text-align: center;
-  }
-
-  .container .card .card-body input {
-    border-radius: 8px;
-    padding: 5px;
-    width: 80%;
-  }
-
-  .container .card .card-body button {
-    cursor: pointer;
-  }
-
-  .container .card .form-group {
-    margin: 10px 0;
-  }
-}
-
-/* Desktops (desktops, 992px and up) */
 
 .sponsorship-card {
   flex-wrap: wrap;

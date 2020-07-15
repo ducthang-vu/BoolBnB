@@ -5,7 +5,7 @@
             <li><a href="{{ route('admin.home') }}">Home</a></li>
             <li><a href="{{ route('admin.flats.create') }}">Inserisci</a></li>
             <li><a href="">Assistenza</a></li>
-            <li>
+            <li class="li-button">
                 <a class="" href="{{ route('logout') }}"
                 onclick="event.preventDefault();
                             document.getElementById('logout-form').submit();">
@@ -22,18 +22,8 @@
             <li><a href=""><i class="fas fa-globe mr-5"></i><i class="fas fa-angle-down"></i></a></li>
             <li><a href="">Diventa un host</a></li>
             <li><a href="">Assistenza</a></li>
-            <li><button id="login-button" onclick="showPopUpLogin()">Accedi</button></li>
-            <li><button id="register-button" onclick="showPopUpRegister()">Registrati</button></li>
-            <div id="login-popup-div" class="popup popup-animation" style="display:none">
-                <form id="login-popup" class="popup-form" action="{{ route('login') }}" method="POST">
-                    @include('auth.login')
-                </form>
-            </div>
-            <div id="register-popup-div" class="popup popup-animation" style="display:none">                    
-                <form id="register-popup" class="popup-form" action="{{ route('register') }}" method="POST">
-                    @include('auth.register')
-                </form>
-            </div>
+            <li><a href="{{ route('login') }}">Accedi</a></li>
+            <li class="li-button"><a href="{{ route('register') }}">Registrati</a></li>
         </ul>
     @endauth
 @endif

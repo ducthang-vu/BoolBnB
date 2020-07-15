@@ -22,23 +22,11 @@ $black: #000;
 $white: #ffffff;
 $footerbg: #f7f7f7;
 $text: #222222;
-$bg_airbnb: rgb(228, 29, 92);
-$black_rgba_opacity: rgba(0,0,0,0.5);
-
 
 @mixin text_gradient {
     background: linear-gradient(to right, rgb(146, 23, 77) 9.38%, rgb(228, 29, 92) 88.54%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-}
-
-@mixin bg_gradient {
-    background: linear-gradient(to right, rgb(146, 23, 77) 9.38%, rgb(228, 29, 92) 88.54%);
-    color: $white;
-    font-size: 13px;
-    font-weight: 500;
-    border-radius: 5px;
-    border: 1px solid transparent;
 }
 
 @mixin button-serach-home {
