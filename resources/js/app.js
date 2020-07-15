@@ -37,20 +37,16 @@ import L from 'leaflet/dist/leaflet.js';
 const Chart = require('chart.js');
 
 try {
-    place();
-
     function place() {
-        var address = document.querySelector('#address');
-
+        var inputAlgolia = document.querySelector('#address');
         var latlng = {
             lat: 0,
             lng: 0
         };
-
         var placesAutocomplete = places({
             appId: 'pl9SBUILJO03',
             apiKey: '707374d54fdaf7af334afaba53bce3c3',
-            container: address,
+            container: inputAlgolia,
             accessibility: {
                 pinButton: {
                     'aria-label': 'use browser geolocation',
@@ -71,24 +67,17 @@ try {
             };
 
             address = e.suggestion;
-            console.log(latlng, address.value);
-            console.log(address);
-            console.log(this);
-
+            //console.log(latlng, address.value);
+            //console.log(address);
+            //console.log(this);
             document.querySelector('#latlong').value = [latlng.lat, latlng.lng];
-            console.log(typeof (latlng.lat));
-
         });
 
         placesAutocomplete.on('clear', function () {
             address.textContent = 'none';
         });
-
-        // Leaflet map
-        console.log(lat, lng);
-        mapView(lat, lng);
     }
-
+    place();
 } catch {} //do nothing
 
 
@@ -166,10 +155,14 @@ try {
 } catch {} // do nothing
 
 try {
+    console.log(lat, lng)
+    const map = mapView(lat, lng)
+    populateMap(map)
+
     const Handlebars = require("handlebars")
     const source = document.getElementById("card-template").innerHTML
     const template = Handlebars.compile(source)
-    
+
     const form = document.getElementById('algoliaForm')
 
     function getLatLng(id) {

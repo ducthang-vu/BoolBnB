@@ -33,7 +33,7 @@
 
     <script id="card-template" type="text/x-handlebars-template">
         @{{#each flats}}
-            <a class="card" href="{{ url('flats') }}/@{{ id }}" >
+            <a class="card" href="{{ url('flats') }}/@{{ id }}" data-coordinates="@{{ lat }}-@{{ lng }} >
                 <div class="image">
                     {{--<img src="{{ url('storage') }}/@{{ image }}" alt="@{{ title }}">--}}
                     <img src="https://i.ibb.co/bRN3hZD/casa.jpg" alt="casa">

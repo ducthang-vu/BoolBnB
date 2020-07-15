@@ -102591,8 +102591,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var places_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(places_js__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var leaflet_dist_leaflet_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! leaflet/dist/leaflet.js */ "./node_modules/leaflet/dist/leaflet.js");
 /* harmony import */ var leaflet_dist_leaflet_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(leaflet_dist_leaflet_js__WEBPACK_IMPORTED_MODULE_1__);
-function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -102631,7 +102629,7 @@ var Chart = __webpack_require__(/*! chart.js */ "./node_modules/chart.js/dist/Ch
 
 try {
   var place = function place() {
-    var address = document.querySelector('#address');
+    var inputAlgolia = document.querySelector('#address');
     var latlng = {
       lat: 0,
       lng: 0
@@ -102639,7 +102637,7 @@ try {
     var placesAutocomplete = places_js__WEBPACK_IMPORTED_MODULE_0___default()({
       appId: 'pl9SBUILJO03',
       apiKey: '707374d54fdaf7af334afaba53bce3c3',
-      container: address,
+      container: inputAlgolia,
       accessibility: {
         pinButton: {
           'aria-label': 'use browser geolocation',
@@ -102656,19 +102654,15 @@ try {
         lat: e.suggestion.latlng.lat,
         lng: e.suggestion.latlng.lng
       };
-      address = e.suggestion;
-      console.log(latlng, address.value);
-      console.log(address);
-      console.log(this);
+      address = e.suggestion; //console.log(latlng, address.value);
+      //console.log(address);
+      //console.log(this);
+
       document.querySelector('#latlong').value = [latlng.lat, latlng.lng];
-      console.log(_typeof(latlng.lat));
     });
     placesAutocomplete.on('clear', function () {
       address.textContent = 'none';
-    }); // Leaflet map
-
-    console.log(lat, lng);
-    mapView(lat, lng);
+    });
   };
 
   place();
@@ -102774,6 +102768,10 @@ try {
       flats: data.response
     });
   };
+
+  console.log(lat, lng);
+  var map = mapView(lat, lng);
+  populateMap(map);
 
   var Handlebars = __webpack_require__(/*! handlebars */ "./node_modules/handlebars/dist/cjs/handlebars.js");
 
