@@ -29,9 +29,10 @@ Route::prefix('admin')
     ->namespace('Admin')
     ->middleware('auth')
     ->group(function(){
-    Route::get('home_admin', 'HomeController@index')->name('home');
-    Route::get('flats/{flat}/statistics', 'FlatStatisticsController@show');
-    Route::resource('flats', 'FlatController');
-    Route::resource('requests', 'RequestController');
-    Route::resource('sponsorships', 'SponsorshipController')->only(['index', 'create', 'store']);
-});
+        Route::get('home_admin', 'HomeController@index')->name('home');
+        Route::get('flats/{flat}/statistics', 'FlatStatisticsController@show');
+        Route::resource('flats', 'FlatController');
+        Route::resource('requests', 'RequestController');
+        Route::resource('sponsorships', 'SponsorshipController')->only(['index', 'create', 'store']);
+    }
+);

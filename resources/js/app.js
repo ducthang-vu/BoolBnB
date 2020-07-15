@@ -199,26 +199,25 @@ try {
 
     function repopulateCards(data) {
         let container = document.getElementById("search-cards");
-        console.log(data);
         container.innerHTML = template({ flats: data.response });
     }
 
     form.addEventListener("submit", e => {
-        e.preventDefault();
+        e.preventDefault()
         fetch(getUrlApi())
-            .then(response => response.json())
-            .then(data => {
-                repopulateCards(data);
-                document.querySelector("#mapid");
-                document.querySelector(".map").innerHTML =
-                    '<div id="mapid"></div>';
-                const [lat, lng] = document
-                    .getElementById("latlong")
-                    .value.split(",");
-                console.log("prova", lat, lng);
-                map = mapView(lat, lng);
-                populateMap(map);
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok')
+                }
+                return response.json()
             })
-            .catch(e => console.log(e));
+            .then(data => {
+                repopulateCards(data)
+                document.querySelector(".map").innerHTML = '<div id="mapid"></div>'
+                const [lat, lng] = document.getElementById("latlong").value.split(",")
+                map = mapView(lat, lng)
+                populateMap(map)
+            })
+            .catch(e => console.log(e))
     });
 } catch {} // do nothing

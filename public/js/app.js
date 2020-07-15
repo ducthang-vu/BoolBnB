@@ -116868,7 +116868,6 @@ try {
 
   var repopulateCards = function repopulateCards(data) {
     var container = document.getElementById("search-cards");
-    console.log(data);
     container.innerHTML = template({
       flats: data.response
     });
@@ -116886,10 +116885,13 @@ try {
   form.addEventListener("submit", function (e) {
     e.preventDefault();
     fetch(getUrlApi()).then(function (response) {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+
       return response.json();
     }).then(function (data) {
       repopulateCards(data);
-      document.querySelector("#mapid");
       document.querySelector(".map").innerHTML = '<div id="mapid"></div>';
 
       var _document$getElementB = document.getElementById("latlong").value.split(","),
@@ -116897,7 +116899,6 @@ try {
           lat = _document$getElementB2[0],
           lng = _document$getElementB2[1];
 
-      console.log("prova", lat, lng);
       map = mapView(lat, lng);
       populateMap(map);
     })["catch"](function (e) {
@@ -117040,8 +117041,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/riccardo1/Documents/Boolean/BoolBnB/progetto/BoolBnB/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Users/riccardo1/Documents/Boolean/BoolBnB/progetto/BoolBnB/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Boolean\Esercizi\final_project\BoolBnB\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Boolean\Esercizi\final_project\BoolBnB\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ }),

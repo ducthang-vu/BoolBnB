@@ -4,35 +4,20 @@ namespace App\Http\Controllers\Api;
 
 use App\Flat;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 
 class FlatController extends Controller
 {
     private function validateGet(Request $request) {
-        /*
-         * Request object must have:
-         * - rooms_min
-         * - beds_min
-         * - required_services - string with following format: 1-12-3, numbers are service_id from services table; use 0
-         *                          when no services are required
-         * - lat,
-         * - lng
-         * - distance (km)
-         */
-        $errors = [];
-        if (!$request->filled ('rooms_min', 'beds_min', 'required_services', 'lat', 'lng', 'distance')) {
-            $errors[] = 'Missing parameters. ' .
-                'The following parameters must be filled: rooms_min, beds_min, required_services, lat, lng, distance.';
-        }
-        if ($request->rooms_min < 1 ||
-            $request->beds_min < 1 ||
-            $request->lat < -90 || $request->lat > 90 ||
-            $request->lng < -180 || $request->lng > 180 ||
-            $request->distance < 1 || $request->distance > 40076 ||
-            !preg_match('/^(\d+-)*\d+$/', $request->required_services)) {
-            $errors[] = 'Parameter(s) not allowed.';
-        }
-        return $errors;
+        return Validator::make($request->all(), [
+            'rooms_min' => 'required|integer|min:1',
+            'beds_min' => 'required|integer|min:1',
+            'lat' => 'required|numeric|min:-90|max:90',
+            'lng' => 'required|numeric|min:-180|max:180',
+            'distance' => 'required|integer|min:1|max:40076',
+            'required_services' => 'required|regex:/^(\d+-)*\d+$/',
+        ]);
     }
 
     public function get(Request $request) {
@@ -42,8 +27,10 @@ class FlatController extends Controller
             'response' => []
         ];
 
-        $result['error'] = $this->validateGet($request);
-        if (!empty($result['error'])) return response()->json($result, 400);
+        $result['error'] = $this->validateGet($request)->errors()->all();
+        if ($result['error']) {
+            return response()->json($result, 400);
+        }
 
         //within distance
         $rawCollection = Flat::search()
@@ -55,18 +42,20 @@ class FlatController extends Controller
                 'hitsPerPage' => 1000
             ])
             ->get();
+
+        //filter by services
         if ($request->required_services) {
             $services_required = collect(explode('-', $request->required_services));
             $rawCollection = $rawCollection->filter(function($flat) use ($services_required) {
                 return $services_required->every(function($service) use ($flat) {
                     return  $flat->getServicesId()->contains($service);
                 });
-            })->flatten()->shuffle();
+            })->flatten();
         }
         $collection = $rawCollection->map(function ($item) {
                 return $item->only(['id', 'title', 'description', 'address', 'image', 'lat', 'lng']);
             });
-        $result['response'] = $collection;
+        $result['response'] = $collection->shuffle();
         $result['number_records'] = $collection->count();
         return response()->json($result);
     }
