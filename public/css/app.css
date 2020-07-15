@@ -599,6 +599,10 @@ li {
   margin: 10px 0;
 }
 
+.container .card #remember {
+  width: 1px;
+}
+
 .popup-form {
   background: #ffffff;
   border: 0px solid transparent;
