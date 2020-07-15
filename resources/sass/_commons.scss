@@ -16,89 +16,92 @@ main{
     flex-grow: 1;
 }
 
+
+li {
+    list-style: none;
+}
+
 .main-content {
     max-width: 1200px;
     margin: 0 auto;
 }
 
 // Margins and Paddings
-
-.m-5{
-    margin: 5px;
+@for $i from 1 through 10 {
+    .m#{$i} {
+        margin: 5px * $i;
+    }
 }
 
-.m-10{
-    margin: 10px;
+@for $i from 1 through 10 {
+    .mt-#{$i * 5} {
+        margin-top: 5px * $i;
+    }
 }
 
-.m-15{
-    margin: 15px;
+@for $i from 1 through 10 {
+    .mb-#{$i * 5} {
+        margin-bottom: 5px * $i;
+    }
 }
 
-.m-20{
-    margin: 20px;
+@for $i from 1 through 10 {
+    .mr-#{$i} {
+        margin-right: 5px * $i;
+    }
 }
 
-.mt-10 {
-    margin-top: 10px;
+@for $i from 1 through 10 {
+    .ml-#{$i} {
+        margin-left: 5px * $i;
+    }
 }
 
-.mt-20 {
-    margin-top: 20px;
+@for $i from 1 through 10 {
+    .p#{$i} {
+        padding: 5px * $i;
+    }
 }
 
-.mb-10 {
-    margin-bottom: 10px;
+@for $i from 1 through 10 {
+    .pt-#{$i * 5} {
+        padding-top: 5px * $i;
+    }
 }
 
-.mb-20 {
-    margin-bottom: 20px;
+@for $i from 1 through 10 {
+    .pb-#{$i * 5} {
+        padding-bottom: 5px * $i;
+    }
 }
 
-.mr-5 {
-    margin-right: 5px;
+@for $i from 1 through 10 {
+    .pr-#{$i} {
+        padding-right: 5px * $i;
+    }
 }
 
-.mr-10 {
-    margin-right: 10px;
+@for $i from 1 through 10 {
+    .pl-#{$i} {
+        padding-left: 5px * $i;
+    }
 }
 
-.mr-20 {
-    margin-right: 20px;
+// text
+.text-center {
+    text-align: center;
 }
 
-.mr-30 {
-    margin-right: 30px;
+.text-right {
+    text-align: right;
 }
 
-.ml-10 {
-    margin-left: 10px;
+.text-left {
+    text-align: left;
 }
 
-.ml-20 {
-    margin-left: 20px;
-}
-
-.ml-30 {
-    margin-left: 30px;
-}
-
-.pt-20 {
-    padding-top: 20px;
-}
-
-.pb-20 {
-    padding-bottom: 20px;
-}
-
-// Style li
-
-li {
-    list-style: none;
-}
 
 // Display
-
 .inline {
     display: inline;
 }
@@ -157,6 +160,7 @@ li {
         box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.8),
         6px 6px 10px rgba(0, 0, 0, 0.2);
     }
+    cursor: pointer;
 }
 
 .btn-spons{

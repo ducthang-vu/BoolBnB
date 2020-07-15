@@ -15,81 +15,425 @@ main {
   flex-grow: 1;
 }
 
+li {
+  list-style: none;
+}
+
 .main-content {
   max-width: 1200px;
   margin: 0 auto;
 }
 
-.m-5 {
+.m1 {
   margin: 5px;
 }
 
-.m-10 {
+.m2 {
   margin: 10px;
 }
 
-.m-15 {
+.m3 {
   margin: 15px;
 }
 
-.m-20 {
+.m4 {
   margin: 20px;
+}
+
+.m5 {
+  margin: 25px;
+}
+
+.m6 {
+  margin: 30px;
+}
+
+.m7 {
+  margin: 35px;
+}
+
+.m8 {
+  margin: 40px;
+}
+
+.m9 {
+  margin: 45px;
+}
+
+.m10 {
+  margin: 50px;
+}
+
+.mt-5 {
+  margin-top: 5px;
 }
 
 .mt-10 {
   margin-top: 10px;
 }
 
+.mt-15 {
+  margin-top: 15px;
+}
+
 .mt-20 {
   margin-top: 20px;
+}
+
+.mt-25 {
+  margin-top: 25px;
+}
+
+.mt-30 {
+  margin-top: 30px;
+}
+
+.mt-35 {
+  margin-top: 35px;
+}
+
+.mt-40 {
+  margin-top: 40px;
+}
+
+.mt-45 {
+  margin-top: 45px;
+}
+
+.mt-50 {
+  margin-top: 50px;
+}
+
+.mb-5 {
+  margin-bottom: 5px;
 }
 
 .mb-10 {
   margin-bottom: 10px;
 }
 
+.mb-15 {
+  margin-bottom: 15px;
+}
+
 .mb-20 {
   margin-bottom: 20px;
 }
 
-.mr-5 {
+.mb-25 {
+  margin-bottom: 25px;
+}
+
+.mb-30 {
+  margin-bottom: 30px;
+}
+
+.mb-35 {
+  margin-bottom: 35px;
+}
+
+.mb-40 {
+  margin-bottom: 40px;
+}
+
+.mb-45 {
+  margin-bottom: 45px;
+}
+
+.mb-50 {
+  margin-bottom: 50px;
+}
+
+.mr-1 {
   margin-right: 5px;
 }
 
-.mr-10 {
+.mr-2 {
   margin-right: 10px;
 }
 
-.mr-20 {
+.mr-3 {
+  margin-right: 15px;
+}
+
+.mr-4 {
   margin-right: 20px;
 }
 
-.mr-30 {
+.mr-5 {
+  margin-right: 25px;
+}
+
+.mr-6 {
   margin-right: 30px;
 }
 
-.ml-10 {
+.mr-7 {
+  margin-right: 35px;
+}
+
+.mr-8 {
+  margin-right: 40px;
+}
+
+.mr-9 {
+  margin-right: 45px;
+}
+
+.mr-10 {
+  margin-right: 50px;
+}
+
+.ml-1 {
+  margin-left: 5px;
+}
+
+.ml-2 {
   margin-left: 10px;
 }
 
-.ml-20 {
+.ml-3 {
+  margin-left: 15px;
+}
+
+.ml-4 {
   margin-left: 20px;
 }
 
-.ml-30 {
+.ml-5 {
+  margin-left: 25px;
+}
+
+.ml-6 {
   margin-left: 30px;
+}
+
+.ml-7 {
+  margin-left: 35px;
+}
+
+.ml-8 {
+  margin-left: 40px;
+}
+
+.ml-9 {
+  margin-left: 45px;
+}
+
+.ml-10 {
+  margin-left: 50px;
+}
+
+.p1 {
+  padding: 5px;
+}
+
+.p2 {
+  padding: 10px;
+}
+
+.p3 {
+  padding: 15px;
+}
+
+.p4 {
+  padding: 20px;
+}
+
+.p5 {
+  padding: 25px;
+}
+
+.p6 {
+  padding: 30px;
+}
+
+.p7 {
+  padding: 35px;
+}
+
+.p8 {
+  padding: 40px;
+}
+
+.p9 {
+  padding: 45px;
+}
+
+.p10 {
+  padding: 50px;
+}
+
+.pt-5 {
+  padding-top: 5px;
+}
+
+.pt-10 {
+  padding-top: 10px;
+}
+
+.pt-15 {
+  padding-top: 15px;
 }
 
 .pt-20 {
   padding-top: 20px;
 }
 
+.pt-25 {
+  padding-top: 25px;
+}
+
+.pt-30 {
+  padding-top: 30px;
+}
+
+.pt-35 {
+  padding-top: 35px;
+}
+
+.pt-40 {
+  padding-top: 40px;
+}
+
+.pt-45 {
+  padding-top: 45px;
+}
+
+.pt-50 {
+  padding-top: 50px;
+}
+
+.pb-5 {
+  padding-bottom: 5px;
+}
+
+.pb-10 {
+  padding-bottom: 10px;
+}
+
+.pb-15 {
+  padding-bottom: 15px;
+}
+
 .pb-20 {
   padding-bottom: 20px;
 }
 
-li {
-  list-style: none;
+.pb-25 {
+  padding-bottom: 25px;
+}
+
+.pb-30 {
+  padding-bottom: 30px;
+}
+
+.pb-35 {
+  padding-bottom: 35px;
+}
+
+.pb-40 {
+  padding-bottom: 40px;
+}
+
+.pb-45 {
+  padding-bottom: 45px;
+}
+
+.pb-50 {
+  padding-bottom: 50px;
+}
+
+.pr-1 {
+  padding-right: 5px;
+}
+
+.pr-2 {
+  padding-right: 10px;
+}
+
+.pr-3 {
+  padding-right: 15px;
+}
+
+.pr-4 {
+  padding-right: 20px;
+}
+
+.pr-5 {
+  padding-right: 25px;
+}
+
+.pr-6 {
+  padding-right: 30px;
+}
+
+.pr-7 {
+  padding-right: 35px;
+}
+
+.pr-8 {
+  padding-right: 40px;
+}
+
+.pr-9 {
+  padding-right: 45px;
+}
+
+.pr-10 {
+  padding-right: 50px;
+}
+
+.pl-1 {
+  padding-left: 5px;
+}
+
+.pl-2 {
+  padding-left: 10px;
+}
+
+.pl-3 {
+  padding-left: 15px;
+}
+
+.pl-4 {
+  padding-left: 20px;
+}
+
+.pl-5 {
+  padding-left: 25px;
+}
+
+.pl-6 {
+  padding-left: 30px;
+}
+
+.pl-7 {
+  padding-left: 35px;
+}
+
+.pl-8 {
+  padding-left: 40px;
+}
+
+.pl-9 {
+  padding-left: 45px;
+}
+
+.pl-10 {
+  padding-left: 50px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-left {
+  text-align: left;
 }
 
 .inline {
@@ -147,6 +491,7 @@ li {
   box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.8), 6px 6px 10px rgba(0, 0, 0, 0.2);
   color: #6f6cde;
   transition: all 0.1s ease-in-out;
+  cursor: pointer;
 }
 
 .btn:hover {
