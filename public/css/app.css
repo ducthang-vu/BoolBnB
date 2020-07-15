@@ -238,19 +238,11 @@ li {
 }
 
 .main-header .mobile-navbar {
-  z-index: 10;
-  position: fixed;
-  top: 0;
-  left: 0;
-  background: #fff;
-  width: 250px;
-  height: 100vh;
-  transform: translateX(-100%);
-  transition: all 1s cubic-bezier(0.215, 0.61, 0.355, 1);
+  display: none;
 }
 
-.main-header .mobile-navbar--open {
-  transform: translateX(0);
+.main-header .mobile-navbar.show {
+  display: block;
 }
 
 .main-header .big-navbar ul li {
