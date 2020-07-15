@@ -234,4 +234,4 @@ try {
             })
             .catch(e => console.log(e));
     });
-} catch {} // do nothing
+} catch(e) {console.log(e)} // do nothing

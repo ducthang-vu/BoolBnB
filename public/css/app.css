@@ -575,11 +575,11 @@ li {
   height: 100%;
 }
 
-.container .card {
+.container .card-popup {
   height: 100%;
 }
 
-.container .card .card-header {
+.container .card-popup .card-header {
   justify-content: space-between;
   padding: 0 auto 20px;
   border-bottom: 1px solid black;
@@ -589,28 +589,28 @@ li {
   color: #ffffff;
 }
 
-.container .card .card-body {
+.container .card-popup .card-body {
   margin: 10px 0;
   padding: 5px 7px;
   text-align: center;
 }
 
-.container .card .card-body input {
+.container .card-popup .card-body input {
   border-radius: 8px;
   padding: 5px;
   width: 80%;
 }
 
-.container .card .card-body button {
+.container .card-popup .card-body button {
   cursor: pointer;
 }
 
-.container .card .form-group {
+.container .card-popup .form-group {
   margin: 10px 0;
 }
 
-.container .card #remember {
-  width: 1px;
+.container .card-popup #remember {
+  width: 30px;
 }
 
 .popup-form {
@@ -632,7 +632,7 @@ li {
   height: 100%;
   width: 100%;
   overflow: auto;
-  z-index: 10;
+  z-index: 10000000;
 }
 
 @-webkit-keyframes fadeIn {

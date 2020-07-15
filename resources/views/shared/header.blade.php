@@ -31,5 +31,15 @@
                 </div>
             </div>
         </nav>
+        <div id="login-popup-div" class="popup popup-animation" style="display:none">
+            <form id="login-popup" class="popup-form" action="{{ route('login') }}" method="POST">
+                @include('auth.login')
+            </form>
+        </div> 
+        <div id="register-popup-div" class="popup popup-animation" style="display:none">                    
+            <form id="register-popup" class="popup-form" action="{{ route('register') }}" method="POST">
+                @include('auth.register')
+            </form>
+        </div>
     </header>
 
