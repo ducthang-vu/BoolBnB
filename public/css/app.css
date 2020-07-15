@@ -697,6 +697,7 @@ li {
   .container .card .card-body input {
     border-radius: 10px;
     padding: 5px;
+    width: 280px;
   }
 
   .container .card .card-body button {
