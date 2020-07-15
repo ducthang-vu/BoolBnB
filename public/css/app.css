@@ -16,7 +16,7 @@ main {
 }
 
 .main-content {
-  max-width: 1200px;
+  max-width: 1800px;
   margin: 0 auto;
 }
 
@@ -184,7 +184,7 @@ li {
 /* Large desktops (large desktops, 1200px and up) */
 
 .main-header {
-  padding: 10px;
+  padding: 10px 0;
 }
 
 .main-header .navbar {
@@ -213,6 +213,7 @@ li {
 .main-header .navbar #hamburger-btn {
   background: #ffffff;
   border: none;
+  margin-right: 10px;
 }
 
 .main-header .navbar #hamburger-btn:focus {
@@ -220,7 +221,10 @@ li {
 }
 
 .main-header .navbar #hamburger-btn i {
-  font-size: 20px;
+  font-size: 25px;
+  background: linear-gradient(to right, #92174d 9.38%, #e41d5c 88.54%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .main-header .mobile-navbar {
@@ -291,19 +295,9 @@ li {
   .navbar .big-navbar {
     display: block;
   }
-
-  .main-content {
-    width: 720px;
-  }
 }
 
 /* Desktops (desktops, 992px and up) */
-
-@media (min-width: 992px) {
-  .main-content {
-    width: 1200px;
-  }
-}
 
 .main-footer {
   background: #f7f7f7;
@@ -398,7 +392,6 @@ li {
   .nav-footer {
     align-items: center;
     vertical-align: middle;
-    max-width: 1140px;
     margin: 0 auto;
   }
 
@@ -486,6 +479,7 @@ li {
 
 .sponsorship-card {
   flex-wrap: wrap;
+  justify-content: center;
   padding-bottom: 20px;
 }
 
@@ -533,11 +527,29 @@ li {
   }
 
   .sponsorship-card .card img {
-    max-width: 385px;
+    max-width: 300px;
   }
 }
 
 /* Large desktops (large desktops, 1200px and up) */
+
+@media (min-width: 1200px) {
+  .sponsorship-card .card {
+    flex-basis: calc((100% / 4 ) - 20px);
+  }
+
+  .sponsorship-card .card:nth-of-type(3n) {
+    margin-right: 20px;
+  }
+
+  .sponsorship-card .card:nth-of-type(4n) {
+    margin-right: 0;
+  }
+
+  .sponsorship-card .card img {
+    max-width: 350px;
+  }
+}
 
 .card-row {
   flex-direction: column;
@@ -585,27 +597,11 @@ li {
 
 /* Large desktops (large desktops, 1200px and up) */
 
-.search-card {
-  flex-wrap: wrap;
-  height: 100vh;
-  overflow: auto;
-  margin-right: 10px;
-}
+/* Tablets (tablets, 768px and up) */
 
-.search-card .card {
-  display: block;
-  flex-basis: 100%;
-  text-decoration: none;
-  color: #000;
-  margin-bottom: 20px;
-  text-align: center;
-}
+/* Desktops (desktops, 992px and up) */
 
-.search-card .card img {
-  max-width: 350px;
-  margin-bottom: 5px;
-  border-radius: 5px;
-}
+/* Large desktops (large desktops, 1200px and up) */
 
 .search-home {
   align-items: center;
@@ -655,6 +651,10 @@ form #address:focus {
 /* Tablets (tablets, 768px and up) */
 
 @media (min-width: 768px) {
+  .main-content {
+    padding: 0 5px;
+  }
+
   .search-home {
     height: 170px;
   }
@@ -678,9 +678,11 @@ form #address:focus {
 
 /* Desktops (desktops, 992px and up) */
 
-@media (min-width: 992px) {
+/* Large desktops (large desktops, 1200px and up) */
+
+@media (min-width: 1200px) {
   .search-home {
-    height: 250px;
+    height: 150px;
   }
 
   form #address {
@@ -697,8 +699,6 @@ form #address:focus {
     font-size: 35px;
   }
 }
-
-/* Large desktops (large desktops, 1200px and up) */
 
 .section-home-admin {
   padding: 0 5px;
@@ -871,6 +871,7 @@ form #address:focus {
   .description {
     padding-bottom: 50px;
     flex-direction: row;
+    justify-content: space-around;
   }
 
   .description .desc {
@@ -883,10 +884,11 @@ form #address:focus {
 
   .map-description {
     flex-direction: row;
+    justify-content: space-around;
   }
 
   .map-description .map {
-    width: 50%;
+    width: 61%;
     padding-bottom: 0;
   }
 }
@@ -970,7 +972,6 @@ form #address:focus {
 .search-home {
   display: flex;
   flex-direction: column;
-  height: 100px;
 }
 
 .search-home .btn-filter {
@@ -1034,19 +1035,6 @@ form #address:focus {
   .search-home--two {
     margin-top: 20px;
   }
-
-  .search-card {
-    flex-basis: 40%;
-  }
-
-  .map {
-    display: inline-block;
-    flex-basis: 60%;
-  }
-
-  .map #mapid {
-    height: 400px;
-  }
 }
 
 /* Desktops (desktops, 992px and up) */
@@ -1083,6 +1071,21 @@ form #address:focus {
 
   .animation--service .checkbox-services input {
     margin-right: 15px;
+  }
+
+  .search-card {
+    overflow: auto;
+    height: 100vh;
+    width: 50%;
+  }
+
+  .map {
+    display: inline-block;
+    width: 50%;
+  }
+
+  .map #mapid {
+    height: 100vh;
   }
 }
 

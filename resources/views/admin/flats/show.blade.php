@@ -21,7 +21,7 @@
 
   </div>
 
-  <div class="description d-flex s-between pb-20">
+  <div class="description d-flex pb-20">
       <div class="desc">
           <h2 class="mb-10">Descrizione</h2>
           <p>{{$flat->description}}</p>
@@ -38,7 +38,7 @@
       </div>
   </div>
 
-  <div class="map-description d-flex s-between">
+  <div class="map-description d-flex">
       <div class="map">
           <h3>Mappa</h3>
       </div>

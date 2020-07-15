@@ -37,6 +37,9 @@ form{
 }
 /* Tablets (tablets, 768px and up) */
 @include tablet {
+    .main-content {
+        padding: 0 5px;
+    }
     .search-home{
         height: 170px;
     }
@@ -58,8 +61,11 @@ form{
 }
 /* Desktops (desktops, 992px and up) */
 @include desktop {
+}
+/* Large desktops (large desktops, 1200px and up) */
+@include large-desktop {
     .search-home{
-        height: 250px;
+        height: 150px;
     }
     form{
         #address{
@@ -74,8 +80,4 @@ form{
             font-size: 35px;
         }
     }
-}
-/* Large desktops (large desktops, 1200px and up) */
-@include large-desktop {
-    
 }

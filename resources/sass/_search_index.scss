@@ -1,7 +1,6 @@
 .search-home{
     display: flex;
     flex-direction: column;
-    height: 100px;
     .btn-filter{
         margin: 10px 0;
     }
@@ -59,50 +58,52 @@
         margin-top: 20px;
     }
     
-    .search-card{
-        flex-basis: 40%;
-    }
-    .map{
-        display: inline-block;
-        flex-basis: 60%;
-        #mapid{
-            height: 400px;
-        }
-    }
     
 }
 /* Desktops (desktops, 992px and up) */
 @include desktop {
 
-    .animation--service{
-        .search-services{
-        flex-direction: row;
-        label{
-            width: 225px;
-            margin-bottom: 5px;
-        }
-        input{
-            width: 60px;
-            margin-right: 10px;
-        }
-        &:last-child{
+        .animation--service{
+            .search-services{
+            flex-direction: row;
             label{
-                width: 80px;
+                width: 225px;
+                margin-bottom: 5px;
+            }
+            input{
+                width: 60px;
+                margin-right: 10px;
+            }
+            &:last-child{
+                label{
+                    width: 80px;
+                }
+            }
+        }
+        .checkbox-services{
+            display: flex;
+            align-items: center;
+            flex-direction: row;
+            label{
+                width: 100px;
+                font-weight: 500;
+            }
+            input{
+                margin-right: 15px;
             }
         }
     }
-    .checkbox-services{
-        display: flex;
-        align-items: center;
-        flex-direction: row;
-        label{
-            width: 100px;
-            font-weight: 500;
-        }
-        input{
-            margin-right: 15px;
-        }
+    .search-card{
+        overflow: auto;
+        height: 100vh;
+        width: 50%;
     }
+    .map{
+        display: inline-block;
+        width: 50%;
+        #mapid{
+            height: 100vh;
+        }
     }
     
     

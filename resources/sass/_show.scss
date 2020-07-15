@@ -112,6 +112,7 @@
     .description{
         padding-bottom: 50px;
         flex-direction: row;
+        justify-content: space-around;
         .desc{
             width: 50%;
         }
@@ -121,8 +122,9 @@
     }
     .map-description{
         flex-direction: row;
+        justify-content: space-around;
         .map{
-            width:50%;
+            width:61%;
             padding-bottom: 0;
         }
     }

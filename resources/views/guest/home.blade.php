@@ -3,6 +3,12 @@
 @section('page-content')
     @include('shared.components.formAlgolia')
 
+    <style>
+        .btn-filter{
+            display: none;
+        }
+    </style>
+
     <h1 class="title-home">Appartamenti sponsorizzati</h1>
     <div class="sponsorship-card d-flex">
         @foreach($sponsoredFlats as $sponsoredFlat)
@@ -16,7 +22,7 @@
                 <h3>{{$sponsoredFlat->title}}</h3>
             </a>
 
-            @if ($loop->index == 5)
+            @if ($loop->index == 7)
                 @break;
             @endif
         @endforeach

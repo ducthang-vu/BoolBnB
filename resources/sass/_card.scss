@@ -1,5 +1,6 @@
 .sponsorship-card{
     flex-wrap: wrap;
+    justify-content: center;
     padding-bottom: 20px;
     .card{
         display: block;
@@ -43,7 +44,7 @@
                 margin-right: 0;
             }
             img{
-                max-width: 385px;
+                max-width: 300px;
             }
 
         }
@@ -51,5 +52,20 @@
 }
 /* Large desktops (large desktops, 1200px and up) */
 @include large-desktop {
+    .sponsorship-card{
+        .card{
+            &:nth-of-type(3n) {
+                margin-right: 20px;
+            }
+            flex-basis: calc((100% / 4 ) - 20px);
+            &:nth-of-type(4n) {
+                margin-right: 0;
+            }
+            img{
+                max-width: 350px;
+            }
+
+        }
+    }
 
 }

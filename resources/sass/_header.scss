@@ -1,6 +1,6 @@
 //HEADER
 .main-header {
-    padding: 10px;
+    padding: 10px 0;
     .navbar{
         display: flex;
         justify-content: space-between;
@@ -20,11 +20,13 @@
         #hamburger-btn {
             background: $white;
             border: none;
+            margin-right: 10px;
             &:focus {
                 outline: none;
             }
             i{
-                font-size: 20px;
+                font-size: 25px;
+                @include text_gradient;
             }
         }
     }
@@ -91,16 +93,11 @@
             display: block;
         }
     }
-    .main-content {
-        width: 720px;
-    }
 }
 
 /* Desktops (desktops, 992px and up) */
 @include desktop {
-    .main-content {
-        width: 1200px;
-    }
+    
 }
 
 @include large-desktop{

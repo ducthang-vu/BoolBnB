@@ -16,7 +16,7 @@ This template need to be include with a parameter of model App\Flat
 
     </div>
 
-    <div class="description d-flex s-between">
+    <div class="description d-flex">
         <div class="desc">
             <h2 class="mb-10">Descrizione</h2>
             <p>{{$flat->description}}</p>
@@ -33,7 +33,7 @@ This template need to be include with a parameter of model App\Flat
         </div>
     </div>
 
-    <div class="map-description d-flex s-between">
+    <div class="map-description d-flex">
         <div class="map">
             <h3>Mappa</h3>
         </div>
