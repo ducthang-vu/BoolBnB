@@ -8,7 +8,6 @@
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.8);
-    object-fit: cover;
     z-index: 4;
 }
 //Buttons
@@ -48,7 +47,6 @@
 .container {
     display: flex;
     flex-direction: column;
-    // justify-content: center;
     margin: 0 auto;
     width: 100%;
     height: 100%;
@@ -95,7 +93,7 @@
     display: none;
     position: fixed;
     left: 50%;
-    // top: 20%;
+    top: 0;
     transform: translateX(-50%);
     height: 100%;
     width: 100%;

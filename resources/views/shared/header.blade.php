@@ -22,6 +22,7 @@
             <div class="hamburger">
                 <button id="hamburger-btn"><i class="fas fa-bars"></i></button>
                 <div id="mobile-navbar" class="mobile-navbar">
+                    <div class="mobile-navbar-header">&nbsp;</div>
                     @include ('shared.components.headerNavbar')
                 </div>
             </div>
