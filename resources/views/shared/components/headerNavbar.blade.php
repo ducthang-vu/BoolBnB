@@ -5,7 +5,7 @@
             <li><a href="{{ route('admin.home') }}">Home</a></li>
             <li><a href="">Proponi un'esperienza</a></li>
             <li><a href="">Assistenza</a></li>
-            <li class="li-button">
+            <li>
                 <a class="" href="{{ route('logout') }}"
                 onclick="event.preventDefault();
                             document.getElementById('logout-form').submit();">
