@@ -8,7 +8,11 @@
         @foreach($sponsoredFlats as $sponsoredFlat)
 
             <a class="card" href="{{ route('flats.show' , $sponsoredFlat->id) }}">
-                <img src="{{$sponsoredFlat->image}}" alt="{{$sponsoredFlat->title}}">
+                @if (!empty($sponsoredFlat->image))
+                    <img src="{{ asset('storage/' . $sponsoredFlat->image ) }}" alt="{{$sponsoredFlat->title}}">
+                @else
+                    <img src="https://i.ibb.co/bRN3hZD/casa.jpg" alt="casa">
+                @endif
                 <h3>{{$sponsoredFlat->title}}</h3>
             </a>
 

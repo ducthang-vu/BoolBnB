@@ -52,6 +52,10 @@ main {
   margin-bottom: 20px;
 }
 
+.mr-5 {
+  margin-right: 5px;
+}
+
 .mr-10 {
   margin-right: 10px;
 }
@@ -105,6 +109,10 @@ li {
   justify-content: space-between;
 }
 
+.s-center {
+  justify-content: center;
+}
+
 .align-center {
   align-items: center;
 }
@@ -143,6 +151,8 @@ li {
 }
 
 .btn {
+  height: 40px;
+  display: inline-block;
   border: 0;
   background: #f3f0f1;
   border-radius: 32px;
@@ -228,11 +238,19 @@ li {
 }
 
 .main-header .mobile-navbar {
-  display: none;
+  z-index: 10;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #fff;
+  width: 250px;
+  height: 100vh;
+  transform: translateX(-100%);
+  transition: all 1s cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 
-.main-header .mobile-navbar.show {
-  display: block;
+.main-header .mobile-navbar--open {
+  transform: translateX(0);
 }
 
 .main-header .big-navbar ul li {
@@ -723,6 +741,7 @@ li {
 
 .sponsorship-card .card {
   display: block;
+  flex-basis: 100%;
   text-decoration: none;
   color: #000;
   margin: 20px 10px;
@@ -753,7 +772,10 @@ li {
 @media (min-width: 992px) {
   .sponsorship-card .card {
     flex-basis: calc((100% / 3 ) - 20px);
-    margin: 0 20px 20px 0;
+  }
+
+  .sponsorship-card .card:nth-of-type(2n) {
+    margin-right: 20px;
   }
 
   .sponsorship-card .card:nth-of-type(3n) {
@@ -776,6 +798,7 @@ li {
 
 .card-row img {
   max-width: 350px;
+  min-width: 350px;
   margin-bottom: 5px;
   border-radius: 5px;
 }
@@ -797,20 +820,41 @@ li {
   }
 
   .card-row img {
-    max-width: 350px;
     margin: 0;
   }
 }
 
 /* Desktops (desktops, 992px and up) */
 
-/* Large desktops (large desktops, 1200px and up) */
-
-@media (min-width: 1200px) {
+@media (min-width: 992px) {
   .card-row .desc-card p {
     display: block;
     line-height: 25px;
   }
+}
+
+/* Large desktops (large desktops, 1200px and up) */
+
+.search-cards {
+  flex-wrap: wrap;
+  height: 100vh;
+  overflow: auto;
+  margin-right: 10px;
+}
+
+.search-cards .card {
+  display: block;
+  flex-basis: 100%;
+  text-decoration: none;
+  color: #000;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.search-cards .card img {
+  max-width: 350px;
+  margin-bottom: 5px;
+  border-radius: 5px;
 }
 
 .search-home {
@@ -906,6 +950,48 @@ form #address:focus {
 
 /* Large desktops (large desktops, 1200px and up) */
 
+.section-home-admin {
+  padding: 0 5px;
+}
+
+.section-home-admin .title-flts {
+  padding-bottom: 20px;
+}
+
+.section-home-admin .title-flts h1 {
+  font-size: 25px;
+}
+
+.section-home-admin .title-flts .btn-add {
+  padding: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.section-home-admin .button-card {
+  justify-content: center;
+}
+
+.section-home-admin .button-card form {
+  display: inline-block;
+}
+
+/* Tablets (tablets, 768px and up) */
+
+/* Desktops (desktops, 992px and up) */
+
+@media (min-width: 992px) {
+  .section-home-admin .button-card {
+    justify-content: end;
+  }
+}
+
+/* Large desktops (large desktops, 1200px and up) */
+
+.card-show {
+  padding: 0 5px;
+}
+
 .jumbotron {
   text-align: center;
 }
@@ -922,7 +1008,7 @@ form #address:focus {
 
 .description {
   width: 100%;
-  padding: 10px;
+  padding: 10px 0;
   flex-direction: column;
   line-height: 25px;
 }
@@ -943,25 +1029,30 @@ form #address:focus {
   padding-bottom: 20px;
 }
 
-.map-description form {
+.map-description .form-message {
   width: 100%;
   display: flex;
   flex-direction: column;
 }
 
-.map-description form .accountholder,
-.map-description form .accountholder-mail {
+.map-description .form-message label {
+  display: inline-block;
+  width: 100px;
+}
+
+.map-description .form-message .accountholder,
+.map-description .form-message .accountholder-mail {
   flex-direction: column;
   width: 100%;
 }
 
-.map-description form .accountholder .form-group,
-.map-description form .accountholder-mail .form-group {
+.map-description .form-message .accountholder .form-group,
+.map-description .form-message .accountholder-mail .form-group {
   margin-right: 10px;
 }
 
-.map-description form .accountholder .form-group input,
-.map-description form .accountholder-mail .form-group input {
+.map-description .form-message .accountholder .form-group input,
+.map-description .form-message .accountholder-mail .form-group input {
   border: none;
   border-bottom: 1px solid #ccc;
   height: 30px;
@@ -969,25 +1060,25 @@ form #address:focus {
   padding: 5px;
 }
 
-.map-description form .accountholder .form-group input:focus,
-.map-description form .accountholder-mail .form-group input:focus {
+.map-description .form-message .accountholder .form-group input:focus,
+.map-description .form-message .accountholder-mail .form-group input:focus {
   outline: none;
 }
 
-.map-description form .accountholder-mail input {
+.map-description .form-message .accountholder-mail input {
   width: 100% px;
 }
 
-.map-description form .form-group {
+.map-description .form-message .form-group {
   padding: 10px;
 }
 
-.map-description form .form-group-message {
+.map-description .form-message .form-group-message {
   width: 100%;
   padding: 10px;
 }
 
-.map-description form .form-group-message textarea {
+.map-description .form-message .form-group-message textarea {
   border: none;
   border-bottom: 1px solid #ccc;
   font-size: 16px;
@@ -995,24 +1086,18 @@ form #address:focus {
   width: 250px;
 }
 
-.map-description form .form-group-message textarea:focus {
+.map-description .form-message .form-group-message textarea:focus {
   outline: none;
 }
 
 /* Tablets (tablets, 768px and up) */
 
 @media (min-width: 768px) {
-  .jumbotron {
-    text-align: center;
-  }
-
   .jumbotron img {
-    width: 90%;
     height: 300px;
   }
 
   .jumbotron h1 {
-    margin: 20px 0;
     text-align: center;
   }
 
@@ -1023,78 +1108,6 @@ form #address:focus {
   .description .desc {
     width: 100%;
     line-height: 25px;
-  }
-
-  .description .desc-list {
-    padding-left: 20px;
-  }
-
-  .description .desc-list ul > li {
-    margin-bottom: 5px;
-  }
-
-  .map-description {
-    flex-direction: column;
-  }
-
-  .map-description .map {
-    padding-bottom: 20px;
-  }
-
-  .map-description form {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-
-  .map-description form .accountholder,
-  .map-description form .accountholder-mail {
-    width: 100%;
-  }
-
-  .map-description form .accountholder .form-group,
-  .map-description form .accountholder-mail .form-group {
-    margin-right: 10px;
-  }
-
-  .map-description form .accountholder .form-group input,
-  .map-description form .accountholder-mail .form-group input {
-    border: none;
-    border-bottom: 1px solid #ccc;
-    height: 30px;
-    font-size: 16px;
-    padding: 5px;
-  }
-
-  .map-description form .accountholder .form-group input:focus,
-  .map-description form .accountholder-mail .form-group input:focus {
-    outline: none;
-  }
-
-  .map-description form .accountholder-mail input {
-    width: 520px;
-  }
-
-  .map-description form .form-group {
-    padding: 10px;
-  }
-
-  .map-description form .form-group-message {
-    width: 100%;
-    padding: 10px;
-  }
-
-  .map-description form .form-group-message textarea {
-    border: none;
-    border-bottom: 1px solid #ccc;
-    font-size: 16px;
-    padding: 5px;
-    width: 520px;
-  }
-
-  .map-description form .form-group-message textarea:focus {
-    outline: none;
   }
 }
 
@@ -1107,6 +1120,7 @@ form #address:focus {
 
   .description {
     padding-bottom: 50px;
+    flex-direction: row;
   }
 
   .description .desc {
@@ -1124,6 +1138,201 @@ form #address:focus {
   .map-description .map {
     width: 50%;
     padding-bottom: 0;
+  }
+}
+
+/* Large desktops (large desktops, 1200px and up) */
+
+.edit-form {
+  padding: 0 5px;
+}
+
+.edit-form label {
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.edit-form input,
+.edit-form textarea {
+  width: 300px;
+  margin-bottom: 10px;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  padding: 5px;
+  font-size: 18px;
+}
+
+/* Tablets (tablets, 768px and up) */
+
+/* Desktops (desktops, 992px and up) */
+
+@media (min-width: 992px) {
+  .edit-form label {
+    margin-bottom: 5px;
+  }
+
+  .edit-form input,
+  .edit-form textarea {
+    width: 500px;
+    margin-bottom: 30px;
+  }
+
+  .edit-form .edit-description {
+    width: 100%;
+    display: flex;
+  }
+
+  .edit-form .edit-description .desc-one {
+    width: 50%;
+    padding-right: 30px;
+  }
+
+  .edit-form .edit-description .desc-two {
+    width: 50%;
+  }
+
+  .edit-form .edit-description .desc-two input {
+    width: 400px;
+    margin-bottom: 20px;
+  }
+
+  .edit-form .services {
+    padding: 20px 0;
+    flex-direction: row;
+  }
+
+  .edit-form .services label {
+    font-weight: 600;
+  }
+
+  .edit-form .services input {
+    width: 80px;
+    margin-bottom: 0px;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    padding: 0px;
+    font-size: 18px;
+  }
+}
+
+/* Large desktops (large desktops, 1200px and up) */
+
+.search-home {
+  display: flex;
+  flex-direction: column;
+  height: 100px;
+}
+
+.search-home .btn-filter {
+  margin: 10px 0;
+}
+
+.animation--service {
+  overflow: hidden;
+  max-height: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: all 1s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.animation--service .search-services {
+  display: flex;
+  flex-direction: column;
+}
+
+.animation--service .search-services label {
+  display: inline-block;
+  font-weight: 500;
+  width: 240px;
+  margin-bottom: 5px;
+}
+
+.animation--service .search-services input {
+  width: 60px;
+  margin-right: 10px;
+}
+
+.animation--service .checkbox-services {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.animation--service .checkbox-services label {
+  display: inline-block;
+  width: 285px;
+  margin-bottom: 5px;
+  font-weight: 500;
+}
+
+.animation--service .checkbox-services input {
+  margin-right: 10px;
+}
+
+.animation--service--open {
+  max-height: 300px;
+}
+
+.map {
+  display: none;
+}
+
+/* Tablets (tablets, 768px and up) */
+
+@media (min-width: 768px) {
+  .search-home--two {
+    margin-top: 20px;
+  }
+
+  .search-cards {
+    flex-basis: 40%;
+  }
+
+  .map {
+    display: inline-block;
+    flex-basis: 60%;
+  }
+
+  .map #mapid {
+    height: 400px;
+  }
+}
+
+/* Desktops (desktops, 992px and up) */
+
+@media (min-width: 992px) {
+  .animation--service .search-services {
+    flex-direction: row;
+  }
+
+  .animation--service .search-services label {
+    width: 225px;
+    margin-bottom: 5px;
+  }
+
+  .animation--service .search-services input {
+    width: 60px;
+    margin-right: 10px;
+  }
+
+  .animation--service .search-services:last-child label {
+    width: 80px;
+  }
+
+  .animation--service .checkbox-services {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+  }
+
+  .animation--service .checkbox-services label {
+    width: 100px;
+    font-weight: 500;
+  }
+
+  .animation--service .checkbox-services input {
+    margin-right: 15px;
   }
 }
 

@@ -32,23 +32,21 @@ const app = new Vue({
 });
 */
 
-
 import places from 'places.js';
+import L from 'leaflet/dist/leaflet.js';
+const Chart = require('chart.js');
+
 try {
-    place();
-
     function place() {
-        var address = document.querySelector('#address');
-
+        var inputAlgolia = document.querySelector('#address');
         var latlng = {
             lat: 0,
             lng: 0
         };
-
         var placesAutocomplete = places({
             appId: 'pl9SBUILJO03',
             apiKey: '707374d54fdaf7af334afaba53bce3c3',
-            container: address,
+            container: inputAlgolia,
             accessibility: {
                 pinButton: {
                     'aria-label': 'use browser geolocation',
@@ -69,29 +67,24 @@ try {
             };
 
             address = e.suggestion;
-            console.log(latlng, address.value);
-            console.log(address);
-            console.log(this);
-
-            // this.configure({
-            //     aroundLatLng: latlng.lat + ',' + latlng.lng,
-            //     aroundRadius: 20 * 1000
-            // });
+            //console.log(latlng, address.value);
+            //console.log(address);
+            //console.log(this);
             document.querySelector('#latlong').value = [latlng.lat, latlng.lng];
-            console.log(typeof (latlng.lat));
-
         });
 
         placesAutocomplete.on('clear', function () {
             address.textContent = 'none';
         });
     }
+    place();
 } catch {} //do nothing
 
-//Hamburger Header
+
 try {
     let mobileNavbar = document.getElementById('mobile-navbar');
 
+    let isMenuOpen = false
     let btnHamburger = document.getElementById('hamburger-btn');
 
     var btnLogin = document.querySelector('.hamburger #login-button');
@@ -101,16 +94,125 @@ try {
     btnHamburger.addEventListener('click', function() {
         mobileNavbar.classList.toggle('show');
     })
-    
+
     btnLogin.addEventListener('click', function() {
         if (mobileNavbar.classList.contains('show')) {
             mobileNavbar.classList.remove('show');
         }
     })
-    
+
     btnRegister.addEventListener('click', function() {
         if (mobileNavbar.classList.contains('show')) {
             mobileNavbar.classList.remove('show');
         }
+    })
+
+} catch {} // do nothing
+
+try {
+    const canvasVisualisations = document.getElementById('chart-visualisations');
+    const canvasNumberOfRequests = document.getElementById('chart-numberOfRequests');
+
+    const chartVisualisations = new Chart(
+        canvasVisualisations,
+        {
+            type: 'bar',
+            data: {
+                datasets: [{
+                    //barPercentage: 0.5,
+                    //barThickness: 6,
+                    //maxBarThickness: 8,
+                    //minBarLength: 2,
+                    data: [visualisations],
+                    labels: ['visualisations']
+                }]
+            }
+        }
+    )
+
+    const chartNumberOfRequests = new Chart(
+        canvasNumberOfRequests,
+        {
+            type: 'bar',
+            data: {
+                datasets: [{
+                    //barPercentage: 0.5,
+                    //barThickness: 6,
+                    //maxBarThickness: 8,
+                    //minBarLength: 2,
+                    data: [numberOrRequests],
+                    labels: ['number or requests']
+                }]
+            }
+        }
+    )
+}
+catch {} // do nothing
+
+try {
+    let animationService = document.getElementById('animation--service');
+
+    let isFilterOpen = false
+    let btnFilter = document.getElementById('filter');
+    btnFilter.addEventListener('click', function() {
+        if (isFilterOpen) {
+            animationService.classList.remove('animation--service--open')
+        } else {
+            animationService.classList.add('animation--service--open');
+        }
+        isFilterOpen = !isFilterOpen
+    })
+} catch {} // do nothing
+
+try {
+    console.log(lat, lng)
+    const map = mapView(lat, lng)
+    populateMap(map)
+
+    const Handlebars = require("handlebars")
+    const source = document.getElementById("card-template").innerHTML
+    const template = Handlebars.compile(source)
+
+    const form = document.getElementById('algoliaForm')
+
+    function getLatLng(id) {
+        return document.getElementById(id).value.split(',')
+    }
+
+    function getServices(className) {
+        let services_array = []
+        Array.from(document.getElementsByClassName(className)).forEach(item => {
+            if (item.checked) {
+                services_array.push(item.value)
+            }
+        })
+        return services_array.length ? services_array.join('-') : '0'
+    }
+
+    function getUrlApi() {
+        const base_url = window.location.protocol + '//' +  window.location.host + '/api/flats/?'
+        let params = new URLSearchParams({
+            lat: getLatLng('latlong')[0],
+            lng: getLatLng('latlong')[1],
+            rooms_min: document.querySelector('#rooms_min').value,
+            beds_min: document.querySelector('#beds_min').value,
+            required_services: getServices('service-checkbox'),
+            distance: document.querySelector('#distance').value
+        })
+        return base_url + params
+    }
+
+    function repopulateCards(data) {
+        let container = document.getElementById('search-cards')
+        console.log(data)
+        container.innerHTML = template({flats: data.response})
+    }
+
+    form.addEventListener('submit', e => {
+        e.preventDefault()
+        fetch(getUrlApi())
+            .then(response => response.json())
+            .then(data => {repopulateCards(data)})
+            .catch(e => console.log('Api error'))
     })
 } catch {} // do nothing

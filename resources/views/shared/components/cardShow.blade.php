@@ -6,7 +6,11 @@ This template need to be include with a parameter of model App\Flat
 <div class="card-show">
     <div class="jumbotron pt-20 pb-20">
 
-        <img src="{{$flat->image}}" alt="">
+        @if (!empty($flat->image))
+            <img src="{{ asset('storage/' . $flat->image ) }}" alt="{{$flat -> title}}">
+        @else
+            <img src="https://i.ibb.co/bRN3hZD/casa.jpg" alt="casa">
+        @endif
 
         <h1>{{$flat->title}}</h1>
 
@@ -35,78 +39,81 @@ This template need to be include with a parameter of model App\Flat
         </div>
 
         <div class="button-card mb-20">
-            @auth
-                <a class="btn btn-spons mb-5" href="{{ route('admin.sponsorships.create', ['flat_id' => $flat->id]) }}">Sponsorizza</a>
-                <a class="btn btn-edit mb-5" href="">Modifica</a>
-                <a class=" btn btn-delete mb-5" href="">Elimina</a>
-            @endauth
+                @auth
+                    @if ($flat->user_id == Auth::user()->id)
+                    <a class="btn btn-spons mb-5" href="{{ route('admin.sponsorships.create', ['flat_id' => $flat->id]) }}">Sponsorizza</a>
+                    <a class="btn btn-edit mb-5" href="">Modifica</a>
+                    <a class=" btn btn-delete mb-5" href="">Elimina</a>
+                @endauth
+                @else
+                @guest
+                
+                    <h3>Scrivi al proprietario</h3>
 
-            @guest
-                <h3>Scrivi al proprietario</h3>
+                    <form class= "form-message" action="{{ route('requests') }}" method="POST">
+                        @csrf
+                        @method('POST')
+                        <div class="accountholder d-flex">
+                            <div class="form-group">
+                                <label for="title">Cognome </label>
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    name="surname"
+                                    id="surname"
+                                    value="{{ old('title') }}"
+                                >
+                            </div>
 
-                <form action="{{ route('requests') }}" method="POST">
-                    @csrf
-                    @method('POST')
-                    <div class="accountholder d-flex">
-                        <div class="form-group">
-                            <label for="title">Cognome </label>
-                            <input
-                                type="text"
-                                class="form-control"
-                                name="surname"
-                                id="surname"
-                                value="{{ old('title') }}"
-                            >
+                            <div class="form-group">
+                                <label for="title">Nome </label>
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    name="name"
+                                    id="name"
+                                    value="{{ old('title') }}"
+                                >
+                            </div>
                         </div>
 
-                        <div class="form-group">
-                            <label for="title">Nome </label>
-                            <input
-                                type="text"
-                                class="form-control"
-                                name="name"
-                                id="name"
-                                value="{{ old('title') }}"
-                            >
+                        <div class="accountholder-mail d-flex">
+                            <div class="form-group">
+                                <label for="title">Email </label>
+                                <input
+                                    type="email"
+                                    class="form-control"
+                                    name="email"
+                                    id="email"
+                                    value="{{ old('title') }}"
+                                >
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="accountholder-mail d-flex">
-                        <div class="form-group">
-                            <label for="title">Email </label>
-                            <input
-                                type="email"
+                        <div class="form-group-message d-flex">
+                            <label for="body">Message </label>
+                            <textarea
+                                name="message"
+                                id="message"
+                                cols="30"
+                                rows="10"
                                 class="form-control"
-                                name="email"
-                                id="email"
-                                value="{{ old('title') }}"
                             >
+                                {{ old('body') }}
+                            </textarea>
                         </div>
-                    </div>
 
-                    <div class="form-group-message d-flex">
-                        <label for="body">Message </label>
-                        <textarea
-                            name="message"
-                            id="message"
-                            cols="30"
-                            rows="10"
+                        <input
+                            type="hidden"
                             class="form-control"
+                            name="flat_id"
+                            id="flat_id"
+                            value="{{ $flat->id }}"
                         >
-                            {{ old('body') }}
-                        </textarea>
-                    </div>
-
-                    <input
-                        type="hidden"
-                        class="form-control"
-                        name="flat_id"
-                        id="flat_id"
-                        value="{{ $flat->id }}"
-                    >
-                    <input type="submit" value="Invia" class="btn btn-message">
-                </form>
-            @endguest
+                        <input type="submit" value="Invia" class="btn btn-message">
+                    </form>
+                @endguest
+            @endif
         </div>
     </div>
 </div>

@@ -3,6 +3,7 @@
     padding-bottom: 20px;
     .card{
         display: block;
+        flex-basis: 100%;
         text-decoration: none;
         color: $black;
         margin: 20px 10px;
@@ -16,7 +17,7 @@
 }
 
 @include mobile {
-    
+
 }
 /* Tablets (tablets, 768px and up) */
 @include tablet {
@@ -34,19 +35,21 @@
 @include desktop {
     .sponsorship-card{
         .card{
+            &:nth-of-type(2n) {
+                margin-right: 20px;
+            }
             flex-basis: calc((100% / 3 ) - 20px);
-            margin: 0 20px 20px 0;
             &:nth-of-type(3n) {
                 margin-right: 0;
             }
             img{
                 max-width: 385px;
             }
-    
+
         }
     }
 }
 /* Large desktops (large desktops, 1200px and up) */
 @include large-desktop {
-    
+
 }

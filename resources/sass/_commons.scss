@@ -55,6 +55,10 @@ main{
     margin-bottom: 20px;
 }
 
+.mr-5 {
+    margin-right: 5px;
+}
+
 .mr-10 {
     margin-right: 10px;
 }
@@ -114,6 +118,10 @@ li {
     justify-content: space-between;
 }
 
+.s-center{
+    justify-content: center;
+}
+
 .align-center {
     align-items: center;
 }
@@ -142,6 +150,8 @@ li {
 }
 
 .btn{
+    height: 40px;
+    display: inline-block;
     border: 0;
     background: #f3f0f1;
     border-radius: 32px;

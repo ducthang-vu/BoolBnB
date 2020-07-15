@@ -1,0 +1,19 @@
+.search-cards{
+    flex-wrap: wrap;
+    height: 100vh;
+    overflow: auto;
+    margin-right: 10px;
+    .card{
+        display: block;
+        flex-basis: 100%;
+        text-decoration: none;
+        color: $black;
+        margin-bottom: 20px;
+        text-align: center;
+        img{
+            max-width: 350px;
+            margin-bottom: 5px;
+            border-radius: 5px;
+        }
+    }
+}

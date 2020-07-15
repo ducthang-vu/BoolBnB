@@ -112,7 +112,7 @@
 @-webkit-keyframes fadeIn {
     from {transform: scale(0)}
     to {transform: scale(1)}
-} 
+}
 @keyframes fadeIn {
     from {transform: scale(0)}
     to {transform: scale(1)}
@@ -177,5 +177,5 @@
 }
 
 @include large-desktop {
-    
+
 }

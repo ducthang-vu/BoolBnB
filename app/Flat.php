@@ -11,8 +11,8 @@ class Flat extends Model
     use Searchable;
 
     //
-    protected $geometry = ['geolocation'];
-    protected $geometryAsText = true;
+    //protected $geometry = ['geolocation'];
+    //protected $geometryAsText = true;
     protected $fillable = [
         'user_id',
         'title',
@@ -42,6 +42,10 @@ class Flat extends Model
     // }
 
     /* UTILITIES */
+    public function getLatLngAsStr() {
+
+        return $this->lat . '-' . $this->lng;
+    }
 
     // public function getGeolocation() {
     //     preg_match_all("(-?\d+.?\d*)", $this->geolocation, $matches);
@@ -124,5 +128,13 @@ class Flat extends Model
             ->where('end', '>=', date("Y-m-d H:i:s"))
             ->get();
         return $activeSponsorships->isNotEmpty();
+    }
+
+    public function getServicesId() {
+        return $this->services->map(function($flat) {return $flat->id;});
+    }
+
+    public function getNumberOfRequests() {
+        return $this->requests()->count();
     }
 }

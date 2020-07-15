@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 use App\Flat;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 
 class FlatController extends Controller
@@ -39,12 +41,16 @@ class FlatController extends Controller
             'aroundRadius' => 20000,
             'hitsPerPage' => 1000
         ])->get();
-        return view('guest.flats.index', compact('flatsInRange'));
+
+        return view('guest.flats.index', compact('flatsInRange', 'latlong'));
     }
 
 
     public function show(Flat $flat)
     {
+        if (Auth::id() != $flat->user_id ) {
+            DB::table('flats')->where('id', $flat->id)->increment('visualisations');
+        }
         return view('guest.flats.show', compact('flat'));
     }
 }

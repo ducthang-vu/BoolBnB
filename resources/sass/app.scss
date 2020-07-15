@@ -16,12 +16,21 @@
 // Card
 @import 'card';
 @import 'card_row';
+@import 'card_index';
 
 // home page style
 @import 'home';
+@import 'home_admin';
 
 // show page styles
 @import 'show';
+
+// edit & show page styles
+@import 'edit';
+
+
+
+@import 'search_index';
 
 // Bootstrap
 // @import '~bootstrap/scss/bootstrap';
