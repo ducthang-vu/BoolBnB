@@ -88,17 +88,29 @@ try {
     }
 } catch {} //do nothing
 
+//Hamburger Header
 try {
     let mobileNavbar = document.getElementById('mobile-navbar');
 
     let btnHamburger = document.getElementById('hamburger-btn');
-    btnHamburger.addEventListener('click', function() {
-        console.log('prova')
-        mobileNavbar.classList.add('show');
-    })
 
-    let btnHamburgerClose = document.getElementById('hamburger-close-btn')
-    btnHamburgerClose.addEventListener('click', function() {
-        mobileNavbar.classList.remove('show')
+    var btnLogin = document.querySelector('.hamburger #login-button');
+
+    var btnRegister = document.querySelector('.hamburger #register-button');
+
+    btnHamburger.addEventListener('click', function() {
+        mobileNavbar.classList.toggle('show');
+    })
+    
+    btnLogin.addEventListener('click', function() {
+        if (mobileNavbar.classList.contains('show')) {
+            mobileNavbar.classList.remove('show');
+        }
+    })
+    
+    btnRegister.addEventListener('click', function() {
+        if (mobileNavbar.classList.contains('show')) {
+            mobileNavbar.classList.remove('show');
+        }
     })
 } catch {} // do nothing

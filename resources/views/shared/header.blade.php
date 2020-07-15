@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css">
 </head>
 <body>
+    <div id="popup-wrapper">
+    </div>
     <header class="main-header">
         <nav class="navbar main-content">
             <a id="logo" href="{{route ('home')}}" class=""><i class="fab fa-airbnb mr-5"></i><span>boolbnb</span></a>
@@ -25,3 +27,4 @@
             </div>
         </nav>
     </header>
+

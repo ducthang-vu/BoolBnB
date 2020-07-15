@@ -23,25 +23,94 @@
             &:focus {
                 outline: none;
             }
-            i{
+            i {
                 font-size: 20px;
             }
         }
     }
-    .mobile-navbar{
+    .mobile-navbar {
         display: none;
-        &.show{
+        &.show {
             display: block;
         }
     }
-    .big-navbar{
-        display: none;
+    .big-navbar {
+        // display: none;
+        ul li {
+            display: none;
+        }
     }
+}
+.hamburger {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    vertical-align: middle;
+    #logo {
+        text-decoration: none;
+        @include text_gradient;
+        i {
+            font-size: 30px;
+            vertical-align: middle;
+        }
+        span {
+            font-weight: 900;
+        }
+    }
+    .mobile-navbar {
+        position: fixed;
+        top: 36px;
+        right: 10px;
+        background: $footerbg;
+        border: 1px solid $black_rgba_opacity;
+        border-radius: 10px 0 0 10px;
+        padding: 5px;
+        z-index: 3;
+        -webkit-animation: fadeIn 0.4s;
+        animation: fadeIn 0.4s;
+        ul {
+            i {
+                display: none;
+            }
+            li {
+                text-align: left;
+                list-style: none;
+                text-decoration: none;
+                padding: 5px;
+                margin-right: 8px;
+                font-size: 12px;
+                font-weight: 500;
+                a {
+                    color: $text;
+                    text-decoration: none;
+                }
+                #register-button {
+                    background: none;
+                    color: inherit;
+                    border: none;
+                    padding: 0;
+                    font: inherit;
+                    cursor: pointer;
+                    outline: inherit;
+                    box-shadow: none;
+                    border-radius: none;
+                }
+            }
+        }
+    }
+}
+//Hamburger animation
+@-webkit-keyframes fadeIn {
+    from {transform: scale(0)}
+    to {transform: scale(1)}
+} 
+@keyframes fadeIn {
+    from {transform: scale(0)}
+    to {transform: scale(1)}
 }
 
 @include mobile {
 
-    
 }
 /* Tablets (tablets, 768px and up) */
 @include tablet {
@@ -81,6 +150,9 @@
         }
         .big-navbar{
             display: block;
+            ul li {
+                display: inline;
+            }
         }
     }
     .main-content {
@@ -95,6 +167,6 @@
     }
 }
 
-@include large-desktop{
+@include large-desktop {
     
 }
