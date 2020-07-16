@@ -34,6 +34,7 @@ const app = new Vue({
     el: '#app',
 });
 */
+import hamburgerHeader from "./blade-components/hamburgerHeader";
 
 import L from "leaflet/dist/leaflet.js";
 import { latLng } from "leaflet";
@@ -42,6 +43,7 @@ const Chart = require("chart.js");
 import place from "./blade-components/inputAlgolia";
 import formAlgoliaHome from "./blade-components/formAlgoliaHome";
 import guestIndexPage from "./blade-components/guestIndexPage";
+
 
 if (document.querySelector(".inputAlgolia-page")) {
     place();
@@ -56,33 +58,10 @@ if (document.querySelector(".formAlgoliaIndex-page")) {
     guestIndexPage(lat, lng);
 }
 
-try {
-    let mobileNavbar = document.getElementById("id-mobile-navbar-header-page");
+if (document.querySelector(".mobile-navbar-header-page")) {
+    hamburgerHeader();
+}
 
-    let isMenuOpen = false
-    let btnHamburger = document.getElementById('hamburger-btn');
-
-    var btnLogin = document.querySelector('.hamburger #login-button-headerNavbar-page');
-
-    var btnRegister = document.querySelector('.hamburger #register-button-headerNavbar-page');
-
-    btnHamburger.addEventListener('click', function() {
-        mobileNavbar.classList.toggle('show');
-    })
-
-    btnLogin.addEventListener('click', function() {
-        if (mobileNavbar.classList.contains('show')) {
-            mobileNavbar.classList.remove('show');
-        }
-    })
-
-    btnRegister.addEventListener('click', function() {
-        if (mobileNavbar.classList.contains('show')) {
-            mobileNavbar.classList.remove('show');
-        }
-    })
-
-} catch {} // do nothing
 
 try {
     const canvasVisualisations = document.getElementById(
