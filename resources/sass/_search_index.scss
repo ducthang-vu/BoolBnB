@@ -2,6 +2,10 @@
     display: none;
 }
 
+#mapid {
+    height: 300px;
+}
+
 /* Tablets (tablets, 768px and up) */
 @include tablet {
     .search-cards {

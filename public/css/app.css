@@ -1563,6 +1563,10 @@ form .search-home__error {
   display: none;
 }
 
+#mapid {
+  height: 300px;
+}
+
 /* Tablets (tablets, 768px and up) */
 
 @media (min-width: 768px) {
