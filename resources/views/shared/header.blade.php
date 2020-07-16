@@ -15,7 +15,7 @@
     <div id="popup-wrapper">
     </div>
     <header class="main-header">
-        <nav class="navbar">
+        <nav class="navbar main-content">
             <a id="logo" href="{{route ('home')}}" class=""><i class="fab fa-airbnb mr-5"></i><span>boolbnb</span></a>
             <div class="big-navbar">
                 @include ('shared.components.headerNavbar')

@@ -2,7 +2,6 @@
     align-items: center;
     justify-content: center;
     height:120px;
-    margin: 20px 0;
 }
 form{
     display: flex;
@@ -38,9 +37,6 @@ form{
 }
 /* Tablets (tablets, 768px and up) */
 @include tablet {
-    .home-blade-content{
-        max-width: 720px;
-    }
     .search-home{
         height: 170px;
     }
@@ -62,10 +58,6 @@ form{
 }
 /* Desktops (desktops, 992px and up) */
 @include desktop {
-    .home-blade-content{
-        max-width: 1100px;
-    }
-
     .search-home{
         height: 250px;
     }
@@ -85,8 +77,5 @@ form{
 }
 /* Large desktops (large desktops, 1200px and up) */
 @include large-desktop {
-    .home-blade-content{
-        max-width: 1600px;
-    }
     
 }
