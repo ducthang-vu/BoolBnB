@@ -12,22 +12,22 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css">
 </head>
 <body>
-    <div id="popup-wrapper">
+    <div class="popup-wrapper-header">
     </div>
     <header class="main-header">
-        <nav class="navbar main-content">
-            <a id="logo" href="{{route ('home')}}" class=""><i class="fab fa-airbnb mr-5"></i><span>boolbnb</span></a>
-            <div class="big-navbar">
+        <nav class="navbar-header-page main-content">
+            <a class="logo-header-page" href="{{route ('home')}}"><i class="fab fa-airbnb mr-1"></i><span>boolbnb</span></a>
+            <div class="big-navbar-header-page">
                 @include ('shared.components.headerNavbar')
             </div>
             
-            <div class="hamburger">
+            <div class="hamburger-header-page">
                 <div class="menu-icon">
                     <button id="hamburger-btn"><i class="fas fa-bars"></i></button>
                 </div>
-                <div id="mobile-navbar" class="mobile-navbar">
-                    <div class="mobile-navbar-header">&nbsp;</div>
-                    @include ('shared.components.headerNavbar')
+                <div id="id-mobile-navbar-header-page" class="mobile-navbar-header-page">
+                    <div class="emptydiv-header-page">&nbsp;</div>
+                    @include ('shared.components.headerNavbar-mobile')
                 </div>
             </div>
         </nav>

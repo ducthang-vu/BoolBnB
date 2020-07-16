@@ -76,25 +76,25 @@
 
 function showPopUpLogin() {
     var popupShow = document.getElementById('login-popup-div');
-    var wrapper = document.getElementById('popup-wrapper');
+    var wrapper = document.querySelector('body .popup-wrapper-header');
     popupShow.style.display = 'block';
     wrapper.style.display = 'block';
 }
 function showPopUpRegister() {
     var popupShow = document.getElementById('register-popup-div');
-    var wrapper = document.getElementById('popup-wrapper');
+    var wrapper = document.querySelector('body .popup-wrapper-header');
     popupShow.style.display = 'block';
     wrapper.style.display = 'block';
 }
 function closePopUpLogin() {
     var popupClose = document.getElementById('login-popup-div');
-    var wrapper = document.getElementById('popup-wrapper');
+    var wrapper = document.querySelector('body .popup-wrapper-header');
     popupClose.style.display = 'none';
     wrapper.style.display = 'none';
 }
 function closePopUpRegister() {
     var popupClose = document.getElementById('register-popup-div');
-    var wrapper = document.getElementById('popup-wrapper');
+    var wrapper = document.querySelector('body .popup-wrapper-header');
     popupClose.style.display = 'none';
     wrapper.style.display = 'none';
 }

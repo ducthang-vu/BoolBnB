@@ -57,14 +57,14 @@ if (document.querySelector(".formAlgoliaIndex-page")) {
 }
 
 try {
-    let mobileNavbar = document.getElementById("mobile-navbar");
+    let mobileNavbar = document.getElementById("id-mobile-navbar-header-page");
 
     let isMenuOpen = false
     let btnHamburger = document.getElementById('hamburger-btn');
 
-    var btnLogin = document.querySelector('.hamburger #login-button');
+    var btnLogin = document.querySelector('.hamburger #login-button-headerNavbar-page');
 
-    var btnRegister = document.querySelector('.hamburger #register-button');
+    var btnRegister = document.querySelector('.hamburger #register-button-headerNavbar-page');
 
     btnHamburger.addEventListener('click', function() {
         mobileNavbar.classList.toggle('show');
