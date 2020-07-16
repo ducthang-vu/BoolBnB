@@ -87,16 +87,29 @@ try {
 try {
     let mobileNavbar = document.getElementById("mobile-navbar");
 
-    let isMenuOpen = false;
-    let btnHamburger = document.getElementById("hamburger-btn");
-    btnHamburger.addEventListener("click", function() {
-        if (isMenuOpen) {
-            mobileNavbar.classList.remove("mobile-navbar--open");
-        } else {
-            mobileNavbar.classList.add("mobile-navbar--open");
+    let isMenuOpen = false
+    let btnHamburger = document.getElementById('hamburger-btn');
+
+    var btnLogin = document.querySelector('.hamburger #login-button');
+
+    var btnRegister = document.querySelector('.hamburger #register-button');
+
+    btnHamburger.addEventListener('click', function() {
+        mobileNavbar.classList.toggle('show');
+    })
+
+    btnLogin.addEventListener('click', function() {
+        if (mobileNavbar.classList.contains('show')) {
+            mobileNavbar.classList.remove('show');
         }
-        isMenuOpen = !isMenuOpen;
-    });
+    })
+
+    btnRegister.addEventListener('click', function() {
+        if (mobileNavbar.classList.contains('show')) {
+            mobileNavbar.classList.remove('show');
+        }
+    })
+
 } catch {} // do nothing
 
 try {
@@ -151,8 +164,8 @@ try {
         } else {
             animationService.classList.add("animation--service--open");
         }
-        isFilterOpen = !isFilterOpen;
-    });
+        isFilterOpen = !isFilterOpen
+    })
 } catch {} // do nothing
 
 try {

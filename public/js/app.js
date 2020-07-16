@@ -116777,15 +116777,21 @@ try {
 try {
   var mobileNavbar = document.getElementById("mobile-navbar");
   var isMenuOpen = false;
-  var btnHamburger = document.getElementById("hamburger-btn");
-  btnHamburger.addEventListener("click", function () {
-    if (isMenuOpen) {
-      mobileNavbar.classList.remove("mobile-navbar--open");
-    } else {
-      mobileNavbar.classList.add("mobile-navbar--open");
+  var btnHamburger = document.getElementById('hamburger-btn');
+  var btnLogin = document.querySelector('.hamburger #login-button');
+  var btnRegister = document.querySelector('.hamburger #register-button');
+  btnHamburger.addEventListener('click', function () {
+    mobileNavbar.classList.toggle('show');
+  });
+  btnLogin.addEventListener('click', function () {
+    if (mobileNavbar.classList.contains('show')) {
+      mobileNavbar.classList.remove('show');
     }
-
-    isMenuOpen = !isMenuOpen;
+  });
+  btnRegister.addEventListener('click', function () {
+    if (mobileNavbar.classList.contains('show')) {
+      mobileNavbar.classList.remove('show');
+    }
   });
 } catch (_unused2) {} // do nothing
 
@@ -116904,7 +116910,9 @@ try {
       return console.log(e);
     });
   });
-} catch (_unused5) {} // do nothing
+} catch (e) {
+  console.log(e);
+} // do nothing
 
 /***/ }),
 
@@ -117040,8 +117048,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/riccardo1/Documents/Boolean/BoolBnB/progetto/BoolBnB/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /Users/riccardo1/Documents/Boolean/BoolBnB/progetto/BoolBnB/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\danle\Desktop\project\BoolBnB\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\danle\Desktop\project\BoolBnB\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ }),

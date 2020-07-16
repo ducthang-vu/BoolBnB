@@ -140,6 +140,15 @@ li {
     @include button-serach-home;
 }
 
+.btn-popup {
+    padding: 10px;
+    @include bg_gradient;
+}
+
+.btn-popup:hover {
+    border: 1.5px solid $white;
+}
+
 .btn{
     height: 40px;
     display: inline-block;
