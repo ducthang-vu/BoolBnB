@@ -87,16 +87,29 @@ try {
 try {
     let mobileNavbar = document.getElementById("mobile-navbar");
 
-    let isMenuOpen = false;
-    let btnHamburger = document.getElementById("hamburger-btn");
-    btnHamburger.addEventListener("click", function() {
-        if (isMenuOpen) {
-            mobileNavbar.classList.remove("mobile-navbar--open");
-        } else {
-            mobileNavbar.classList.add("mobile-navbar--open");
+    let isMenuOpen = false
+    let btnHamburger = document.getElementById('hamburger-btn');
+
+    var btnLogin = document.querySelector('.hamburger #login-button');
+
+    var btnRegister = document.querySelector('.hamburger #register-button');
+
+    btnHamburger.addEventListener('click', function() {
+        mobileNavbar.classList.toggle('show');
+    })
+
+    btnLogin.addEventListener('click', function() {
+        if (mobileNavbar.classList.contains('show')) {
+            mobileNavbar.classList.remove('show');
         }
-        isMenuOpen = !isMenuOpen;
-    });
+    })
+
+    btnRegister.addEventListener('click', function() {
+        if (mobileNavbar.classList.contains('show')) {
+            mobileNavbar.classList.remove('show');
+        }
+    })
+
 } catch {} // do nothing
 
 try {
@@ -151,8 +164,8 @@ try {
         } else {
             animationService.classList.add("animation--service--open");
         }
-        isFilterOpen = !isFilterOpen;
-    });
+        isFilterOpen = !isFilterOpen
+    })
 } catch {} // do nothing
 
 try {
@@ -199,25 +212,26 @@ try {
 
     function repopulateCards(data) {
         let container = document.getElementById("search-cards");
+        console.log(data);
         container.innerHTML = template({ flats: data.response });
     }
 
     form.addEventListener("submit", e => {
-        e.preventDefault()
+        e.preventDefault();
         fetch(getUrlApi())
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok')
-                }
-                return response.json()
-            })
+            .then(response => response.json())
             .then(data => {
-                repopulateCards(data)
-                document.querySelector(".map").innerHTML = '<div id="mapid"></div>'
-                const [lat, lng] = document.getElementById("latlong").value.split(",")
-                map = mapView(lat, lng)
-                populateMap(map)
+                repopulateCards(data);
+                document.querySelector("#mapid");
+                document.querySelector(".map").innerHTML =
+                    '<div id="mapid"></div>';
+                const [lat, lng] = document
+                    .getElementById("latlong")
+                    .value.split(",");
+                console.log("prova", lat, lng);
+                map = mapView(lat, lng);
+                populateMap(map);
             })
-            .catch(e => console.log(e))
+            .catch(e => console.log(e));
     });
-} catch {} // do nothing
+} catch(e) {console.log(e)} // do nothing
