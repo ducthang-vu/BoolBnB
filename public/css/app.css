@@ -224,43 +224,43 @@ li {
   margin-left: 50px;
 }
 
-.p1 {
+.p-5 {
   padding: 5px;
 }
 
-.p2 {
+.p-10 {
   padding: 10px;
 }
 
-.p3 {
+.p-15 {
   padding: 15px;
 }
 
-.p4 {
+.p-20 {
   padding: 20px;
 }
 
-.p5 {
+.p-25 {
   padding: 25px;
 }
 
-.p6 {
+.p-30 {
   padding: 30px;
 }
 
-.p7 {
+.p-35 {
   padding: 35px;
 }
 
-.p8 {
+.p-40 {
   padding: 40px;
 }
 
-.p9 {
+.p-45 {
   padding: 45px;
 }
 
-.p10 {
+.p-50 {
   padding: 50px;
 }
 
@@ -438,6 +438,14 @@ li {
 
 .inline {
   display: inline;
+}
+
+.block {
+  display: block;
+}
+
+.no-display {
+  display: none;
 }
 
 .d-flex {
@@ -1540,63 +1548,6 @@ form #address:focus {
 
 /* Large desktops (large desktops, 1200px and up) */
 
-.search-home {
-  display: flex;
-  flex-direction: column;
-  height: 100px;
-}
-
-.search-home .btn-filter {
-  margin: 10px 0;
-}
-
-.animation--service {
-  overflow: hidden;
-  max-height: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  transition: all 1s cubic-bezier(0.215, 0.61, 0.355, 1);
-}
-
-.animation--service .search-services {
-  display: flex;
-  flex-direction: column;
-}
-
-.animation--service .search-services label {
-  display: inline-block;
-  font-weight: 500;
-  width: 240px;
-  margin-bottom: 5px;
-}
-
-.animation--service .search-services input {
-  width: 60px;
-  margin-right: 10px;
-}
-
-.animation--service .checkbox-services {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-}
-
-.animation--service .checkbox-services label {
-  display: inline-block;
-  width: 285px;
-  margin-bottom: 5px;
-  font-weight: 500;
-}
-
-.animation--service .checkbox-services input {
-  margin-right: 10px;
-}
-
-.animation--service--open {
-  max-height: 300px;
-}
-
 .map {
   display: none;
 }
@@ -1604,10 +1555,6 @@ form #address:focus {
 /* Tablets (tablets, 768px and up) */
 
 @media (min-width: 768px) {
-  .search-home--two {
-    margin-top: 20px;
-  }
-
   .search-cards {
     flex-basis: 40%;
   }
@@ -1622,42 +1569,130 @@ form #address:focus {
   }
 }
 
-/* Desktops (desktops, 992px and up) */
+.formAlgoliaIndex-page {
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.formAlgoliaIndex-page .row {
+  display: flex;
+  justify-content: center;
+  flex-basis: 100%;
+}
+
+.formAlgoliaIndex-page .btn-filter {
+  flex-basis: 100%;
+}
+
+.formAlgoliaIndex-page .animation--service {
+  border-radius: 5px;
+  color: #ffffff;
+  background: linear-gradient(to right, #92174d 9.38%, #e41d5c 88.54%);
+  visibility: hidden;
+  overflow: hidden;
+  max-height: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-basis: 100%;
+  transition: all 1s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.formAlgoliaIndex-page .animation--service.animation--service--open {
+  max-height: 300px;
+  visibility: visible;
+}
+
+.formAlgoliaIndex-page .animation--service .search-services {
+  display: flex;
+  flex-direction: column;
+}
+
+.formAlgoliaIndex-page .animation--service .search-services label {
+  display: inline-block;
+  font-weight: 500;
+  width: 240px;
+  margin-bottom: 5px;
+}
+
+.formAlgoliaIndex-page .animation--service .search-services input {
+  width: 60px;
+  margin-right: 10px;
+}
+
+.formAlgoliaIndex-page .animation--service .checkbox-services {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.formAlgoliaIndex-page .animation--service .checkbox-services label {
+  display: inline-block;
+  width: 170px;
+  margin-bottom: 5px;
+  font-weight: 500;
+}
+
+.formAlgoliaIndex-page .animation--service .checkbox-services input {
+  margin-right: 10px;
+}
+
+@media (min-width: 576px) {
+  .formAlgoliaIndex-page .btn-filter {
+    flex-basis: 100%;
+    max-width: 50%;
+  }
+}
 
 @media (min-width: 992px) {
-  .animation--service .search-services {
-    flex-direction: row;
+  .formAlgoliaIndex-page .animation--service {
+    flex-basis: 60%;
+    padding: 30px;
+    border-radius: 15px;
   }
 
-  .animation--service .search-services label {
+  .formAlgoliaIndex-page .animation--service .search-services {
+    flex-direction: column;
+  }
+
+  .formAlgoliaIndex-page .animation--service .search-services label {
     width: 225px;
     margin-bottom: 5px;
   }
 
-  .animation--service .search-services input {
+  .formAlgoliaIndex-page .animation--service .search-services input {
     width: 60px;
     margin-right: 10px;
   }
 
-  .animation--service .search-services:last-child label {
+  .formAlgoliaIndex-page .animation--service .search-services:last-child label {
     width: 80px;
   }
 
-  .animation--service .checkbox-services {
+  .formAlgoliaIndex-page .animation--service .checkbox-services {
     display: flex;
+    justify-content: space-around;
     align-items: center;
     flex-direction: row;
+    flex-wrap: wrap;
   }
 
-  .animation--service .checkbox-services label {
+  .formAlgoliaIndex-page .animation--service .checkbox-services .services {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-basis: calc(100% / 3);
+  }
+
+  .formAlgoliaIndex-page .animation--service .checkbox-services .services label {
     width: 100px;
     font-weight: 500;
+    margin-bottom: 0;
   }
 
-  .animation--service .checkbox-services input {
+  .formAlgoliaIndex-page .animation--service .checkbox-services .services input {
     margin-right: 15px;
   }
 }
-
-/* Large desktops (large desktops, 1200px and up) */
 

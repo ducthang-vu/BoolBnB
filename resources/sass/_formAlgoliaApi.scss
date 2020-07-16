@@ -1,0 +1,124 @@
+.formAlgoliaIndex-page {
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    .row {
+        display: flex;
+        justify-content: center;
+        flex-basis: 100%;
+    }
+    .btn-filter {
+        flex-basis: 100%;
+    }
+    .animation--service {
+        border-radius: 5px;
+        color: $white;
+        background: linear-gradient(
+            to right,
+            rgb(146, 23, 77) 9.38%,
+            rgb(228, 29, 92) 88.54%
+        );
+        visibility: hidden;
+        overflow: hidden;
+        max-height: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        flex-basis: 100%;
+        transition: all 1s cubic-bezier(0.215, 0.61, 0.355, 1);
+        &.animation--service--open {
+            max-height: 300px;
+            visibility: visible;
+        }
+        .search-services {
+            display: flex;
+            flex-direction: column;
+            label {
+                display: inline-block;
+                font-weight: 500;
+                width: 240px;
+                margin-bottom: 5px;
+            }
+            input {
+                width: 60px;
+                margin-right: 10px;
+            }
+        }
+        .checkbox-services {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            label {
+                display: inline-block;
+                width: 170px;
+                margin-bottom: 5px;
+                font-weight: 500;
+            }
+            input {
+                margin-right: 10px;
+            }
+        }
+    }
+}
+
+@include mobile {
+    .formAlgoliaIndex-page {
+        .btn-filter {
+            flex-basis: 100%;
+            max-width: 50%;
+        }
+    }
+}
+
+// @include tablet {
+//     .formAlgoliaIndex-page {
+
+//     }
+// }
+
+@include desktop {
+    .formAlgoliaIndex-page {
+        .animation--service {
+            flex-basis: 60%;
+            padding: 30px;
+            border-radius: 15px;
+            .search-services {
+                flex-direction: column;
+                label {
+                    width: 225px;
+                    margin-bottom: 5px;
+                }
+                input {
+                    width: 60px;
+                    margin-right: 10px;
+                }
+                &:last-child {
+                    label {
+                        width: 80px;
+                    }
+                }
+            }
+            .checkbox-services {
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+                flex-direction: row;
+                flex-wrap: wrap;
+                .services {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    flex-basis: calc(100% / 3);
+                    label {
+                        width: 100px;
+                        font-weight: 500;
+                        margin-bottom: 0;
+                    }
+                    input {
+                        margin-right: 15px;
+                    }
+                }
+            }
+        }
+    }
+}

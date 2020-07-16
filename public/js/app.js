@@ -116677,24 +116677,13 @@ module.exports = function(module) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var places_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! places.js */ "./node_modules/places.js/index.js");
-/* harmony import */ var places_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(places_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var leaflet_dist_leaflet_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! leaflet/dist/leaflet.js */ "./node_modules/leaflet/dist/leaflet.js");
-/* harmony import */ var leaflet_dist_leaflet_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(leaflet_dist_leaflet_js__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var leaflet__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! leaflet */ "./node_modules/leaflet/dist/leaflet-src.js");
-/* harmony import */ var leaflet__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(leaflet__WEBPACK_IMPORTED_MODULE_2__);
-function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
-
-function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
-function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
-
-function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
-
+/* harmony import */ var leaflet_dist_leaflet_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! leaflet/dist/leaflet.js */ "./node_modules/leaflet/dist/leaflet.js");
+/* harmony import */ var leaflet_dist_leaflet_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(leaflet_dist_leaflet_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var leaflet__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! leaflet */ "./node_modules/leaflet/dist/leaflet-src.js");
+/* harmony import */ var leaflet__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(leaflet__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _blade_components_inputAlgolia__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./blade-components/inputAlgolia */ "./resources/js/blade-components/inputAlgolia.js");
+/* harmony import */ var _blade_components_formAlgoliaHome__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./blade-components/formAlgoliaHome */ "./resources/js/blade-components/formAlgoliaHome.js");
+/* harmony import */ var _blade_components_guestIndexPage__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./blade-components/guestIndexPage */ "./resources/js/blade-components/guestIndexPage.js");
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -116729,50 +116718,24 @@ const app = new Vue({
 
 
 
-
 var Chart = __webpack_require__(/*! chart.js */ "./node_modules/chart.js/dist/Chart.js");
 
-try {
-  var place = function place() {
-    var inputAlgolia = document.querySelector("#address");
-    var latlng = {
-      lat: 0,
-      lng: 0
-    };
-    var placesAutocomplete = places_js__WEBPACK_IMPORTED_MODULE_0___default()({
-      appId: "pl9SBUILJO03",
-      apiKey: "707374d54fdaf7af334afaba53bce3c3",
-      container: inputAlgolia,
-      accessibility: {
-        pinButton: {
-          "aria-label": "use browser geolocation",
-          "tab-index": 12
-        },
-        clearButton: {
-          "tab-index": 13
-        }
-      }
-    });
-    var address = document.querySelector("#address-value");
-    placesAutocomplete.on("change", function (e) {
-      latlng = {
-        lat: e.suggestion.latlng.lat,
-        lng: e.suggestion.latlng.lng
-      };
-      address = e.suggestion;
-      console.log(latlng, address.value); //console.log(address);
-      //console.log(this);
 
-      document.querySelector("#latlong").value = [latlng.lat, latlng.lng];
-    });
-    placesAutocomplete.on("clear", function () {
-      address.textContent = "none";
-    });
-  };
 
-  place();
-} catch (_unused) {} //do nothing
 
+
+if (document.querySelector(".inputAlgolia-page")) {
+  Object(_blade_components_inputAlgolia__WEBPACK_IMPORTED_MODULE_2__["default"])();
+}
+
+if (document.querySelector(".formAlgoliaHome-page")) {
+  Object(_blade_components_formAlgoliaHome__WEBPACK_IMPORTED_MODULE_3__["default"])();
+}
+
+if (document.querySelector(".formAlgoliaIndex-page")) {
+  console.log("prova 1", lat);
+  Object(_blade_components_guestIndexPage__WEBPACK_IMPORTED_MODULE_4__["default"])(lat, lng);
+}
 
 try {
   var mobileNavbar = document.getElementById("mobile-navbar");
@@ -116793,7 +116756,7 @@ try {
       mobileNavbar.classList.remove('show');
     }
   });
-} catch (_unused2) {} // do nothing
+} catch (_unused) {} // do nothing
 
 
 try {
@@ -116825,10 +116788,176 @@ try {
       }]
     }
   });
-} catch (_unused3) {} // do nothing
+} catch (_unused2) {} // do nothing
+
+/***/ }),
+
+/***/ "./resources/js/blade-components/formAlgoliaHome.js":
+/*!**********************************************************!*\
+  !*** ./resources/js/blade-components/formAlgoliaHome.js ***!
+  \**********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+function formAlgoliaHome() {
+  var form = document.getElementById("algoliaForm"); // activate form submit w. validation
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    if (document.getElementById("inputAlgolia-search__latlong").value) {
+      form.submit();
+    } else {
+      document.querySelector(".search-home__error").classList.remove("no-display");
+    }
+  });
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (formAlgoliaHome);
+
+/***/ }),
+
+/***/ "./resources/js/blade-components/guestIndexPage.js":
+/*!*********************************************************!*\
+  !*** ./resources/js/blade-components/guestIndexPage.js ***!
+  \*********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function guestIndexPage(lat, lng) {
+  console.log("prova", lat);
+
+  function mapView(lat, lng) {
+    var map = L.map("mapid").setView([lat, lng], 13);
+    console.log("1 log:", map);
+    L.tileLayer("https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}", {
+      attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+      maxZoom: 18,
+      id: "mapbox/streets-v11",
+      tileSize: 512,
+      zoomOffset: -1,
+      accessToken: "pk.eyJ1IjoibXJycmNyIiwiYSI6ImNrY2s5bzR6bTB3M2YycnA1NWw5aHA4OHkifQ.7HEn8X3Ar9s98VkVMiKcVw"
+    }).addTo(map);
+    return map;
+  } // inserimento marker su mappa
 
 
-try {
+  function populateMap(map) {
+    var cards = _toConsumableArray(document.querySelectorAll(".card"));
+
+    var cardsData = cards.map(function (card) {
+      return {
+        linkShow: card.getAttribute("href"),
+        coordinates: card.getAttribute("data-coordinates")
+      };
+    });
+    cardsData.forEach(function (element) {
+      var linkShow = element.linkShow,
+          coordinates = element.coordinates;
+
+      var _coordinates$split$ma = coordinates.split("-").map(function (item) {
+        return parseFloat(item);
+      }),
+          _coordinates$split$ma2 = _slicedToArray(_coordinates$split$ma, 2),
+          latitude = _coordinates$split$ma2[0],
+          longitude = _coordinates$split$ma2[1];
+
+      var popup = L.popup().setContent('<a href="' + linkShow + '">Appartamento</a>');
+      L.marker([latitude, longitude]).addTo(map).bindPopup(popup);
+    });
+  }
+
+  var map = mapView(lat, lng);
+  populateMap(map);
+
+  var Handlebars = __webpack_require__(/*! handlebars */ "./node_modules/handlebars/dist/cjs/handlebars.js");
+
+  var source = document.getElementById("card-template").innerHTML;
+  var template = Handlebars.compile(source);
+  var form = document.getElementById("algoliaForm");
+
+  function getLatLng(id) {
+    return document.getElementById(id).value.split(",");
+  }
+
+  function getServices(className) {
+    var services_array = [];
+    Array.from(document.getElementsByClassName(className)).forEach(function (item) {
+      if (item.checked) {
+        services_array.push(item.value);
+      }
+    });
+    return services_array.length ? services_array.join("-") : "0";
+  }
+
+  function getUrlApi() {
+    var base_url = window.location.protocol + "//" + window.location.host + "/api/flats/?";
+    var params = new URLSearchParams({
+      lat: getLatLng("inputAlgolia-search__latlong")[0],
+      lng: getLatLng("inputAlgolia-search__latlong")[1],
+      rooms_min: document.querySelector("#rooms_min").value,
+      beds_min: document.querySelector("#beds_min").value,
+      required_services: getServices("service-checkbox"),
+      distance: document.querySelector("#distance").value
+    });
+    return base_url + params;
+  }
+
+  function repopulateCards(data) {
+    var container = document.getElementById("search-cards");
+    container.innerHTML = template({
+      flats: data.response
+    });
+  }
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    fetch(getUrlApi()).then(function (response) {
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+
+      return response.json();
+    }).then(function (data) {
+      repopulateCards(data);
+      document.querySelector(".map").innerHTML = '<div id="mapid"></div>';
+
+      var _document$getElementB = document.getElementById("inputAlgolia-search__latlong").value.split(","),
+          _document$getElementB2 = _slicedToArray(_document$getElementB, 2),
+          lat = _document$getElementB2[0],
+          lng = _document$getElementB2[1];
+
+      map = mapView(lat, lng);
+      populateMap(map);
+    })["catch"](function (e) {
+      return console.log(e);
+    });
+  }); // animazioni filtri ricerca
+
   var animationService = document.getElementById("animation--service");
   var isFilterOpen = false;
   var btnFilter = document.getElementById("filter");
@@ -116841,78 +116970,52 @@ try {
 
     isFilterOpen = !isFilterOpen;
   });
-} catch (_unused4) {} // do nothing
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (guestIndexPage);
+
+/***/ }),
+
+/***/ "./resources/js/blade-components/inputAlgolia.js":
+/*!*******************************************************!*\
+  !*** ./resources/js/blade-components/inputAlgolia.js ***!
+  \*******************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var places_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! places.js */ "./node_modules/places.js/index.js");
+/* harmony import */ var places_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(places_js__WEBPACK_IMPORTED_MODULE_0__);
 
 
-try {
-  var getLatLng = function getLatLng(id) {
-    return document.getElementById(id).value.split(",");
-  };
+function place() {
+  var inputAlgolia = document.querySelector("#address"); // init places
 
-  var getServices = function getServices(className) {
-    var services_array = [];
-    Array.from(document.getElementsByClassName(className)).forEach(function (item) {
-      if (item.checked) {
-        services_array.push(item.value);
+  var placesAutocomplete = places_js__WEBPACK_IMPORTED_MODULE_0___default()({
+    appId: "pl9SBUILJO03",
+    apiKey: "707374d54fdaf7af334afaba53bce3c3",
+    container: inputAlgolia,
+    accessibility: {
+      pinButton: {
+        "aria-label": "use browser geolocation",
+        "tab-index": 12
+      },
+      clearButton: {
+        "tab-index": 13
       }
-    });
-    return services_array.length ? services_array.join("-") : "0";
-  };
+    }
+  }); // get lat long
 
-  var getUrlApi = function getUrlApi() {
-    var base_url = window.location.protocol + "//" + window.location.host + "/api/flats/?";
-    var params = new URLSearchParams({
-      lat: getLatLng("latlong")[0],
-      lng: getLatLng("latlong")[1],
-      rooms_min: document.querySelector("#rooms_min").value,
-      beds_min: document.querySelector("#beds_min").value,
-      required_services: getServices("service-checkbox"),
-      distance: document.querySelector("#distance").value
-    });
-    return base_url + params;
-  };
-
-  var repopulateCards = function repopulateCards(data) {
-    var container = document.getElementById("search-cards");
-    console.log(data);
-    container.innerHTML = template({
-      flats: data.response
-    });
-  };
-
-  console.log(lat, lng);
-  var map = mapView(lat, lng);
-  populateMap(map);
-
-  var Handlebars = __webpack_require__(/*! handlebars */ "./node_modules/handlebars/dist/cjs/handlebars.js");
-
-  var source = document.getElementById("card-template").innerHTML;
-  var template = Handlebars.compile(source);
-  var form = document.getElementById("algoliaForm");
-  form.addEventListener("submit", function (e) {
-    e.preventDefault();
-    fetch(getUrlApi()).then(function (response) {
-      return response.json();
-    }).then(function (data) {
-      repopulateCards(data);
-      document.querySelector("#mapid");
-      document.querySelector(".map").innerHTML = '<div id="mapid"></div>';
-
-      var _document$getElementB = document.getElementById("latlong").value.split(","),
-          _document$getElementB2 = _slicedToArray(_document$getElementB, 2),
-          lat = _document$getElementB2[0],
-          lng = _document$getElementB2[1];
-
-      console.log("prova", lat, lng);
-      map = mapView(lat, lng);
-      populateMap(map);
-    })["catch"](function (e) {
-      return console.log(e);
-    });
+  placesAutocomplete.on("change", function (e) {
+    document.querySelector("#inputAlgolia-search__latlong").value = [e.suggestion.latlng.lat, e.suggestion.latlng.lng];
   });
-} catch (e) {
-  console.log(e);
-} // do nothing
+  placesAutocomplete.on("clear", function () {
+    address.textContent = "none";
+  });
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (place);
 
 /***/ }),
 
@@ -117048,8 +117151,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\danle\Desktop\project\BoolBnB\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\danle\Desktop\project\BoolBnB\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\vuduc\OneDrive\Documenti\GitHub\BoolBnB\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\vuduc\OneDrive\Documenti\GitHub\BoolBnB\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ }),

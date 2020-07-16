@@ -9,13 +9,12 @@ body {
     display: flex;
     height: 100vh;
     flex-direction: column;
-    font-family: 'Montserrat', sans-serif;
+    font-family: "Montserrat", sans-serif;
 }
 
-main{
+main {
     flex-grow: 1;
 }
-
 
 li {
     list-style: none;
@@ -58,7 +57,7 @@ li {
 }
 
 @for $i from 1 through 10 {
-    .p#{$i} {
+    .p-#{$i * 5} {
         padding: 5px * $i;
     }
 }
@@ -100,14 +99,20 @@ li {
     text-align: left;
 }
 
-
 // Display
 .inline {
     display: inline;
 }
 
-// Flex
+.block {
+    display: block;
+}
 
+.no-display {
+    display: none;
+}
+
+// Flex
 .d-flex {
     display: flex;
 }
@@ -117,18 +122,17 @@ li {
     flex-direction: column;
 }
 
-.s-between{
+.s-between {
     justify-content: space-between;
 }
 
-.s-center{
+.s-center {
     justify-content: center;
 }
 
 .align-center {
     align-items: center;
 }
-
 
 // Buttons
 
@@ -143,7 +147,7 @@ li {
     @include button-serach-home;
 }
 
-.btn{
+.btn {
     height: 40px;
     display: inline-block;
     border: 0;
@@ -153,28 +157,28 @@ li {
     text-decoration: none;
     box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.8),
         6px 6px 10px rgba(0, 0, 0, 0.2);
-        color: #6f6cde;
+    color: #6f6cde;
     transition: all 0.1s ease-in-out;
-    &:hover{
+    &:hover {
         opacity: 0.5;
         box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.8),
-        6px 6px 10px rgba(0, 0, 0, 0.2);
+            6px 6px 10px rgba(0, 0, 0, 0.2);
     }
     cursor: pointer;
 }
 
-.btn-spons{
+.btn-spons {
     color: $orange;
 }
 
-.btn-edit{
+.btn-edit {
     color: $blue;
 }
 
-.btn-delete{
+.btn-delete {
     color: $red;
     cursor: pointer;
-    &:active{
+    &:active {
         border: 0;
     }
 }
