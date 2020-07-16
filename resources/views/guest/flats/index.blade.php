@@ -11,16 +11,17 @@
 <div class="index-search d-flex s-center">
     <div id="search-cards" class="search-cards">
         @foreach ($flatsInRange as $flat)
-        <a class="card" href="{{ route('flats.show', $flat->id)}}" data-coordinates="{{$flat->getLatLngAsStr() }}">
+        <a class="card-row d-flex" href="{{ route('flats.show', $flat->id)}}" data-coordinates="{{$flat->getLatLngAsStr() }}">
             <div class="image">
-                {{-- @if (!empty($flat->image))
+                @if (!empty($flat->image))
                         <img src="{{ asset('storage/' . $flat->image ) }}" alt="{{$flat -> title}}">
                 @else
                 <img src="https://i.ibb.co/bRN3hZD/casa.jpg" alt="casa">
-                @endif --}}
+                @endif
             </div>
             <div class="desc-card ml-10">
                 <h2 class="mb-10">{{$flat->title}}</h2>
+                <p>{{$flat->address}}</p>
             </div>
         </a>
         @endforeach
