@@ -5,6 +5,8 @@
 }
 form{
     display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     align-items: center;
     #address{
         width: 80%;
@@ -18,6 +20,10 @@ form{
         &:focus{
             border :2px solid rgb(146, 146, 146);
         }
+    }
+    .search-home__error {
+        flex-basis: 100%;
+        color: $red;
     }
 }
 
@@ -33,7 +39,7 @@ form{
 }
 
 @include mobile {
-    
+
 }
 /* Tablets (tablets, 768px and up) */
 @include tablet {
@@ -77,5 +83,5 @@ form{
 }
 /* Large desktops (large desktops, 1200px and up) */
 @include large-desktop {
-    
+
 }

@@ -448,6 +448,10 @@ li {
   display: none;
 }
 
+.no-visibility {
+  visibility: hidden;
+}
+
 .d-flex {
   display: flex;
 }
@@ -1196,6 +1200,8 @@ li {
 
 form {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   align-items: center;
 }
 
@@ -1212,6 +1218,11 @@ form #address {
 form #address:hover,
 form #address:focus {
   border: 2px solid #929292;
+}
+
+form .search-home__error {
+  flex-basis: 100%;
+  color: #e3342f;
 }
 
 .btn-search {
@@ -1579,6 +1590,11 @@ form #address:focus {
 .formAlgoliaIndex-page .row {
   display: flex;
   justify-content: center;
+  flex-basis: 100%;
+}
+
+.formAlgoliaIndex-page .search-index__error {
+  color: #e3342f;
   flex-basis: 100%;
 }
 

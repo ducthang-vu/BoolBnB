@@ -88,26 +88,28 @@ function guestIndexPage(lat, lng) {
         container.innerHTML = template({ flats: data.response });
     }
 
+    class InvalidParameters extends Error {}
+
     form.addEventListener("submit", e => {
         e.preventDefault();
+        document.querySelector(".search-index__error").classList.add("no-visibility");
         fetch(getUrlApi())
             .then(response => {
-                if (!response.ok) {
-                    throw new Error("Network response was not ok");
-                }
+                if (!response.ok) throw new InvalidParameters
                 return response.json();
             })
             .then(data => {
                 repopulateCards(data);
-                document.querySelector(".map").innerHTML =
-                    '<div id="mapid"></div>';
-                const [lat, lng] = document
-                    .getElementById("inputAlgolia-search__latlong")
-                    .value.split(",");
+                document.querySelector(".map").innerHTML = '<div id="mapid"></div>';
+                const [lat, lng] = document.getElementById("inputAlgolia-search__latlong").value.split(",");
                 map = mapView(lat, lng);
                 populateMap(map);
             })
-            .catch(e => console.log(e));
+            .catch(e => {
+                e instanceof InvalidParameters ?
+                    document.querySelector(".search-index__error").classList.remove("no-visibility"):
+                    console.log('Api error');
+            });
     });
 
     // animazioni filtri ricerca
@@ -116,11 +118,8 @@ function guestIndexPage(lat, lng) {
     let isFilterOpen = false;
     let btnFilter = document.getElementById("filter");
     btnFilter.addEventListener("click", function() {
-        if (isFilterOpen) {
-            animationService.classList.remove("animation--service--open");
-        } else {
+        isFilterOpen ? animationService.classList.remove("animation--service--open") :
             animationService.classList.add("animation--service--open");
-        }
         isFilterOpen = !isFilterOpen;
     });
 }

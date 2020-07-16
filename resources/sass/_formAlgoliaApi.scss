@@ -7,6 +7,11 @@
         justify-content: center;
         flex-basis: 100%;
     }
+    .search-index__error {
+        color: $red;
+        flex-basis: 100%;
+    }
+
     .btn-filter {
         flex-basis: 100%;
     }

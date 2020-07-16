@@ -1,19 +1,7 @@
-// .search-home {
-//     display: flex;
-//     flex-direction: column;
-//     height: 100px;
-//     .btn-filter {
-//         margin: 10px 0;
-//     }
-// }
-
 .map {
     display: none;
 }
 
-// @include mobile {
-
-// }
 /* Tablets (tablets, 768px and up) */
 @include tablet {
     .search-cards {
@@ -28,8 +16,3 @@
         }
     }
 }
-
-// /* Large desktops (large desktops, 1200px and up) */
-// @include large-desktop {
-
-// }
