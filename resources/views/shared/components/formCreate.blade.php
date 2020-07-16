@@ -1,4 +1,4 @@
-<div class="edit-form df-column align-center">
+<div class="create-form df-column align-center">
     <form class="df-column" action="{{ route('admin.flats.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('POST')

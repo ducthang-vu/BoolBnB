@@ -54,25 +54,36 @@
 }
 /* Tablets (tablets, 768px and up) */
 @include tablet {
+    .index-search-page{
+        width: 768px;
 
-    .search-home--two{
-        margin-top: 20px;
-    }
-
-    .search-cards{
-        flex-basis: 40%;
-    }
-    .map{
-        display: inline-block;
-        flex-basis: 60%;
-        #mapid{
-            height: 400px;
+        .search-home--two{
+            margin-top: 20px;
+        }
+    
+        .search-cards{
+            flex-basis: 40%;
+        }
+        .map{
+            display: inline-block;
+            flex-basis: 60%;
+            #mapid{
+                height: 400px;
+            }
         }
     }
-
 }
 /* Desktops (desktops, 992px and up) */
 @include desktop {
+    .index-search-page{
+        width: 992px;
+
+        .map{
+            #mapid{
+                height: 100vh;
+            }
+        }
+    }
 
     .animation--service{
         .search-services{
@@ -102,7 +113,7 @@
         input{
             margin-right: 15px;
         }
-    }
+        }
     }
 
 
@@ -110,4 +121,7 @@
 /* Large desktops (large desktops, 1200px and up) */
 @include large-desktop {
 
+    .index-search-page{
+        width: 1800px;
+    }
 }

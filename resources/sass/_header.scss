@@ -164,16 +164,10 @@
             }
         }
     }
-    .main-content {
-        width: 720px;
-    }
 }
 
 /* Desktops (desktops, 992px and up) */
 @include desktop {
-    .main-content {
-        width: 1200px;
-    }
 }
 
 @include large-desktop {
