@@ -1,0 +1,128 @@
+function guestIndexPage(lat, lng) {
+    console.log("prova", lat);
+
+    function mapView(lat, lng) {
+        const map = L.map("mapid").setView([lat, lng], 13);
+        console.log("1 log:", map);
+        L.tileLayer(
+            "https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}",
+            {
+                attribution:
+                    'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+                maxZoom: 18,
+                id: "mapbox/streets-v11",
+                tileSize: 512,
+                zoomOffset: -1,
+                accessToken:
+                    "pk.eyJ1IjoibXJycmNyIiwiYSI6ImNrY2s5bzR6bTB3M2YycnA1NWw5aHA4OHkifQ.7HEn8X3Ar9s98VkVMiKcVw"
+            }
+        ).addTo(map);
+        return map;
+    }
+
+    // inserimento marker su mappa
+    function populateMap(map) {
+        let cards = [...document.querySelectorAll(".card")];
+        let cardsData = cards.map(card => {
+            return {
+                linkShow: card.getAttribute("href"),
+                coordinates: card.getAttribute("data-coordinates")
+            };
+        });
+        cardsData.forEach(element => {
+            const { linkShow, coordinates } = element;
+            const [latitude, longitude] = coordinates
+                .split("-")
+                .map(item => parseFloat(item));
+            let popup = L.popup().setContent(
+                '<a href="' + linkShow + '">Appartamento</a>'
+            );
+            L.marker([latitude, longitude])
+                .addTo(map)
+                .bindPopup(popup);
+        });
+    }
+
+    let map = mapView(lat, lng);
+    populateMap(map);
+
+    const Handlebars = require("handlebars");
+    const source = document.getElementById("card-template").innerHTML;
+    const template = Handlebars.compile(source);
+
+    const form = document.getElementById("algoliaForm");
+
+    function getLatLng(id) {
+        return document.getElementById(id).value.split(",");
+    }
+
+    function getServices(className) {
+        let services_array = [];
+        Array.from(document.getElementsByClassName(className)).forEach(item => {
+            if (item.checked) {
+                services_array.push(item.value);
+            }
+        });
+        return services_array.length ? services_array.join("-") : "0";
+    }
+
+    function getUrlApi() {
+        const base_url =
+            window.location.protocol +
+            "//" +
+            window.location.host +
+            "/api/flats/?";
+        let params = new URLSearchParams({
+            lat: getLatLng("inputAlgolia-search__latlong")[0],
+            lng: getLatLng("inputAlgolia-search__latlong")[1],
+            rooms_min: document.querySelector("#rooms_min").value,
+            beds_min: document.querySelector("#beds_min").value,
+            required_services: getServices("service-checkbox"),
+            distance: document.querySelector("#distance").value
+        });
+        return base_url + params;
+    }
+
+    function repopulateCards(data) {
+        let container = document.getElementById("search-cards");
+        container.innerHTML = template({ flats: data.response });
+    }
+
+    form.addEventListener("submit", e => {
+        e.preventDefault();
+        fetch(getUrlApi())
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error("Network response was not ok");
+                }
+                return response.json();
+            })
+            .then(data => {
+                repopulateCards(data);
+                document.querySelector(".map").innerHTML =
+                    '<div id="mapid"></div>';
+                const [lat, lng] = document
+                    .getElementById("inputAlgolia-search__latlong")
+                    .value.split(",");
+                map = mapView(lat, lng);
+                populateMap(map);
+            })
+            .catch(e => console.log(e));
+    });
+
+    // animazioni filtri ricerca
+    let animationService = document.getElementById("animation--service");
+
+    let isFilterOpen = false;
+    let btnFilter = document.getElementById("filter");
+    btnFilter.addEventListener("click", function() {
+        if (isFilterOpen) {
+            animationService.classList.remove("animation--service--open");
+        } else {
+            animationService.classList.add("animation--service--open");
+        }
+        isFilterOpen = !isFilterOpen;
+    });
+}
+
+export default guestIndexPage;
