@@ -1697,3 +1697,14 @@ form #address:focus {
   }
 }
 
+.adminSponsorshipIndex .container table {
+  margin: 25px auto;
+  width: 80%;
+  max-width: 1140px;
+}
+
+.adminSponsorshipIndex .container table tr th,
+.adminSponsorshipIndex .container table tr td {
+  padding: 10px 0;
+}
+
