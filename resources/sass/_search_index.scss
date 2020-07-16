@@ -49,16 +49,14 @@
 }
 
 @include mobile {
-    
+
 }
 /* Tablets (tablets, 768px and up) */
 @include tablet {
-    
+
     .search-home--two{
         margin-top: 20px;
     }
-    
-    
 }
 /* Desktops (desktops, 992px and up) */
 @include desktop {
@@ -105,10 +103,10 @@
             height: 100vh;
         }
     }
-    
-    
+
+
 }
 /* Large desktops (large desktops, 1200px and up) */
 @include large-desktop {
-    
+
 }

@@ -1,12 +1,12 @@
 <div id="mapid"></div>
 
-    <script>
-        let lat = '{{ $latlong[0] }}';
-        let lng = '{{ $latlong[1] }}';
+<script>
+    let lat = '{{ $latlong[0] }}';
+    let lng = '{{ $latlong[1] }}';
 
-        function mapView(lat, lng) {
-        // Leaflet Map
+    function mapView(lat, lng) {
         const map = L.map('mapid').setView([lat, lng], 13);
+        console.log('1 log:', map)
         L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
             attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
             maxZoom: 18,
@@ -15,7 +15,10 @@
             zoomOffset: -1,
             accessToken: 'pk.eyJ1IjoibXJycmNyIiwiYSI6ImNrY2s5bzR6bTB3M2YycnA1NWw5aHA4OHkifQ.7HEn8X3Ar9s98VkVMiKcVw'
         }).addTo(map);
+        return map
+    }
 
+    function populateMap(map) {
         let cards = [...document.querySelectorAll('.card')];
         let cardsData = cards.map(card => {
             return {
@@ -23,12 +26,11 @@
                 coordinates: card.getAttribute('data-coordinates')
             }
         });
-
         cardsData.forEach(element => {
             const { linkShow, coordinates } = element;
-            [ lat, lng ] = coordinates.split('-');
+            const [ latitude, longitude ] = coordinates.split('-').map(item => parseFloat(item));
             let popup = L.popup().setContent('<a href="' + linkShow + '">Appartamento</a>');
-            L.marker([lat, lng]).addTo(map).bindPopup(popup);
-            });
-        }
-    </script>
+            L.marker([latitude, longitude]).addTo(map).bindPopup(popup);
+        });
+    }
+</script>
