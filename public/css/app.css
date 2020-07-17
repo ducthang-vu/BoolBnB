@@ -1918,6 +1918,7 @@ form .search-home__error {
   .adminSponsorshipIndex .container table {
     width: 100%;
     border-collapse: collapse;
+    margin-top: 30px;
   }
 
   .adminSponsorshipIndex .container tr:nth-of-type(odd) {
@@ -2050,6 +2051,8 @@ form .search-home__error {
     border-bottom-right-radius: 10px;
     border-spacing: 0;
     box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.75);
+    margin: 25px auto;
+    max-width: 1140px;
   }
 
   .adminSponsorshipIndex .container .table .head-row {
@@ -2067,6 +2070,11 @@ form .search-home__error {
 
   .adminSponsorshipIndex .container .table .head-row th:nth-child(2) {
     padding: 0 10px;
+  }
+
+  .adminSponsorshipIndex .container .table tr td,
+  .adminSponsorshipIndex .container .table tr th {
+    padding: 10px 0;
   }
 
   .adminSponsorshipIndex .container .table tr td:first-child {
