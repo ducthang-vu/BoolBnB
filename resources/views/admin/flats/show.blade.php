@@ -2,11 +2,14 @@
 
 @section('page-content')
 <div class="card-show">
-    @if (session('flat-updated'))
-        <div>
+    <div class="d-flex s-center transition-invisible">
+        @if (session('flat-updated'))
+        <div class="success-message">
             <p>{{ session('flat-updated') }} modificato correttamente.</p>
         </div>
-    @endif
+        @endif
+    </div>
+    
 
   <div class="jumbotron pt-20 pb-20">
       <img src="{{ asset('storage/' . $flat->image ) }}" alt="{{$flat -> title}}">
@@ -35,7 +38,7 @@
       <div class="map">
           <h3>Mappa</h3>
       </div>
-      <div class="button-card d-flex mb-20">
+      <div class="button-card mb-20">
         <a class="btn btn-stat mb-5" href="{{ route('admin.statistics' , $flat->id) }}">Statistiche</a>
           <a class="btn btn-spons mb-5 mr-5" href="{{ route('admin.sponsorships.create', ['flat_id' => $flat->id]) }}">Sponsorizza</a>
           <a class="btn btn-edit mb-5 mr-5" href="{{ route('admin.flats.edit', $flat->id) }}">Modifica</a>

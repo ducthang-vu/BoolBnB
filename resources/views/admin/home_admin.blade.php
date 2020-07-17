@@ -2,18 +2,22 @@
 
 
 @section('page-content')
+
     <div class="section-home-admin mt-20">
-        @if (session('flat-saved'))
-        <div>
+        <div class="d-flex s-center transition-invisible">
+
+            @if (session('flat-saved'))
+        <div class="success-message">
             <p>{{ session('flat-saved') }} aggiunto correttamente.</p>
         </div>
         @endif
         @if (session('flat-deleted'))
-        <div>
+        <div class="error-message">
             <p>Appartamento n. {{ session('flat-deleted') }} eliminato correttamente.</p>
         </div>
 
         @endif
+        </div>
 
         <div class="title-flts d-flex s-between align-center">
             <h1 class="mt-20 mb-20">

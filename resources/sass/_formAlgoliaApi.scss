@@ -32,7 +32,7 @@
         flex-basis: 100%;
         transition: all 1s cubic-bezier(0.215, 0.61, 0.355, 1);
         &.animation--service--open {
-            max-height: 300px;
+            max-height: 200px;
             visibility: visible;
         }
         .search-services {
