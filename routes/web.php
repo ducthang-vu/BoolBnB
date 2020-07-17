@@ -31,15 +31,7 @@ Route::prefix('admin')
     ->group(function () {
         Route::get('home_admin', 'HomeController@index')->name('home');
         Route::get('flats/{flat}/statistics', 'FlatStatisticsController@show')->name('statistics');
-        Route::resource('flats', 'FlatController');
+        Route::resource('flats', 'FlatController')->except('index');
         Route::resource('requests', 'RequestController');
         Route::resource('sponsorships', 'SponsorshipController')->only(['index', 'create', 'store']);
     });
-
-Route::get('dev', function () {
-    return view('shared.components.formAlgoliaHome');
-});
-
-Route::get('dev', function () {
-    return view('shared.components.inputAlgolia');
-});
