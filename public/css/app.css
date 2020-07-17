@@ -544,13 +544,13 @@ li {
   padding: 10px;
 }
 
-.main-header .navbar {
+.main-header .navbar-header-page {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.main-header .navbar #logo {
+.main-header .navbar-header-page .logo-header-page {
   text-decoration: none;
   background: linear-gradient(to right, #92174d 9.38%, #e41d5c 88.54%);
   -webkit-background-clip: text;
@@ -559,63 +559,63 @@ li {
   align-items: center;
 }
 
-.main-header .navbar #logo i {
+.main-header .navbar-header-page .logo-header-page i {
   font-size: 30px;
 }
 
-.main-header .navbar #logo span {
+.main-header .navbar-header-page .logo-header-page span {
   font-weight: 900;
 }
 
-.main-header .navbar #hamburger-btn {
+.main-header .navbar-header-page #hamburger-btn {
   background: #ffffff;
   border: none;
 }
 
-.main-header .navbar #hamburger-btn:focus {
+.main-header .navbar-header-page #hamburger-btn:focus {
   outline: none;
 }
 
-.main-header .navbar #hamburger-btn i {
+.main-header .navbar-header-page #hamburger-btn i {
   font-size: 20px;
 }
 
-.main-header .mobile-navbar {
+.main-header .mobile-navbar-header-page {
   display: none;
 }
 
-.main-header .mobile-navbar.show {
+.main-header .mobile-navbar-header-page.show {
   display: block;
 }
 
-.main-header .big-navbar ul li {
+.main-header .big-navbar-header-page ul li {
   display: none;
 }
 
-.hamburger {
+.hamburger-header-page {
   display: flex;
   flex-direction: column;
   align-items: center;
   vertical-align: middle;
 }
 
-.hamburger #logo {
+.hamburger-header-page .logo-header-page {
   text-decoration: none;
   background: linear-gradient(to right, #92174d 9.38%, #e41d5c 88.54%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-.hamburger #logo i {
+.hamburger-header-page .logo-header-page i {
   font-size: 30px;
   vertical-align: middle;
 }
 
-.hamburger #logo span {
+.hamburger-header-page .logo-header-page span {
   font-weight: 900;
 }
 
-.hamburger .mobile-navbar {
+.hamburger-header-page .mobile-navbar-header-page {
   position: fixed;
   top: 36px;
   right: 10px;
@@ -627,7 +627,7 @@ li {
   animation: fadeIn 0.4s;
 }
 
-.hamburger .mobile-navbar .mobile-navbar-header {
+.hamburger-header-page .mobile-navbar-header-page .emptydiv-header-page {
   padding: 0;
   margin: 0;
   height: 10%;
@@ -636,15 +636,15 @@ li {
   border-radius: 9.4px 0 0 0;
 }
 
-.hamburger .mobile-navbar ul {
+.hamburger-header-page .mobile-navbar-header-page ul {
   padding: 5px;
 }
 
-.hamburger .mobile-navbar ul i {
+.hamburger-header-page .mobile-navbar-header-page ul i {
   display: none;
 }
 
-.hamburger .mobile-navbar ul li {
+.hamburger-header-page .mobile-navbar-header-page ul li {
   text-align: left;
   list-style: none;
   text-decoration: none;
@@ -654,12 +654,12 @@ li {
   font-weight: 500;
 }
 
-.hamburger .mobile-navbar ul li a {
+.hamburger-header-page .mobile-navbar-header-page ul li a {
   color: #222222;
   text-decoration: none;
 }
 
-.hamburger .mobile-navbar ul li #register-button {
+.hamburger-header-page .mobile-navbar-header-page ul li #register-button {
   background: none;
   color: inherit;
   border: none;
@@ -694,30 +694,30 @@ li {
 /* Tablets (tablets, 768px and up) */
 
 @media (min-width: 768px) {
-  .navbar {
+  .navbar-header-page {
     display: flex;
     justify-content: space-between;
     align-items: center;
     vertical-align: middle;
   }
 
-  .navbar #logo {
+  .navbar-header-page .logo-header-page {
     text-decoration: none;
     background: linear-gradient(to right, #92174d 9.38%, #e41d5c 88.54%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
 
-  .navbar #logo i {
+  .navbar-header-page .logo-header-page i {
     font-size: 30px;
     vertical-align: middle;
   }
 
-  .navbar #logo span {
+  .navbar-header-page .logo-header-page span {
     font-weight: 900;
   }
 
-  .navbar ul li {
+  .navbar-header-page ul li {
     display: inline;
     text-align: right;
     list-style: none;
@@ -727,20 +727,20 @@ li {
     font-weight: 700;
   }
 
-  .navbar ul li a {
+  .navbar-header-page ul li a {
     color: #222222;
     text-decoration: none;
   }
 
-  .navbar .hamburger {
+  .navbar-header-page .hamburger-header-page {
     display: none;
   }
 
-  .navbar .big-navbar {
+  .navbar-header-page .big-navbar-header-page {
     display: block;
   }
 
-  .navbar .big-navbar ul li {
+  .navbar-header-page .big-navbar-header-page ul li {
     display: inline;
   }
 
@@ -862,7 +862,7 @@ li {
 
 /* Large desktops (large desktops, 1200px and up) */
 
-#popup-wrapper {
+.popup-wrapper-header {
   display: none;
   content: "";
   position: absolute;
@@ -874,7 +874,7 @@ li {
   z-index: 4;
 }
 
-#login-button {
+#login-button-headerNavbar-page {
   background: none;
   color: inherit;
   border: none;
@@ -884,7 +884,7 @@ li {
   outline: inherit;
 }
 
-#register-button {
+#register-button-headerNavbar-page {
   background: none;
   color: inherit;
   border: 0.5px solid #cac9c9;
@@ -896,7 +896,7 @@ li {
   outline: inherit;
 }
 
-.close {
+.close-popup-page {
   float: right;
   text-align: right;
   color: #ffffff;
@@ -906,11 +906,12 @@ li {
   cursor: pointer;
 }
 
-.close:hover {
+.close-popup-page:hover {
   color: #222222;
 }
 
-.container {
+.container-register,
+.container-login {
   display: flex;
   flex-direction: column;
   margin: 0 auto;
@@ -918,11 +919,13 @@ li {
   height: 100%;
 }
 
-.container .card-popup {
+.container-register .card-popup,
+.container-login .card-popup {
   height: 100%;
 }
 
-.container .card-popup .card-header {
+.container-register .card-popup .card-header,
+.container-login .card-popup .card-header {
   justify-content: space-between;
   padding: 0 auto 20px;
   border-bottom: 1px solid black;
@@ -932,27 +935,32 @@ li {
   color: #ffffff;
 }
 
-.container .card-popup .card-body {
+.container-register .card-popup .card-body,
+.container-login .card-popup .card-body {
   margin: 10px 0;
   padding: 5px 7px;
   text-align: center;
 }
 
-.container .card-popup .card-body input {
+.container-register .card-popup .card-body input,
+.container-login .card-popup .card-body input {
   border-radius: 8px;
   padding: 5px;
   width: 80%;
 }
 
-.container .card-popup .card-body button {
+.container-register .card-popup .card-body button,
+.container-login .card-popup .card-body button {
   cursor: pointer;
 }
 
-.container .card-popup .form-group {
+.container-register .card-popup .form-group,
+.container-login .card-popup .form-group {
   margin: 10px 0;
 }
 
-.container .card-popup #remember {
+.container-register .card-popup #remember,
+.container-login .card-popup #remember {
   width: 30px;
 }
 

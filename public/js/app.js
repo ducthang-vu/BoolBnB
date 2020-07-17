@@ -116677,13 +116677,14 @@ module.exports = function(module) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var leaflet_dist_leaflet_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! leaflet/dist/leaflet.js */ "./node_modules/leaflet/dist/leaflet.js");
-/* harmony import */ var leaflet_dist_leaflet_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(leaflet_dist_leaflet_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var leaflet__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! leaflet */ "./node_modules/leaflet/dist/leaflet-src.js");
-/* harmony import */ var leaflet__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(leaflet__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _blade_components_inputAlgolia__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./blade-components/inputAlgolia */ "./resources/js/blade-components/inputAlgolia.js");
-/* harmony import */ var _blade_components_formAlgoliaHome__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./blade-components/formAlgoliaHome */ "./resources/js/blade-components/formAlgoliaHome.js");
-/* harmony import */ var _blade_components_guestIndexPage__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./blade-components/guestIndexPage */ "./resources/js/blade-components/guestIndexPage.js");
+/* harmony import */ var _blade_components_hamburgerHeader__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./blade-components/hamburgerHeader */ "./resources/js/blade-components/hamburgerHeader.js");
+/* harmony import */ var leaflet_dist_leaflet_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! leaflet/dist/leaflet.js */ "./node_modules/leaflet/dist/leaflet.js");
+/* harmony import */ var leaflet_dist_leaflet_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(leaflet_dist_leaflet_js__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var leaflet__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! leaflet */ "./node_modules/leaflet/dist/leaflet-src.js");
+/* harmony import */ var leaflet__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(leaflet__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _blade_components_inputAlgolia__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./blade-components/inputAlgolia */ "./resources/js/blade-components/inputAlgolia.js");
+/* harmony import */ var _blade_components_formAlgoliaHome__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./blade-components/formAlgoliaHome */ "./resources/js/blade-components/formAlgoliaHome.js");
+/* harmony import */ var _blade_components_guestIndexPage__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./blade-components/guestIndexPage */ "./resources/js/blade-components/guestIndexPage.js");
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -116718,6 +116719,7 @@ const app = new Vue({
 
 
 
+
 var Chart = __webpack_require__(/*! chart.js */ "./node_modules/chart.js/dist/Chart.js");
 
 
@@ -116725,39 +116727,21 @@ var Chart = __webpack_require__(/*! chart.js */ "./node_modules/chart.js/dist/Ch
 
 
 if (document.querySelector(".inputAlgolia-page")) {
-  Object(_blade_components_inputAlgolia__WEBPACK_IMPORTED_MODULE_2__["default"])();
+  Object(_blade_components_inputAlgolia__WEBPACK_IMPORTED_MODULE_3__["default"])();
 }
 
 if (document.querySelector(".formAlgoliaHome-page")) {
-  Object(_blade_components_formAlgoliaHome__WEBPACK_IMPORTED_MODULE_3__["default"])();
+  Object(_blade_components_formAlgoliaHome__WEBPACK_IMPORTED_MODULE_4__["default"])();
 }
 
 if (document.querySelector(".formAlgoliaIndex-page")) {
   console.log("prova 1", lat);
-  Object(_blade_components_guestIndexPage__WEBPACK_IMPORTED_MODULE_4__["default"])(lat, lng);
+  Object(_blade_components_guestIndexPage__WEBPACK_IMPORTED_MODULE_5__["default"])(lat, lng);
 }
 
-try {
-  var mobileNavbar = document.getElementById("mobile-navbar");
-  var isMenuOpen = false;
-  var btnHamburger = document.getElementById('hamburger-btn');
-  var btnLogin = document.querySelector('.hamburger #login-button');
-  var btnRegister = document.querySelector('.hamburger #register-button');
-  btnHamburger.addEventListener('click', function () {
-    mobileNavbar.classList.toggle('show');
-  });
-  btnLogin.addEventListener('click', function () {
-    if (mobileNavbar.classList.contains('show')) {
-      mobileNavbar.classList.remove('show');
-    }
-  });
-  btnRegister.addEventListener('click', function () {
-    if (mobileNavbar.classList.contains('show')) {
-      mobileNavbar.classList.remove('show');
-    }
-  });
-} catch (_unused) {} // do nothing
-
+if (document.querySelector(".main-header")) {
+  Object(_blade_components_hamburgerHeader__WEBPACK_IMPORTED_MODULE_0__["default"])();
+}
 
 try {
   var canvasVisualisations = document.getElementById("chart-visualisations");
@@ -116788,7 +116772,7 @@ try {
       }]
     }
   });
-} catch (_unused2) {} // do nothing
+} catch (_unused) {} // do nothing
 
 /***/ }),
 
@@ -117007,6 +116991,44 @@ function guestIndexPage(lat, lng) {
 
 /***/ }),
 
+/***/ "./resources/js/blade-components/hamburgerHeader.js":
+/*!**********************************************************!*\
+  !*** ./resources/js/blade-components/hamburgerHeader.js ***!
+  \**********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+function hamburgerHeader() {
+  var mobileNavbar = document.getElementById("id-mobile-navbar-header-page");
+  var isMenuOpen = false;
+  var btnHamburger = document.getElementById('hamburger-btn');
+  var btnLogin = document.querySelector('.hamburger-header-page #login-button-headerNavbar-page');
+  var btnRegister = document.querySelector('.hamburger-header-page #register-button-headerNavbar-page');
+
+  (function () {
+    btnHamburger.addEventListener('click', function () {
+      mobileNavbar.classList.toggle('show');
+    });
+  })();
+
+  btnLogin.addEventListener('click', function () {
+    if (mobileNavbar.classList.contains('show')) {
+      mobileNavbar.classList.remove('show');
+    }
+  });
+  btnRegister.addEventListener('click', function () {
+    if (mobileNavbar.classList.contains('show')) {
+      mobileNavbar.classList.remove('show');
+    }
+  });
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (hamburgerHeader);
+
+/***/ }),
+
 /***/ "./resources/js/blade-components/inputAlgolia.js":
 /*!*******************************************************!*\
   !*** ./resources/js/blade-components/inputAlgolia.js ***!
@@ -117182,8 +117204,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Boolean\Esercizi\final_project\BoolBnB\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Boolean\Esercizi\final_project\BoolBnB\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\vuduc\OneDrive\Documenti\GitHub\BoolBnB\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\vuduc\OneDrive\Documenti\GitHub\BoolBnB\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ }),
