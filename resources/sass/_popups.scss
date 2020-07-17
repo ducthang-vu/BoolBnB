@@ -1,5 +1,5 @@
 //Wrapper per oscurare la pagina
-#popup-wrapper {
+.popup-wrapper-header {
     display: none;
     content: '';
     position: absolute;
@@ -11,7 +11,7 @@
     z-index: 4;
 }
 //Buttons
-#login-button {
+#login-button-headerNavbar-page {
     background: none;
 	color: inherit;
 	border: none;
@@ -20,7 +20,7 @@
 	cursor: pointer;
 	outline: inherit;
 }
-#register-button {
+#register-button-headerNavbar-page {
     background: none;
 	color: inherit;
     border: 0.5px solid #cac9c9;
@@ -32,7 +32,7 @@
 	outline: inherit;
 }
 //close
-.close {
+.close-popup-page {
     float: right;
     text-align: right;
     color: $white;
@@ -41,10 +41,11 @@
     font-weight: bold;
     cursor: pointer;
 }
-.close:hover {
+.close-popup-page:hover {
     color: $text;
 }
-.container {
+.container-register,
+.container-login {
     display: flex;
     flex-direction: column;
     margin: 0 auto;
