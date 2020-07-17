@@ -117006,13 +117006,9 @@ function hamburgerHeader() {
   var btnHamburger = document.getElementById('hamburger-btn');
   var btnLogin = document.querySelector('.hamburger-header-page #login-button-headerNavbar-page');
   var btnRegister = document.querySelector('.hamburger-header-page #register-button-headerNavbar-page');
-
-  (function () {
-    btnHamburger.addEventListener('click', function () {
-      mobileNavbar.classList.toggle('show');
-    });
-  })();
-
+  btnHamburger.addEventListener('click', function () {
+    mobileNavbar.classList.toggle('show');
+  });
   btnLogin.addEventListener('click', function () {
     if (mobileNavbar.classList.contains('show')) {
       mobileNavbar.classList.remove('show');
@@ -117204,8 +117200,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\nicol\OneDrive\Desktop\project\BoolBnB\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\nicol\OneDrive\Desktop\project\BoolBnB\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\vuduc\OneDrive\Documenti\GitHub\BoolBnB\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\vuduc\OneDrive\Documenti\GitHub\BoolBnB\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ }),
