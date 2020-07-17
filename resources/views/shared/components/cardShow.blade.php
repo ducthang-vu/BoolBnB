@@ -5,13 +5,7 @@ This template need to be include with a parameter of model App\Flat
 
 <div class="card-show">
     <div class="jumbotron pt-20 pb-20">
-
-        @if (!empty($flat->image))
-            <img src="{{ asset('storage/' . $flat->image ) }}" alt="{{$flat -> title}}">
-        @else
-            <img src="https://i.ibb.co/bRN3hZD/casa.jpg" alt="casa">
-        @endif
-
+        <img src="{{ asset('storage/' . $flat->image ) }}" alt="{{$flat -> title}}">
         <h1>{{$flat->title}}</h1>
 
     </div>
@@ -47,7 +41,7 @@ This template need to be include with a parameter of model App\Flat
                 @endauth
                 @else
                 @guest
-                
+
                     <h3>Scrivi al proprietario</h3>
 
                     <form class= "form-message" action="{{ route('requests') }}" method="POST">

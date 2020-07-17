@@ -3,21 +3,14 @@
 @section('page-content')
 <div class="card-show">
     @if (session('flat-updated'))
-    <div>
-        <p>{{ session('flat-updated') }} modificato correttamente.</p>
-    </div>
-    
+        <div>
+            <p>{{ session('flat-updated') }} modificato correttamente.</p>
+        </div>
     @endif
 
   <div class="jumbotron pt-20 pb-20">
-
-    @if (!empty($flat->image))
-        <img src="{{ asset('storage/' . $flat->image ) }}" alt="{{$flat -> title}}">
-    @else
-        <img src="https://i.ibb.co/bRN3hZD/casa.jpg" alt="casa">
-    @endif
-
-    <h1>{{$flat->title}}</h1>   
+      <img src="{{ asset('storage/' . $flat->image ) }}" alt="{{$flat -> title}}">
+      <h1>{{$flat->title}}</h1>
 
   </div>
 
