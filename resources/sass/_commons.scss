@@ -21,14 +21,13 @@ li {
 }
 
 .main-content {
-    padding: 0 15px;
-    max-width: 1800px;
+    max-width: 1200px;
     margin: 0 auto;
 }
 
 // Margins and Paddings
 @for $i from 1 through 10 {
-    .m#{$i} {
+    .m-#{$i * 5} {
         margin: 5px * $i;
     }
 }
