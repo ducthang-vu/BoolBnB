@@ -12,7 +12,7 @@
                 <label for="description">Descrizione</label>
                 <textarea name="description" id="description" cols="30" rows="10">{{ old('description') }}</textarea>
             </div>
-        
+
 
             <div class="desc-two df-column align-center">
                 <label for="number_of_rooms">Numero di stanze</label>
@@ -28,10 +28,10 @@
 
         <div class="address df-column align-center">
             <label for="address">Indirizzo</label>
-            <input type="text" name="address" id="address" value="{{ old('address') }}">
+            @include('shared.components.inputAlgolia')
         </div>
 
-        <div class="add-image df-column align-center">    
+        <div class="add-image df-column align-center">
             <label for="image">Immagine</label>
             <input type="file" name="image" id="image" accept="image/*" value="{{ old('image') }}">
         </div>
@@ -44,8 +44,6 @@
             </div>
             @endforeach
         </div>
-        {{-- Acquisizione lat e long --}}
-        <input type="hidden" name="latlong" id="latlong">
         <input type="submit" value="Aggiungi" class="btn-search">
     </form>
 </div>

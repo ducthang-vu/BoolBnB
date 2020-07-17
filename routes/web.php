@@ -41,5 +41,5 @@ Route::get('dev', function () {
 });
 
 Route::get('dev', function () {
-    return view('welcome');
+    return view('shared.components.inputAlgolia');
 });
