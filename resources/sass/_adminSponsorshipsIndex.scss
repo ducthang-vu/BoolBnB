@@ -22,6 +22,7 @@
             table { 
                 width: 100%; 
                 border-collapse: collapse; 
+                margin-top: 30px;
                 }
                 tr:nth-of-type(odd) { 
                 @include bg_gradient;
@@ -92,7 +93,21 @@
 
 
 @include mobile {
-
+    // .adminSponsorshipIndex {
+    //     .container {
+    //         table {
+    //             margin: 25px auto;
+    //             width: 80%;
+    //             max-width: 1140px;
+    //             tr {
+    //                 th,
+    //                 td {
+    //                     padding: 10px 0;
+    //                 }
+    //             }
+    //         }
+    //     }
+    // }
 }
 /* Tablets (tablets, 768px and up) */
 @include tablet {
@@ -121,6 +136,9 @@
                 -webkit-box-shadow: 4px 4px 4px 0px rgba(0,0,0,0.75);
                 -moz-box-shadow: 4px 4px 4px 0px rgba(0,0,0,0.75);
                 box-shadow: 4px 4px 4px 0px rgba(0,0,0,0.75);
+                margin: 25px auto;
+                // width: 80%;
+                max-width: 1140px;
                 .head-row {
                     @include bg_gradient;
                     color: $white;
@@ -132,6 +150,10 @@
                     }
                 }
                 tr {
+                    td,
+                    th {
+                        padding: 10px 0;
+                    }
                     td:first-child {
                         padding-left: 5px;
                     }
