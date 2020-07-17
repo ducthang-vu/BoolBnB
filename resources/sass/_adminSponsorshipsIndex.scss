@@ -19,30 +19,30 @@
                 transition: all 0.1s ease-in-out;
                 cursor: pointer;
             }
-            table { 
-                width: 100%; 
-                border-collapse: collapse; 
+            table {
+                width: 100%;
+                border-collapse: collapse;
                 margin-top: 30px;
                 }
-                tr:nth-of-type(odd) { 
+                tr:nth-of-type(odd) {
                 @include bg_gradient;
                 -webkit-box-shadow: 4px 4px 4px 0px rgba(0,0,0,0.75);
                 -moz-box-shadow: 4px 4px 4px 0px rgba(0,0,0,0.75);
                 box-shadow: 4px 4px 4px 0px rgba(0,0,0,0.75);
                 }
-                tr:nth-of-type(even) { 
+                tr:nth-of-type(even) {
                 @include bg_gradient_even;
                 -webkit-box-shadow: 4px 4px 4px 0px rgba(0,0,0,0.75);
                 -moz-box-shadow: 4px 4px 4px 0px rgba(0,0,0,0.75);
                 box-shadow: 4px 4px 4px 0px rgba(0,0,0,0.75);
                 }
-                td { 
-                padding: 6px; 
-                border: 1px solid #ccc; 
-                text-align: right; 
+                td {
+                padding: 6px;
+                border: 1px solid #ccc;
+                text-align: right;
                 }
-            table, thead, tbody, th, td, tr { 
-                display: block; 
+            table, thead, tbody, th, td, tr {
+                display: block;
             }
             thead tr {
                 position: absolute;
@@ -78,7 +78,7 @@
             td:nth-of-type(5):before { content: "End"; }
             td:nth-of-type(6):before { content: "Price paid"; }
             td:nth-of-type(7):before { content: "Payment code"; }
-        } 
+        }
     }
 }
 .active-legend-div-indexSponsorship-page {
@@ -165,8 +165,8 @@
                     background: $tr_hover;
                 }
             }
-        }    
-    }    
+        }
+    }
 }
 /* Desktops (desktops, 992px and up) */
 @include desktop {

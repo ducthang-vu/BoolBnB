@@ -44,16 +44,11 @@ class Flat extends Model
     public function toSearchableArray()
     {
         $array = $this->toArray();
-
-        // // Applies Scout Extended default transformations:
         $array = $this->transform($array);
-
-        // Add an extra attribute:
         $array['_geoloc'] = [
             'lat' => $this->lat,
             'lng' => $this->lng
         ];
-
         return $array;
     }
 

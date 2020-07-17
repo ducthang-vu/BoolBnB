@@ -33,7 +33,14 @@
                     </thead>
                     <tbody>
                         @foreach($sponsorships as $sponsorship)
-                            <tr>
+                            <tr
+                                class="
+                                    @if (Carbon\Carbon::parse($sponsorship->end)
+                                            ->greaterThanOrEqualTo(Carbon\Carbon::now()))
+                                        active
+                                        @endif
+                                    "
+                            >
                                 <td scope="row">{{ $sponsorship->id }}</th>
                                 <td>{{ $sponsorship->flat_id }}</td>
                                 <td>{{ $sponsorship->sponsor_type }}</th>
@@ -50,7 +57,7 @@
                     <span class="span-indexSponsorship-page">= la sponsorizzazione è attiva</span>
                 </div>
             </div>
-        @else 
+        @else
             <h1 class="empty-h1-sponsorship-page p-50">
                 Non hai ancora nessun appartamento sponsorizzato.
             </h1>

@@ -13,10 +13,7 @@ class HomeController extends Controller
             ->where('end', '>=', date("Y-m-d H:i:s"))
             ->inRandomOrder()
             ->get();
-        $sponsoredFlats = [];
-        foreach($activeSponsorships as $activeSponsorship) {
-            $sponsoredFlats[] = Flat::find($activeSponsorship->flat_id);
-        }
+        $sponsoredFlats = $activeSponsorships->map(function ($item) {return Flat::find($item->flat_id);});
         return view('guest.home', compact('sponsoredFlats'));
     }
 }
