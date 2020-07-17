@@ -10,9 +10,6 @@ class Flat extends Model
 {
     use Searchable;
 
-    //
-    //protected $geometry = ['geolocation'];
-    //protected $geometryAsText = true;
     protected $fillable = [
         'user_id',
         'title',
@@ -25,40 +22,11 @@ class Flat extends Model
         'image',
     ];
 
-    /* Decode attribute 'geolocation' in string */
-    // public function newQuery($excludeDeleted = true)
-    // {
-    //     if (!empty($this->geometry) && $this->geometryAsText === true)
-    //     {
-    //         $raw = '';
-    //         foreach ($this->geometry as $column)
-    //         {
-    //             $raw .= 'AsText(`' . $this->table . '`.`' . $column . '`) as `' . $column . '`, ';
-    //         }
-    //         $raw = substr($raw, 0, -2);
-    //         return parent::newQuery($excludeDeleted)->addSelect('*', DB::raw($raw));
-    //     }
-    //     return parent::newQuery($excludeDeleted);
-    // }
-
     /* UTILITIES */
     public function getLatLngAsStr() {
 
         return $this->lat . '-' . $this->lng;
     }
-
-    // public function getGeolocation() {
-    //     preg_match_all("(-?\d+.?\d*)", $this->geolocation, $matches);
-    //     return $matches[0];
-    // }
-
-    // public function getLat() {
-    //     return floatval($this->getGeolocation()[0]);
-    // }
-
-    // public function getLong() {
-    //     return floatval($this->getGeolocation()[1]);
-    // }
 
     // function getDistance($location) {
     //     $r = 6356.752;  // Earth radius

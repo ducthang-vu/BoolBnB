@@ -1,14 +1,13 @@
 <form id="algoliaForm" class="formAlgoliaIndex-page d-flex">
     @csrf
-    <div class="row p-25">
+    <div class="row pt-25">
         @include('shared.components.inputAlgolia')
         <input type="submit" value="Cerca" class="btn-search" id="search-home__submit-btn">
     </div>
+
+    <div class="search-index__error no-visibility p-10 text-center">Inserisci un indirizzo valido</div>
     <button id="filter" class="btn btn-filter mb-25">Filtri</button>
 
-    <div class="search-index__error no-display">Inserisci un indirizzo valido</div>
-
-    {{-- <div class="search-index--two mb-30"> --}}
     <div id="animation--service" class="animation--service p-10 mb-30">
         <div class="search-services">
             <div class="formgroup">
@@ -26,14 +25,12 @@
         </div>
         <div class="checkbox-services mt-15">
             @foreach(App\Service::all() as $service)
-            <div class="services">
-                <label for="service-{{ $service->id }}">{{ $service->type }}:</label>
-                <input type="checkbox" class="service-checkbox" value="{{ $service->id }}"
-                    id="service-{{ $service->id }}">
-            </div>
+                <div class="services">
+                    <label for="service-{{ $service->id }}">{{ $service->type }}:</label>
+                    <input type="checkbox" class="service-checkbox" value="{{ $service->id }}"
+                        id="service-{{ $service->id }}">
+                </div>
             @endforeach
         </div>
     </div>
-    {{-- </div> --}}
-
 </form>

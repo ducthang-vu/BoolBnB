@@ -116677,14 +116677,13 @@ module.exports = function(module) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _blade_components_hamburgerHeader__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./blade-components/hamburgerHeader */ "./resources/js/blade-components/hamburgerHeader.js");
-/* harmony import */ var leaflet_dist_leaflet_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! leaflet/dist/leaflet.js */ "./node_modules/leaflet/dist/leaflet.js");
-/* harmony import */ var leaflet_dist_leaflet_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(leaflet_dist_leaflet_js__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var leaflet__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! leaflet */ "./node_modules/leaflet/dist/leaflet-src.js");
-/* harmony import */ var leaflet__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(leaflet__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _blade_components_inputAlgolia__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./blade-components/inputAlgolia */ "./resources/js/blade-components/inputAlgolia.js");
-/* harmony import */ var _blade_components_formAlgoliaHome__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./blade-components/formAlgoliaHome */ "./resources/js/blade-components/formAlgoliaHome.js");
-/* harmony import */ var _blade_components_guestIndexPage__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./blade-components/guestIndexPage */ "./resources/js/blade-components/guestIndexPage.js");
+/* harmony import */ var leaflet_dist_leaflet_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! leaflet/dist/leaflet.js */ "./node_modules/leaflet/dist/leaflet.js");
+/* harmony import */ var leaflet_dist_leaflet_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(leaflet_dist_leaflet_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var leaflet__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! leaflet */ "./node_modules/leaflet/dist/leaflet-src.js");
+/* harmony import */ var leaflet__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(leaflet__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _blade_components_inputAlgolia__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./blade-components/inputAlgolia */ "./resources/js/blade-components/inputAlgolia.js");
+/* harmony import */ var _blade_components_formAlgoliaHome__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./blade-components/formAlgoliaHome */ "./resources/js/blade-components/formAlgoliaHome.js");
+/* harmony import */ var _blade_components_guestIndexPage__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./blade-components/guestIndexPage */ "./resources/js/blade-components/guestIndexPage.js");
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -116719,7 +116718,6 @@ const app = new Vue({
 
 
 
-
 var Chart = __webpack_require__(/*! chart.js */ "./node_modules/chart.js/dist/Chart.js");
 
 
@@ -116727,21 +116725,39 @@ var Chart = __webpack_require__(/*! chart.js */ "./node_modules/chart.js/dist/Ch
 
 
 if (document.querySelector(".inputAlgolia-page")) {
-  Object(_blade_components_inputAlgolia__WEBPACK_IMPORTED_MODULE_3__["default"])();
+  Object(_blade_components_inputAlgolia__WEBPACK_IMPORTED_MODULE_2__["default"])();
 }
 
 if (document.querySelector(".formAlgoliaHome-page")) {
-  Object(_blade_components_formAlgoliaHome__WEBPACK_IMPORTED_MODULE_4__["default"])();
+  Object(_blade_components_formAlgoliaHome__WEBPACK_IMPORTED_MODULE_3__["default"])();
 }
 
 if (document.querySelector(".formAlgoliaIndex-page")) {
   console.log("prova 1", lat);
-  Object(_blade_components_guestIndexPage__WEBPACK_IMPORTED_MODULE_5__["default"])(lat, lng);
+  Object(_blade_components_guestIndexPage__WEBPACK_IMPORTED_MODULE_4__["default"])(lat, lng);
 }
 
-if (document.querySelector(".main-header")) {
-  Object(_blade_components_hamburgerHeader__WEBPACK_IMPORTED_MODULE_0__["default"])();
-}
+try {
+  var mobileNavbar = document.getElementById("mobile-navbar");
+  var isMenuOpen = false;
+  var btnHamburger = document.getElementById('hamburger-btn');
+  var btnLogin = document.querySelector('.hamburger #login-button');
+  var btnRegister = document.querySelector('.hamburger #register-button');
+  btnHamburger.addEventListener('click', function () {
+    mobileNavbar.classList.toggle('show');
+  });
+  btnLogin.addEventListener('click', function () {
+    if (mobileNavbar.classList.contains('show')) {
+      mobileNavbar.classList.remove('show');
+    }
+  });
+  btnRegister.addEventListener('click', function () {
+    if (mobileNavbar.classList.contains('show')) {
+      mobileNavbar.classList.remove('show');
+    }
+  });
+} catch (_unused) {} // do nothing
+
 
 try {
   var canvasVisualisations = document.getElementById("chart-visualisations");
@@ -116772,7 +116788,7 @@ try {
       }]
     }
   });
-} catch (_unused) {} // do nothing
+} catch (_unused2) {} // do nothing
 
 /***/ }),
 
@@ -116794,7 +116810,7 @@ function formAlgoliaHome() {
     if (document.getElementById("inputAlgolia-search__latlong").value) {
       form.submit();
     } else {
-      document.querySelector(".search-home__error").classList.remove("no-display");
+      document.querySelector(".search-home__error").classList.remove("no-visibility");
     }
   });
 }
@@ -116812,6 +116828,30 @@ function formAlgoliaHome() {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _wrapNativeSuper(Class) { var _cache = typeof Map === "function" ? new Map() : undefined; _wrapNativeSuper = function _wrapNativeSuper(Class) { if (Class === null || !_isNativeFunction(Class)) return Class; if (typeof Class !== "function") { throw new TypeError("Super expression must either be null or a function"); } if (typeof _cache !== "undefined") { if (_cache.has(Class)) return _cache.get(Class); _cache.set(Class, Wrapper); } function Wrapper() { return _construct(Class, arguments, _getPrototypeOf(this).constructor); } Wrapper.prototype = Object.create(Class.prototype, { constructor: { value: Wrapper, enumerable: false, writable: true, configurable: true } }); return _setPrototypeOf(Wrapper, Class); }; return _wrapNativeSuper(Class); }
+
+function _construct(Parent, args, Class) { if (_isNativeReflectConstruct()) { _construct = Reflect.construct; } else { _construct = function _construct(Parent, args, Class) { var a = [null]; a.push.apply(a, args); var Constructor = Function.bind.apply(Parent, a); var instance = new Constructor(); if (Class) _setPrototypeOf(instance, Class.prototype); return instance; }; } return _construct.apply(null, arguments); }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
+function _isNativeFunction(fn) { return Function.toString.call(fn).indexOf("[native code]") !== -1; }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -116918,13 +116958,25 @@ function guestIndexPage(lat, lng) {
     });
   }
 
+  var InvalidParameters = /*#__PURE__*/function (_Error) {
+    _inherits(InvalidParameters, _Error);
+
+    var _super = _createSuper(InvalidParameters);
+
+    function InvalidParameters() {
+      _classCallCheck(this, InvalidParameters);
+
+      return _super.apply(this, arguments);
+    }
+
+    return InvalidParameters;
+  }( /*#__PURE__*/_wrapNativeSuper(Error));
+
   form.addEventListener("submit", function (e) {
     e.preventDefault();
+    document.querySelector(".search-index__error").classList.add("no-visibility");
     fetch(getUrlApi()).then(function (response) {
-      if (!response.ok) {
-        throw new Error("Network response was not ok");
-      }
-
+      if (!response.ok) throw new InvalidParameters();
       return response.json();
     }).then(function (data) {
       repopulateCards(data);
@@ -116938,7 +116990,7 @@ function guestIndexPage(lat, lng) {
       map = mapView(lat, lng);
       populateMap(map);
     })["catch"](function (e) {
-      return console.log(e);
+      e instanceof InvalidParameters ? document.querySelector(".search-index__error").classList.remove("no-visibility") : console.log('Api error');
     });
   }); // animazioni filtri ricerca
 
@@ -116946,55 +116998,12 @@ function guestIndexPage(lat, lng) {
   var isFilterOpen = false;
   var btnFilter = document.getElementById("filter");
   btnFilter.addEventListener("click", function () {
-    if (isFilterOpen) {
-      animationService.classList.remove("animation--service--open");
-    } else {
-      animationService.classList.add("animation--service--open");
-    }
-
+    isFilterOpen ? animationService.classList.remove("animation--service--open") : animationService.classList.add("animation--service--open");
     isFilterOpen = !isFilterOpen;
   });
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (guestIndexPage);
-
-/***/ }),
-
-/***/ "./resources/js/blade-components/hamburgerHeader.js":
-/*!**********************************************************!*\
-  !*** ./resources/js/blade-components/hamburgerHeader.js ***!
-  \**********************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-function hamburgerHeader() {
-  var mobileNavbar = document.getElementById("id-mobile-navbar-header-page");
-  var isMenuOpen = false;
-  var btnHamburger = document.getElementById('hamburger-btn');
-  var btnLogin = document.querySelector('.hamburger-header-page #login-button-headerNavbar-page');
-  var btnRegister = document.querySelector('.hamburger-header-page #register-button-headerNavbar-page');
-
-  (function () {
-    btnHamburger.addEventListener('click', function () {
-      mobileNavbar.classList.toggle('show');
-    });
-  })();
-
-  btnLogin.addEventListener('click', function () {
-    if (mobileNavbar.classList.contains('show')) {
-      mobileNavbar.classList.remove('show');
-    }
-  });
-  btnRegister.addEventListener('click', function () {
-    if (mobileNavbar.classList.contains('show')) {
-      mobileNavbar.classList.remove('show');
-    }
-  });
-}
-
-/* harmony default export */ __webpack_exports__["default"] = (hamburgerHeader);
 
 /***/ }),
 
@@ -117173,8 +117182,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\danle\Desktop\project\BoolBnB\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\danle\Desktop\project\BoolBnB\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Boolean\Esercizi\final_project\BoolBnB\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Boolean\Esercizi\final_project\BoolBnB\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ }),

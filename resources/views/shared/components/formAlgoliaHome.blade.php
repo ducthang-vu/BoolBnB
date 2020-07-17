@@ -5,8 +5,7 @@
             @method('GET')
             @include('shared.components.inputAlgolia')
             <input type="submit" value="Cerca" class="btn-search" id="search-home__submit-btn">
+            <div class="search-home__error no-visibility text-center pt-15">Inserisci un indirizzo valido</div>
         </form>
-
-        <div class="search-home__error no-display">Inserisci un indirizzo valido</div>
     </div>
 </div>

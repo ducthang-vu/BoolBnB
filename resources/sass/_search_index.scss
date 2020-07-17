@@ -1,25 +1,18 @@
-// .search-home {
-//     display: flex;
-//     flex-direction: column;
-//     height: 100px;
-//     .btn-filter {
-//         margin: 10px 0;
-//     }
-// }
-
 .map {
     display: none;
 }
 
-// @include mobile {
+#mapid {
+    height: 300px;
+}
 
-// }
 /* Tablets (tablets, 768px and up) */
 @include tablet {
     .search-cards {
         flex-basis: 40%;
     }
     .map {
+        z-index: 1;
         display: inline-block;
         flex-basis: 60%;
         #mapid {
@@ -27,8 +20,3 @@
         }
     }
 }
-
-// /* Large desktops (large desktops, 1200px and up) */
-// @include large-desktop {
-
-// }
