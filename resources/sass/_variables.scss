@@ -21,9 +21,11 @@ $cyan: #6cb2eb;
 $black: #000;
 $white: #ffffff;
 $footerbg: #f7f7f7;
+$tablebg: #f6f6f6b9;
 $text: #222222;
 $bg_airbnb: rgb(228, 29, 92);
 $black_rgba_opacity: rgba(0,0,0,0.5);
+$tr_hover: #cec9c9;
 
 
 @mixin text_gradient {
@@ -35,6 +37,15 @@ $black_rgba_opacity: rgba(0,0,0,0.5);
 @mixin bg_gradient {
     background: linear-gradient(to right, rgb(146, 23, 77) 9.38%, rgb(228, 29, 92) 88.54%);
     color: $white;
+    font-size: 13px;
+    font-weight: 500;
+    border-radius: 5px;
+    border: 1px solid transparent;
+}
+
+@mixin bg_gradient_even {
+    background: $tablebg;
+    color: $text;
     font-size: 13px;
     font-weight: 500;
     border-radius: 5px;
