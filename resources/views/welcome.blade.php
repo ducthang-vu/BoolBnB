@@ -64,6 +64,7 @@
         </style>
     </head>
     <body>
+    <img src="{{ asset('storage/images_seeding/city1.jpg') }}" alt="">
         <div class="flex-center position-ref full-height">
             @if (Route::has('login'))
                 <div class="top-right links">

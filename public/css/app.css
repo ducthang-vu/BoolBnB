@@ -20,7 +20,8 @@ li {
 }
 
 .main-content {
-  max-width: 1200px;
+  padding: 0 15px;
+  max-width: 1800px;
   margin: 0 auto;
 }
 
@@ -744,19 +745,9 @@ li {
   .navbar-header-page .big-navbar-header-page ul li {
     display: inline;
   }
-
-  .main-content {
-    width: 720px;
-  }
 }
 
 /* Desktops (desktops, 992px and up) */
-
-@media (min-width: 992px) {
-  .main-content {
-    width: 1200px;
-  }
-}
 
 .main-footer {
   background: #f7f7f7;
@@ -851,7 +842,6 @@ li {
   .nav-footer {
     align-items: center;
     vertical-align: middle;
-    max-width: 1140px;
     margin: 0 auto;
   }
 
@@ -1140,10 +1130,9 @@ li {
   text-align: center;
 }
 
-.card-row img {
-  max-width: 350px;
-  min-width: 350px;
-  margin-bottom: 5px;
+.card-row .image img {
+  max-width: 300px;
+  max-height: 140px;
   border-radius: 5px;
 }
 
@@ -1171,6 +1160,10 @@ li {
 /* Desktops (desktops, 992px and up) */
 
 @media (min-width: 992px) {
+  .card-row {
+    padding-right: 10px;
+  }
+
   .card-row .desc-card p {
     display: block;
     line-height: 25px;
@@ -1179,26 +1172,8 @@ li {
 
 /* Large desktops (large desktops, 1200px and up) */
 
-.search-cards {
-  flex-wrap: wrap;
-  height: 100vh;
-  overflow: auto;
-  margin-right: 10px;
-}
-
-.search-cards .card {
-  display: block;
-  flex-basis: 100%;
-  text-decoration: none;
-  color: #000;
-  margin-bottom: 20px;
-  text-align: center;
-}
-
-.search-cards .card img {
-  max-width: 350px;
-  margin-bottom: 5px;
-  border-radius: 5px;
+.main-content {
+  padding: 0;
 }
 
 .search-home {
@@ -1249,8 +1224,7 @@ form .search-home__error {
 
 .title-home {
   font-size: 22px;
-  text-align: center;
-  padding-bottom: 15px;
+  padding-bottom: 50px;
 }
 
 /* Tablets (tablets, 768px and up) */
@@ -1272,7 +1246,6 @@ form .search-home__error {
   }
 
   .title-home {
-    text-align: left;
     font-size: 30px;
   }
 }
@@ -1513,7 +1486,37 @@ form .search-home__error {
   font-size: 18px;
 }
 
+.edit-form .desc-two {
+  margin-bottom: 20px;
+}
+
+.edit-form .desc-two label {
+  width: 90px;
+}
+
+.edit-form .desc-two input {
+  width: 60px;
+  margin-bottom: 20px;
+  margin-right: 10px;
+}
+
+.edit-form .services label {
+  font-weight: 600;
+}
+
 /* Tablets (tablets, 768px and up) */
+
+@media (min-width: 768px) {
+  .edit-form .desc-two label {
+    width: 170px;
+  }
+
+  .edit-form .desc-two input {
+    width: 80px;
+    margin-bottom: 20px;
+    margin-right: 10px;
+  }
+}
 
 /* Desktops (desktops, 992px and up) */
 
@@ -1531,20 +1534,12 @@ form .search-home__error {
   .edit-form .edit-description {
     width: 100%;
     display: flex;
-  }
-
-  .edit-form .edit-description .desc-one {
-    width: 50%;
-    padding-right: 30px;
-  }
-
-  .edit-form .edit-description .desc-two {
-    width: 50%;
+    flex-direction: column;
+    align-items: center;
   }
 
   .edit-form .edit-description .desc-two input {
-    width: 400px;
-    margin-bottom: 20px;
+    width: 130px;
   }
 
   .edit-form .services {
@@ -1568,29 +1563,74 @@ form .search-home__error {
 
 /* Large desktops (large desktops, 1200px and up) */
 
-.map {
-  display: none;
+.index-search .search-cards .card-row {
+  background: rgba(238, 238, 238, 0.432);
+  margin-bottom: 10px;
+  flex-direction: column;
 }
 
-#mapid {
-  height: 300px;
+.index-search .search-cards .card-row .desc-card {
+  margin-left: 0px;
+}
+
+.index-search .map {
+  display: none;
 }
 
 /* Tablets (tablets, 768px and up) */
 
-@media (min-width: 768px) {
-  .search-cards {
+/* Desktops (desktops, 992px and up) */
+
+@media (min-width: 992px) {
+  .main-content {
+    max-width: 992px;
+  }
+
+  .index-search {
+    padding-bottom: 50px;
+    margin: 0 10px;
+  }
+
+  .index-search .search-cards {
+    flex-basis: 60%;
+    flex-wrap: wrap;
+    height: 100vh;
+    overflow: auto;
+    margin-right: 10px;
+  }
+
+  .index-search .search-cards .card-row {
+    flex-direction: row;
+  }
+
+  .index-search .search-cards .card-row .desc-card {
+    margin-left: 10px;
+  }
+
+  .index-search .map {
+    z-index: 1;
+    display: inline-block;
     flex-basis: 40%;
   }
 
-  .map {
-    z-index: 1;
-    display: inline-block;
-    flex-basis: 60%;
+  .index-search .map #mapid {
+    height: 100vh;
+  }
+}
+
+/* Large desktops (large desktops, 1200px and up) */
+
+@media (min-width: 1200px) {
+  .main-content {
+    max-width: 1800px;
   }
 
-  .map #mapid {
-    height: 400px;
+  .index-search .search-cards {
+    flex-basis: 50%;
+  }
+
+  .index-search .map {
+    flex-basis: 50%;
   }
 }
 

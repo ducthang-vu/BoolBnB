@@ -12,15 +12,6 @@ use App\Service;
 class FlatController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-    }
-
-    /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
@@ -41,17 +32,11 @@ class FlatController extends Controller
     {
         $request->validate($this->validateRules());
         $data = $request->all();
-
-        // get lat long
-        $latlong = explode(',', $request->input('latlong'));
-
-
+        $latlong = explode(',', $request->latlong);
         $new_flat = new Flat();
         $new_flat->user_id = Auth::id();
         $new_flat->lat = $latlong[0];
         $new_flat->lng = $latlong[1];
-
-        // set image
         $data['image'] = Storage::disk('public')->put('images', $data['image']);
         $new_flat->image = $data['image'];
 
@@ -62,7 +47,6 @@ class FlatController extends Controller
             if (!empty($data['services'])) {
                 $new_flat->services()->attach($data['services']);
             }
-
             return redirect()->route('admin.home')->with('flat-saved', $new_flat->title);
         }
     }
@@ -153,7 +137,7 @@ class FlatController extends Controller
 
         if($deleted) {
             Storage::disk('public')->delete($flat->image);
-            
+
             return redirect()->route('admin.home')->with('flat-deleted', $id);
         }
     }

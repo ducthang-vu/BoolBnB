@@ -13,6 +13,10 @@ class FlatSeeder extends Seeder
      *
      * @return void
      */
+    private function getImagesSeeding() {
+
+    }
+
     public function run(Faker $faker)
     {
 
@@ -26,7 +30,7 @@ class FlatSeeder extends Seeder
             $new_flat->number_of_bathrooms = rand(1, 3);
             $new_flat->square_meters = rand(25, 255);
             $new_flat->address = $faker->unique()->address();
-            $new_flat->image = '';
+            $new_flat->image = sprintf('images_seeding/city%d.jpg', $i % 10);
             $new_flat->visualisations = rand(0, 1000);
 
             // geolocalization

@@ -6,7 +6,7 @@
         @if (session('flat-saved'))
         <div>
             <p>{{ session('flat-saved') }} aggiunto correttamente.</p>
-        </div> 
+        </div>
         @endif
         @if (session('flat-deleted'))
         <div>
@@ -29,13 +29,8 @@
         @foreach($flats as $flat)
                 <a class="card-row d-flex mb-10" href="{{ route('admin.flats.show' , $flat->id) }}">
                     <div class="image">
-                        @if (!empty($flat->image))
-                            <img src="{{ asset('storage/' . $flat->image ) }}" alt="{{$flat -> title}}">
-                        @else
-                            <img src="https://i.ibb.co/bRN3hZD/casa.jpg" alt="casa">
-                        @endif
+                        <img src="{{ asset('storage/' . $flat->image ) }}" alt="{{$flat -> title}}">
                     </div>
-                    
 
                     <div class="desc-card ml-10">
                         <h2 class="mb-10">{{$flat->title}}</h2>
@@ -45,6 +40,7 @@
 
                     <div class="button-card mb-20 d-flex">
                         <div class="left-btn">
+                            <a class="btn btn-stat mb-5" href="{{ route('admin.statistics' , $flat->id) }}">Statistiche</a>
                             <a class="btn btn-spons mb-5" href="{{ route('admin.sponsorships.create', ['flat_id' => $flat->id]) }}">Sponsorizza</a>
                             <a class="btn btn-edit mb-5" href="{{ route('admin.flats.edit', $flat->id) }}">Modifica</a>
                             <form action="{{ route('admin.flats.destroy', $flat->id) }}" method="POST">
@@ -53,7 +49,7 @@
                                 <input class="btn btn-delete" type="submit" value="Elimina">
                             </form>
                         </div>
-                    </div>           
+                    </div>
             </a>
         @endforeach
 

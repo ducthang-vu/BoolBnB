@@ -8,7 +8,7 @@
     {{-- Leaflet Css --}}
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css">
 </head>
 <body>
@@ -20,7 +20,7 @@
             <div class="big-navbar-header-page">
                 @include ('shared.components.headerNavbar')
             </div>
-            
+
             <div class="hamburger-header-page">
                 <div class="menu-icon-header-page">
                     <button id="hamburger-btn"><i class="fas fa-bars"></i></button>
@@ -35,8 +35,8 @@
             <form id="login-popup" class="popup-form" action="{{ route('login') }}" method="POST">
                 @include('auth.login')
             </form>
-        </div> 
-        <div id="register-popup-div" class="popup popup-animation" style="display:none">                    
+        </div>
+        <div id="register-popup-div" class="popup popup-animation" style="display:none">
             <form id="register-popup" class="popup-form" action="{{ route('register') }}" method="POST">
                 @include('auth.register')
             </form>
