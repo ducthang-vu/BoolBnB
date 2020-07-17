@@ -116739,7 +116739,7 @@ if (document.querySelector(".formAlgoliaIndex-page")) {
   Object(_blade_components_guestIndexPage__WEBPACK_IMPORTED_MODULE_5__["default"])(lat, lng);
 }
 
-if (document.querySelector(".mobile-navbar-header-page")) {
+if (document.querySelector(".main-header")) {
   Object(_blade_components_hamburgerHeader__WEBPACK_IMPORTED_MODULE_0__["default"])();
 }
 
@@ -116975,9 +116975,13 @@ function hamburgerHeader() {
   var btnHamburger = document.getElementById('hamburger-btn');
   var btnLogin = document.querySelector('.hamburger-header-page #login-button-headerNavbar-page');
   var btnRegister = document.querySelector('.hamburger-header-page #register-button-headerNavbar-page');
-  btnHamburger.addEventListener('click', function () {
-    mobileNavbar.classList.toggle('show');
-  });
+
+  (function () {
+    btnHamburger.addEventListener('click', function () {
+      mobileNavbar.classList.toggle('show');
+    });
+  })();
+
   btnLogin.addEventListener('click', function () {
     if (mobileNavbar.classList.contains('show')) {
       mobileNavbar.classList.remove('show');

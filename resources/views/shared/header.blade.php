@@ -22,7 +22,7 @@
             </div>
             
             <div class="hamburger-header-page">
-                <div class="menu-icon">
+                <div class="menu-icon-header-page">
                     <button id="hamburger-btn"><i class="fas fa-bars"></i></button>
                 </div>
                 <div id="id-mobile-navbar-header-page" class="mobile-navbar-header-page">

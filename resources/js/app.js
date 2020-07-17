@@ -58,7 +58,7 @@ if (document.querySelector(".formAlgoliaIndex-page")) {
     guestIndexPage(lat, lng);
 }
 
-if (document.querySelector(".mobile-navbar-header-page")) {
+if (document.querySelector(".main-header")) {
     hamburgerHeader();
 }
 

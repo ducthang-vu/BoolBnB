@@ -8,9 +8,11 @@ function hamburgerHeader() {
 
     var btnRegister = document.querySelector('.hamburger-header-page #register-button-headerNavbar-page');
 
-    btnHamburger.addEventListener('click', function() {
-        mobileNavbar.classList.toggle('show');
-    });
+    (function() {
+        btnHamburger.addEventListener('click', function() {
+            mobileNavbar.classList.toggle('show');
+        });
+    } ());
 
     btnLogin.addEventListener('click', function() {
         if (mobileNavbar.classList.contains('show')) {
