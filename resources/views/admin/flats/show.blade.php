@@ -42,9 +42,8 @@
       <div class="map">
           <h3>Mappa</h3>
       </div>
-
       <div class="button-card d-flex mb-20">
-        <a class="btn btn-stat mb-5 mr-5" href="{{ route('admin.statistics' , $flat->id) }}">Statistiche</a>
+        <a class="btn btn-stat mb-5" href="{{ route('admin.statistics' , $flat->id) }}">Statistiche</a>
           <a class="btn btn-spons mb-5 mr-5" href="{{ route('admin.sponsorships.create', ['flat_id' => $flat->id]) }}">Sponsorizza</a>
           <a class="btn btn-edit mb-5 mr-5" href="{{ route('admin.flats.edit', $flat->id) }}">Modifica</a>
           <form action="{{ route('admin.flats.destroy', $flat->id) }}" method="POST">

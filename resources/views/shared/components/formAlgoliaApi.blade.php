@@ -1,6 +1,6 @@
 <form id="algoliaForm" class="formAlgoliaIndex-page d-flex">
     @csrf
-    <div class="row pt-25">
+    <div class="row pt-25 align-center">
         @include('shared.components.inputAlgolia')
         <input type="submit" value="Cerca" class="btn-search" id="search-home__submit-btn">
     </div>

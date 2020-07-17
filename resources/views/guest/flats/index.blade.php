@@ -1,6 +1,7 @@
 @extends('layouts.main')
 
 @section('page-content')
+
     @include('shared.components.formAlgoliaApi')
     <div class="index-search d-flex s-center">
         <div id="search-cards" class="search-cards">
