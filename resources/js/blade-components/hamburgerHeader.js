@@ -11,23 +11,23 @@ function hamburgerHeader() {
     btnHamburger.addEventListener('click', function() {
         mobileNavbar.classList.toggle('show');
     });
-    
+
     try {
         btnLogin.addEventListener('click', function() {
             if (mobileNavbar.classList.contains('show')) {
                 mobileNavbar.classList.remove('show');
             }
         });
+
+        btnRegister.addEventListener('click', function() {
+            if (mobileNavbar.classList.contains('show')) {
+                mobileNavbar.classList.remove('show');
+            }
+        });
     } catch (e) {
-        
+        console.log(e)
     }
 
-
-    btnRegister.addEventListener('click', function() {
-        if (mobileNavbar.classList.contains('show')) {
-            mobileNavbar.classList.remove('show');
-        }
-    });
 }
 
 export default hamburgerHeader;

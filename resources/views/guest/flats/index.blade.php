@@ -6,7 +6,7 @@
     <div class="index-search d-flex s-center">
         <div id="search-cards" class="search-cards">
             @foreach ($flatsInRange as $flat)
-            <a class="card-row d-flex" href="{{ route('flats.show', $flat->id)}}" data-coordinates="{{$flat->getLatLngAsStr() }}">
+            <a class="card-row d-flex" href="{{ route('flats.show', $flat->id)}}" data-coordinates="{{ $flat->getLatLngAsStr() }}">
                 <div class="image">
                     <img src="{{ asset('storage/' . $flat->image ) }}" alt="{{$flat -> title}}">
                 </div>
@@ -25,11 +25,10 @@
 
     <script id="card-template" type="text/x-handlebars-template">
         @{{#each flats}}
-            <a class="card" href="{{ url('flats') }}/@{{ id }}" data-coordinates="@{{ lat }}-@{{ lng }} >
+            <a class="card-row d-flex" href="{{ url('flats') }}/@{{ id }}" data-coordinates="@{{ lat }}-@{{ lng }} >
                 <div class="image">
-                    <img src="{{ asset('storage') }}/@{{ image }}" alt="{{$flat->title}}">
+                    <img src="{{ asset('storage') }}/@{{ image }}" alt="@{{ title }}">
                 </div>
-
                 <div class="desc-card ml-10">
                     <h2 class="mb-10">@{{ title }}</h2>
                 </div>

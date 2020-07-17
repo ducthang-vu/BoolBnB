@@ -16,7 +16,10 @@
     </div>
     <header class="main-header">
         <nav class="navbar-header-page main-content">
-            <a class="logo-header-page" href="{{route ('home')}}"><i class="fab fa-airbnb mr-1"></i><span>boolbnb</span></a>
+            <a class="logo-header-page" href="{{route ('home')}}">
+                <i class="fab fa-airbnb mr-1"></i>
+                <span>boolbnb</span>
+            </a>
             <div class="big-navbar-header-page">
                 @include ('shared.components.headerNavbar')
             </div>

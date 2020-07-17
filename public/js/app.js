@@ -116726,6 +116726,10 @@ var Chart = __webpack_require__(/*! chart.js */ "./node_modules/chart.js/dist/Ch
 
 
 
+if (document.querySelector(".main-header")) {
+  Object(_blade_components_hamburgerHeader__WEBPACK_IMPORTED_MODULE_0__["default"])();
+}
+
 if (document.querySelector(".inputAlgolia-page")) {
   Object(_blade_components_inputAlgolia__WEBPACK_IMPORTED_MODULE_3__["default"])();
 }
@@ -116736,10 +116740,6 @@ if (document.querySelector(".formAlgoliaHome-page")) {
 
 if (document.querySelector(".formAlgoliaIndex-page")) {
   Object(_blade_components_guestIndexPage__WEBPACK_IMPORTED_MODULE_5__["default"])(lat, lng);
-}
-
-if (document.querySelector(".main-header")) {
-  Object(_blade_components_hamburgerHeader__WEBPACK_IMPORTED_MODULE_0__["default"])();
 }
 
 try {
@@ -116857,7 +116857,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 
 function guestIndexPage(lat, lng) {
   function mapView(lat, lng) {
-    var map = L.map("mapid").setView([lat, lng], 13);
+    var map = L.map("mapid").setView([lat, lng], 11);
     L.tileLayer("https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}", {
       attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
       maxZoom: 18,
@@ -116871,7 +116871,7 @@ function guestIndexPage(lat, lng) {
 
 
   function populateMap(map) {
-    var cards = _toConsumableArray(document.querySelectorAll(".card"));
+    var cards = _toConsumableArray(document.querySelectorAll(".card-row"));
 
     var cardsData = cards.map(function (card) {
       return {
@@ -116954,7 +116954,6 @@ function guestIndexPage(lat, lng) {
 
   form.addEventListener("submit", function (e) {
     e.preventDefault();
-    console.log(e.target);
     document.querySelector(".search-index__error").classList.add("no-visibility");
     fetch(getUrlApi()).then(function (response) {
       if (!response.ok) throw new InvalidParameters();
@@ -117013,13 +117012,14 @@ function hamburgerHeader() {
         mobileNavbar.classList.remove('show');
       }
     });
-  } catch (e) {}
-
-  btnRegister.addEventListener('click', function () {
-    if (mobileNavbar.classList.contains('show')) {
-      mobileNavbar.classList.remove('show');
-    }
-  });
+    btnRegister.addEventListener('click', function () {
+      if (mobileNavbar.classList.contains('show')) {
+        mobileNavbar.classList.remove('show');
+      }
+    });
+  } catch (e) {
+    console.log(e);
+  }
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (hamburgerHeader);
@@ -117201,8 +117201,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\danle\Desktop\project\BoolBnB\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\danle\Desktop\project\BoolBnB\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Boolean\Esercizi\final_project\BoolBnB\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Boolean\Esercizi\final_project\BoolBnB\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ }),

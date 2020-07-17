@@ -2,11 +2,41 @@
     @if (Route::has('login'))
         @auth
             <ul>
-                <li><a href="{{ route('admin.home') }}">Home</a></li>
-                <li><a href="{{ route('admin.flats.create') }}">Registra Appartamento</a></li>
-                <li><a href="{{ route('admin.sponsorships.index') }}">Sponsorizzazioni</a></li>
-                <li><a href="{{ route('admin.requests.index') }}">Richieste ricevute</a></li>
-                <li><a href="">Assistenza</a></li>
+                <li>
+                    <a
+                        @if (Route::currentRouteNamed('admin.home')) class="active" @endif
+                        href="{{ route('admin.home') }}"
+                    >Home
+                    </a>
+                </li>
+                <li>
+                    <a
+                        @if (Route::currentRouteNamed('admin.flats.create')) class="active" @endif
+                        href="{{ route('admin.flats.create') }}"
+                    >Registra appartamento
+                    </a>
+                </li>
+                <li>
+                    <a
+                        @if (Route::currentRouteNamed('admin.sponsorships.index')) class="active" @endif
+                        href="{{ route('admin.sponsorships.index') }}"
+                    >Sponsorizzazioni
+                    </a>
+                </li>
+                <li>
+                    <a
+                        @if (Route::currentRouteNamed('admin.requests.index')) class="active" @endif
+                        href="{{ route('admin.requests.index') }}"
+                    >Richieste ricevute
+                    </a>
+                </li>
+                <li>
+                    <a
+                        @if (Route::currentRouteNamed('assistance')) class="active" @endif
+                        href=""
+                    >Assistenza
+                    </a>
+                </li>
                 <li>
                     <a class="" href="{{ route('logout') }}"
                     onclick="event.preventDefault();

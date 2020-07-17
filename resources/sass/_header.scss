@@ -36,12 +36,12 @@
         }
     }
     .big-navbar-header-page {
-        // display: none;
         ul li {
             display: none;
         }
     }
 }
+
 .hamburger-header-page {
     display: flex;
     flex-direction: column;
@@ -109,6 +109,7 @@
         }
     }
 }
+
 //Hamburger animation
 @-webkit-keyframes fadeIn {
     from {transform: scale(0)}
@@ -150,8 +151,16 @@
                 font-size: 12px;
                 font-weight: 700;
                 a {
+                    display: inline-block;
+                    padding: 5px 0;
                     color: $text;
                     text-decoration: none;
+                    &.active {
+                        border-bottom: 3px solid $red;
+                    }
+                    &:hover {
+                        background: $tablebg;
+                    }
                 }
             }
         }

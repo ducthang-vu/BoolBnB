@@ -1,6 +1,6 @@
 function guestIndexPage(lat, lng) {
     function mapView(lat, lng) {
-        const map = L.map("mapid").setView([lat, lng], 13);
+        const map = L.map("mapid").setView([lat, lng], 11);
         L.tileLayer(
             "https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}",
             {
@@ -19,7 +19,7 @@ function guestIndexPage(lat, lng) {
 
     // inserimento marker su mappa
     function populateMap(map) {
-        let cards = [...document.querySelectorAll(".card")];
+        let cards = [...document.querySelectorAll(".card-row")];
         let cardsData = cards.map(card => {
             return {
                 linkShow: card.getAttribute("href"),
@@ -79,7 +79,6 @@ function guestIndexPage(lat, lng) {
 
     form.addEventListener("submit", e => {
         e.preventDefault();
-        console.log(e.target)
         document.querySelector(".search-index__error").classList.add("no-visibility");
         fetch(getUrlApi())
             .then(response => {
