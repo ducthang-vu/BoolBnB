@@ -1,0 +1,155 @@
+@media (max-width: 767px) {
+    .adminSponsorshipIndex {
+        width: 300px;
+        .container {
+            width: 100%;
+            text-align: center;
+            .btn-sponsorship-index-page {
+                height: 40px;
+                width: 200px;
+                display: inline-block;
+                border: 0;
+                background: #f3f0f1;
+                border-radius: 32px;
+                padding: 10px;
+                text-align: center;
+                text-decoration: none;
+                box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.8), 6px 6px 10px rgba(0, 0, 0, 0.2);
+                color: #6f6cde;
+                transition: all 0.1s ease-in-out;
+                cursor: pointer;
+            }
+            table { 
+                width: 100%; 
+                border-collapse: collapse; 
+                }
+                tr:nth-of-type(odd) { 
+                @include bg_gradient;
+                -webkit-box-shadow: 4px 4px 4px 0px rgba(0,0,0,0.75);
+                -moz-box-shadow: 4px 4px 4px 0px rgba(0,0,0,0.75);
+                box-shadow: 4px 4px 4px 0px rgba(0,0,0,0.75);
+                }
+                tr:nth-of-type(even) { 
+                @include bg_gradient_even;
+                -webkit-box-shadow: 4px 4px 4px 0px rgba(0,0,0,0.75);
+                -moz-box-shadow: 4px 4px 4px 0px rgba(0,0,0,0.75);
+                box-shadow: 4px 4px 4px 0px rgba(0,0,0,0.75);
+                }
+                td { 
+                padding: 6px; 
+                border: 1px solid #ccc; 
+                text-align: right; 
+                }
+            table, thead, tbody, th, td, tr { 
+                display: block; 
+            }
+            thead tr {
+                position: absolute;
+                top: -9999px;
+                left: -9999px;
+            }
+            tr {
+                margin: 0 0 1rem 0;
+                padding: 5px;
+            }
+            td {
+                border: none;
+                border-bottom: 1px solid $white;
+                position: relative;
+            }
+            tr:nth-child(even) td {
+                border: none;
+                border-bottom: 1px solid $text;
+                position: relative;
+            }
+            td:before {
+                position: absolute;
+                top: 5px;
+                left: 5px;
+                width: 1px;
+                padding: 5px 1px;
+                white-space: nowrap;
+            }
+            td:nth-of-type(1):before { content: "#"; }
+            td:nth-of-type(2):before { content: "Flat Name #"; }
+            td:nth-of-type(3):before { content: "Sponsorship"; }
+            td:nth-of-type(4):before { content: "Start"; }
+            td:nth-of-type(5):before { content: "End"; }
+            td:nth-of-type(6):before { content: "Price paid"; }
+            td:nth-of-type(7):before { content: "Payment code"; }
+        } 
+    }
+}
+.active-legend-div-indexSponsorship-page {
+    display: flex;
+    .greendiv-indexSponsorship-page i {
+        color: $green;
+        padding-right: 2px;
+    }
+}
+
+
+
+
+@include mobile {
+
+}
+/* Tablets (tablets, 768px and up) */
+@include tablet {
+    .adminSponsorshipIndex {
+        .container {
+            .btn-sponsorship-index-page {
+                height: 40px;
+                width: 200px;
+                display: inline-block;
+                border: 0;
+                background: #f3f0f1;
+                border-radius: 32px;
+                padding: 10px;
+                text-align: center;
+                text-decoration: none;
+                box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.8), 6px 6px 10px rgba(0, 0, 0, 0.2);
+                color: #6f6cde;
+                transition: all 0.1s ease-in-out;
+                cursor: pointer;
+            }
+            .table {
+                border: 1px solid $black;
+                border-bottom-left-radius: 10px;
+                border-bottom-right-radius: 10px;
+                border-spacing: 0;
+                -webkit-box-shadow: 4px 4px 4px 0px rgba(0,0,0,0.75);
+                -moz-box-shadow: 4px 4px 4px 0px rgba(0,0,0,0.75);
+                box-shadow: 4px 4px 4px 0px rgba(0,0,0,0.75);
+                .head-row {
+                    @include bg_gradient;
+                    color: $white;
+                    height: 100%;
+                    width: 100%;
+                    padding: 0;
+                    th:nth-child(2) {
+                        padding: 0 10px;
+                    }
+                }
+                tr {
+                    td:first-child {
+                        padding-left: 5px;
+                    }
+                    td:last-child {
+                        padding-right: 5px;
+                    }
+                }
+                tr:not(.head-row):hover {
+                    background: $tr_hover;
+                }
+            }
+        }    
+    }    
+}
+/* Desktops (desktops, 992px and up) */
+@include desktop {
+
+}
+@include large-desktop {
+
+}

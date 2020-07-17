@@ -17,7 +17,7 @@
             </div>
         @endif
         <div class="container p-25">
-            <a class="btn" href="{{ route('admin.home') }}">Go back to flat list</a>
+            <a class="btn-sponsorship-index-page" href="{{ route('admin.home') }}">Go back to flat list</a>
             <table class="table text-center">
                 <thead>
                     <tr class="head-row">
@@ -33,9 +33,9 @@
                 <tbody>
                     @foreach($sponsorships as $sponsorship)
                         <tr>
-                            <th scope="row">{{ $sponsorship->id }}</th>
+                            <td scope="row">{{ $sponsorship->id }}</th>
                             <td>{{ $sponsorship->flat_id }}</td>
-                            <th>{{ $sponsorship->sponsor_type }}</th>
+                            <td>{{ $sponsorship->sponsor_type }}</th>
                             <td>{{ Carbon\Carbon::parse($sponsorship->start)->format('d/m/Y h:m') }}</td>
                             <td>{{ Carbon\Carbon::parse($sponsorship->end)->format('d/m/Y h:m') }}</td>
                             <td>{{ $sponsorship->price }}</td>
@@ -44,6 +44,10 @@
                     @endforeach
                 </tbody>
             </table>
+            <div class="active-legend-div-indexSponsorship-page">
+                <div class="greendiv-indexSponsorship-page"><i class="fas fa-circle"></i></div>
+                <span class="span-indexSponsorship-page">= la sponsorizzazione è attiva</span>
+            </div>
         </div>
     </div>
 @endsection

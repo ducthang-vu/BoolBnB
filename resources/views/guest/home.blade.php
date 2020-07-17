@@ -3,8 +3,8 @@
 @section('page-content')
 @include('shared.components.formAlgoliaHome')
 
-<h1 class="title-home">Appartamenti sponsorizzati</h1>
-<div class="sponsorship-card d-flex">
+<h1 class="title-home text-center">Appartamenti sponsorizzati</h1>
+<div class="sponsorship-card d-flex s-center">
     @foreach($sponsoredFlats as $sponsoredFlat)
 
     <a class="card" href="{{ route('flats.show' , $sponsoredFlat->id) }}">
