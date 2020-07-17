@@ -1130,8 +1130,8 @@ li {
 }
 
 .card-row .image img {
-  max-width: 350px;
-  min-width: 350px;
+  max-width: 300px;
+  max-height: 140px;
   border-radius: 5px;
 }
 
@@ -1159,6 +1159,10 @@ li {
 /* Desktops (desktops, 992px and up) */
 
 @media (min-width: 992px) {
+  .card-row {
+    padding-right: 10px;
+  }
+
   .card-row .desc-card p {
     display: block;
     line-height: 25px;
@@ -1166,6 +1170,10 @@ li {
 }
 
 /* Large desktops (large desktops, 1200px and up) */
+
+.main-content {
+  padding: 0;
+}
 
 .search-home {
   align-items: center;
@@ -1215,8 +1223,7 @@ form .search-home__error {
 
 .title-home {
   font-size: 22px;
-  text-align: center;
-  padding-bottom: 15px;
+  padding-bottom: 50px;
 }
 
 /* Tablets (tablets, 768px and up) */
@@ -1238,7 +1245,6 @@ form .search-home__error {
   }
 
   .title-home {
-    text-align: left;
     font-size: 30px;
   }
 }

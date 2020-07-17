@@ -11,7 +11,7 @@
                     <img src="{{ asset('storage/' . $flat->image ) }}" alt="{{$flat -> title}}">
                 </div>
                 <div class="desc-card ml-10">
-                    <h2 class="mb-10">{{$flat->title}}</h2>
+                    <h3 class="mb-10">{{$flat->title}}</h3>
                     <p>{{$flat->address}}</p>
                 </div>
             </a>

@@ -5,8 +5,8 @@
     text-align: center;
     .image{
         img{
-            max-width: 350px;
-            min-width: 350px;
+            max-width: 300px;
+            max-height: 140px;
             border-radius: 5px;
         }
     }
@@ -36,6 +36,7 @@
 /* Desktops (desktops, 992px and up) */
 @include desktop {
     .card-row{
+        padding-right: 10px;
         .desc-card{
             p{
                 display: block;
