@@ -2082,6 +2082,8 @@ form .search-home__error {
   }
 }
 
+/* Desktops (desktops, 992px and up) */
+
 .success-message,
 .error-message {
   text-align: center;
@@ -2234,5 +2236,3 @@ form .search-home__error {
 
 /* Large desktops (large desktops, 1200px and up) */
 
-=======
-/* Desktops (desktops, 992px and up) */

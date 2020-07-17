@@ -116735,7 +116735,6 @@ if (document.querySelector(".formAlgoliaHome-page")) {
 }
 
 if (document.querySelector(".formAlgoliaIndex-page")) {
-  console.log("prova 1", lat);
   Object(_blade_components_guestIndexPage__WEBPACK_IMPORTED_MODULE_5__["default"])(lat, lng);
 }
 
@@ -116857,11 +116856,8 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToAr
 function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
 
 function guestIndexPage(lat, lng) {
-  console.log("prova", lat);
-
   function mapView(lat, lng) {
     var map = L.map("mapid").setView([lat, lng], 13);
-    console.log("1 log:", map);
     L.tileLayer("https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}", {
       attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
       maxZoom: 18,
@@ -116958,6 +116954,7 @@ function guestIndexPage(lat, lng) {
 
   form.addEventListener("submit", function (e) {
     e.preventDefault();
+    console.log(e.target);
     document.querySelector(".search-index__error").classList.add("no-visibility");
     fetch(getUrlApi()).then(function (response) {
       if (!response.ok) throw new InvalidParameters();
@@ -117009,11 +117006,15 @@ function hamburgerHeader() {
   btnHamburger.addEventListener('click', function () {
     mobileNavbar.classList.toggle('show');
   });
-  btnLogin.addEventListener('click', function () {
-    if (mobileNavbar.classList.contains('show')) {
-      mobileNavbar.classList.remove('show');
-    }
-  });
+
+  try {
+    btnLogin.addEventListener('click', function () {
+      if (mobileNavbar.classList.contains('show')) {
+        mobileNavbar.classList.remove('show');
+      }
+    });
+  } catch (e) {}
+
   btnRegister.addEventListener('click', function () {
     if (mobileNavbar.classList.contains('show')) {
       mobileNavbar.classList.remove('show');
@@ -117200,8 +117201,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\vuduc\OneDrive\Documenti\GitHub\BoolBnB\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\vuduc\OneDrive\Documenti\GitHub\BoolBnB\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Boolean\Esercizi\final_project\BoolBnB\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Boolean\Esercizi\final_project\BoolBnB\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ }),

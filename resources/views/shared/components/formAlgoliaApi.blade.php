@@ -6,7 +6,7 @@
     </div>
 
     <div class="search-index__error no-visibility p-10 text-center">Inserisci un indirizzo valido</div>
-    <button id="filter" class="btn btn-filter mb-25">Filtri</button>
+    <button id="filter" type="button" class="btn btn-filter mb-25">Filtri</button>
 
     <div id="animation--service" class="animation--service p-10 mb-30">
         <div class="search-services">

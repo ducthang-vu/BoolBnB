@@ -1,9 +1,6 @@
 function guestIndexPage(lat, lng) {
-    console.log("prova", lat);
-
     function mapView(lat, lng) {
         const map = L.map("mapid").setView([lat, lng], 13);
-        console.log("1 log:", map);
         L.tileLayer(
             "https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}",
             {
@@ -31,15 +28,9 @@ function guestIndexPage(lat, lng) {
         });
         cardsData.forEach(element => {
             const { linkShow, coordinates } = element;
-            const [latitude, longitude] = coordinates
-                .split("-")
-                .map(item => parseFloat(item));
-            let popup = L.popup().setContent(
-                '<a href="' + linkShow + '">Appartamento</a>'
-            );
-            L.marker([latitude, longitude])
-                .addTo(map)
-                .bindPopup(popup);
+            const [latitude, longitude] = coordinates.split("-").map(item => parseFloat(item));
+            let popup = L.popup().setContent('<a href="' + linkShow + '">Appartamento</a>');
+            L.marker([latitude, longitude]).addTo(map).bindPopup(popup);
         });
     }
 
@@ -67,11 +58,7 @@ function guestIndexPage(lat, lng) {
     }
 
     function getUrlApi() {
-        const base_url =
-            window.location.protocol +
-            "//" +
-            window.location.host +
-            "/api/flats/?";
+        const base_url = window.location.protocol + "//" + window.location.host + "/api/flats/?";
         let params = new URLSearchParams({
             lat: getLatLng("inputAlgolia-search__latlong")[0],
             lng: getLatLng("inputAlgolia-search__latlong")[1],
@@ -92,6 +79,7 @@ function guestIndexPage(lat, lng) {
 
     form.addEventListener("submit", e => {
         e.preventDefault();
+        console.log(e.target)
         document.querySelector(".search-index__error").classList.add("no-visibility");
         fetch(getUrlApi())
             .then(response => {

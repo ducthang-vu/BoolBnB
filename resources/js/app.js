@@ -54,7 +54,6 @@ if (document.querySelector(".formAlgoliaHome-page")) {
 }
 
 if (document.querySelector(".formAlgoliaIndex-page")) {
-    console.log("prova 1", lat);
     guestIndexPage(lat, lng);
 }
 

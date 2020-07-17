@@ -11,12 +11,17 @@ function hamburgerHeader() {
     btnHamburger.addEventListener('click', function() {
         mobileNavbar.classList.toggle('show');
     });
+    
+    try {
+        btnLogin.addEventListener('click', function() {
+            if (mobileNavbar.classList.contains('show')) {
+                mobileNavbar.classList.remove('show');
+            }
+        });
+    } catch (e) {
+        
+    }
 
-    btnLogin.addEventListener('click', function() {
-        if (mobileNavbar.classList.contains('show')) {
-            mobileNavbar.classList.remove('show');
-        }
-    });
 
     btnRegister.addEventListener('click', function() {
         if (mobileNavbar.classList.contains('show')) {
