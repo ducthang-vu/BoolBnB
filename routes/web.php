@@ -39,3 +39,7 @@ Route::prefix('admin')
 Route::get('dev', function () {
     return view('shared.components.formAlgoliaHome');
 });
+
+Route::get('dev', function () {
+    return view('shared.components.inputAlgolia');
+});

@@ -8,11 +8,7 @@
             @foreach ($flatsInRange as $flat)
             <a class="card-row d-flex" href="{{ route('flats.show', $flat->id)}}" data-coordinates="{{$flat->getLatLngAsStr() }}">
                 <div class="image">
-                    @if (!empty($flat->image))
-                            <img src="{{ asset('storage/' . $flat->image ) }}" alt="{{$flat -> title}}">
-                    @else
-                    <img src="https://i.ibb.co/bRN3hZD/casa.jpg" alt="casa">
-                    @endif
+                    <img src="{{ asset('storage/' . $flat->image ) }}" alt="{{$flat -> title}}">
                 </div>
                 <div class="desc-card ml-10">
                     <h2 class="mb-10">{{$flat->title}}</h2>
@@ -31,6 +27,7 @@
         @{{#each flats}}
             <a class="card" href="{{ url('flats') }}/@{{ id }}" data-coordinates="@{{ lat }}-@{{ lng }} >
                 <div class="image">
+                    <img src="{{ asset('storage') }}/@{{ image }}" alt="{{$flat->title}}">
                 </div>
 
                 <div class="desc-card ml-10">
