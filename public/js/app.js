@@ -117006,13 +117006,9 @@ function hamburgerHeader() {
   var btnHamburger = document.getElementById('hamburger-btn');
   var btnLogin = document.querySelector('.hamburger-header-page #login-button-headerNavbar-page');
   var btnRegister = document.querySelector('.hamburger-header-page #register-button-headerNavbar-page');
-
-  (function () {
-    btnHamburger.addEventListener('click', function () {
-      mobileNavbar.classList.toggle('show');
-    });
-  })();
-
+  btnHamburger.addEventListener('click', function () {
+    mobileNavbar.classList.toggle('show');
+  });
   btnLogin.addEventListener('click', function () {
     if (mobileNavbar.classList.contains('show')) {
       mobileNavbar.classList.remove('show');
