@@ -1120,10 +1120,9 @@ li {
   text-align: center;
 }
 
-.card-row img {
+.card-row .image img {
   max-width: 350px;
   min-width: 350px;
-  margin-bottom: 5px;
   border-radius: 5px;
 }
 
@@ -1471,7 +1470,37 @@ form .search-home__error {
   font-size: 18px;
 }
 
+.edit-form .desc-two {
+  margin-bottom: 20px;
+}
+
+.edit-form .desc-two label {
+  width: 90px;
+}
+
+.edit-form .desc-two input {
+  width: 60px;
+  margin-bottom: 20px;
+  margin-right: 10px;
+}
+
+.edit-form .services label {
+  font-weight: 600;
+}
+
 /* Tablets (tablets, 768px and up) */
+
+@media (min-width: 768px) {
+  .edit-form .desc-two label {
+    width: 170px;
+  }
+
+  .edit-form .desc-two input {
+    width: 80px;
+    margin-bottom: 20px;
+    margin-right: 10px;
+  }
+}
 
 /* Desktops (desktops, 992px and up) */
 
@@ -1489,20 +1518,12 @@ form .search-home__error {
   .edit-form .edit-description {
     width: 100%;
     display: flex;
-  }
-
-  .edit-form .edit-description .desc-one {
-    width: 50%;
-    padding-right: 30px;
-  }
-
-  .edit-form .edit-description .desc-two {
-    width: 50%;
+    flex-direction: column;
+    align-items: center;
   }
 
   .edit-form .edit-description .desc-two input {
-    width: 400px;
-    margin-bottom: 20px;
+    width: 130px;
   }
 
   .edit-form .services {
@@ -1551,6 +1572,7 @@ form .search-home__error {
 
   .index-search {
     padding-bottom: 50px;
+    margin: 0 10px;
   }
 
   .index-search .search-cards {
@@ -1588,11 +1610,11 @@ form .search-home__error {
   }
 
   .index-search .search-cards {
-    flex-basis: 40%;
+    flex-basis: 50%;
   }
 
   .index-search .map {
-    flex-basis: 60%;
+    flex-basis: 50%;
   }
 }
 

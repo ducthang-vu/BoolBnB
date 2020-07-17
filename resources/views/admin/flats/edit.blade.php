@@ -3,7 +3,7 @@
 @section('page-content')
 
     <div class="section-home-admin mt-20">
-        <div class="title-flts d-flex s-between align-center">
+        <div class="title-flts text-center">
             <h1 class="mt-20 mb-20">
                 Modifica un appartamento
             </h1>

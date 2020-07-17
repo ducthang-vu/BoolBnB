@@ -30,6 +30,7 @@
     }
     .index-search {
         padding-bottom: 50px;
+        margin: 0 10px;
         .search-cards{
             flex-basis: 60%;
             flex-wrap: wrap;
@@ -60,10 +61,10 @@
     }
     .index-search {
         .search-cards{
-            flex-basis: 40%;
+            flex-basis: 50%;
         }
         .map {
-            flex-basis: 60%;
+            flex-basis: 50%;
         }
     }
     
