@@ -6,6 +6,7 @@
                 <li><a href="{{ route('admin.home') }}">Home</a></li>
                 <li><a href="{{ route('admin.flats.create') }}">Registra Appartamento</a></li>
                 <li><a href="{{ route('admin.sponsorships.index') }}">Sponsorizzazioni</a></li>
+                <li><a href="{{ route('admin.requests.index') }}">Richieste ricevute</a></li>
                 <li><a href="">Assistenza</a></li>
                 <li>
                     <a class="" href="{{ route('logout') }}"
@@ -25,7 +26,7 @@
                 <li><a href="">Diventa un host</a></li>
                 <li><a href="">Assistenza</a></li>
                 <li><button id="login-button-headerNavbar-page" onclick="showPopUpLogin()">Accedi</button></li>
-                <li><button id="register-button-headerNavbar-page" onclick="showPopUpRegister()">Registrati</button></li> 
+                <li><button id="register-button-headerNavbar-page" onclick="showPopUpRegister()">Registrati</button></li>
             </ul>
         @endauth
     @endif
