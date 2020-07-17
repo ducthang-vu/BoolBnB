@@ -20,7 +20,7 @@ li {
 }
 
 .main-content {
-  max-width: 1200px;
+  max-width: 1800px;
   margin: 0 auto;
 }
 
@@ -743,19 +743,9 @@ li {
   .navbar .big-navbar ul li {
     display: inline;
   }
-
-  .main-content {
-    width: 720px;
-  }
 }
 
 /* Desktops (desktops, 992px and up) */
-
-@media (min-width: 992px) {
-  .main-content {
-    width: 1200px;
-  }
-}
 
 .main-footer {
   background: #f7f7f7;
@@ -850,7 +840,6 @@ li {
   .nav-footer {
     align-items: center;
     vertical-align: middle;
-    max-width: 1140px;
     margin: 0 auto;
   }
 
@@ -1169,28 +1158,6 @@ li {
 }
 
 /* Large desktops (large desktops, 1200px and up) */
-
-.search-cards {
-  flex-wrap: wrap;
-  height: 100vh;
-  overflow: auto;
-  margin-right: 10px;
-}
-
-.search-cards .card {
-  display: block;
-  flex-basis: 100%;
-  text-decoration: none;
-  color: #000;
-  margin-bottom: 20px;
-  text-align: center;
-}
-
-.search-cards .card img {
-  max-width: 350px;
-  margin-bottom: 5px;
-  border-radius: 5px;
-}
 
 .search-home {
   align-items: center;
@@ -1559,29 +1526,73 @@ form .search-home__error {
 
 /* Large desktops (large desktops, 1200px and up) */
 
-.map {
-  display: none;
+.index-search .search-cards .card-row {
+  background: rgba(238, 238, 238, 0.432);
+  margin-bottom: 10px;
+  flex-direction: column;
 }
 
-#mapid {
-  height: 300px;
+.index-search .search-cards .card-row .desc-card {
+  margin-left: 0px;
+}
+
+.index-search .map {
+  display: none;
 }
 
 /* Tablets (tablets, 768px and up) */
 
-@media (min-width: 768px) {
-  .search-cards {
+/* Desktops (desktops, 992px and up) */
+
+@media (min-width: 992px) {
+  .main-content {
+    max-width: 992px;
+  }
+
+  .index-search {
+    padding-bottom: 50px;
+  }
+
+  .index-search .search-cards {
+    flex-basis: 60%;
+    flex-wrap: wrap;
+    height: 100vh;
+    overflow: auto;
+    margin-right: 10px;
+  }
+
+  .index-search .search-cards .card-row {
+    flex-direction: row;
+  }
+
+  .index-search .search-cards .card-row .desc-card {
+    margin-left: 10px;
+  }
+
+  .index-search .map {
+    z-index: 1;
+    display: inline-block;
     flex-basis: 40%;
   }
 
-  .map {
-    z-index: 1;
-    display: inline-block;
-    flex-basis: 60%;
+  .index-search .map #mapid {
+    height: 100vh;
+  }
+}
+
+/* Large desktops (large desktops, 1200px and up) */
+
+@media (min-width: 1200px) {
+  .main-content {
+    max-width: 1800px;
   }
 
-  .map #mapid {
-    height: 400px;
+  .index-search .search-cards {
+    flex-basis: 40%;
+  }
+
+  .index-search .map {
+    flex-basis: 60%;
   }
 }
 
