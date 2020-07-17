@@ -12,6 +12,12 @@
         }
     }
 
+    .card-row{
+        .desc-card{
+            margin: 0;
+        }
+    }
+
     .button-card{
         justify-content: center;
         form{
@@ -28,6 +34,11 @@
 @include desktop {
 
     .section-home-admin{
+        .card-row{
+            .desc-card{
+                margin-left: 50px;
+            }
+        }
         .button-card{
             justify-content: end;
         }
