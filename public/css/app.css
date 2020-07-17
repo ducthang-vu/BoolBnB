@@ -20,48 +20,47 @@ li {
 }
 
 .main-content {
-  padding: 0 15px;
-  max-width: 1800px;
+  max-width: 1200px;
   margin: 0 auto;
 }
 
-.m1 {
+.m-5 {
   margin: 5px;
 }
 
-.m2 {
+.m-10 {
   margin: 10px;
 }
 
-.m3 {
+.m-15 {
   margin: 15px;
 }
 
-.m4 {
+.m-20 {
   margin: 20px;
 }
 
-.m5 {
+.m-25 {
   margin: 25px;
 }
 
-.m6 {
+.m-30 {
   margin: 30px;
 }
 
-.m7 {
+.m-35 {
   margin: 35px;
 }
 
-.m8 {
+.m-40 {
   margin: 40px;
 }
 
-.m9 {
+.m-45 {
   margin: 45px;
 }
 
-.m10 {
+.m-50 {
   margin: 50px;
 }
 
@@ -1167,6 +1166,28 @@ li {
 
 /* Large desktops (large desktops, 1200px and up) */
 
+.search-cards {
+  flex-wrap: wrap;
+  height: 100vh;
+  overflow: auto;
+  margin-right: 10px;
+}
+
+.search-cards .card {
+  display: block;
+  flex-basis: 100%;
+  text-decoration: none;
+  color: #000;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.search-cards .card img {
+  max-width: 350px;
+  margin-bottom: 5px;
+  border-radius: 5px;
+}
+
 .search-home {
   align-items: center;
   justify-content: center;
@@ -1768,5 +1789,99 @@ form .search-home__error {
 .adminSponsorshipIndex .container table tr th,
 .adminSponsorshipIndex .container table tr td {
   padding: 10px 0;
+}
+
+.createSponsorship-page {
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0 10px;
+}
+
+.createSponsorship-page .search-cards {
+  height: 100%;
+}
+
+.createSponsorship-page .payment-form {
+  flex-direction: column;
+}
+
+.createSponsorship-page .payment-form .braintree-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-top: 1px solid #e41d5c;
+  border-bottom: 1px solid #e41d5c;
+  padding: 20px 0;
+}
+
+.createSponsorship-page .payment-form .braintree-form .braintree-sheet {
+  border: 1px solid #b5b5b5;
+}
+
+.createSponsorship-page .payment-form .radio {
+  opacity: 0;
+  position: absolute;
+}
+
+.createSponsorship-page .payment-form .radio-label {
+  display: inline-block;
+  background: linear-gradient(to right, #92174d 9.38%, #e41d5c 88.54%);
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 500;
+  border-radius: 5px;
+  border: 1px solid transparent;
+  width: 200px;
+  padding: 10px;
+  margin-bottom: 5px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.createSponsorship-page .payment-form .radio:checked + .radio-label {
+  background: #2b9e2b;
+}
+
+.createSponsorship-page .payment-form .btn-transaction {
+  display: inline-block;
+  padding: 10px;
+  background: linear-gradient(to right, #92174d 9.38%, #e41d5c 88.54%);
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 500;
+  border-radius: 5px;
+  border: 1px solid transparent;
+}
+
+@media (min-width: 768px) {
+  .createSponsorship-page .payment-form {
+    align-items: flex-start;
+  }
+
+  .createSponsorship-page .payment-form .braintree-form {
+    align-self: stretch;
+    margin-top: 20px;
+  }
+
+  .createSponsorship-page .payment-form .btn-transaction {
+    align-self: center;
+  }
+}
+
+@media (min-width: 992px) {
+  .createSponsorship-page .payment-form .braintree-form {
+    flex-direction: row;
+    justify-content: space-around;
+    margin: 30px 0;
+  }
+
+  .createSponsorship-page .payment-form .braintree-form .bt-drop-in-wrapper {
+    max-width: 60%;
+  }
+
+  .createSponsorship-page .payment-form .btn-transaction {
+    align-self: center;
+  }
 }
 
