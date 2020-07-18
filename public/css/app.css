@@ -1756,12 +1756,13 @@ form .search-home__error {
 }
 
 .formAlgoliaIndex-page .animation--service {
+  padding-left: 10px;
+  padding-right: 10px;
   border-radius: 5px;
   color: #ffffff;
   background: linear-gradient(to right, #92174d 9.38%, #e41d5c 88.54%);
-  visibility: hidden;
   overflow: hidden;
-  max-height: 0;
+  height: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1770,8 +1771,8 @@ form .search-home__error {
 }
 
 .formAlgoliaIndex-page .animation--service.animation--service--open {
-  max-height: 200px;
-  visibility: visible;
+  height: 200px;
+  padding: 10px;
 }
 
 .formAlgoliaIndex-page .animation--service .search-services {
@@ -1817,9 +1818,14 @@ form .search-home__error {
 
 @media (min-width: 992px) {
   .formAlgoliaIndex-page .animation--service {
+    padding-left: 30px;
+    padding-right: 30px;
     flex-basis: 60%;
-    padding: 30px;
     border-radius: 15px;
+  }
+
+  .formAlgoliaIndex-page .animation--service.animation--service--open {
+    padding: 30px;
   }
 
   .formAlgoliaIndex-page .animation--service .search-services {

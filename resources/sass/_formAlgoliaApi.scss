@@ -16,6 +16,8 @@
         flex-basis: 100%;
     }
     .animation--service {
+        padding-left: 10px;
+        padding-right: 10px;
         border-radius: 5px;
         color: $white;
         background: linear-gradient(
@@ -23,17 +25,16 @@
             rgb(146, 23, 77) 9.38%,
             rgb(228, 29, 92) 88.54%
         );
-        visibility: hidden;
         overflow: hidden;
-        max-height: 0;
+        height: 0;
         display: flex;
         flex-direction: column;
         align-items: center;
         flex-basis: 100%;
         transition: all 1s cubic-bezier(0.215, 0.61, 0.355, 1);
         &.animation--service--open {
-            max-height: 200px;
-            visibility: visible;
+            height: 200px;
+            padding: 10px;
         }
         .search-services {
             display: flex;
@@ -84,9 +85,13 @@
 @include desktop {
     .formAlgoliaIndex-page {
         .animation--service {
+            padding-left: 30px;
+            padding-right: 30px;
             flex-basis: 60%;
-            padding: 30px;
             border-radius: 15px;
+            &.animation--service--open {
+                padding: 30px;
+            }
             .search-services {
                 flex-direction: column;
                 label {
@@ -102,6 +107,7 @@
                         width: 80px;
                     }
                 }
+
             }
             .checkbox-services {
                 display: flex;

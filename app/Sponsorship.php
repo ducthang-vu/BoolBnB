@@ -6,7 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Sponsorship extends Model
 {
-
     /* UTILITIES */
     public function getHoursDurationAsStr() {
         preg_match( '/^\d\d?\w/' , $this->duration, $matches);
