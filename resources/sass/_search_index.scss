@@ -25,9 +25,6 @@
 }
 /* Desktops (desktops, 992px and up) */
 @include desktop {
-    .main-content {
-        max-width: 992px;
-    }
     .index-search {
         padding-bottom: 50px;
         margin: 0 10px;
@@ -56,9 +53,6 @@
 }
 /* Large desktops (large desktops, 1200px and up) */
 @include large-desktop {
-    .main-content {
-        max-width: 1800px;
-    }
     .index-search {
         .search-cards{
             flex-basis: 50%;

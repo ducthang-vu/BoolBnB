@@ -28,6 +28,9 @@
 }
 .map-description{
     flex-direction: column;
+    .button-card {
+        border: none;
+    }
     .map{
         padding-bottom: 20px;
     }
@@ -107,6 +110,7 @@
     .jumbotron{
         img{
             height: 400px;
+            max-width: 50%;
         }
     }
     .description{

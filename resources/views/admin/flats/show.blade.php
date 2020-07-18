@@ -1,6 +1,7 @@
 @extends('layouts.main')
 
-@section('page-content')
+<div class="section-show-page">
+    @section('page-content')
 <div class="card-show">
     <div class="d-flex s-center transition-invisible">
         @if (session('flat-updated'))
@@ -38,16 +39,18 @@
       <div class="map">
           <h3>Mappa</h3>
       </div>
-      <div class="button-card mb-20">
-        <a class="btn btn-stat mb-5" href="{{ route('admin.statistics' , $flat->id) }}">Statistiche</a>
-          <a class="btn btn-spons mb-5 mr-5" href="{{ route('admin.sponsorships.create', ['flat_id' => $flat->id]) }}">Sponsorizza</a>
-          <a class="btn btn-edit mb-5 mr-5" href="{{ route('admin.flats.edit', $flat->id) }}">Modifica</a>
-          <form action="{{ route('admin.flats.destroy', $flat->id) }}" method="POST">
+      <div class="button-card mb-20 d-flex align-center ">
+        <a class="btn btn-stat mb-5 mr-5 df-column " href="{{ route('admin.statistics' , $flat->id) }}"><i class="far fa-chart-bar"></i><span class="top-text">Statistiche</span></a>
+        <a class="btn btn-spons mb-5 mr-5" href="{{ route('admin.sponsorships.create', ['flat_id' => $flat->id]) }}"><i class="fas fa-hand-holding-usd"></i><span class="top-text">Sponsorizza</span></a>
+        <a class="btn btn-edit mb-5 mr-5" href="{{ route('admin.flats.edit', $flat->id) }}"><i class="far fa-edit"></i><span class="top-text">Midifica</span></a>
+        <form action="{{ route('admin.flats.destroy', $flat->id) }}" method="POST">
             @csrf
             @method('DELETE')
-            <input class="btn btn-delete" type="submit" value="Elimina">
+            <button type="submit" class="btn btn-delete"><i class="far fa-trash-alt"></i><span class="top-text">Elimina</span></button>
         </form>
       </div>
   </div>
 </div>
 @endsection
+
+</div>
