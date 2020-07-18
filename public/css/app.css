@@ -149,83 +149,83 @@ li {
   margin-bottom: 50px;
 }
 
-.mr-1 {
+.mr-5 {
   margin-right: 5px;
 }
 
-.mr-2 {
+.mr-10 {
   margin-right: 10px;
 }
 
-.mr-3 {
+.mr-15 {
   margin-right: 15px;
 }
 
-.mr-4 {
+.mr-20 {
   margin-right: 20px;
 }
 
-.mr-5 {
+.mr-25 {
   margin-right: 25px;
 }
 
-.mr-6 {
+.mr-30 {
   margin-right: 30px;
 }
 
-.mr-7 {
+.mr-35 {
   margin-right: 35px;
 }
 
-.mr-8 {
+.mr-40 {
   margin-right: 40px;
 }
 
-.mr-9 {
+.mr-45 {
   margin-right: 45px;
 }
 
-.mr-10 {
+.mr-50 {
   margin-right: 50px;
 }
 
-.ml-1 {
+.ml-5 {
   margin-left: 5px;
 }
 
-.ml-2 {
+.ml-10 {
   margin-left: 10px;
 }
 
-.ml-3 {
+.ml-15 {
   margin-left: 15px;
 }
 
-.ml-4 {
+.ml-20 {
   margin-left: 20px;
 }
 
-.ml-5 {
+.ml-25 {
   margin-left: 25px;
 }
 
-.ml-6 {
+.ml-30 {
   margin-left: 30px;
 }
 
-.ml-7 {
+.ml-35 {
   margin-left: 35px;
 }
 
-.ml-8 {
+.ml-40 {
   margin-left: 40px;
 }
 
-.ml-9 {
+.ml-45 {
   margin-left: 45px;
 }
 
-.ml-10 {
+.ml-50 {
   margin-left: 50px;
 }
 
@@ -1670,6 +1670,101 @@ form .search-home__error {
 }
 
 /* Large desktops (large desktops, 1200px and up) */
+
+.form {
+  background: #fafafa;
+  padding: 30px;
+  box-shadow: 1px 1px 25px rgba(0, 0, 0, 0.35);
+  border-radius: 10px;
+  border: 6px solid #e41d5c;
+}
+
+.form ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.form ul li {
+  margin-bottom: 10px;
+  min-height: 35px;
+}
+
+.form ul li .field-style {
+  padding: 8px;
+  outline: none;
+  border: 1px solid #e41d5c;
+  transition: all 0.3s ease-in-out;
+}
+
+.form ul li .field-style:focus {
+  box-shadow: 0 0 5px #e41d5c;
+  border: 1px solid #e41d5c;
+}
+
+.form ul li .field-split {
+  width: 49%;
+}
+
+.form ul li .field-full {
+  width: 100%;
+}
+
+.form ul li input.align-left {
+  float: left;
+}
+
+.form ul li input.align-right {
+  float: right;
+}
+
+.form ul li textarea {
+  width: 100%;
+  height: 100px;
+}
+
+.form ul li input[type=button],
+.form ul li input[type=submit] {
+  background: linear-gradient(to right, #92174d 9.38%, #e41d5c 88.54%);
+  color: #ffffff;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 5px;
+  border: 1px solid transparent;
+  height: 50px;
+  width: 100%;
+}
+
+.form ul li input[type=button]:hover,
+.form ul li input[type=submit]:hover {
+  background: #e41d5c;
+  background-color: #e41d5c;
+}
+
+textarea::-moz-placeholder, input::-moz-placeholder {
+  font-family: "Montserrat", sans-serif;
+}
+
+textarea:-ms-input-placeholder, input:-ms-input-placeholder {
+  font-family: "Montserrat", sans-serif;
+}
+
+textarea::-ms-input-placeholder, input::-ms-input-placeholder {
+  font-family: "Montserrat", sans-serif;
+}
+
+textarea,
+textarea::placeholder,
+input::placeholder {
+  font-family: "Montserrat", sans-serif;
+}
+
+@media (min-width: 768px) {
+  .form .btn-search {
+    margin-left: 0;
+  }
+}
 
 .index-search .search-cards .card-row {
   background: rgba(238, 238, 238, 0.432);

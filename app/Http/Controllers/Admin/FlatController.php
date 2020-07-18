@@ -124,7 +124,7 @@ class FlatController extends Controller
      */
     public function destroy(Flat $flat)
     {
-        if (empty($flat)){
+        if (empty($flat)) {
             abort('404');
         }
 
@@ -135,7 +135,7 @@ class FlatController extends Controller
 
         $deleted = $flat->delete();
 
-        if($deleted) {
+        if ($deleted) {
             Storage::disk('public')->delete($flat->image);
 
             return redirect()->route('admin.home')->with('flat-deleted', $id);
@@ -150,10 +150,10 @@ class FlatController extends Controller
         return [
             'title' => 'required|min:1|max:255',
             'description' => 'required|min:1|max:500',
-            'number_of_rooms' => 'required|min:1|max:10',
-            'number_of_beds' => 'required|min:1|max:30',
-            'number_of_bathrooms' => 'required|min:1|max:10',
-            'square_meters' => 'required|min:1|max:999',
+            'number_of_rooms' => 'required|min:1',
+            'number_of_beds' => 'required|min:1',
+            'number_of_bathrooms' => 'required|min:1',
+            'square_meters' => 'required|min:10',
             'image' => 'required|image',
             'services.*' => 'exists:services,id'
         ];
