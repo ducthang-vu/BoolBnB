@@ -43,6 +43,7 @@ const Chart = require("chart.js");
 import place from "./blade-components/inputAlgolia";
 import formAlgoliaHome from "./blade-components/formAlgoliaHome";
 import guestIndexPage from "./blade-components/guestIndexPage";
+import adminSponsorshipsCreate from "./blade-components/adminSponsorshipCreate";
 
 
 if (document.querySelector(".main-header")) {
@@ -61,6 +62,9 @@ if (document.querySelector(".formAlgoliaIndex-page")) {
     guestIndexPage(lat, lng);
 }
 
+if (document.querySelector('.adminSponsorshipsCreate')) {
+    adminSponsorshipsCreate()
+}
 
 try {
     const canvasVisualisations = document.getElementById(

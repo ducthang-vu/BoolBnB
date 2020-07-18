@@ -9,7 +9,7 @@ class Sponsorship extends Model
 
     /* UTILITIES */
     public function getHoursDurationAsStr() {
-        preg_match( '/^\d\d/' , $this->duration, $matches);
+        preg_match( '/^\d\d?\w/' , $this->duration, $matches);
         return $matches[0];
     }
     public function getHoursDurationAsFloat() {

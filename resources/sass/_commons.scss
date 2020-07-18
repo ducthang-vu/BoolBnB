@@ -12,6 +12,10 @@ body {
     font-family: "Montserrat", sans-serif;
 }
 
+button,
+a {
+    cursor: pointer;
+}
 main {
     flex-grow: 1;
 }
