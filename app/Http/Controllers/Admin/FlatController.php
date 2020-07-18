@@ -94,24 +94,18 @@ class FlatController extends Controller
         $flat->lat = $latlong[0];
         $flat->lng = $latlong[1];
 
-        // set immagine
-        // delete vecchia immagine
         if (!empty($flat->image)) {
             Storage::disk('public')->delete($flat->image);
         }
-        // store nuova immagine
         $data['image'] = Storage::disk('public')->put('images', $data['image']);
         $flat->image = $data['image'];
-
         $updated = $flat->update($data);
-
         if ($updated) {
             if (!empty($data['services'])) {
                 $flat->services()->sync($data['services']);
             } else {
                 $flat->services()->detach();
             }
-
             return redirect()->route('admin.flats.show', $flat->id)->with('flat-updated', $flat->title);
         }
     }
@@ -150,10 +144,10 @@ class FlatController extends Controller
         return [
             'title' => 'required|min:1|max:255',
             'description' => 'required|min:1|max:500',
-            'number_of_rooms' => 'required|min:1',
-            'number_of_beds' => 'required|min:1',
-            'number_of_bathrooms' => 'required|min:1',
-            'square_meters' => 'required|min:10',
+            'number_of_rooms' => 'required|integer|min:1',
+            'number_of_beds' => 'required|integer|min:1',
+            'number_of_bathrooms' => 'required|integer|min:1',
+            'square_meters' => 'required|integer|min:10',
             'image' => 'required|image',
             'services.*' => 'exists:services,id'
         ];

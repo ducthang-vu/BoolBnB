@@ -6,7 +6,7 @@
         <ul>
             <li>
                 <input type="text" name="title" class="field-style field-full" placeholder="Titolo"
-                    value="{{ old('title', $flat->title) }}" />
+                    value="{{ old('title', $flat->title) }}"/>
             </li>
             <li>
                 <textarea name="description" class="field-style"
@@ -21,7 +21,7 @@
             <li class="d-flex s-between">
                 <input type="number" name="number_of_bathrooms" class="field-style field-split align-left" min="1"
                     placeholder="Bagni" value="{{ old('number_of_bathrooms', $flat->number_of_bathrooms) }}" />
-                <input type="number" name="nsquare_meters" class="field-style field-split align-left" min="10"
+                <input type="number" name="square_meters" class="field-style field-split align-left" min="10"
                     placeholder="Metri quadri" value="{{ old('square_meters', $flat->square_meters) }}" />
             </li>
             <li class="inputAlgolia-page">
@@ -32,7 +32,7 @@
             <li>
                 <label for="image">Immagine</label>
                 <input class="field-style field-full" type="file" name="image" id="image" accept="image/*"
-                    value="{{ old('image') }}">
+                    value="{{ old('image', $flat->image) }}">
             </li>
             <li class="services text-center">
                 @foreach ($services as $service)

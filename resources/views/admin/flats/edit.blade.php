@@ -1,7 +1,6 @@
 @extends('layouts.main')
 
 @section('page-content')
-
     <div class="section-home-admin mt-20">
         <div class="title-flts text-center">
             <h1 class="mt-20 mb-20">
@@ -20,7 +19,5 @@
         @endif
 
         @include('shared.components.formEdit')
-
     </div>
-
 @endsection
