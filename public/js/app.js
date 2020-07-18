@@ -116685,6 +116685,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _blade_components_inputAlgolia__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./blade-components/inputAlgolia */ "./resources/js/blade-components/inputAlgolia.js");
 /* harmony import */ var _blade_components_formAlgoliaHome__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./blade-components/formAlgoliaHome */ "./resources/js/blade-components/formAlgoliaHome.js");
 /* harmony import */ var _blade_components_guestIndexPage__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./blade-components/guestIndexPage */ "./resources/js/blade-components/guestIndexPage.js");
+/* harmony import */ var _blade_components_requestsIndex__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./blade-components/requestsIndex */ "./resources/js/blade-components/requestsIndex.js");
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -116726,6 +116727,7 @@ var Chart = __webpack_require__(/*! chart.js */ "./node_modules/chart.js/dist/Ch
 
 
 
+
 if (document.querySelector(".main-header")) {
   Object(_blade_components_hamburgerHeader__WEBPACK_IMPORTED_MODULE_0__["default"])();
 }
@@ -116740,6 +116742,10 @@ if (document.querySelector(".formAlgoliaHome-page")) {
 
 if (document.querySelector(".formAlgoliaIndex-page")) {
   Object(_blade_components_guestIndexPage__WEBPACK_IMPORTED_MODULE_5__["default"])(lat, lng);
+}
+
+if (document.querySelector(".request-message-handler")) {
+  Object(_blade_components_requestsIndex__WEBPACK_IMPORTED_MODULE_6__["default"])();
 }
 
 try {
@@ -117069,6 +117075,34 @@ function place() {
 
 /***/ }),
 
+/***/ "./resources/js/blade-components/requestsIndex.js":
+/*!********************************************************!*\
+  !*** ./resources/js/blade-components/requestsIndex.js ***!
+  \********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// Show message in request index page
+function showRequestMessage() {
+  var messageHandler = document.querySelectorAll(".request-message-handler");
+  messageHandler.forEach(function (element) {
+    element.addEventListener("click", function () {
+      var message = this.querySelector(".request-message");
+      var controls = this.querySelectorAll("h4");
+      controls.forEach(function (element) {
+        element.classList.toggle("active");
+      });
+      message.classList.toggle("active");
+    });
+  });
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (showRequestMessage);
+
+/***/ }),
+
 /***/ "./resources/js/bootstrap.js":
 /*!***********************************!*\
   !*** ./resources/js/bootstrap.js ***!
@@ -117201,8 +117235,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Boolean\Esercizi\final_project\BoolBnB\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Boolean\Esercizi\final_project\BoolBnB\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/riccardo1/Documents/Boolean/BoolBnB/progetto/BoolBnB/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/riccardo1/Documents/Boolean/BoolBnB/progetto/BoolBnB/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ }),
