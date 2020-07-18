@@ -4,7 +4,7 @@
     <div class="section-home-admin mt-20">
         <div class="title-flts text-center">
             <h1 class="mt-20 mb-20">
-                Modifica un appartamento
+                Aggiorna i dati dell'appartamento #{{$flat->id}}
             </h1>
         </div>
 

@@ -71,7 +71,6 @@ class FlatController extends Controller
     public function edit(Flat $flat)
     {
         $services = Service::all();
-
         return view('admin.flats.edit', compact('flat', 'services'));
     }
 
@@ -85,27 +84,21 @@ class FlatController extends Controller
     public function update(Request $request, Flat $flat)
     {
         $request->validate($this->validateRules());
-
         $data = $request->all();
         $data['user_id'] = Auth::id();
-
-        // get lat long
-        $latlong = explode(',', $request->input('latlong'));
+        $latlong = explode(',', $request['latlong']);
         $flat->lat = $latlong[0];
         $flat->lng = $latlong[1];
 
-        if (!empty($flat->image)) {
-            Storage::disk('public')->delete($flat->image);
+        if ( isset($data['image'])) {
+            if (!empty($flat->image)) Storage::disk('public')->delete($flat->image);
+            $data['image'] = Storage::disk('public')->put('images', $data['image']);
+        } else {
+            $data['image'] = $flat->image;
         }
-        $data['image'] = Storage::disk('public')->put('images', $data['image']);
-        $flat->image = $data['image'];
-        $updated = $flat->update($data);
-        if ($updated) {
-            if (!empty($data['services'])) {
-                $flat->services()->sync($data['services']);
-            } else {
-                $flat->services()->detach();
-            }
+
+        if ($flat->update($data)) {
+            empty($data['services']) ? $flat->services()->detach() : $flat->services()->sync($data['services']);
             return redirect()->route('admin.flats.show', $flat->id)->with('flat-updated', $flat->title);
         }
     }
@@ -123,15 +116,11 @@ class FlatController extends Controller
         }
 
         $id = $flat->id;
-
         $flat->sponsorships()->detach();
         $flat->services()->detach();
-
         $deleted = $flat->delete();
-
         if ($deleted) {
             Storage::disk('public')->delete($flat->image);
-
             return redirect()->route('admin.home')->with('flat-deleted', $id);
         }
     }
@@ -148,7 +137,7 @@ class FlatController extends Controller
             'number_of_beds' => 'required|integer|min:1',
             'number_of_bathrooms' => 'required|integer|min:1',
             'square_meters' => 'required|integer|min:10',
-            'image' => 'required|image',
+            'image' => 'image',
             'services.*' => 'exists:services,id'
         ];
     }
