@@ -49,13 +49,13 @@ li {
 }
 
 @for $i from 1 through 10 {
-    .mr-#{$i} {
+    .mr-#{$i * 5} {
         margin-right: 5px * $i;
     }
 }
 
 @for $i from 1 through 10 {
-    .ml-#{$i} {
+    .ml-#{$i * 5} {
         margin-left: 5px * $i;
     }
 }
@@ -149,4 +149,3 @@ li {
     padding: 10px;
     box-shadow: -1px 1px 1px 0px #cac9c9;
 }
-
