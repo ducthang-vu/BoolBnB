@@ -44,6 +44,8 @@ import place from "./blade-components/inputAlgolia";
 import formAlgoliaHome from "./blade-components/formAlgoliaHome";
 import guestIndexPage from "./blade-components/guestIndexPage";
 import showRequestMessage from "./blade-components/requestsIndex";
+import adminSponsorshipsCreate from "./blade-components/adminSponsorshipCreate";
+
 
 if (document.querySelector(".main-header")) {
     hamburgerHeader();
@@ -63,6 +65,10 @@ if (document.querySelector(".formAlgoliaIndex-page")) {
 
 if (document.querySelector(".request-message-handler")) {
     showRequestMessage();
+}
+
+if (document.querySelector('.adminSponsorshipsCreate')) {
+    adminSponsorshipsCreate()
 }
 
 try {

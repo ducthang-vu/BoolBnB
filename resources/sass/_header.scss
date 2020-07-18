@@ -124,6 +124,60 @@
 }
 /* Tablets (tablets, 768px and up) */
 @include tablet {
+    // .navbar-header-page {
+    //     display: flex;
+    //     justify-content: space-between;
+    //     align-items: center;
+    //     vertical-align: middle;
+    //     .logo-header-page {
+    //         text-decoration: none;
+    //         @include text_gradient;
+    //         i {
+    //             font-size: 30px;
+    //             vertical-align: middle;
+    //         }
+    //         span {
+    //             font-weight: 900;
+    //         }
+    //     }
+    //     ul {
+    //         li {
+    //             display: inline;
+    //             text-align: right;
+    //             list-style: none;
+    //             text-decoration: none;
+    //             margin-right: 8px;
+    //             font-size: 12px;
+    //             font-weight: 700;
+    //             a {
+    //                 display: inline-block;
+    //                 padding: 5px 10px;
+    //                 color: $text;
+    //                 text-decoration: none;
+    //                 border-radius: 5px;
+    //                 &.active {
+    //                     border-bottom: 3px solid $red;
+    //                 }
+    //                 &:hover {
+    //                     background: $tablebg;
+    //                 }
+    //             }
+    //         }
+    //     }
+    //     .hamburger-header-page {
+    //         display: none;
+    //     }
+    //     .big-navbar-header-page {
+    //         display: block;
+    //         ul li {
+    //             display: inline;
+    //         }
+    //     }
+    // }
+}
+
+/* Desktops (desktops, 992px and up) */
+@include desktop {
     .navbar-header-page {
         display: flex;
         justify-content: space-between;
@@ -174,10 +228,6 @@
             }
         }
     }
-}
-
-/* Desktops (desktops, 992px and up) */
-@include desktop {
 }
 
 @include large-desktop {

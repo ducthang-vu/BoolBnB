@@ -12,6 +12,10 @@ body {
     font-family: "Montserrat", sans-serif;
 }
 
+button,
+a {
+    cursor: pointer;
+}
 main {
     flex-grow: 1;
 }
@@ -21,7 +25,7 @@ li {
 }
 
 .main-content {
-    max-width: 1200px;
+    max-width: 95%;
     margin: 0 auto;
 }
 
@@ -146,48 +150,3 @@ li {
     box-shadow: -1px 1px 1px 0px #cac9c9;
 }
 
-.button-home {
-    @include button-serach-home;
-}
-
-.btn {
-    height: 40px;
-    display: inline-block;
-    border: 0;
-    background: #f3f0f1;
-    border-radius: 32px;
-    padding: 10px;
-    text-decoration: none;
-    box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.8),
-        6px 6px 10px rgba(0, 0, 0, 0.2);
-    color: #6f6cde;
-    transition: all 0.1s ease-in-out;
-    &:hover {
-        opacity: 0.5;
-        box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.8),
-            6px 6px 10px rgba(0, 0, 0, 0.2);
-    }
-    cursor: pointer;
-}
-
-.btn-spons {
-    color: $orange;
-}
-
-.btn-edit {
-    color: $blue;
-}
-
-.btn-delete {
-    color: $red;
-    cursor: pointer;
-    &:active {
-        border: 0;
-    }
-}
-
-.btn-add,
-.btn-message {
-    color: $green;
-    height: 50px;
-}

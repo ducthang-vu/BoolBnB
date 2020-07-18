@@ -17,6 +17,10 @@
             display: none;
         }
     }
+
+    .button-card{
+        align-items: center;
+    }
 }
 
 @include mobile {
@@ -28,7 +32,7 @@
         flex-direction: row;
         text-align: left;
         img{
-            margin: 0;
+            margin-right: 10px;
         }
     }
     
