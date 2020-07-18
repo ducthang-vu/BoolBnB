@@ -7,16 +7,16 @@
         <div class="d-flex s-center transition-invisible">
 
             @if (session('flat-saved'))
-        <div class="success-message">
-            <p>{{ session('flat-saved') }} aggiunto correttamente.</p>
-        </div>
-        @endif
-        @if (session('flat-deleted'))
-        <div class="error-message">
-            <p>Appartamento n. {{ session('flat-deleted') }} eliminato correttamente.</p>
-        </div>
+            <div class="success-message">
+                <p>{{ session('flat-saved') }} aggiunto correttamente.</p>
+            </div>
+            @endif
+            @if (session('flat-deleted'))
+            <div class="error-message">
+                <p>Appartamento n. {{ session('flat-deleted') }} eliminato correttamente.</p>
+            </div>
 
-        @endif
+            @endif
         </div>
 
         <div class="title-flts d-flex s-between align-center">
@@ -31,29 +31,30 @@
         @if($flats->count())
 
         @foreach($flats as $flat)
-                <a class="card-row d-flex mb-10" href="{{ route('admin.flats.show' , $flat->id) }}">
-                    <div class="image">
-                        <img src="{{ asset('storage/' . $flat->image ) }}" alt="{{$flat -> title}}">
-                    </div>
+            <a class="card-row d-flex mb-10" href="{{ route('admin.flats.show' , $flat->id) }}">
+                <div class="image">
+                    <img src="{{ asset('storage/' . $flat->image ) }}" alt="{{$flat -> title}}">
+                </div>
 
-                    <div class="desc-card ml-10">
-                        <h2 class="mb-10">{{$flat->title}}</h2>
+                <div class="desc-card ml-10">
+                    <h2 class="mb-10">{{$flat->title}}</h2>
 
-                        <p>{{$flat->description}}</p>
-                    </div>
+                    <p>{{$flat->description}}</p>
+                </div>
 
-                    <div class="button-card mb-20 d-flex">
-                        <div class="left-btn">
-                            <a class="btn btn-stat mb-5" href="{{ route('admin.statistics' , $flat->id) }}">Statistiche</a>
-                            <a class="btn btn-spons mb-5" href="{{ route('admin.sponsorships.create', ['flat_id' => $flat->id]) }}">Sponsorizza</a>
-                            <a class="btn btn-edit mb-5" href="{{ route('admin.flats.edit', $flat->id) }}">Modifica</a>
-                            <form action="{{ route('admin.flats.destroy', $flat->id) }}" method="POST">
-                                @csrf
-                                @method('DELETE')
-                                <input class="btn btn-delete" type="submit" value="Elimina">
-                            </form>
-                        </div>
+                <div class="button-card mb-20 d-flex">
+                    <div class="left-btn d-flex">
+                        <a class="btn btn-stat mb-5 mr-5" href="{{ route('admin.statistics' , $flat->id) }}"><i class="far fa-chart-bar"></i><span class="top-text">Statistiche</span></a>
+                        <a class="btn btn-spons mb-5 mr-5" href="{{ route('admin.sponsorships.create', ['flat_id' => $flat->id]) }}"><i class="fas fa-hand-holding-usd"></i><span class="top-text">Sponsorizza</span></a>
+                        <a class="btn btn-edit mb-5 mr-5" href="{{ route('admin.flats.edit', $flat->id) }}"><i class="far fa-edit"></i><span class="top-text">Modifica</span></a>
+                        <form action="{{ route('admin.flats.destroy', $flat->id) }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-delete"><i class="far fa-trash-alt"></i><span class="top-text">Elimina</span></button>
+                        </form>
+                        {{-- <button class="btn btn-"><i class="far fa-arrow-alt-circle-right"></i></button> --}}
                     </div>
+                </div>
             </a>
         @endforeach
 
@@ -67,5 +68,5 @@
         <div class="link-paginate">
             {{ $flats->links() }}
         </div>
-  </div>
+    </div>
 @endsection
