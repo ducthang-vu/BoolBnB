@@ -38,7 +38,7 @@
                                     @if (Carbon\Carbon::parse($sponsorship->end)
                                             ->greaterThanOrEqualTo(Carbon\Carbon::now()))
                                         active
-                                        @endif
+                                    @endif
                                     "
                             >
                                 <td scope="row">{{ $sponsorship->id }}</th>
