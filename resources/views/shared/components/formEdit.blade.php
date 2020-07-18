@@ -1,6 +1,10 @@
 <div class="df-column align-center">
-    <form class="df-column form mb-20" action="{{ route('admin.flats.update', $flat->id) }}" method="POST"
-        enctype="multipart/form-data">
+    <form
+        class="df-column form mb-20"
+        action="{{ route('admin.flats.update', $flat->id) }}"
+        method="POST"
+        enctype="multipart/form-data"
+    >
         @csrf
         @method('PATCH')
         <ul>
@@ -27,12 +31,17 @@
             <li class="inputAlgolia-page">
                 <input type="text" name="address" id="address" placeholder="Indirizzo"
                     value="{{ old('address', $flat->address) }}">
-                <input type="hidden" name="latlong" id="inputAlgolia-search__latlong">
+                <input
+                    type="hidden"
+                    name="latlong"
+                    id="inputAlgolia-search__latlong"
+                    value="{{ $flat->lat }},{{ $flat->lng }}"
+                >
             </li>
             <li>
                 <label for="image">Immagine</label>
                 <input class="field-style field-full" type="file" name="image" id="image" accept="image/*"
-                    value="{{ old('image', $flat->image) }}">
+                    value="{{ old('image', asset('storage/' . $flat->image )) }}">
             </li>
             <li class="services text-center">
                 @foreach ($services as $service)
