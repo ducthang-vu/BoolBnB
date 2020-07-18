@@ -2163,6 +2163,90 @@ form .search-home__error {
 
 /* Desktops (desktops, 992px and up) */
 
+.requestsIndex-page {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  align-content: center;
+}
+
+.requestsIndex-page .request-card {
+  flex-direction: column;
+  justify-content: space-around;
+  flex-basis: 100%;
+  border: 1px solid #e41d5c;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.requestsIndex-page .request-card:nth-child(odd) {
+  background: linear-gradient(to right, #92174d 9.38%, #e41d5c 88.54%);
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 500;
+  border-radius: 5px;
+  border: 1px solid transparent;
+}
+
+.requestsIndex-page .request-card:nth-child(even) {
+  background: linear-gradient(to right, #92174d 9.38%, #e41d5c 88.54%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 13px;
+}
+
+.requestsIndex-page .request-card:nth-child(even) .request-message {
+  border: 1px solid #e41d5c;
+}
+
+.requestsIndex-page .request-card > * {
+  margin-bottom: 5px;
+}
+
+.requestsIndex-page .request-card .request-text {
+  font-weight: 400;
+}
+
+.requestsIndex-page .request-card .message-control {
+  display: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+}
+
+.requestsIndex-page .request-card .message-control.active {
+  display: block;
+}
+
+.requestsIndex-page .request-card .request-message {
+  display: none;
+  border: 1px solid #ffffff;
+  margin-top: 5px;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.requestsIndex-page .request-card .request-message.active {
+  display: block;
+}
+
+@media (min-width: 768px) {
+  .requestsIndex-page .request-card {
+    flex-basis: 60%;
+  }
+}
+
+@media (min-width: 992px) {
+  .requestsIndex-page {
+    align-items: start;
+  }
+
+  .requestsIndex-page .request-card {
+    flex-basis: 30%;
+  }
+}
+
 .success-message,
 .error-message {
   text-align: center;
