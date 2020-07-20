@@ -4,6 +4,7 @@
     justify-content: space-around;
     align-items: center;
     align-content: center;
+    min-width: 375px;
     .request-card {
         flex-direction: column;
         justify-content: space-around;
@@ -51,6 +52,7 @@
 
 @include tablet {
     .requestsIndex-page {
+        min-width: 768px;
         .request-card {
             flex-basis: 60%;
         }
@@ -59,9 +61,16 @@
 
 @include desktop {
     .requestsIndex-page {
+        min-width: 992px;
         align-items: start;
         .request-card {
             flex-basis: 30%;
         }
+    }
+}
+
+@include large-desktop {
+    .requestsIndex-page {
+        min-width: 1200px;
     }
 }

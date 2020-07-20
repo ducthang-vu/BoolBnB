@@ -74,7 +74,11 @@ if (document.querySelector(".adminSponsorshipsCreate")) {
 if (document.querySelector(".card-show")) {
     let lat = document.querySelector("#lat").value;
     let lng = document.querySelector("#lng").value;
-    mapShow(lat, lng);
+    let iconPath = "../markerIcon/real-estate.png";
+    if (window.location.href.indexOf("admin")) {
+        iconPath = "../" + iconPath;
+    }
+    mapShow(lat, lng, iconPath);
 }
 
 try {
@@ -123,7 +127,7 @@ try {
  **********/
 
 // Show map on flat details page
-function mapShow(lat, lng) {
+function mapShow(lat, lng, iconPath) {
     const map = L.map("mapid").setView([lat, lng], 13);
     L.tileLayer(
         "https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}",
@@ -140,7 +144,7 @@ function mapShow(lat, lng) {
     ).addTo(map);
 
     let markerIcon = L.icon({
-        iconUrl: "../markerIcon/real-estate.png",
+        iconUrl: iconPath,
         iconSize: [50, 50],
         iconAnchor: [25, 50]
     });

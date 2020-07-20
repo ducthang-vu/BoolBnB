@@ -28,9 +28,10 @@ function guestIndexPage(lat, lng) {
         });
 
         let markerIcon = L.icon({
-            iconUrl: "./markerIcon/real-estate.png",
+            iconUrl: "../markerIcon/real-estate.png",
             iconSize: [50, 50],
-            iconAnchor: [25, 50]
+            iconAnchor: [25, 50],
+            popupAnchor: [0, -45]
         });
 
         cardsData.forEach(element => {
