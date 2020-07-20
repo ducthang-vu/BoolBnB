@@ -61,13 +61,15 @@
         position: fixed;
         top: 36px;
         right: 10px;
-        background: $footerbg;
+        @include bg_hambuger_menu;
         border: 1px solid $text;
         border-radius: 10px 0 0 10px;
+        -webkit-box-shadow: 1px 1px 3px 0px $text;
+        -moz-box-shadow: 1px 1px 3px 0px $text;
+        box-shadow: 1px 1px 3px 0px $text;
         // padding: 5px;
         z-index: 3;
-        -webkit-animation: fadeIn 0.4s;
-        animation: fadeIn 0.4s;
+        animation: sliding 0.6s;
         .emptydiv-header-page {
             padding: 0;
             margin: 0;
@@ -117,6 +119,13 @@
 @keyframes fadeIn {
     from {transform: scale(0)}
     to {transform: scale(1)}
+}
+
+@keyframes sliding {
+    0% {right: -100px}
+    33% {right: 5px}
+    66% {right: 7.5px}
+    100% {right: 10px}
 }
 
 @include mobile {
