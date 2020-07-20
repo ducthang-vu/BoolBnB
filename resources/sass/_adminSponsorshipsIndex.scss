@@ -1,48 +1,51 @@
-@media (max-width: 767px) {
-    .adminSponsorshipIndex {
-        width: 300px;
-        .container {
-            width: 100%;
+.adminSponsorshipIndex {
+    width: 300px;
+    .container {
+        width: 100%;
+        text-align: center;
+        .btn-sponsorship-index-page {
+            height: 40px;
+            width: 200px;
+            display: inline-block;
+            border: 0;
+            background: #f3f0f1;
+            border-radius: 32px;
+            padding: 10px;
             text-align: center;
-            .btn-sponsorship-index-page {
-                height: 40px;
-                width: 200px;
-                display: inline-block;
-                border: 0;
-                background: #f3f0f1;
-                border-radius: 32px;
-                padding: 10px;
-                text-align: center;
-                text-decoration: none;
-                box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.8), 6px 6px 10px rgba(0, 0, 0, 0.2);
-                color: #6f6cde;
-                transition: all 0.1s ease-in-out;
-                cursor: pointer;
-            }
-            table {
-                width: 100%;
-                border-collapse: collapse;
+            text-decoration: none;
+            box-shadow: -6px -6px 10px rgba(255, 255, 255, 0.8), 6px 6px 10px rgba(0, 0, 0, 0.2);
+            color: #6f6cde;
+            transition: all 0.1s ease-in-out;
+            cursor: pointer;
+        }
+        .desktop-sponsorship-page {
+            display: none;
+        }
+        .mobile-sponsorship-page {
+            .table { 
+                width: 100%; 
+                border-collapse: collapse; 
                 margin-top: 30px;
                 }
-                tr:nth-of-type(odd) {
+                tr:nth-of-type(odd) { 
                 @include bg_gradient;
                 -webkit-box-shadow: 4px 4px 4px 0px rgba(0,0,0,0.75);
                 -moz-box-shadow: 4px 4px 4px 0px rgba(0,0,0,0.75);
                 box-shadow: 4px 4px 4px 0px rgba(0,0,0,0.75);
                 }
-                tr:nth-of-type(even) {
+                tr:nth-of-type(even) { 
                 @include bg_gradient_even;
                 -webkit-box-shadow: 4px 4px 4px 0px rgba(0,0,0,0.75);
                 -moz-box-shadow: 4px 4px 4px 0px rgba(0,0,0,0.75);
                 box-shadow: 4px 4px 4px 0px rgba(0,0,0,0.75);
                 }
-                td {
-                padding: 6px;
-                border: 1px solid #ccc;
-                text-align: right;
+                td { 
+                padding: 6px; 
+                border: 1px solid #ccc; 
+                text-align: right; 
                 }
-            table, thead, tbody, th, td, tr {
-                display: block;
+            table, thead, tbody, th, td, tr { 
+                display: block; 
             }
             thead tr {
                 position: absolute;
@@ -52,6 +55,9 @@
             tr {
                 margin: 0 0 1rem 0;
                 padding: 5px;
+                &.active {
+                    background: $green;
+                }
             }
             td {
                 border: none;
@@ -78,16 +84,19 @@
             td:nth-of-type(5):before { content: "End"; }
             td:nth-of-type(6):before { content: "Price paid"; }
             td:nth-of-type(7):before { content: "Payment code"; }
+        } 
+    }
+    
+    .active-legend-div-indexSponsorship-page {
+        display: flex;
+        .greendiv-indexSponsorship-page i {
+            color: $green;
+            padding-right: 2px;
         }
     }
 }
-.active-legend-div-indexSponsorship-page {
-    display: flex;
-    .greendiv-indexSponsorship-page i {
-        color: $green;
-        padding-right: 2px;
-    }
-}
+        
+
 
 
 
@@ -112,7 +121,9 @@
 /* Tablets (tablets, 768px and up) */
 @include tablet {
     .adminSponsorshipIndex {
+        width: 668px;
         .container {
+            width: 100%;
             .btn-sponsorship-index-page {
                 height: 40px;
                 width: 200px;
@@ -128,49 +139,67 @@
                 transition: all 0.1s ease-in-out;
                 cursor: pointer;
             }
-            .table {
-                border: 1px solid $black;
-                border-bottom-left-radius: 10px;
-                border-bottom-right-radius: 10px;
-                border-spacing: 0;
-                -webkit-box-shadow: 4px 4px 4px 0px rgba(0,0,0,0.75);
-                -moz-box-shadow: 4px 4px 4px 0px rgba(0,0,0,0.75);
-                box-shadow: 4px 4px 4px 0px rgba(0,0,0,0.75);
-                margin: 25px auto;
-                // width: 80%;
-                max-width: 1140px;
-                .head-row {
-                    @include bg_gradient;
-                    color: $white;
-                    height: 100%;
+            .mobile-sponsorship-page {
+                display: none;
+            }
+            .desktop-sponsorship-page {
+                display: block;
+                .table {
+                    border: 1px solid $black;
+                    border-bottom-left-radius: 10px;
+                    border-bottom-right-radius: 10px;
+                    border-spacing: 0;
+                    -webkit-box-shadow: 4px 4px 4px 0px rgba(0,0,0,0.75);
+                    -moz-box-shadow: 4px 4px 4px 0px rgba(0,0,0,0.75);
+                    box-shadow: 4px 4px 4px 0px rgba(0,0,0,0.75);
+                    margin: 25px auto;
                     width: 100%;
-                    padding: 0;
-                    th:nth-child(2) {
-                        padding: 0 10px;
+                    max-width: 1140px;
+                    .head-row {
+                        @include bg_gradient;
+                        color: $white;
+                        height: 100%;
+                        width: 100%;
+                        padding: 0;
+                        th:nth-child(2) {
+                            padding: 0 10px;
+                        }
                     }
-                }
-                tr {
-                    td,
-                    th {
-                        padding: 10px 0;
+                    tr {
+                        &.active {
+                            background: $green;
+                        }
+                        td,
+                        th {
+                            padding: 10px 0;
+                        }
+                        td:first-child {
+                            padding-left: 5px;
+                        }
+                        td:last-child {
+                            padding-right: 5px;
+                        }
                     }
-                    td:first-child {
-                        padding-left: 5px;
+                    tr:not(.head-row):hover {
+                        background: $tr_hover;
                     }
-                    td:last-child {
-                        padding-right: 5px;
+                    .desktop-sponsorship-page {
+                        display: block;
                     }
-                }
-                tr:not(.head-row):hover {
-                    background: $tr_hover;
+                    .mobile-sponsorship-page {
+                        display: none;
+                    }
                 }
             }
-        }
-    }
+
+        }    
+    }    
 }
 /* Desktops (desktops, 992px and up) */
 @include desktop {
-
+    .adminSponsorshipIndex {
+        width: 1140px;
+    }
 }
 @include large-desktop {
 
