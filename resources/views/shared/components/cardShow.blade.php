@@ -2,7 +2,6 @@
 DOCUMENTATION:
 This template need to be include with a parameter of model App\Flat
 --}}
-
 <div class="card-show">
     <div class="jumbotron pt-20 pb-20">
         <img src="{{ asset('storage/' . $flat->image ) }}" alt="{{$flat -> title}}">
@@ -27,86 +26,62 @@ This template need to be include with a parameter of model App\Flat
         </div>
     </div>
 
+    <h3 class="mb-10">Mappa</h3>
     <div class="map-description d-flex s-between">
         <div class="map">
-            <h3>Mappa</h3>
+            <input type="hidden" name="latlong" id="lat" value="{{ $flat->lat}}">
+            <input type="hidden" name="latlong" id="lng" value="{{ $flat->lng}}">
+            <div id="mapid" class="map-container"></div>
         </div>
 
         <div class="button-card mb-20">
-                @auth
-                    @if ($flat->user_id == Auth::user()->id)
-                    <a class="btn btn-spons mb-5" href="{{ route('admin.sponsorships.create', ['flat_id' => $flat->id]) }}">Sponsorizza</a>
-                    <a class="btn btn-edit mb-5" href="">Modifica</a>
-                    <a class=" btn btn-delete mb-5" href="">Elimina</a>
-                @endauth
-                @else
-                @guest
+            @auth
+            @if ($flat->user_id == Auth::user()->id)
+            <a class="btn btn-spons mb-5"
+                href="{{ route('admin.sponsorships.create', ['flat_id' => $flat->id]) }}">Sponsorizza</a>
+            <a class="btn btn-edit mb-5" href="">Modifica</a>
+            <a class=" btn btn-delete mb-5" href="">Elimina</a>
+            @endauth
+            @else
+            @guest
 
-                    <h3>Scrivi al proprietario</h3>
+            <h3>Scrivi al proprietario</h3>
 
-                    <form class= "form-message" action="{{ route('requests') }}" method="POST">
-                        @csrf
-                        @method('POST')
-                        <div class="accountholder d-flex">
-                            <div class="form-group">
-                                <label for="title">Cognome </label>
-                                <input
-                                    type="text"
-                                    class="form-control"
-                                    name="surname"
-                                    id="surname"
-                                    value="{{ old('title') }}"
-                                >
-                            </div>
+            <form class="form-message" action="{{ route('requests') }}" method="POST">
+                @csrf
+                @method('POST')
+                <div class="accountholder d-flex">
+                    <div class="form-group">
+                        <label for="form_surname">Cognome </label>
+                        <input type="text" class="form-control" name="surname" id="form_surname"
+                            value="{{ old('title') }}">
+                    </div>
 
-                            <div class="form-group">
-                                <label for="title">Nome </label>
-                                <input
-                                    type="text"
-                                    class="form-control"
-                                    name="name"
-                                    id="name"
-                                    value="{{ old('title') }}"
-                                >
-                            </div>
-                        </div>
+                    <div class="form-group">
+                        <label for="form_name">Nome </label>
+                        <input type="text" class="form-control" name="name" id="form_name" value="{{ old('title') }}">
+                    </div>
+                </div>
 
-                        <div class="accountholder-mail d-flex">
-                            <div class="form-group">
-                                <label for="title">Email </label>
-                                <input
-                                    type="email"
-                                    class="form-control"
-                                    name="email"
-                                    id="email"
-                                    value="{{ old('title') }}"
-                                >
-                            </div>
-                        </div>
+                <div class="accountholder-mail d-flex">
+                    <div class="form-group">
+                        <label for="form_email">Email </label>
+                        <input type="email" class="form-control" name="email" id="form_email"
+                            value="{{ old('title') }}">
+                    </div>
+                </div>
 
-                        <div class="form-group-message d-flex">
-                            <label for="body">Message </label>
-                            <textarea
-                                name="message"
-                                id="message"
-                                cols="30"
-                                rows="10"
-                                class="form-control"
-                            >
+                <div class="form-group-message d-flex">
+                    <label for="form_message">Message </label>
+                    <textarea name="message" id="form_message" cols="30" rows="10" class="form-control">
                                 {{ old('body') }}
                             </textarea>
-                        </div>
+                </div>
 
-                        <input
-                            type="hidden"
-                            class="form-control"
-                            name="flat_id"
-                            id="flat_id"
-                            value="{{ $flat->id }}"
-                        >
-                        <input type="submit" value="Invia" class="btn btn-message">
-                    </form>
-                @endguest
+                <input type="hidden" class="form-control" name="flat_id" id="flat_id" value="{{ $flat->id }}">
+                <input type="submit" value="Invia" class="btn btn-message">
+            </form>
+            @endguest
             @endif
         </div>
     </div>
