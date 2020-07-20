@@ -26,11 +26,24 @@ function guestIndexPage(lat, lng) {
                 coordinates: card.getAttribute("data-coordinates")
             };
         });
+
+        let markerIcon = L.icon({
+            iconUrl: "./markerIcon/real-estate.png",
+            iconSize: [50, 50],
+            iconAnchor: [25, 50]
+        });
+
         cardsData.forEach(element => {
             const { linkShow, coordinates } = element;
-            const [latitude, longitude] = coordinates.split("-").map(item => parseFloat(item));
-            let popup = L.popup().setContent('<a href="' + linkShow + '">Appartamento</a>');
-            L.marker([latitude, longitude]).addTo(map).bindPopup(popup);
+            const [latitude, longitude] = coordinates
+                .split("-")
+                .map(item => parseFloat(item));
+            let popup = L.popup().setContent(
+                '<a href="' + linkShow + '">Appartamento</a>'
+            );
+            L.marker([latitude, longitude], { icon: markerIcon })
+                .addTo(map)
+                .bindPopup(popup);
         });
     }
 
@@ -58,7 +71,11 @@ function guestIndexPage(lat, lng) {
     }
 
     function getUrlApi() {
-        const base_url = window.location.protocol + "//" + window.location.host + "/api/flats/?";
+        const base_url =
+            window.location.protocol +
+            "//" +
+            window.location.host +
+            "/api/flats/?";
         let params = new URLSearchParams({
             lat: getLatLng("inputAlgolia-search__latlong")[0],
             lng: getLatLng("inputAlgolia-search__latlong")[1],
@@ -79,23 +96,30 @@ function guestIndexPage(lat, lng) {
 
     form.addEventListener("submit", e => {
         e.preventDefault();
-        document.querySelector(".search-index__error").classList.add("no-visibility");
+        document
+            .querySelector(".search-index__error")
+            .classList.add("no-visibility");
         fetch(getUrlApi())
             .then(response => {
-                if (!response.ok) throw new InvalidParameters
+                if (!response.ok) throw new InvalidParameters();
                 return response.json();
             })
             .then(data => {
                 repopulateCards(data);
-                document.querySelector(".map").innerHTML = '<div id="mapid"></div>';
-                const [lat, lng] = document.getElementById("inputAlgolia-search__latlong").value.split(",");
+                document.querySelector(".map").innerHTML =
+                    '<div id="mapid"></div>';
+                const [lat, lng] = document
+                    .getElementById("inputAlgolia-search__latlong")
+                    .value.split(",");
                 map = mapView(lat, lng);
                 populateMap(map);
             })
             .catch(e => {
-                e instanceof InvalidParameters ?
-                    document.querySelector(".search-index__error").classList.remove("no-visibility"):
-                    console.log('Api error');
+                e instanceof InvalidParameters
+                    ? document
+                          .querySelector(".search-index__error")
+                          .classList.remove("no-visibility")
+                    : console.log("Api error");
             });
     });
 
@@ -105,8 +129,9 @@ function guestIndexPage(lat, lng) {
     let isFilterOpen = false;
     let btnFilter = document.getElementById("filter");
     btnFilter.addEventListener("click", function() {
-        isFilterOpen ? animationService.classList.remove("animation--service--open") :
-            animationService.classList.add("animation--service--open");
+        isFilterOpen
+            ? animationService.classList.remove("animation--service--open")
+            : animationService.classList.add("animation--service--open");
         isFilterOpen = !isFilterOpen;
     });
 }

@@ -1457,7 +1457,14 @@ form .search-home__error {
 }
 
 .map-description .map {
+  display: flex;
+  justify-content: center;
   padding-bottom: 20px;
+}
+
+.map-description .map .map-container {
+  height: 320px;
+  width: 320px;
 }
 
 .map-description .form-message {
@@ -1540,6 +1547,10 @@ form .search-home__error {
     width: 100%;
     line-height: 25px;
   }
+
+  .map-description .map .map-container {
+    width: 700px;
+  }
 }
 
 /* Desktops (desktops, 992px and up) */
@@ -1570,6 +1581,11 @@ form .search-home__error {
   .map-description .map {
     width: 50%;
     padding-bottom: 0;
+  }
+
+  .map-description .map .map-container {
+    height: 400px;
+    width: 992px;
   }
 }
 

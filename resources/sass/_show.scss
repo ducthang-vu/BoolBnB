@@ -1,41 +1,47 @@
 .card-show {
     padding: 0 5px;
 }
-.jumbotron{
+.jumbotron {
     text-align: center;
-    img{
+    img {
         width: 90%;
         border-radius: 5px;
     }
-    h1{
+    h1 {
         font-size: 20px;
         margin: 20px 0;
     }
 }
-.description{
+.description {
     width: 100%;
     padding: 10px 0;
     flex-direction: column;
     line-height: 25px;
-    .desc{
+    .desc {
         padding-bottom: 10px;
     }
-    .desc-list{
-        ul>li {
+    .desc-list {
+        ul > li {
             margin-bottom: 5px;
         }
     }
 }
-.map-description{
+.map-description {
     flex-direction: column;
     .button-card {
         border: none;
     }
-    .map{
+    .map {
+        display: flex;
+        justify-content: center;
+        .map-container {
+            height: 320px;
+            width: 320px;
+        }
         padding-bottom: 20px;
     }
-    .form-message{
-        label{
+    .form-message {
+        label {
             display: inline-block;
             width: 100px;
         }
@@ -43,96 +49,104 @@
         display: flex;
         flex-direction: column;
         .accountholder,
-        .accountholder-mail{
+        .accountholder-mail {
             flex-direction: column;
             width: 100%;
-            .form-group{
+            .form-group {
                 margin-right: 10px;
-                input{
+                input {
                     border: none;
                     border-bottom: 1px solid #ccc;
                     height: 30px;
                     font-size: 16px;
                     padding: 5px;
-                    &:focus{
+                    &:focus {
                         outline: none;
                     }
                 }
             }
         }
-        .accountholder-mail{
-            input{
+        .accountholder-mail {
+            input {
                 width: 100%px;
             }
         }
-        .form-group{
+        .form-group {
             padding: 10px;
         }
 
-        .form-group-message{
+        .form-group-message {
             width: 100%;
             padding: 10px;
-                textarea{
-                    border: none;
-                    border-bottom: 1px solid #ccc;
-                    font-size: 16px;
-                    padding: 5px;
-                    width: 250px;
-                    &:focus{
-                        outline: none;
-                    }
+            textarea {
+                border: none;
+                border-bottom: 1px solid #ccc;
+                font-size: 16px;
+                padding: 5px;
+                width: 250px;
+                &:focus {
+                    outline: none;
                 }
+            }
         }
     }
 }
 
-
 /* Tablets (tablets, 768px and up) */
 @include tablet {
-    .jumbotron{
-        img{
+    .jumbotron {
+        img {
             height: 300px;
         }
-        h1{
+        h1 {
             text-align: center;
         }
     }
-    .description{
+    .description {
         padding-bottom: 50px;
-        .desc{
+        .desc {
             width: 100%;
             line-height: 25px;
+        }
+    }
+    .map-description {
+        .map {
+            .map-container {
+                width: 700px;
+            }
         }
     }
 }
 /* Desktops (desktops, 992px and up) */
 @include desktop {
-    .jumbotron{
-        img{
+    .jumbotron {
+        img {
             height: 400px;
             max-width: 50%;
         }
     }
-    .description{
+    .description {
         padding-bottom: 50px;
         flex-direction: row;
-        .desc{
+        .desc {
             width: 50%;
         }
-        .desc-list{
+        .desc-list {
             padding-left: 0;
         }
     }
-    .map-description{
+    .map-description {
         flex-direction: row;
-        .map{
-            width:50%;
+        .map {
+            width: 50%;
             padding-bottom: 0;
+            .map-container {
+                height: 400px;
+                width: 992px;
+            }
         }
     }
-    
 }
 /* Large desktops (large desktops, 1200px and up) */
 @include large-desktop {
-    
 }
