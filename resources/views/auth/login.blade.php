@@ -49,14 +49,14 @@
                             </div>
                         </div>
 
-                        <div class="div-container-login-page pb-5">
+                        <div class="div-container-login-page">
                             <div class="div-login-page">
-                                <button type="submit" class="btn">
+                                <button type="submit" class="btn-login-page mb-10">
                                     {{ __('Login') }}
                                 </button>
 
                                 @if (Route::has('password.request'))
-                                    <a class="btn" href="{{ route('password.request') }}">
+                                    <a class="btn-login-page" href="{{ route('password.request') }}">
                                         {{ __('Forgot Your Password?') }}
                                     </a>
                                 @endif
