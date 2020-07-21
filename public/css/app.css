@@ -1495,11 +1495,11 @@ form .search-home__error {
 
 .description .desc {
   padding-bottom: 10px;
-  width: 50%;
+  width: 100%;
 }
 
 .description .desc-list {
-  width: 50%;
+  width: 100%;
 }
 
 .description .desc-list ul > li {
@@ -1555,7 +1555,6 @@ form .search-home__error {
   }
 
   .card-show .description .desc {
-    width: 100%;
     line-height: 25px;
   }
 
