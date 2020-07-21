@@ -9,8 +9,9 @@ use Illuminate\Support\Facades\Auth;
 
 class FlatStatisticsController extends Controller
 {
-    function show(Flat $flat) {
-        return Auth::id() == $flat->user_id ?
+    function show(Flat $flat)
+    {
+        return Auth::id() === $flat->user_id ?
             view('admin.flats.flatStatistics', compact('flat')) :
             abort(403);
     }

@@ -59,7 +59,7 @@ class FlatController extends Controller
      */
     public function show(Flat $flat)
     {
-        return view('admin.flats.show', compact('flat'));
+        return $this->checkFlatUser($flat) ? view('admin.flats.show', compact('flat')) : abort('403');
     }
 
     /**
@@ -71,7 +71,7 @@ class FlatController extends Controller
     public function edit(Flat $flat)
     {
         $services = Service::all();
-        return view('admin.flats.edit', compact('flat', 'services'));
+        return $this->checkFlatUser($flat) ? view('admin.flats.edit', compact('flat', 'services')) : abort('403');
     }
 
     /**
@@ -90,7 +90,7 @@ class FlatController extends Controller
         $flat->lat = $latlong[0];
         $flat->lng = $latlong[1];
 
-        if ( isset($data['image'])) {
+        if (isset($data['image'])) {
             if (!empty($flat->image)) Storage::disk('public')->delete($flat->image);
             $data['image'] = Storage::disk('public')->put('images', $data['image']);
         } else {
@@ -99,7 +99,7 @@ class FlatController extends Controller
 
         if ($flat->update($data)) {
             empty($data['services']) ? $flat->services()->detach() : $flat->services()->sync($data['services']);
-            return redirect()->route('admin.flats.show', $flat->id)->with('flat-updated', $flat->title);
+            return $this->checkFlatUser($flat) ? redirect()->route('admin.flats.show', $flat->id)->with('flat-updated', $flat->title) : abort('403');
         }
     }
 
@@ -121,7 +121,7 @@ class FlatController extends Controller
         $deleted = $flat->delete();
         if ($deleted) {
             Storage::disk('public')->delete($flat->image);
-            return redirect()->route('admin.home')->with('flat-deleted', $id);
+            return $this->checkFlatUser($flat) ? redirect()->route('admin.home')->with('flat-deleted', $id) : abort('403');
         }
     }
 
@@ -140,5 +140,11 @@ class FlatController extends Controller
             'image' => 'image',
             'services.*' => 'exists:services,id'
         ];
+    }
+
+    // check if auth id is = flat user_id
+    private function checkFlatUser(Flat $flat)
+    {
+        return $flat->user_id === Auth::id();
     }
 }

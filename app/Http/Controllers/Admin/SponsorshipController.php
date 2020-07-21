@@ -24,7 +24,8 @@ class SponsorshipController extends Controller
     }
 
     /* UTILITIES fro Braintree*/
-    private static function isTransactionSuccessful($status) {
+    private static function isTransactionSuccessful($status)
+    {
         return in_array($status, [
             Transaction::AUTHORIZED,
             Transaction::AUTHORIZING,
@@ -36,7 +37,8 @@ class SponsorshipController extends Controller
         ]);
     }
 
-    private function newBrainreeGateway() {
+    private function newBrainreeGateway()
+    {
         return new Gateway([
             'environment' => config('services.braintree.environment'),
             'merchantId' => config('services.braintree.merchantId'),
@@ -56,7 +58,7 @@ class SponsorshipController extends Controller
             ->join('flats', 'flat_sponsorship.flat_id', '=', 'flats.id')
             ->join('sponsorships', 'flat_sponsorship.sponsorship_id', '=', 'sponsorships.id')
             ->where('flats.user_id', Auth::id())
-            ->orderBy('flat_sponsorship.start','desc')
+            ->orderBy('flat_sponsorship.start', 'desc')
             ->get();
         return view('admin.sponsorships.index', compact('sponsorships'));
     }
@@ -77,7 +79,7 @@ class SponsorshipController extends Controller
         $sponsorships = Sponsorship::all()->sortByDesc('price');
         $gateway = $this->newBrainreeGateway();
         $token = $gateway->ClientToken()->generate();
-        return view('admin.sponsorships.create', compact('flat', 'sponsorships','token'));
+        return view('admin.sponsorships.create', compact('flat', 'sponsorships', 'token'));
     }
 
     /**
@@ -91,8 +93,7 @@ class SponsorshipController extends Controller
         $validator = Validator::make($request->all(), [
             'payment_method_nonce' => 'required',
             'sponsorship_id' => 'required|exists:sponsorships,id'
-            ]
-        );
+        ]);
         if ($validator->fails()) {
             return abort(403);
         }
@@ -100,7 +101,6 @@ class SponsorshipController extends Controller
         try {
             $flat_id = $matches[1];
         } catch (Exception $e) {
-            dd('id->flat');
             return abort(403);
         }
 
@@ -124,18 +124,18 @@ class SponsorshipController extends Controller
         ]);
 
         if ($result->success && SponsorshipController::isTransactionSuccessful($result->transaction->status)) {
-                $start = new DateTime();
-                $end = clone $start;
-                $end->add(new DateInterval( 'PT' . $sponsorship->getHoursDurationAsStr() . 'H'));
-                Flat::find($flat_id)->sponsorships()->attach($sponsorship->id, [
-                    'start' => $start,
-                    'end' => $end,
-                    'braintree_code' => $result->transaction->id
-                ]);
-                return redirect()
-                    ->route('admin.sponsorships.index')
-                    ->with('transactionId', $result->transaction->id);
-            }
+            $start = new DateTime();
+            $end = clone $start;
+            $end->add(new DateInterval('PT' . $sponsorship->getHoursDurationAsStr() . 'H'));
+            Flat::find($flat_id)->sponsorships()->attach($sponsorship->id, [
+                'start' => $start,
+                'end' => $end,
+                'braintree_code' => $result->transaction->id
+            ]);
+            return redirect()
+                ->route('admin.sponsorships.index')
+                ->with('transactionId', $result->transaction->id);
+        }
         return back()->withErrors('Transaction failed');
     }
 }
