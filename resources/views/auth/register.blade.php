@@ -69,7 +69,7 @@
                 </div>
 
                 <div class="div-register-page pb-10">
-                    <button type="submit" class="btn">
+                    <button type="submit" class="btn-register-page">
                         {{ __('Registrati') }}
                     </button>
                 </div>

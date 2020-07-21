@@ -63,3 +63,17 @@ input::placeholder {
         }
     }
 }
+
+@include desktop {
+    .form {
+        max-width: 50%;
+        ul {
+            max-width: 100%;
+            .algolia-places {
+                .ap-input {
+                    max-width: 100%;
+                }
+            }
+        }
+    }
+}
