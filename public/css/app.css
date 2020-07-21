@@ -1839,11 +1839,21 @@ input::placeholder {
 #less-flats-blade {
   text-align: center;
   box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.75);
+  -webkit-animation-name: fadeIn;
+          animation-name: fadeIn;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-timing-function: ease;
+          animation-timing-function: ease;
 }
 
 #less-flats h2,
 #less-flats-blade h2 {
   background-color: #e3342f;
+  border-radius: 5px;
+  padding: 10px 5px;
+  width: 95%;
+  margin: 0 auto;
   margin-bottom: 30px;
 }
 
@@ -1854,6 +1864,16 @@ input::placeholder {
 
 #less-flats {
   display: none;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
 }
 
 .index-search .search-cards {
@@ -1878,9 +1898,18 @@ input::placeholder {
 
 /* Tablets (tablets, 768px and up) */
 
-/* Desktops (desktops, 992px and up) */
+@media (min-width: 768px) {
+  #less-flats h2,
+  #less-flats-blade h2 {
+    width: 80%;
+  }
 
-@media (min-width: 992px) {
+  /* Desktops (desktops, 992px and up) */
+
+  /* Large desktops (large desktops, 1200px and up) */
+}
+
+@media (min-width: 768px) and (min-width: 992px) {
   #less-flats,
   #less-flats-blade {
     position: absolute;
@@ -1891,9 +1920,7 @@ input::placeholder {
     text-align: center;
     height: auto;
     background-color: #e3342f;
-    border-radius: 5px;
-    padding: 0 5px;
-    width: 400px;
+    width: 600px;
   }
 
   #less-flats h2,
@@ -1933,9 +1960,7 @@ input::placeholder {
   }
 }
 
-/* Large desktops (large desktops, 1200px and up) */
-
-@media (min-width: 1200px) {
+@media (min-width: 768px) and (min-width: 1200px) {
   .index-search .search-cards {
     flex-basis: 50%;
   }

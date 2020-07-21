@@ -118,7 +118,7 @@ function guestIndexPage(lat, lng) {
                     let container = document.getElementById("search-cards");
                     container.innerHTML = "";
                     document.querySelector(".map").innerHTML = "";
-                    document.getElementById("less-flats").classList.toggle('show');
+                    document.getElementById("less-flats").classList.add('show');
                 }
             })
             .catch(e => {

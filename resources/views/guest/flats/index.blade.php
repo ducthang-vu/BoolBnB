@@ -3,7 +3,7 @@
 @section('page-content')
 
     @include('shared.components.formAlgoliaApi')
-    <div id="less-flats"  class="d-flex s-center align-center">
+    <div id="less-flats">
         <h2>Non ci sono appartamenti per questa ricerca</h2>
     </div>
     <div class="index-search d-flex s-center">

@@ -2,8 +2,15 @@
 #less-flats-blade {
     text-align: center;
     box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.75);
+    animation-name: fadeIn;
+    animation-duration: 1s;
+    animation-timing-function: ease;
     h2 {
         background-color: $red;
+        border-radius: 5px;
+        padding: 10px 5px;
+        width: 95%;
+        margin: 0 auto;
         margin-bottom: 30px;
     }
     &.show{
@@ -13,6 +20,15 @@
 #less-flats{
     display: none;
 }
+
+// ANIMATION
+
+@keyframes fadeIn {
+    0% { opacity: 0;}
+    100% {opacity: 1;}
+}
+
+
 .index-search {
     .search-cards{
         flex-basis: 100%;
@@ -39,7 +55,11 @@
 }
 /* Tablets (tablets, 768px and up) */
 @include tablet {
-
+    #less-flats,
+    #less-flats-blade {
+    h2 {
+        width: 80%;
+    }
 }
 /* Desktops (desktops, 992px and up) */
 @include desktop {
@@ -53,9 +73,7 @@
         text-align: center;
         height: auto;
         background-color: $red;
-        border-radius: 5px;
-        padding: 0 5px;
-        width: 400px;
+        width: 600px;
         h2{
             margin-bottom: 0;
         }
@@ -97,4 +115,5 @@
         }
     }
 
+}
 }

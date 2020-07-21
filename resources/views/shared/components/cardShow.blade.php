@@ -38,13 +38,25 @@ This template need to be include with a parameter of model App\Flat
         </div>
         @auth
         @if ($flat->user_id == Auth::user()->id)
-        <div class="button-card mb-20">
-            <a class="btn btn-spons mb-5"
-                href="{{ route('admin.sponsorships.create', ['flat_id' => $flat->id]) }}">Sponsorizza</a>
-            <a class="btn btn-edit mb-5" href="">Modifica</a>
-            <a class=" btn btn-delete mb-5" href="">Elimina</a>
-            @endauth
+        <div class="button-card mb-20 d-flex">
+            <div class="left-btn d-flex">
+                <a class="btn btn-stat mb-5 mr-5" href="{{ route('admin.statistics' , $flat->id) }}"><i
+                        class="far fa-chart-bar"></i><span class="top-text">Statistiche</span></a>
+                <a class="btn btn-spons mb-5 mr-5"
+                    href="{{ route('admin.sponsorships.create', ['flat_id' => $flat->id]) }}"><i
+                        class="fas fa-medal"></i><span class="top-text">Sponsorizza</span></a>
+                <a class="btn btn-edit mb-5 mr-5" href="{{ route('admin.flats.edit', $flat->id) }}"><i
+                        class="far fa-edit"></i><span class="top-text">Modifica</span></a>
+                <form action="{{ route('admin.flats.destroy', $flat->id) }}" method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="btn btn-delete"><i class="far fa-trash-alt"></i><span
+                            class="top-text">Elimina</span></button>
+                </form>
+                {{-- <button class="btn btn-"><i class="far fa-arrow-alt-circle-right"></i></button> --}}
+            </div>
         </div>
+        @endauth
         @else
         @guest
         <div class="df-column mb-20">
