@@ -19,6 +19,8 @@ window.Vue = require("vue");
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
+import page from './adminFlatStatistics'
+
 Vue.component(
     "example-component",
     require("./components/ExampleComponent.vue").default
@@ -29,12 +31,11 @@ Vue.component(
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
-/*
 const app = new Vue({
-    el: '#app',
+    el: '#root',
+    render: h => h(page)
 });
-*/
-import hamburgerHeader from "./blade-components/hamburgerHeader";
+
 
 import L from "leaflet/dist/leaflet.js";
 import { latLng } from "leaflet";
@@ -46,6 +47,7 @@ import formAlgoliaHome from "./blade-components/formAlgoliaHome";
 import guestIndexPage from "./blade-components/guestIndexPage";
 import showRequestMessage from "./blade-components/requestsIndex";
 import adminSponsorshipsCreate from "./blade-components/adminSponsorshipCreate";
+import hamburgerHeader from "./blade-components/hamburgerHeader";
 
 if (document.querySelector(".main-header")) {
     hamburgerHeader();
