@@ -44,22 +44,22 @@ export default {
 </script>
 
 <style scoped>
-.statistic-container {
-  flex-wrap: wrap;
-}
+    .statistic-container {
+        flex-wrap: wrap;
+    }
 
-.chart {
-  flex-basis: 100%;
-  flex-shrink: 0;
-}
+    .chart {
+        flex-basis: 100%;
+        flex-shrink: 0;
+    }
 
-h1 {
-  flex-basis: 100%;
-}
+    h1 {
+        flex-basis: 100%;
+    }
 
-@media (min-width: 992px) {
-  .chart {
-    flex-basis: 50%;
-  }
-}
+    @media (min-width: 992px) {
+        .chart {
+            flex-basis: 50%;
+        }
+    }
 </style>

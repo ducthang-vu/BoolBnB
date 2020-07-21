@@ -31,19 +31,30 @@
                 this.$nextTick(function() {
                     const Chart = require("chart.js")
                     const chart = new Chart(document.getElementById(this.id), {
-                    type: 'line',
-                    data: {
-                        labels: Object.keys(values),
-                        datasets:[
-                            {
-                                label: this.title_capitalized + ' (last 12 months)',
-                                data:  Object.values(values),
-                                fill:false,
-                                borderColor: "rgb(75, 192, 192)",
-                                lineTension: 0.1
+                        type: 'line',
+                        data: {
+                            labels: Object.keys(values),
+                            datasets:[
+                                {
+                                    label: this.title_capitalized + ' (last 12 months)',
+                                    data:  Object.values(values),
+                                    fill:false,
+                                    borderColor: "rgb(75, 192, 192)",
+                                    lineTension: 0.1
+                                }
+                            ]
+                        },
+                        options: {
+                            scales: {
+                                yAxes: [{
+                                    ticks: {
+                                        beginAtZero: true,
+                                        stepSize: 1
+                                    }
+                                }]
                             }
-                        ]
-                    }
+                        },
+                        responsive: true
                     })
                 })
             }
