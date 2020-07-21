@@ -14,7 +14,7 @@ class RequestTableSeeder extends Seeder
      */
     public function run(Faker $faker)
     {
-        for ($i=0; $i < 100; $i++) {
+        for ($i=0; $i < 2000; $i++) {
             $newRequest = new Request();
 
             $newRequest->flat_id = Flat::all()->random()->id;
@@ -23,6 +23,7 @@ class RequestTableSeeder extends Seeder
             $newRequest->name = $faker->firstName();
             $newRequest->email = $faker->email();
             $newRequest->message =  $faker->paragraph(3 , true);
+            $newRequest->created_at = $faker->dateTimeThisYear('now');
 
             $newRequest->save();
         }

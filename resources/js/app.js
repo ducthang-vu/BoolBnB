@@ -19,32 +19,31 @@ window.Vue = require("vue");
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
-Vue.component(
-    "example-component",
-    require("./components/ExampleComponent.vue").default
-);
-
+//Vue.component("page", require('./components/adminFlatStatistics').default);
+import page from './adminFlatStatistics'
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
-/*
+
 const app = new Vue({
-    el: '#app',
+    el: '#root',
+    render: h => h(page)
 });
-*/
+
+
 import hamburgerHeader from "./blade-components/hamburgerHeader";
 
 import L from "leaflet/dist/leaflet.js";
 import { latLng } from "leaflet";
-const Chart = require("chart.js");
 
 import place from "./blade-components/inputAlgolia";
 import formAlgoliaHome from "./blade-components/formAlgoliaHome";
 import guestIndexPage from "./blade-components/guestIndexPage";
 import showRequestMessage from "./blade-components/requestsIndex";
 import adminSponsorshipsCreate from "./blade-components/adminSponsorshipCreate";
+import adminFlatStatistics from "./blade-components/adminFlatStatistics";
 
 
 if (document.querySelector(".main-header")) {
@@ -71,43 +70,6 @@ if (document.querySelector('.adminSponsorshipsCreate')) {
     adminSponsorshipsCreate()
 }
 
-try {
-    const canvasVisualisations = document.getElementById(
-        "chart-visualisations"
-    );
-    const canvasNumberOfRequests = document.getElementById(
-        "chart-numberOfRequests"
-    );
-
-    const chartVisualisations = new Chart(canvasVisualisations, {
-        type: "bar",
-        data: {
-            datasets: [
-                {
-                    //barPercentage: 0.5,
-                    //barThickness: 6,
-                    //maxBarThickness: 8,
-                    //minBarLength: 2,
-                    data: [visualisations],
-                    labels: ["visualisations"]
-                }
-            ]
-        }
-    });
-
-    const chartNumberOfRequests = new Chart(canvasNumberOfRequests, {
-        type: "bar",
-        data: {
-            datasets: [
-                {
-                    //barPercentage: 0.5,
-                    //barThickness: 6,
-                    //maxBarThickness: 8,
-                    //minBarLength: 2,
-                    data: [numberOrRequests],
-                    labels: ["number or requests"]
-                }
-            ]
-        }
-    });
-} catch {} // do nothing
+if (document.querySelector('.adminFlatStatistics')) {
+    adminFlatStatistics()
+}

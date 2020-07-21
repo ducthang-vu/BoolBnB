@@ -69,12 +69,20 @@ class Flat extends Model
         return $this->hasMany('App\Request');
     }
 
+    public function getNumberOfRequests() {
+        return $this->requests()->count();
+    }
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
     public function services()
     {
         return $this->belongsToMany('App\Service');
+    }
+
+    public function getServicesId() {
+        return $this->services->map(function($flat) {return $flat->id;});
     }
 
     /**
@@ -93,11 +101,16 @@ class Flat extends Model
         return $activeSponsorships->isNotEmpty();
     }
 
-    public function getServicesId() {
-        return $this->services->map(function($flat) {return $flat->id;});
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function visualisations()
+    {
+        return $this->hasMany('App\Visualisation');
     }
 
-    public function getNumberOfRequests() {
-        return $this->requests()->count();
+    public function getNumberOfVisualisations()
+    {
+        return $this->visualisations->count();
     }
 }
