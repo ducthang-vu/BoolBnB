@@ -15,13 +15,22 @@ This template need to be include with a parameter of model App\Flat
             <p>{{$flat->description}}</p>
         </div>
         <div class="desc-list">
-            <h2 class="mb-10">Servizi</h2>
+            <h2 class="mb-10">Dettagli</h2>
             <ul>
                 <li>Numero di stanze: {{$flat->number_of_rooms}}</li>
                 <li>Numero di posti letto: {{$flat->number_of_beds}}</li>
                 <li>Numero di bagni: {{$flat->number_of_bathrooms}}</li>
                 <li>Metri quadrati: {{$flat->square_meters}}</li>
                 <li>Indirizzo: {{$flat->address }}</li>
+                <li>Include:
+                    <ul class="ml-15">
+                        @foreach ($flat->services->map(function($item) {
+                        return $item->type;
+                        }) as $service)
+                        <li>{{ $service }}</li>
+                        @endforeach
+                    </ul>
+                </li>
             </ul>
         </div>
     </div>
@@ -36,7 +45,6 @@ This template need to be include with a parameter of model App\Flat
             </div>
 
         </div>
-        @auth
         @if ($flat->user_id == Auth::user()->id)
         <div class="button-card mb-20 d-flex">
             <div class="left-btn d-flex">
@@ -56,9 +64,7 @@ This template need to be include with a parameter of model App\Flat
                 {{-- <button class="btn btn-"><i class="far fa-arrow-alt-circle-right"></i></button> --}}
             </div>
         </div>
-        @endauth
         @else
-        @guest
         <div class="df-column mb-20">
             <h3 class="mb-10">Scrivi al proprietario</h3>
             <form class="form form-message" action="{{ route('requests') }}" method="POST">
@@ -86,7 +92,6 @@ This template need to be include with a parameter of model App\Flat
                     </li>
                 </ul>
             </form>
-            @endguest
             @endif
         </div>
     </div>

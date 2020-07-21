@@ -24,13 +24,22 @@
                 <p>{{$flat->description}}</p>
             </div>
             <div class="desc-list">
-                <h2 class="mb-10">Servizi</h2>
+                <h2 class="mb-10">Dettagli</h2>
                 <ul>
                     <li>Numero di stanze: {{$flat->number_of_rooms}}</li>
                     <li>Numero di posti letto: {{$flat->number_of_beds}}</li>
                     <li>Numero di bagni: {{$flat->number_of_bathrooms}}</li>
                     <li>Metri quadrati: {{$flat->square_meters}}</li>
                     <li>Indirizzo: {{$flat->address }}</li>
+                    <li>Include:
+                        <ul class="ml-15">
+                            @foreach ($flat->services->map(function($item) {
+                            return $item->type;
+                            }) as $service)
+                            <li>{{ $service }}</li>
+                            @endforeach
+                        </ul>
+                    </li>
                 </ul>
             </div>
         </div>
