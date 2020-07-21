@@ -35,11 +35,11 @@
             </li>
             <li class="services text-center">
                 @foreach ($services as $service)
-                    <div class="form-group d-flex">
-                        <input class="mr-10 ml-10" type="checkbox" name="services[]" id="service-{{ $loop->iteration }}"
-                            value="{{ $service->id }}">
-                        <label for="service-{{ $loop->iteration }}">{{ $service->type }}</label>
-                    </div>
+                <div class="form-group d-flex">
+                    <input class="mr-10 ml-10" type="checkbox" name="services[]" id="service-{{ $loop->iteration }}"
+                        value="{{ $service->id }}">
+                    <label for="service-{{ $loop->iteration }}">{{ $service->type }}</label>
+                </div>
                 @endforeach
             </li>
             <li>

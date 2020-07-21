@@ -1495,6 +1495,11 @@ form .search-home__error {
 
 .description .desc {
   padding-bottom: 10px;
+  width: 50%;
+}
+
+.description .desc-list {
+  width: 50%;
 }
 
 .description .desc-list ul > li {
@@ -1571,9 +1576,14 @@ form .search-home__error {
 /* Desktops (desktops, 992px and up) */
 
 @media (min-width: 992px) {
+  .card-show {
+    min-width: 992px;
+    max-width: 1200px;
+  }
+
   .card-show .jumbotron img {
     height: 400px;
-    max-width: 50%;
+    width: 90%;
   }
 
   .card-show .description {
@@ -1582,19 +1592,17 @@ form .search-home__error {
   }
 
   .card-show .description .desc {
-    width: 50%;
+    width: 40%;
   }
 
   .card-show .description .desc-list {
+    width: 40%;
     padding-left: 0;
   }
 
   .card-show .content-container {
     flex-direction: row;
-  }
-
-  .card-show .content-container .map-description {
-    flex-basis: 50%;
+    justify-content: space-between;
   }
 
   .card-show .content-container .map-description .map {
@@ -1607,7 +1615,8 @@ form .search-home__error {
   }
 
   .card-show .content-container .button-card {
-    flex-basis: 50%;
+    flex-basis: 40%;
+    width: 40%;
     flex-direction: row;
     border: none;
   }
@@ -1621,12 +1630,8 @@ form .search-home__error {
 /* Large desktops (large desktops, 1200px and up) */
 
 @media (min-width: 1200px) {
-  .card-show .description {
-    justify-content: space-between;
-  }
-
-  .card-show .content-container {
-    justify-content: space-between;
+  .card-show {
+    min-width: 1200px;
   }
 }
 
