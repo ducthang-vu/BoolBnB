@@ -8,12 +8,12 @@
 
         @if (session('flat-saved'))
         <div class="success-message">
-            <p>{{ session('flat-saved') }} aggiunto correttamente.</p>
+            <p>{{ session('flat-saved') }} Aggiunto correttamente.</p>
         </div>
         @endif
         @if (session('flat-deleted'))
-        <div class="error-message">
-            <p>Appartamento n. {{ session('flat-deleted') }} eliminato correttamente.</p>
+        <div class="success-message">
+            <p>Appartamento n. {{ session('flat-deleted') }} Eliminato correttamente.</p>
         </div>
 
         @endif
