@@ -24,10 +24,7 @@ function hamburgerHeader() {
                 mobileNavbar.classList.remove('show');
             }
         });
-    } catch (e) {
-        console.log(e)
-    }
-
+    } catch {}  //do nothing
 }
 
 export default hamburgerHeader;

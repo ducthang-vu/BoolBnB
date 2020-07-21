@@ -96,7 +96,7 @@ class SponsorshipController extends Controller
         if ($validator->fails()) {
             return abort(403);
         }
-        preg_match('/flat_id=(\d\d)/', $request->session()->get('_previous')['url'], $matches);
+        preg_match('/flat_id=(\d\d*)/', $request->session()->get('_previous')['url'], $matches);
         try {
             $flat_id = $matches[1];
         } catch (Exception $e) {
