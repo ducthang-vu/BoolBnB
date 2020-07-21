@@ -24,10 +24,8 @@ class CreateFlatsTable extends Migration
             $table->unsignedTinyInteger('square_meters');
             $table->string('address')->unique();
             $table->string('image');
-            $table->integer('visualisations')->default(0);
             $table->float('lat', 6, 4);
             $table->float('lng', 7, 4);
-            // $table->point('geolocation');
             $table->timestamps();
 
             $table->foreign('user_id')
