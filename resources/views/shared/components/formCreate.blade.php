@@ -21,7 +21,7 @@
             <li class="d-flex s-between">
                 <input type="number" name="number_of_bathrooms" class="field-style field-split align-left" min="1"
                     placeholder="Bagni" value="{{ old('number_of_bathrooms') }}" />
-                <input type="number" name="nsquare_meters" class="field-style field-split align-left" min="10"
+                <input type="number" name="square_meters" class="field-style field-split align-left" min="10"
                     placeholder="Metri quadri" value="{{ old('square_meters') }}" />
             </li>
             <li class="inputAlgolia-page">
@@ -35,11 +35,11 @@
             </li>
             <li class="services text-center">
                 @foreach ($services as $service)
-                    <div class="form-group d-flex">
-                        <input class="mr-10 ml-10" type="checkbox" name="services[]" id="service-{{ $loop->iteration }}"
-                            value="{{ $service->id }}">
-                        <label for="service-{{ $loop->iteration }}">{{ $service->type }}</label>
-                    </div>
+                <div class="form-group d-flex">
+                    <input class="mr-10 ml-10" type="checkbox" name="services[]" id="service-{{ $loop->iteration }}"
+                        value="{{ $service->id }}">
+                    <label for="service-{{ $loop->iteration }}">{{ $service->type }}</label>
+                </div>
                 @endforeach
             </li>
             <li>

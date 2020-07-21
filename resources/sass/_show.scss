@@ -19,8 +19,10 @@
     line-height: 25px;
     .desc {
         padding-bottom: 10px;
+        width: 50%;
     }
     .desc-list {
+        width: 50%;
         ul > li {
             margin-bottom: 5px;
         }
@@ -93,26 +95,29 @@
 /* Desktops (desktops, 992px and up) */
 @include desktop {
     .card-show {
+        min-width: 992px;
+        max-width: 1200px;
         .jumbotron {
             img {
                 height: 400px;
-                max-width: 50%;
+                width: 90%;
             }
         }
         .description {
             padding-bottom: 50px;
             flex-direction: row;
             .desc {
-                width: 50%;
+                width: 40%;
             }
             .desc-list {
+                width: 40%;
                 padding-left: 0;
             }
         }
         .content-container {
             flex-direction: row;
+            justify-content: space-between;
             .map-description {
-                flex-basis: 50%;
                 .map {
                     padding-bottom: 0;
                     .map-container {
@@ -122,7 +127,8 @@
                 }
             }
             .button-card {
-                flex-basis: 50%;
+                flex-basis: 40%;
+                width: 40%;
                 flex-direction: row;
                 border: none;
             }
@@ -136,11 +142,12 @@
 /* Large desktops (large desktops, 1200px and up) */
 @include large-desktop {
     .card-show {
-        .description {
-            justify-content: space-between;
-        }
-        .content-container {
-            justify-content: space-between;
-        }
+        min-width: 1200px;
+        // .description {
+        //     justify-content: space-around;
+        // }
+        // .content-container {
+        //     justify-content: space-around;
+        // }
     }
 }
