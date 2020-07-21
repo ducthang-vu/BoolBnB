@@ -1,22 +1,24 @@
 .success-message,
 .error-message{
-    text-align: center;
-    left:-1000px; 
-    top:200px;
     position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
     background-color: $green;
-    height: 150px;
-    width: 80%;
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 4px;
     padding: 5px;
-    font-size: 20px;
     font-weight: 500;
+    margin-bottom: 10px;
     animation-name: fadeOut;
-    animation-duration: 7s;
+    animation-duration: 10s;
     animation-timing-function: ease;
+    z-index: 100;
+    opacity: 0;
 }
 
 .error-message{
@@ -26,49 +28,29 @@
 
 @keyframes fadeOut {
     
-    0%   {left:-1000px; top:200px;}
-    50%  {left:50px; top:200px;}
-    100% {left:-1000px; top:200px;}
+    0%   { opacity: 0;}
+    50%  { opacity: 1;}
+    100% { opacity: 0;}
     
 }
 
 @include mobile {
-    
 }
 /* Tablets (tablets, 768px and up) */
 @include tablet {
     .success-message,
     .error-message{
-        left:-2000px; 
-        top:200px;
+        width: 60%;
     }
-
-    @keyframes fadeOut {
-    
-        0%   {left:-2000px; top:200px;}
-        50%  {left:100px; top:200px;}
-        100% {left:-2000px; top:200px;}
-        
-    }
-    
 }
 /* Desktops (desktops, 992px and up) */
 @include desktop {
     .success-message,
     .error-message{
-        left:-2000px; 
-        top:200px;
-    }
-
-    @keyframes fadeOut {
-    
-        0%   {left:-2000px; top:200px;}
-        50%  {left:200px; top:200px;}
-        100% {left:-2000px; top:200px;}
-        
+        width: 60%;
+        height: 100px;
     }
 }
 /* Large desktops (large desktops, 1200px and up) */
 @include large-desktop {
-    
 }

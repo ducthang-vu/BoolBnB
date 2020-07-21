@@ -7,20 +7,22 @@
     <div class="d-flex s-center transition-invisible">
 
         @if (session('flat-saved'))
-            <div class="success-message">
-                <p>{{ session('flat-saved') }} aggiunto correttamente.</p>
-            </div>
+        <div class="success-message">
+            <p>{{ session('flat-saved') }} Aggiunto correttamente.</p>
+        </div>
         @endif
         @if (session('flat-deleted'))
-            <div class="error-message">
-                <p>Appartamento n. {{ session('flat-deleted') }} eliminato correttamente.</p>
-            </div>
+        <div class="success-message">
+            <p>Appartamento n. {{ session('flat-deleted') }} Eliminato correttamente.</p>
+        </div>
+
         @endif
     </div>
 
     <div class="title-flts d-flex s-between align-center">
+
         <h1 class="mt-20 mb-20">
-            I tuoi appartamenti
+            Bentornato {{Auth::user()->surname}} {{Auth::user()->name}}, questi sono i tuoi appartamenti
         </h1>
 
         <a class="btn btn-add" href="{{ route('admin.flats.create') }}"><i class="fas fa-plus"></i></a>

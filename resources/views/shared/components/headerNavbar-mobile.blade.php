@@ -6,7 +6,7 @@
                     <a
                         @if (Route::currentRouteNamed('admin.home')) class="active" @endif
                         href="{{ route('admin.home') }}"
-                    >Home
+                    >Profilo
                     </a>
                 </li>
                 <li>

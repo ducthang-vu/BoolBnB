@@ -21,7 +21,7 @@
             <li class="d-flex s-between">
                 <input type="number" name="number_of_bathrooms" class="field-style field-split align-left" min="1"
                     placeholder="Bagni" value="{{ old('number_of_bathrooms') }}" />
-                <input type="number" name="nsquare_meters" class="field-style field-split align-left" min="10"
+                <input type="number" name="square_meters" class="field-style field-split align-left" min="10"
                     placeholder="Metri quadri" value="{{ old('square_meters') }}" />
             </li>
             <li class="inputAlgolia-page">
