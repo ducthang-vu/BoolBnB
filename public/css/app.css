@@ -2463,30 +2463,13 @@ input::placeholder {
   flex-direction: column;
   justify-content: space-around;
   flex-basis: 100%;
-  border: 1px solid #e41d5c;
+  border-bottom: 1px solid #e41d5c;
   margin: 10px;
   padding: 10px;
-  border-radius: 5px;
 }
 
-.requestsIndex-page .request-card:nth-child(odd) {
-  background: linear-gradient(to right, #92174d 9.38%, #e41d5c 88.54%);
-  color: #ffffff;
-  font-size: 13px;
-  font-weight: 500;
-  border-radius: 5px;
-  border: 1px solid transparent;
-}
-
-.requestsIndex-page .request-card:nth-child(even) {
-  background: linear-gradient(to right, #92174d 9.38%, #e41d5c 88.54%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  font-size: 13px;
-}
-
-.requestsIndex-page .request-card:nth-child(even) .request-message {
-  border: 1px solid #e41d5c;
+.requestsIndex-page .request-card:last-child {
+  border-bottom: 0;
 }
 
 .requestsIndex-page .request-card > * {
@@ -2513,6 +2496,7 @@ input::placeholder {
   margin-top: 5px;
   padding: 10px;
   border-radius: 5px;
+  text-align: justify;
 }
 
 .requestsIndex-page .request-card .request-message.active {
@@ -2521,22 +2505,31 @@ input::placeholder {
 
 @media (min-width: 768px) {
   .requestsIndex-page {
-    min-width: 768px;
-  }
-
-  .requestsIndex-page .request-card {
-    flex-basis: 60%;
-  }
-}
-
-@media (min-width: 992px) {
-  .requestsIndex-page {
+    display: block;
     min-width: 992px;
     align-items: start;
   }
 
   .requestsIndex-page .request-card {
-    flex-basis: 30%;
+    padding: 2% 20%;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+
+  .requestsIndex-page .request-card .request-details {
+    flex-basis: 50%;
+  }
+
+  .requestsIndex-page .request-card .request-message-handler {
+    flex-basis: 50%;
+  }
+
+  .requestsIndex-page .request-card .request-message-handler .message-control {
+    display: none;
+  }
+
+  .requestsIndex-page .request-card .request-message-handler .request-message {
+    display: block;
   }
 }
 
