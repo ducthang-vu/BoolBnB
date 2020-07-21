@@ -1,5 +1,23 @@
+#less-flats,
+#less-flats-blade {
+    text-align: center;
+    box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.75);
+    h2 {
+        background-color: $red;
+        margin-bottom: 30px;
+    }
+    &.show{
+        display: inline;
+    }
+}
+#less-flats{
+    display: none;
+}
 .index-search {
     .search-cards{
+        flex-basis: 100%;
+        height: auto;
+        overflow: auto;
         .card-row{
             background: rgba(238, 238, 238, 0.432);
             margin-bottom: 10px;
@@ -25,6 +43,23 @@
 }
 /* Desktops (desktops, 992px and up) */
 @include desktop {
+    #less-flats,
+    #less-flats-blade {
+        position: absolute;
+        z-index: 99;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        height: auto;
+        background-color: $red;
+        border-radius: 5px;
+        padding: 0 5px;
+        width: 400px;
+        h2{
+            margin-bottom: 0;
+        }
+    }
     .index-search {
         padding-bottom: 50px;
         margin: 0 10px;
