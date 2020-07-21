@@ -106,21 +106,25 @@ function guestIndexPage(lat, lng) {
                 return response.json();
             })
             .then(data => {
-                repopulateCards(data);
-                document.querySelector(".map").innerHTML =
-                    '<div id="mapid"></div>';
-                const [lat, lng] = document
-                    .getElementById("inputAlgolia-search__latlong")
-                    .value.split(",");
-                map = mapView(lat, lng);
-                populateMap(map);
+                if (data.number_records !== 0) {
+                    document.getElementById("less-flats").classList.remove('show');
+                    repopulateCards(data);
+                    document.querySelector(".map").innerHTML = '<div id="mapid"></div>';
+                    const [lat, lng] = document.getElementById("inputAlgolia-search__latlong").value.split(",");
+                    map = mapView(lat, lng);
+                    populateMap(map);
+                }
+                else {
+                    let container = document.getElementById("search-cards");
+                    container.innerHTML = "";
+                    document.querySelector(".map").innerHTML = "";
+                    document.getElementById("less-flats").classList.add('show');
+                }
             })
             .catch(e => {
-                e instanceof InvalidParameters
-                    ? document
-                          .querySelector(".search-index__error")
-                          .classList.remove("no-visibility")
-                    : console.log("Api error");
+                e instanceof InvalidParameters ?
+                    document.querySelector(".search-index__error").classList.remove("no-visibility"):
+                    console.log('Api error');
             });
     });
 
