@@ -1,5 +1,5 @@
 .success-message,
-.error-message{
+.error-message {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -21,17 +21,21 @@
     opacity: 0;
 }
 
-.error-message{
+.error-message {
     background-color: $red;
 }
 
-
 @keyframes fadeOut {
-    
-    0%   { opacity: 0;}
-    50%  { opacity: 1;}
-    100% { opacity: 0;}
-    
+    0% {
+        opacity: 0;
+    }
+    25% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        display: none;
+    }
 }
 
 @include mobile {
@@ -39,14 +43,14 @@
 /* Tablets (tablets, 768px and up) */
 @include tablet {
     .success-message,
-    .error-message{
+    .error-message {
         width: 60%;
     }
 }
 /* Desktops (desktops, 992px and up) */
 @include desktop {
     .success-message,
-    .error-message{
+    .error-message {
         width: 60%;
         height: 100px;
     }

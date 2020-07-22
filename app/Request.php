@@ -6,11 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Request extends Model
 {
-    public static function getRequestByUser($id) {
+    public static function getRequestByUser($id)
+    {
         $flats = User::find($id)->flats;
-        return $flats->map(function($flat) {
+        return $flats->map(function ($flat) {
             return $flat->requests;
-        })->flatten();
+        })->flatten()->sortByDesc('created_at');
     }
 
     protected $fillable = [

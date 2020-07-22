@@ -21,7 +21,7 @@ class CreateFlatsTable extends Migration
             $table->unsignedTinyInteger('number_of_rooms');
             $table->unsignedTinyInteger('number_of_beds');
             $table->unsignedTinyInteger('number_of_bathrooms');
-            $table->unsignedTinyInteger('square_meters');
+            $table->unsignedSmallInteger('square_meters');
             $table->string('address')->unique();
             $table->string('image');
             $table->float('lat', 6, 4);
@@ -44,4 +44,3 @@ class CreateFlatsTable extends Migration
         Schema::dropIfExists('flats');
     }
 }
-
