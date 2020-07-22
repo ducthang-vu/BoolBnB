@@ -26,6 +26,7 @@ class CreateFlatsTable extends Migration
             $table->string('image');
             $table->float('lat', 6, 4);
             $table->float('lng', 7, 4);
+            $table->boolean('is_active')->default(1);
             $table->timestamps();
 
             $table->foreign('user_id')

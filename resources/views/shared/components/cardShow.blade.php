@@ -45,7 +45,7 @@ This template need to be include with a parameter of model App\Flat
             </div>
 
         </div>
-        @if ($flat->user_id == Auth::user()->id)
+        @if (Auth::check() && $flat->user_id == Auth::user()->id)
         <div class="button-card mb-20 d-flex">
             <div class="left-btn d-flex">
                 <a class="btn btn-stat mb-5 mr-5" href="{{ route('admin.statistics' , $flat->id) }}"><i

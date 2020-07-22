@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Flat;
 use App\Visualisation;
 use Illuminate\Http\Request;
@@ -19,17 +20,20 @@ class FlatController extends Controller
     {
         $latlong = explode(',', $request->input('latlong'));
         $flatsInRange = Flat::search()->with([
-                'aroundLatLng' => array_map(function($a) {return floatval($a);}, $latlong),
-                'aroundRadius' => 20000,
-                'hitsPerPage' => 1000
-            ])->get();
+            'aroundLatLng' => array_map(function ($a) {
+                return floatval($a);
+            }, $latlong),
+            'aroundRadius' => 20000,
+            'hitsPerPage' => 1000
+        ])->where('is_active', 1)->get();
         return view('guest.flats.index', compact('flatsInRange', 'latlong'));
     }
 
 
     public function show(Flat $flat)
     {
-        if (Auth::id() != $flat->user_id ) {
+        if (!$flat->is_active) return abort('404');
+        if (Auth::check() && Auth::id() != $flat->user_id) {
             $newVisualisation = new Visualisation();
             $newVisualisation->flat_id = $flat->id;
             $newVisualisation->save();

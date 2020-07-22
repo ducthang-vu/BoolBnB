@@ -8,12 +8,17 @@ use App\Flat;
 
 class HomeController extends Controller
 {
-    public function index() {
+    public function index()
+    {
         $activeSponsorships = DB::table('flat_sponsorship')
             ->where('end', '>=', date("Y-m-d H:i:s"))
             ->inRandomOrder()
             ->get();
-        $sponsoredFlats = $activeSponsorships->map(function ($item) {return Flat::find($item->flat_id);});
+        $sponsoredFlats = $activeSponsorships->filter(function ($item) {
+            return Flat::find($item->flat_id)->is_active;
+        })->map(function ($item) {
+            return Flat::find($item->flat_id);
+        });
         return view('guest.home', compact('sponsoredFlats'));
     }
 }

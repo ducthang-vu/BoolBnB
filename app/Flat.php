@@ -20,10 +20,12 @@ class Flat extends Model
         'square_meters',
         'address',
         'image',
+        'is_active'
     ];
 
     /* UTILITIES */
-    public function getLatLngAsStr() {
+    public function getLatLngAsStr()
+    {
 
         return $this->lat . '-' . $this->lng;
     }
@@ -69,7 +71,8 @@ class Flat extends Model
         return $this->hasMany('App\Request');
     }
 
-    public function getNumberOfRequests() {
+    public function getNumberOfRequests()
+    {
         return $this->requests()->count();
     }
 
@@ -81,8 +84,11 @@ class Flat extends Model
         return $this->belongsToMany('App\Service');
     }
 
-    public function getServicesId() {
-        return $this->services->map(function($flat) {return $flat->id;});
+    public function getServicesId()
+    {
+        return $this->services->map(function ($flat) {
+            return $flat->id;
+        });
     }
 
     /**
@@ -93,7 +99,8 @@ class Flat extends Model
         return $this->belongsToMany('App\Sponsorship')->withPivot('start', 'end');
     }
 
-    public function hasActiveSponsorship() {
+    public function hasActiveSponsorship()
+    {
         $activeSponsorships = DB::table('flat_sponsorship')
             ->where('flat_id', $this->id)
             ->where('end', '>=', date("Y-m-d H:i:s"))

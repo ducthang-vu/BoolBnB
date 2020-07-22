@@ -42,6 +42,16 @@
                 </div>
                 @endforeach
             </li>
+            <li class="radio-input mt-20">
+                <input class="radio" type="radio" name="is_active" id="is_active_yes" value="1" checked>
+                <label class="radio-label-form" for="is_active_yes">
+                    <i class="far fa-eye"></i> Visibile nelle ricerche
+                </label>
+                <input class="radio" type="radio" name="is_active" id="is_active_no" value="0">
+                <label class="radio-label-form" for="is_active_no">
+                    <i class="far fa-eye-slash"></i> Non visibile nelle ricerche
+                </label>
+            </li>
             <li>
                 <input class="btn-search" type="submit" value="Aggiungi appartamento" />
             </li>

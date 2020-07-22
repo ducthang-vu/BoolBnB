@@ -138,7 +138,8 @@ class FlatController extends Controller
             'number_of_bathrooms' => 'required|integer|min:1|max:255',
             'square_meters' => 'required|integer|min:10|max:10000',
             'image' => 'image',
-            'services.*' => 'exists:services,id'
+            'services.*' => 'exists:services,id',
+            'is_active' => 'required|boolean'
         ];
     }
 
