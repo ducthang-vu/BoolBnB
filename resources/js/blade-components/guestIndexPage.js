@@ -22,6 +22,9 @@ function guestIndexPage(lat, lng) {
         let cards = [...document.querySelectorAll(".card-row")];
         let cardsData = cards.map(card => {
             return {
+                cardElement: card,
+                img: card.querySelector(".image img").getAttribute("src"),
+                address: card.querySelector(".desc-card__address").innerHTML,
                 linkShow: card.getAttribute("href"),
                 coordinates: card.getAttribute("data-coordinates")
             };
@@ -35,16 +38,33 @@ function guestIndexPage(lat, lng) {
         });
 
         cardsData.forEach(element => {
-            const { linkShow, coordinates } = element;
+            const {
+                cardElement,
+                img,
+                address,
+                linkShow,
+                coordinates
+            } = element;
             const [latitude, longitude] = coordinates
                 .split("-")
                 .map(item => parseFloat(item));
             let popup = L.popup().setContent(
-                '<a href="' + linkShow + '">Appartamento</a>'
+                `<img class="popup__image" src="` +
+                    img +
+                    `">
+                <p>` +
+                    address +
+                    `</p>
+                <a href="` +
+                    linkShow +
+                    `">Clicca qui per i dettagli</a>`
             );
-            L.marker([latitude, longitude], { icon: markerIcon })
+            let marker = L.marker([latitude, longitude], { icon: markerIcon })
                 .addTo(map)
                 .bindPopup(popup);
+            cardElement.addEventListener("mouseover", function() {
+                marker.openPopup();
+            });
         });
     }
 
@@ -107,24 +127,30 @@ function guestIndexPage(lat, lng) {
             })
             .then(data => {
                 if (data.number_records !== 0) {
-                    document.getElementById("less-flats").classList.remove('show');
+                    document
+                        .getElementById("less-flats")
+                        .classList.remove("show");
                     repopulateCards(data);
-                    document.querySelector(".map").innerHTML = '<div id="mapid"></div>';
-                    const [lat, lng] = document.getElementById("inputAlgolia-search__latlong").value.split(",");
+                    document.querySelector(".map").innerHTML =
+                        '<div id="mapid"></div>';
+                    const [lat, lng] = document
+                        .getElementById("inputAlgolia-search__latlong")
+                        .value.split(",");
                     map = mapView(lat, lng);
                     populateMap(map);
-                }
-                else {
+                } else {
                     let container = document.getElementById("search-cards");
                     container.innerHTML = "";
                     document.querySelector(".map").innerHTML = "";
-                    document.getElementById("less-flats").classList.add('show');
+                    document.getElementById("less-flats").classList.add("show");
                 }
             })
             .catch(e => {
-                e instanceof InvalidParameters ?
-                    document.querySelector(".search-index__error").classList.remove("no-visibility"):
-                    console.log('Api error');
+                e instanceof InvalidParameters
+                    ? document
+                          .querySelector(".search-index__error")
+                          .classList.remove("no-visibility")
+                    : console.log("Api error");
             });
     });
 

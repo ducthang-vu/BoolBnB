@@ -21,7 +21,7 @@
             </div>
             <div class="desc-card ml-10">
                 <h3 class="mb-10">{{$flat->title}}</h3>
-                <p>{{$flat->address}}</p>
+                <p class="desc-card__address">{{$flat->address}}</p>
             </div>
         </a>
         @endforeach
@@ -46,7 +46,11 @@
                 </div>
                 <div class="desc-card ml-10">
                     <h3 class="mb-10">@{{ title }}</h3>
-                    <p>@{{address}}</p>
+                    <p class="desc-card__address">@{{address}}</p>
+                </div>
+                <div class="overlay">
+                    <div class="overlay-left">Visualizza dettagli</div>
+                    <div class="overlay-right"></div>
                 </div>
             </a>
         @{{/each}}
