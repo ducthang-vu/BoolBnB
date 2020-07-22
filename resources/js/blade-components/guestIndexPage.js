@@ -49,15 +49,9 @@ function guestIndexPage(lat, lng) {
                 .split("-")
                 .map(item => parseFloat(item));
             let popup = L.popup().setContent(
-                `<img class="popup__image" src="` +
-                    img +
-                    `">
-                <p>` +
-                    address +
-                    `</p>
-                <a href="` +
-                    linkShow +
-                    `">Clicca qui per i dettagli</a>`
+                `<img class="popup__image" src="${img}">
+                <p>${address}</p>
+                <a href="${linkShow}">Clicca qui per i dettagli</a>`
             );
             let marker = L.marker([latitude, longitude], { icon: markerIcon })
                 .addTo(map)
@@ -65,6 +59,11 @@ function guestIndexPage(lat, lng) {
             cardElement.addEventListener("mouseover", function() {
                 marker.openPopup();
             });
+            document
+                .querySelector(".index-search")
+                .addEventListener("mouseleave", function() {
+                    marker.closePopup();
+                });
         });
     }
 
@@ -84,9 +83,7 @@ function guestIndexPage(lat, lng) {
     function getServices(className) {
         let services_array = [];
         Array.from(document.getElementsByClassName(className)).forEach(item => {
-            if (item.checked) {
-                services_array.push(item.value);
-            }
+            item.checked && services_array.push(item.value);
         });
         return services_array.length ? services_array.join("-") : "0";
     }
@@ -113,6 +110,22 @@ function guestIndexPage(lat, lng) {
         container.innerHTML = template({ flats: data.response });
     }
 
+    function triggerAnimation(elementClassName, animationClassName) {
+        const messageElements = document.getElementsByClassName(
+            elementClassName
+        );
+        for (const element of messageElements) {
+            element.classList.remove(animationClassName);
+            void element.offsetWidth;
+            element.classList.add(animationClassName);
+        }
+    }
+
+    function remakeMapElement() {
+        document.querySelector(".map").classList.remove("no-visibility");
+        document.querySelector(".map").innerHTML = '<div id="mapid"></div>';
+    }
+
     class InvalidParameters extends Error {}
 
     form.addEventListener("submit", e => {
@@ -126,23 +139,18 @@ function guestIndexPage(lat, lng) {
                 return response.json();
             })
             .then(data => {
-                if (data.number_records !== 0) {
-                    document
-                        .getElementById("less-flats")
-                        .classList.remove("show");
+                if (data.number_records) {
                     repopulateCards(data);
-                    document.querySelector(".map").innerHTML =
-                        '<div id="mapid"></div>';
-                    const [lat, lng] = document
-                        .getElementById("inputAlgolia-search__latlong")
-                        .value.split(",");
+                    remakeMapElement();
+                    const [lat, lng] = getLatLng(
+                        "inputAlgolia-search__latlong"
+                    );
                     map = mapView(lat, lng);
                     populateMap(map);
                 } else {
-                    let container = document.getElementById("search-cards");
-                    container.innerHTML = "";
+                    document.getElementById("search-cards").innerHTML = "";
                     document.querySelector(".map").innerHTML = "";
-                    document.getElementById("less-flats").classList.add("show");
+                    triggerAnimation("error-message", "message-animation");
                 }
             })
             .catch(e => {
@@ -150,7 +158,7 @@ function guestIndexPage(lat, lng) {
                     ? document
                           .querySelector(".search-index__error")
                           .classList.remove("no-visibility")
-                    : console.log("Api error");
+                    : console.log(e);
             });
     });
 

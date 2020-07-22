@@ -15,7 +15,8 @@
         <div class="jumbotron pt-20 pb-20">
             <img src="{{ asset('storage/' . $flat->image ) }}" alt="{{$flat -> title}}">
             <h1>{{$flat->title}}</h1>
-
+            <h3 class="text-red @if ($flat->is_active) no-display @endif">Attualmente non visibile nelle ricerche
+                pubbliche</h3>
         </div>
 
         <div class="description d-flex s-between pb-20">

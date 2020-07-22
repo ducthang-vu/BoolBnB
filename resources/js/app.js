@@ -63,7 +63,7 @@ if (document.querySelector(".formAlgoliaHome-page")) {
 }
 
 if (document.querySelector(".formAlgoliaIndex-page")) {
-    guestIndexPage(lat, lng);
+    guestIndexPage(lat, lng); // lat lng in mapAlgolia.blade
 }
 
 if (document.querySelector(".request-message-handler")) {

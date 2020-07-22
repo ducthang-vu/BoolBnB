@@ -48,6 +48,20 @@
                 </div>
                 @endforeach
             </li>
+            <li class="radio-input mt-20">
+                <input class="radio" type="radio" name="is_active" id="is_active_yes" value="1" @if($flat->is_active)
+                checked
+                @endif>
+                <label class="radio-label-form" for="is_active_yes">
+                    <i class="far fa-eye"></i><span>Visibile nelle ricerche</span>
+                </label>
+                <input class="radio" type="radio" name="is_active" id="is_active_no" value="0" @if(!$flat->is_active)
+                checked
+                @endif>
+                <label class="radio-label-form" for="is_active_no">
+                    <i class="far fa-eye-slash"></i><span>Non visibile nelle ricerche</span>
+                </label>
+            </li>
             <li>
                 <input class="btn-search" type="submit" value="Modifica appartamento" />
             </li>

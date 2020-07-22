@@ -1,7 +1,7 @@
 .success-message,
 .error-message {
     position: absolute;
-    top: 50%;
+    top: -50%;
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
@@ -14,44 +14,42 @@
     padding: 5px;
     font-weight: 500;
     margin-bottom: 10px;
-    animation-name: fadeOut;
-    animation-duration: 10s;
-    animation-timing-function: ease;
     z-index: 100;
     opacity: 0;
 }
 
 .error-message {
     background-color: $red;
+    color: #fff;
+}
+
+.message-animation {
+    animation-name: fadeOut;
+    animation-duration: 7s;
+    animation-timing-function: ease;
 }
 
 @keyframes fadeOut {
     0% {
+        top: 20%;
         opacity: 0;
     }
     25% {
         opacity: 1;
     }
     100% {
+        top: 20%;
         opacity: 0;
-        display: none;
     }
 }
 
 @include mobile {
 }
-/* Tablets (tablets, 768px and up) */
-@include tablet {
-    .success-message,
-    .error-message {
-        width: 60%;
-    }
-}
+
 /* Desktops (desktops, 992px and up) */
 @include desktop {
     .success-message,
     .error-message {
-        width: 60%;
         height: 100px;
     }
 }

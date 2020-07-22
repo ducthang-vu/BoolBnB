@@ -3,7 +3,7 @@
 @section('page-content')
 
 @include('shared.components.formAlgoliaApi')
-<div id="less-flats">
+<div class="error-message @unless ($flatsInRange->count()) message-animation @endunless">
     <h2>Non ci sono appartamenti per questa ricerca</h2>
 </div>
 <div class="index-search d-flex s-center">
@@ -25,17 +25,11 @@
             </div>
         </a>
         @endforeach
-        @else
-        <div id="less-flats-blade">
-            <h2>Non ci sono appartamenti per questa ricerca</h2>
-        </div>
         @endif
     </div>
-    @if ($flatsInRange->count())
-    <div class="map">
+    <div class="map @unless($flatsInRange->count()) no-visibility @endunless">
         @include('shared.components.mapAlgolia')
     </div>
-    @endif
 </div>
 
 <script id="card-template" type="text/x-handlebars-template">
