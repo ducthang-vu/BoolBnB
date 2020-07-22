@@ -16,7 +16,7 @@
                                 <input id="email-login" type="email" class="form-control-login-page @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
 
                                 @error('email')
-                                    <span class="invalid-feedback-login-page" role="alert">
+                                    <span class="invalid-feedback-login-page block" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
@@ -30,7 +30,7 @@
                                 <input id="password-login" type="password" class="form-control-login-page @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
 
                                 @error('password')
-                                    <span class="invalid-feedback-login-page" role="alert">
+                                    <span class="invalid-feedback-login-page block" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
