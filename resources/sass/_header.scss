@@ -212,7 +212,7 @@
                 margin-right: 8px;
                 font-size: 12px;
                 font-weight: 700;
-                a {
+                a:last-child {
                     display: inline-block;
                     padding: 5px 10px;
                     color: $text;
