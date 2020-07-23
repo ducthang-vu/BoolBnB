@@ -3,31 +3,32 @@
 @section('page-content')
 
 @include('shared.components.formAlgoliaApi')
-<div class="error-message @unless ($flatsInRange->count()) message-animation @endunless">
+<div class="error-message @unless (count($flatsInRange)) message-animation @endunless">
     <h2>Non ci sono appartamenti per questa ricerca</h2>
 </div>
 <div class="index-search d-flex s-center">
     <div id="search-cards" class="search-cards">
-        @if ($flatsInRange->count())
+        @if (count($flatsInRange))
         @foreach ($flatsInRange as $flat)
-        <a class="card-row d-flex @if ($flat->hasActiveSponsorship()) sponsored @endif"
-            href="{{ route('flats.show', $flat->id)}}" data-coordinates="{{ $flat->getLatLngAsStr() }}">
+        <a class="card-row d-flex @if (App\Flat::find($flat['id'])->hasActiveSponsorship()) sponsored @endif"
+            href="{{ route('flats.show', $flat['id'])}}"
+            data-coordinates="{{ App\Flat::find($flat['id'])->getLatLngAsStr() }}">
             <div class="overlay">
                 <div class="overlay-left">Visualizza dettagli</div>
                 <div class="overlay-right"></div>
             </div>
             <div class="image">
-                <img src="{{ asset('storage/' . $flat->image ) }}" alt="{{$flat -> title}}">
+                <img src="{{ asset('storage/' . $flat['image'] ) }}" alt="{{$flat['title']}}">
             </div>
             <div class="desc-card ml-10">
-                <h3 class="mb-10">{{$flat->title}}</h3>
-                <p class="desc-card__address">{{$flat->address}}</p>
+                <h3 class="mb-10">{{$flat['title']}}</h3>
+                <p class="desc-card__address">{{$flat['address']}}</p>
             </div>
         </a>
         @endforeach
         @endif
     </div>
-    <div class="map @unless($flatsInRange->count()) no-visibility @endunless">
+    <div class="map @unless(count($flatsInRange)) no-visibility @endunless">
         @include('shared.components.mapAlgolia')
     </div>
 </div>
