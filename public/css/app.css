@@ -474,6 +474,10 @@ li {
   justify-content: space-between;
 }
 
+.s-around {
+  justify-content: space-around;
+}
+
 .s-center {
   justify-content: center;
 }
@@ -493,8 +497,20 @@ li {
   color: red;
 }
 
+.radius-5 {
+  border-radius: 5px;
+}
+
+.bg-gray {
+  background: #e9e8e8;
+}
+
 .opacity-05 {
   opacity: 0.5;
+}
+
+.w-100 {
+  width: 100%;
 }
 
 /* Tablets (tablets, 768px and up) */
@@ -1896,7 +1912,7 @@ input::placeholder {
 
 @media (min-width: 992px) {
   .form {
-    max-width: 50%;
+    max-width: 70%;
   }
 
   .form ul {
