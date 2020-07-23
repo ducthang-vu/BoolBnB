@@ -137,6 +137,10 @@ li {
     justify-content: space-between;
 }
 
+.s-around {
+    justify-content: space-around;
+}
+
 .s-center {
     justify-content: center;
 }
@@ -159,6 +163,16 @@ li {
     color: red;
 }
 
+.radius-5 {
+    border-radius: 5px;
+}
+.bg-gray {
+    background: rgb(233, 232, 232);
+}
 .opacity-05 {
     opacity: 0.5;
+}
+
+.w-100 {
+    width: 100%;
 }
