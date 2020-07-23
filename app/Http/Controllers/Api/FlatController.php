@@ -53,11 +53,13 @@ class FlatController extends Controller
                 return $services_required->every(function ($service) use ($flat) {
                     return  $flat->getServicesId()->contains($service);
                 });
-            });
+            })->flatten();
         }
-        $rawCollection = $rawCollection->sort(function ($a, $b) {
-            return $a->hasActiveSponsorship() < $b->hasActiveSponsorship();
-        })->flatten();
+
+        // $rawCollection = $rawCollection->sort(function ($a, $b) {
+        //     dump($a->id, $b->id);
+        //     return $a->hasActiveSponsorship() < $b->hasActiveSponsorship();
+        // })->flatten();
 
         $rawCollection = $rawCollection->map(function ($item) {
             return $item->only(['id', 'title', 'description', 'address', 'image', 'lat', 'lng']);
@@ -66,7 +68,14 @@ class FlatController extends Controller
             $item['sponsored'] = Flat::find($item['id'])->hasActiveSponsorship();
             return $item;
         }, $rawCollection);
-
+        $splitCollection = [
+            'sponsored' => [],
+            'not_sponsored' => []
+        ];
+        foreach ($arrayCollection as $flat) {
+            $flat['sponsored'] ? $splitCollection['sponsored'][] = $flat : $splitCollection['not_sponsored'][] = $flat;
+        }
+        $arrayCollection = array_merge($splitCollection['sponsored'], $splitCollection['not_sponsored']);
         $result['response'] = $arrayCollection;
         $result['number_records'] = count($arrayCollection);
         return response()->json($result);
