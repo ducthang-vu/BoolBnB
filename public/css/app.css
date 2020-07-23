@@ -1359,21 +1359,6 @@ li {
   margin-right: 10px;
 }
 
-.search-cards .card {
-  display: block;
-  flex-basis: 100%;
-  text-decoration: none;
-  color: #000;
-  margin-bottom: 20px;
-  text-align: center;
-}
-
-.search-cards .card img {
-  max-width: 350px;
-  margin-bottom: 5px;
-  border-radius: 5px;
-}
-
 .main-content {
   padding: 0;
 }
@@ -1978,6 +1963,10 @@ input::placeholder {
   background: rgba(238, 238, 238, 0.432);
   margin-bottom: 10px;
   flex-direction: column;
+}
+
+.index-search .search-cards .card-row.sponsored {
+  background-color: rgba(46, 146, 46, 0.5);
 }
 
 .index-search .search-cards .card-row .desc-card {

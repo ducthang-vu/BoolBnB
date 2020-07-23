@@ -26,6 +26,9 @@ class FlatController extends Controller
             'aroundRadius' => 20000,
             'hitsPerPage' => 1000
         ])->where('is_active', 1)->get();
+        $flatsInRange = $flatsInRange->sort(function ($a, $b) {
+            return $a->hasActiveSponsorship() < $b->hasActiveSponsorship();
+        });
         return view('guest.flats.index', compact('flatsInRange', 'latlong'));
     }
 

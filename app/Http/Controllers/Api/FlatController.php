@@ -53,8 +53,23 @@ class FlatController extends Controller
                 return $services_required->every(function ($service) use ($flat) {
                     return  $flat->getServicesId()->contains($service);
                 });
+            })->sort(function ($a, $b) {
+                return $a->hasActiveSponsorship() < $b->hasActiveSponsorship();
             })->flatten();
         }
+        $rawCollection = $rawCollection->map(function ($item) {
+            return $item->only(['id', 'title', 'description', 'address', 'image', 'lat', 'lng']);
+        })->toArray();
+        // $rawCollection = $rawCollection->map(function ($item) {
+        //     $item->sponsored = $item->hasActiveSponsorship();
+        // });
+        // dd($rawCollection);
+        $arrayCollection = array_map(function ($item) {
+            $item['sponsored'] = Flat::find($item['id'])->hasActiveSponsorship();
+            return $item;
+        }, $rawCollection);
+
+        dd($arrayCollection);
         $collection = $rawCollection->map(function ($item) {
             return $item->only(['id', 'title', 'description', 'address', 'image', 'lat', 'lng']);
         });

@@ -10,8 +10,8 @@
     <div id="search-cards" class="search-cards">
         @if ($flatsInRange->count())
         @foreach ($flatsInRange as $flat)
-        <a class="card-row d-flex" href="{{ route('flats.show', $flat->id)}}"
-            data-coordinates="{{ $flat->getLatLngAsStr() }}">
+        <a class="card-row d-flex @if ($flat->hasActiveSponsorship()) sponsored @endif"
+            href="{{ route('flats.show', $flat->id)}}" data-coordinates="{{ $flat->getLatLngAsStr() }}">
             <div class="overlay">
                 <div class="overlay-left">Visualizza dettagli</div>
                 <div class="overlay-right"></div>
