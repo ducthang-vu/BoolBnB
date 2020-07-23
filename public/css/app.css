@@ -1797,6 +1797,15 @@ form .search-home__error {
   padding: 0;
   margin: 0;
   list-style: none;
+  max-width: 100%;
+}
+
+.form ul .algolia-places {
+  width: 100%;
+}
+
+.form ul .algolia-places .ap-input {
+  max-width: 100%;
 }
 
 .form ul li {
@@ -1912,14 +1921,6 @@ input::placeholder {
 
 @media (min-width: 992px) {
   .form {
-    max-width: 70%;
-  }
-
-  .form ul {
-    max-width: 100%;
-  }
-
-  .form ul .algolia-places .ap-input {
     max-width: 100%;
   }
 }
