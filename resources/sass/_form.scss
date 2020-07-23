@@ -9,6 +9,13 @@
     padding: 0;
     margin: 0;
     list-style: none;
+    max-width: 100%;
+    .algolia-places {
+        width: 100%;
+        .ap-input {
+            max-width: 100%;
+        }
+    }
 }
 .form ul li {
     margin-bottom: 10px;
@@ -94,14 +101,6 @@ input::placeholder {
 
 @include desktop {
     .form {
-        max-width: 70%;
-        ul {
-            max-width: 100%;
-            .algolia-places {
-                .ap-input {
-                    max-width: 100%;
-                }
-            }
-        }
+        max-width: 100%;
     }
 }

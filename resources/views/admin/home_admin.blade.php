@@ -18,7 +18,7 @@
     </div>
     <div class="title-flts d-flex s-between align-center">
         <h1 class="mt-20 mb-20">
-            Bentornato {{Auth::user()->surname}} {{Auth::user()->name}}, questi sono i tuoi appartamenti
+            Benvenuto {{Auth::user()->surname}} {{Auth::user()->name}}, questi sono i tuoi appartamenti
         </h1>
         <a class="btn btn-add" href="{{ route('admin.flats.create') }}"><i class="fas fa-plus"></i></a>
     </div>

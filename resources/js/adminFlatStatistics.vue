@@ -12,7 +12,7 @@ import chart from "./components/chart";
 export default {
   data() {
     return {
-      flat_id: window.location.href.match(/flats\/(\d\d)/)[1],
+      flat_id: window.location.href.match(/flats\/(\d\d*)/)[1],
       visualisations_props: {
         title: "visualisations",
         visualisations: {}
