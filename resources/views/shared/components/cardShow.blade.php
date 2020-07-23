@@ -72,15 +72,17 @@ This template need to be include with a parameter of model App\Flat
                 @method('POST')
                 <ul class="accountholder df-column ">
                     <li class="d-flex s-between align-center">
-                        <input type="text" class="field-style field-split" name="name" id="form_name"
-                            value="{{ old('name') }}" placeholder="Nome">
+                        <input type="text" class="field-style field-split" name="name" id="form_name" placeholder="Nome"
+                            value="@auth {{ old('name', Auth::user()->name) }}@endauth @guest{{ old('name') }} @endguest">
 
                         <input type="text" class="field-style field-split" name="surname" id="form_surname"
-                            value="{{ old('surname') }}" placeholder="Cognome">
+                            placeholder="Cognome"
+                            value="@auth {{ old('surname', Auth::user()->surname) }}@endauth @guest{{ old('surname') }} @endguest">
                     </li>
                     <li class="d-flex s-between align-center">
                         <input type="email" class="field-style field-full" name="email" id="form_email"
-                            value="{{ old('email') }}" placeholder="Email">
+                            placeholder="Email"
+                            value="@auth {{ old('email', Auth::user()->email) }}@endauth @guest{{ old('email') }} @endguest">
                     </li>
                     <li class="d-flex s-between align-center">
                         <textarea name="message" id="form_message" class="field-style"
