@@ -10,8 +10,8 @@
     <div id="search-cards" class="search-cards">
         @if ($flatsInRange->count())
         @foreach ($flatsInRange as $flat)
-        <a class="card-row d-flex" href="{{ route('flats.show', $flat->id)}}"
-            data-coordinates="{{ $flat->getLatLngAsStr() }}">
+        <a class="card-row d-flex @if ($flat->hasActiveSponsorship()) sponsored @endif"
+            href="{{ route('flats.show', $flat->id)}}" data-coordinates="{{ $flat->getLatLngAsStr() }}">
             <div class="overlay">
                 <div class="overlay-left">Visualizza dettagli</div>
                 <div class="overlay-right"></div>
@@ -34,19 +34,23 @@
 
 <script id="card-template" type="text/x-handlebars-template">
     @{{#each flats}}
-            <a class="card-row d-flex" href="{{ url('flats') }}/@{{ id }}" data-coordinates="@{{ lat }}-@{{ lng }}">
-                <div class="image">
-                    <img src="{{ asset('storage') }}/@{{ image }}" alt="@{{ title }}">
-                </div>
-                <div class="desc-card ml-10">
-                    <h3 class="mb-10">@{{ title }}</h3>
-                    <p class="desc-card__address">@{{address}}</p>
-                </div>
-                <div class="overlay">
-                    <div class="overlay-left">Visualizza dettagli</div>
-                    <div class="overlay-right"></div>
-                </div>
-            </a>
-        @{{/each}}
-    </script>
+    @{{#if sponsored}}
+    <a class="card-row d-flex sponsored" href="{{ url('flats') }}/@{{ id }}" data-coordinates="@{{ lat }}-@{{ lng }}">
+        @{{else}}
+    <a class="card-row d-flex" href="{{ url('flats') }}/@{{ id }}" data-coordinates="@{{ lat }}-@{{ lng }}">
+        @{{/if}}
+        <div class="image">
+            <img src="{{ asset('storage') }}/@{{ image }}" alt="@{{ title }}">
+        </div>
+        <div class="desc-card ml-10">
+            <h3 class="mb-10">@{{ title }}</h3>
+            <p class="desc-card__address">@{{address}}</p>
+        </div>
+        <div class="overlay">
+            <div class="overlay-left">Visualizza dettagli</div>
+            <div class="overlay-right"></div>
+        </div>
+    </a>
+    @{{/each}}
+</script>
 @endsection

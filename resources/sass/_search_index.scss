@@ -45,6 +45,9 @@
             background: rgba(238, 238, 238, 0.432);
             margin-bottom: 10px;
             flex-direction: column;
+            &.sponsored {
+                background-color: rgba(46, 146, 46, 0.5);
+            }
             .desc-card {
                 margin-left: 0px;
             }
