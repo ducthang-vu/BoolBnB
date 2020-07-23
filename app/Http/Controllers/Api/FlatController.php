@@ -55,12 +55,6 @@ class FlatController extends Controller
                 });
             })->flatten();
         }
-
-        // $rawCollection = $rawCollection->sort(function ($a, $b) {
-        //     dump($a->id, $b->id);
-        //     return $a->hasActiveSponsorship() < $b->hasActiveSponsorship();
-        // })->flatten();
-
         $rawCollection = $rawCollection->map(function ($item) {
             return $item->only(['id', 'title', 'description', 'address', 'image', 'lat', 'lng']);
         })->toArray();
