@@ -1,6 +1,6 @@
 function guestIndexPage(lat, lng) {
-    function mapView(lat, lng) {
-        const map = L.map("mapid").setView([lat, lng], 11);
+    function mapView(latitude, longitude) {
+        const map = L.map("mapid").setView([latitude, longitude], 11);
         L.tileLayer(
             "https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}",
             {
@@ -29,14 +29,12 @@ function guestIndexPage(lat, lng) {
                 coordinates: card.getAttribute("data-coordinates")
             };
         });
-
         let markerIcon = L.icon({
             iconUrl: "../markerIcon/real-estate.png",
             iconSize: [50, 50],
             iconAnchor: [25, 50],
             popupAnchor: [0, -45]
         });
-
         cardsData.forEach(element => {
             const {
                 cardElement,
@@ -45,36 +43,17 @@ function guestIndexPage(lat, lng) {
                 linkShow,
                 coordinates
             } = element;
-            const [latitude, longitude] = coordinates
-                .split("-")
-                .map(item => parseFloat(item));
+            const [latitude, longitude] = coordinates.split("-").map(item => parseFloat(item))
             let popup = L.popup().setContent(
                 `<img class="popup__image" src="${img}">
                 <p>${address}</p>
                 <a href="${linkShow}">Clicca qui per i dettagli</a>`
             );
-            let marker = L.marker([latitude, longitude], { icon: markerIcon })
-                .addTo(map)
-                .bindPopup(popup);
-            cardElement.addEventListener("mouseover", function() {
-                marker.openPopup();
-            });
-            document
-                .querySelector(".index-search")
-                .addEventListener("mouseleave", function() {
-                    marker.closePopup();
-                });
+            let marker = L.marker([latitude, longitude], { icon: markerIcon }).addTo(map).bindPopup(popup)
+            cardElement.addEventListener("mouseover", () => marker.openPopup())
+            document.querySelector(".index-search").addEventListener("mouseleave", () => marker.closePopup())
         });
     }
-
-    let map = mapView(lat, lng);
-    populateMap(map);
-
-    const Handlebars = require("handlebars");
-    const source = document.getElementById("card-template").innerHTML;
-    const template = Handlebars.compile(source);
-
-    const form = document.getElementById("algoliaForm");
 
     function getLatLng(id) {
         return document.getElementById(id).value.split(",");
@@ -88,26 +67,21 @@ function guestIndexPage(lat, lng) {
         return services_array.length ? services_array.join("-") : "0";
     }
 
-    function getUrlApi() {
+    function getUrlApi(latitude, longitude) {
         const base_url =
             window.location.protocol +
             "//" +
             window.location.host +
             "/api/flats/?";
         let params = new URLSearchParams({
-            lat: getLatLng("inputAlgolia-search__latlong")[0],
-            lng: getLatLng("inputAlgolia-search__latlong")[1],
+            lat: latitude || getLatLng("inputAlgolia-search__latlong")[0],
+            lng: longitude ||  getLatLng("inputAlgolia-search__latlong")[1],
             rooms_min: document.querySelector("#rooms_min").value,
             beds_min: document.querySelector("#beds_min").value,
             required_services: getServices("service-checkbox"),
             distance: document.querySelector("#distance").value
         });
         return base_url + params;
-    }
-
-    function repopulateCards(data) {
-        let container = document.getElementById("search-cards");
-        container.innerHTML = template({ flats: data.response });
     }
 
     function triggerAnimation(elementClassName, animationClassName) {
@@ -128,50 +102,64 @@ function guestIndexPage(lat, lng) {
 
     class InvalidParameters extends Error {}
 
-    form.addEventListener("submit", e => {
-        e.preventDefault();
-        document
-            .querySelector(".search-index__error")
-            .classList.add("no-visibility");
-        fetch(getUrlApi())
+    function handlingApiError(e) {
+        e instanceof InvalidParameters
+                    ? document.querySelector(".search-index__error").classList.remove("no-visibility")
+                    : console.log(e);
+    }
+
+    const Handlebars = require("handlebars");
+    const template = Handlebars.compile(document.getElementById("card-template").innerHTML);
+    function repopulateCards(data) {
+        let container = document.getElementById("search-cards");
+        container.innerHTML = template({ flats: data.response });
+    }
+
+    function handlingApiSuccess(data, latitude, longitude) {
+        if (data.number_records) {
+            repopulateCards(data);
+            remakeMapElement();
+            let lat, lng
+            if (latitude && longitude) {
+                [lat, lng] = [latitude, longitude]
+            } else {
+                [lat, lng] = getLatLng("inputAlgolia-search__latlong");
+            }
+            const map = mapView(lat, lng);
+            populateMap(map);
+        } else {
+            document.getElementById("search-cards").innerHTML = "";
+            document.querySelector(".map").innerHTML = "";
+            triggerAnimation("error-message", "message-animation");
+        }
+    }
+
+    function fetchData(latitude, longitude) {
+        document.querySelector(".search-index__error").classList.add("no-visibility");
+        fetch(getUrlApi(latitude, longitude))
             .then(response => {
                 if (!response.ok) throw new InvalidParameters();
                 return response.json();
             })
-            .then(data => {
-                if (data.number_records) {
-                    repopulateCards(data);
-                    remakeMapElement();
-                    const [lat, lng] = getLatLng(
-                        "inputAlgolia-search__latlong"
-                    );
-                    map = mapView(lat, lng);
-                    populateMap(map);
-                } else {
-                    document.getElementById("search-cards").innerHTML = "";
-                    document.querySelector(".map").innerHTML = "";
-                    triggerAnimation("error-message", "message-animation");
-                }
-            })
-            .catch(e => {
-                e instanceof InvalidParameters
-                    ? document
-                          .querySelector(".search-index__error")
-                          .classList.remove("no-visibility")
-                    : console.log(e);
-            });
+            .then(data => handlingApiSuccess(data, latitude, longitude))
+            .catch(e => handlingApiError(e));
+    }
+
+    /*  On page load */
+    fetchData(lat, lng)
+    document.getElementById("algoliaForm").addEventListener("submit", e => {
+        e.preventDefault()
+        fetchData()
     });
 
     // animazioni filtri ricerca
-    let animationService = document.getElementById("animation--service");
-
-    let isFilterOpen = false;
-    let btnFilter = document.getElementById("filter");
-    btnFilter.addEventListener("click", function() {
-        isFilterOpen
+    document.getElementById("filter").addEventListener("click", function() {
+        this.isOpen = this.isOpen || false;
+        const animationService = document.getElementById("animation--service");
+        this.isOpen
             ? animationService.classList.remove("animation--service--open")
             : animationService.classList.add("animation--service--open");
-        isFilterOpen = !isFilterOpen;
+        this.isOpen = !this.isOpen;
     });
 }
 

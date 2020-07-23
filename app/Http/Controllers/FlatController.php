@@ -19,26 +19,7 @@ class FlatController extends Controller
     public function index(Request $request)
     {
         $latlong = explode(',', $request->input('latlong'));
-        $flatsInRange = Flat::search()->with([
-            'aroundLatLng' => array_map(function ($a) {
-                return floatval($a);
-            }, $latlong),
-            'aroundRadius' => 20000,
-            'hitsPerPage' => 1000
-        ])->where('is_active', 1)->get()->toArray();
-        $flatsInRange = array_map(function ($item) {
-            $item['sponsored'] = Flat::find($item['id'])->hasActiveSponsorship();
-            return $item;
-        }, $flatsInRange);
-        $splitCollection = [
-            'sponsored' => [],
-            'not_sponsored' => []
-        ];
-        foreach ($flatsInRange as $flat) {
-            $flat['sponsored'] ? $splitCollection['sponsored'][] = $flat : $splitCollection['not_sponsored'][] = $flat;
-        }
-        $flatsInRange = array_merge($splitCollection['sponsored'], $splitCollection['not_sponsored']);
-        return view('guest.flats.index', compact('flatsInRange', 'latlong'));
+        return view('guest.flats.index', compact('latlong'));
     }
 
 
