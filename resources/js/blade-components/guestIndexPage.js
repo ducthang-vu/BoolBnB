@@ -23,7 +23,7 @@ function guestIndexPage(lat, lng) {
         let cardsData = cards.map(card => {
             return {
                 cardElement: card,
-                img: card.querySelector(".image img").getAttribute("src"),
+                img: card.querySelector(".card-row__img").getAttribute("src"),
                 address: card.querySelector(".desc-card__address").innerHTML,
                 linkShow: card.getAttribute("href"),
                 coordinates: card.getAttribute("data-coordinates")

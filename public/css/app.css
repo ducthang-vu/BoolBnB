@@ -1254,6 +1254,7 @@ li {
   width: 100%;
   border-top-left-radius: 16px;
   border-top-right-radius: 16px;
+  max-height: 285px;
 }
 
 .sponsorship-card .text-card {
@@ -1317,6 +1318,9 @@ li {
   align-items: center;
   text-align: center;
   position: relative;
+  border-radius: 16px;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
+  width: 95%;
 }
 
 .card-row .overlay {
@@ -1329,7 +1333,7 @@ li {
   justify-content: space-between;
   align-items: center;
   font-size: 1.5rem;
-  color: #c92525;
+  color: black;
   font-weight: 500;
   border-radius: 5px;
   transition: opacity 0.4s;
@@ -1338,7 +1342,8 @@ li {
 
 .card-row .overlay:hover {
   opacity: 1;
-  background-color: #afaeaec2;
+  background-color: #afaeae96;
+  border-radius: 16px;
 }
 
 .card-row .overlay .overlay-left {
@@ -1348,10 +1353,11 @@ li {
   flex-basis: 40%;
 }
 
-.card-row .image img {
-  width: 300px;
-  max-height: 140px;
-  border-radius: 5px;
+.card-row img {
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+  width: 100%;
+  max-height: 160px;
 }
 
 .card-row .desc-card {
@@ -1362,6 +1368,14 @@ li {
   display: none;
 }
 
+.card-row .desc-card i {
+  font-size: 30px;
+  position: absolute;
+  top: 0px;
+  right: 15px;
+  color: #f6993f;
+}
+
 .card-row .button-card {
   align-items: center;
 }
@@ -1370,12 +1384,12 @@ li {
 
 @media (min-width: 768px) {
   .card-row {
-    flex-direction: row;
-    text-align: left;
+    flex-basis: calc((100% / 2 ) - 20px);
+    margin: 0 20px 20px 0;
   }
 
-  .card-row img {
-    margin-right: 10px;
+  .card-row:nth-of-type(2n) {
+    margin-right: 0;
   }
 }
 
@@ -1383,12 +1397,38 @@ li {
 
 @media (min-width: 992px) {
   .card-row {
+    flex-direction: row;
+    text-align: left;
     padding-right: 10px;
+    flex-basis: 100%;
+  }
+
+  .card-row img {
+    width: 330px;
+    margin-right: 10px;
+    border-top-right-radius: 0;
+    border-bottom-left-radius: 16px;
+  }
+
+  .card-row:nth-of-type(1n) {
+    margin-right: 0;
   }
 
   .card-row .desc-card p {
     display: block;
     line-height: 25px;
+  }
+
+  .card-row .desc-card .desc-card__sponsored {
+    font-size: 12px;
+    position: absolute;
+    bottom: 2px;
+    right: 10px;
+    color: #f6993f;
+  }
+
+  .card-row .desc-card i {
+    right: 35px;
   }
 }
 
@@ -1398,8 +1438,19 @@ li {
   flex-wrap: wrap;
   height: 100vh;
   overflow: auto;
-  margin-right: 10px;
 }
+
+/* Tablets (tablets, 768px and up) */
+
+/* Desktops (desktops, 992px and up) */
+
+@media (min-width: 992px) {
+  .search-cards {
+    margin-right: 10px;
+  }
+}
+
+/* Large desktops (large desktops, 1200px and up) */
 
 .section-home .pic-card {
   position: relative;
@@ -1419,39 +1470,9 @@ li {
   width: 100%;
 }
 
-.section-home form {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-}
-
-.section-home form #address {
-  width: auto;
-  height: 45px;
-  font-size: 16px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-  padding: 10px;
-}
-
-.section-home form .search-home__error {
+.section-home .search-home__error {
   flex-basis: 100%;
   color: #e3342f;
-}
-
-.section-home .btn-search {
-  background: linear-gradient(to right, #92174d 9.38%, #e41d5c 88.54%);
-  color: #ffffff;
-  cursor: pointer;
-  font-size: 16px;
-  font-weight: 600;
-  border-radius: 5px;
-  border: 1px solid transparent;
-  height: 50px;
-  width: 70px;
-  margin-left: 10px;
-  height: 40px;
 }
 
 /* Tablets (tablets, 768px and up) */
@@ -1934,6 +1955,54 @@ input::placeholder {
   }
 }
 
+form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+form #address {
+  width: auto;
+  height: 45px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  padding: 10px;
+}
+
+.btn-search {
+  background: linear-gradient(to right, #92174d 9.38%, #e41d5c 88.54%);
+  color: #ffffff;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 5px;
+  border: 1px solid transparent;
+  height: 50px;
+  width: 70px;
+  margin-left: 10px;
+  height: 40px;
+}
+
+/* Tablets (tablets, 768px and up) */
+
+/* Desktops (desktops, 992px and up) */
+
+@media (min-width: 992px) {
+  form #address {
+    width: 600px;
+    height: 50px;
+    font-size: 25px;
+  }
+
+  form .btn-search {
+    height: 45px;
+  }
+}
+
+/* Large desktops (large desktops, 1200px and up) */
+
 #less-flats,
 #less-flats-blade {
   text-align: center;
@@ -1979,6 +2048,10 @@ input::placeholder {
   }
 }
 
+.search-section {
+  margin-top: 50px;
+}
+
 .index-search .search-cards {
   flex-basis: 100%;
   height: auto;
@@ -1992,7 +2065,7 @@ input::placeholder {
 }
 
 .index-search .search-cards .card-row.sponsored {
-  background-color: rgba(46, 146, 46, 0.5);
+  background-color: antiquewhite;
 }
 
 .index-search .search-cards .card-row .desc-card {
@@ -2670,40 +2743,48 @@ input::placeholder {
 .message-animation {
   -webkit-animation-name: fadeOut;
           animation-name: fadeOut;
-  -webkit-animation-duration: 7s;
-          animation-duration: 7s;
+  -webkit-animation-duration: 10s;
+          animation-duration: 10s;
   -webkit-animation-timing-function: ease;
           animation-timing-function: ease;
 }
 
 @-webkit-keyframes fadeOut {
   0% {
-    top: 20%;
     opacity: 0;
   }
 
-  25% {
+  15% {
+    top: 5%;
+    opacity: 1;
+  }
+
+  30% {
+    top: 5%;
     opacity: 1;
   }
 
   100% {
-    top: 20%;
     opacity: 0;
   }
 }
 
 @keyframes fadeOut {
   0% {
-    top: 20%;
     opacity: 0;
   }
 
-  25% {
+  15% {
+    top: 5%;
+    opacity: 1;
+  }
+
+  30% {
+    top: 5%;
     opacity: 1;
   }
 
   100% {
-    top: 20%;
     opacity: 0;
   }
 }
@@ -2715,6 +2796,46 @@ input::placeholder {
   .error-message {
     height: 100px;
   }
+
+@-webkit-keyframes fadeOut {
+    0% {
+      opacity: 0;
+    }
+
+    15% {
+      top: 8%;
+      opacity: 1;
+    }
+
+    30% {
+      top: 8%;
+      opacity: 1;
+    }
+
+    100% {
+      opacity: 0;
+    }
+}
+
+@keyframes fadeOut {
+    0% {
+      opacity: 0;
+    }
+
+    15% {
+      top: 8%;
+      opacity: 1;
+    }
+
+    30% {
+      top: 8%;
+      opacity: 1;
+    }
+
+    100% {
+      opacity: 0;
+    }
+}
 }
 
 /* Large desktops (large desktops, 1200px and up) */
