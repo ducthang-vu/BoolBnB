@@ -35,3 +35,9 @@ Route::prefix('admin')
         Route::resource('requests', 'RequestController');
         Route::resource('sponsorships', 'SponsorshipController')->only(['index', 'create', 'store']);
     });
+
+Route::get('/dev', function() {
+    return view('welcome');
+});
+
+Route::get('/dev', 'devController@index')->name('welcome');

@@ -1,44 +1,44 @@
-.main-content{
-    padding: 0;
-}
-
-.search-home{
-    align-items: center;
-    justify-content: center;
-    height:120px;
-}
-form{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    #address{
-        width: 80%;
-        height: 45px;
-        font-size: 16px;
-        border-radius: 5px;
-        border : 1px solid #ccc;
-        padding: 5px;
-        margin-right: 5px;
-        &:hover,
-        &:focus{
-            border :2px solid rgb(146, 146, 146);
+.section-home{
+    .pic-card {
+        position: relative;
+        padding-bottom: 40px;
+        img {
+            width: 100%;
+            height: 350px;
         }
     }
-    .search-home__error {
-        flex-basis: 100%;
-        color: $red;
+    .search-home{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100%;
     }
-}
+    form{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        #address{
+            width: auto;
+            height: 45px;
+            font-size: 16px;
+            border-radius: 5px;
+            border : 1px solid #ccc;
+            padding: 10px;
+        }
+        .search-home__error {
+            flex-basis: 100%;
+            color: $red;
+        }
+    }
 
-.btn-search {
-    @include button-serach-home;
-    height: 40px;
-}
+    .btn-search {
+        @include button-serach-home;
+        margin-left: 10px;
+        height: 40px;
+    }
 
-.title-home {
-    font-size: 22px;
-    padding-bottom: 50px;
 }
 
 @include mobile {
@@ -46,40 +46,31 @@ form{
 }
 /* Tablets (tablets, 768px and up) */
 @include tablet {
-    .search-home{
-        height: 170px;
-    }
-    form{
-        #address{
-            width: 100%;
-            height: 40px;
-            font-size: 20px;
-        }
-        .btn-search {
-            margin-left: 20px;
-            height: 35px;
+    .section-home{
+        .search-home{
+            width: 50%;
         }
     }
-    .title-home {
-        font-size: 30px;
-    }
+    
 }
 /* Desktops (desktops, 992px and up) */
 @include desktop {
-    .search-home{
-        height: 250px;
-    }
-    form{
-        #address{
-            width: 800px;
-            height: 60px;
-            font-size: 25px;
+    .section-home{
+        .pic-card {
+            padding-bottom: 50px;
+            img {
+                height: 500px;
+            }
         }
-        .btn-search {
-            height: 50px;
-        }
-        .title-home {
-            font-size: 35px;
+        form{
+            #address{
+                width: 600px;
+                height: 50px;
+                font-size: 25px;
+            }
+            .btn-search {
+                height: 45px;
+            }
         }
     }
 }

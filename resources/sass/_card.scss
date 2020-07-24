@@ -2,19 +2,34 @@
     flex-wrap: wrap;
     padding-bottom: 20px;
     .card{
+        border-radius: 16px;
+        box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
         display: block;
         flex-basis: 100%;
         text-decoration: none;
         color: $black;
         margin: 20px 10px;
-        text-align: center;
         img{
-            max-width: 350px;
             margin-bottom: 5px;
-            border-radius: 5px;
+            width: 100%;
+            border-top-left-radius: 16px;
+            border-top-right-radius: 16px;
         }
     }
+    .text-card {
+        padding-left: 10px;
+        padding-top: 5px;
+        font-size: 18px;
+        font-weight: 500;
+        height: 80px;
+        p{
+            font-size: 14px;
+            color: #333;
+            padding: 3px 0;
+        }
+    } 
 }
+
 
 @include mobile {
 
@@ -42,10 +57,14 @@
             &:nth-of-type(3n) {
                 margin-right: 0;
             }
-            img{
-                max-width: 385px;
-            }
-
+            .text-card {
+                height: 60px;
+                p{
+                    font-size: 14px;
+                    color: #333;
+                    padding: 3px 0;
+                }
+            } 
         }
     }
 }
