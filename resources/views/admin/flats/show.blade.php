@@ -15,7 +15,8 @@
         <div class="jumbotron pt-20 pb-20">
             <img src="{{ asset('storage/' . $flat->image ) }}" alt="{{$flat -> title}}">
             <h1>{{$flat->title}}</h1>
-
+            <h3 class="text-red @if ($flat->is_active) no-display @endif">Attualmente non visibile nelle ricerche
+                pubbliche</h3>
         </div>
 
         <div class="description d-flex s-between pb-20">
@@ -24,13 +25,22 @@
                 <p>{{$flat->description}}</p>
             </div>
             <div class="desc-list">
-                <h2 class="mb-10">Servizi</h2>
+                <h2 class="mb-10">Dettagli</h2>
                 <ul>
                     <li>Numero di stanze: {{$flat->number_of_rooms}}</li>
                     <li>Numero di posti letto: {{$flat->number_of_beds}}</li>
                     <li>Numero di bagni: {{$flat->number_of_bathrooms}}</li>
                     <li>Metri quadrati: {{$flat->square_meters}}</li>
                     <li>Indirizzo: {{$flat->address }}</li>
+                    <li>Include:
+                        <ul class="ml-15">
+                            @foreach ($flat->services->map(function($item) {
+                            return $item->type;
+                            }) as $service)
+                            <li>{{ $service }}</li>
+                            @endforeach
+                        </ul>
+                    </li>
                 </ul>
             </div>
         </div>

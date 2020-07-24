@@ -15,13 +15,22 @@ This template need to be include with a parameter of model App\Flat
             <p>{{$flat->description}}</p>
         </div>
         <div class="desc-list">
-            <h2 class="mb-10">Servizi</h2>
+            <h2 class="mb-10">Dettagli</h2>
             <ul>
                 <li>Numero di stanze: {{$flat->number_of_rooms}}</li>
                 <li>Numero di posti letto: {{$flat->number_of_beds}}</li>
                 <li>Numero di bagni: {{$flat->number_of_bathrooms}}</li>
                 <li>Metri quadrati: {{$flat->square_meters}}</li>
                 <li>Indirizzo: {{$flat->address }}</li>
+                <li>Include:
+                    <ul class="ml-15">
+                        @foreach ($flat->services->map(function($item) {
+                        return $item->type;
+                        }) as $service)
+                        <li>{{ $service }}</li>
+                        @endforeach
+                    </ul>
+                </li>
             </ul>
         </div>
     </div>
@@ -36,8 +45,7 @@ This template need to be include with a parameter of model App\Flat
             </div>
 
         </div>
-        @auth
-        @if ($flat->user_id == Auth::user()->id)
+        @if (Auth::check() && $flat->user_id == Auth::user()->id)
         <div class="button-card mb-20 d-flex">
             <div class="left-btn d-flex">
                 <a class="btn btn-stat mb-5 mr-5" href="{{ route('admin.statistics' , $flat->id) }}"><i
@@ -56,9 +64,7 @@ This template need to be include with a parameter of model App\Flat
                 {{-- <button class="btn btn-"><i class="far fa-arrow-alt-circle-right"></i></button> --}}
             </div>
         </div>
-        @endauth
         @else
-        @guest
         <div class="df-column mb-20">
             <h3 class="mb-10">Scrivi al proprietario</h3>
             <form class="form form-message" action="{{ route('requests') }}" method="POST">
@@ -66,15 +72,17 @@ This template need to be include with a parameter of model App\Flat
                 @method('POST')
                 <ul class="accountholder df-column ">
                     <li class="d-flex s-between align-center">
-                        <input type="text" class="field-style field-split" name="name" id="form_name"
-                            value="{{ old('name') }}" placeholder="Nome">
+                        <input type="text" class="field-style field-split" name="name" id="form_name" placeholder="Nome"
+                            value="@auth {{ old('name', Auth::user()->name) }}@endauth @guest{{ old('name') }} @endguest">
 
                         <input type="text" class="field-style field-split" name="surname" id="form_surname"
-                            value="{{ old('surname') }}" placeholder="Cognome">
+                            placeholder="Cognome"
+                            value="@auth {{ old('surname', Auth::user()->surname) }}@endauth @guest{{ old('surname') }} @endguest">
                     </li>
                     <li class="d-flex s-between align-center">
                         <input type="email" class="field-style field-full" name="email" id="form_email"
-                            value="{{ old('email') }}" placeholder="Email">
+                            placeholder="Email"
+                            value="@auth {{ old('email', Auth::user()->email) }}@endauth @guest{{ old('email') }} @endguest">
                     </li>
                     <li class="d-flex s-between align-center">
                         <textarea name="message" id="form_message" class="field-style"
@@ -86,7 +94,6 @@ This template need to be include with a parameter of model App\Flat
                     </li>
                 </ul>
             </form>
-            @endguest
             @endif
         </div>
     </div>

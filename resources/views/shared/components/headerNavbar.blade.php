@@ -38,7 +38,7 @@
                     </a>
                 </li>
                 <li>
-                    <a class="" href="{{ route('logout') }}"
+                    <a class="logout-header-navbar" href="{{ route('logout') }}"
                     onclick="event.preventDefault();
                                 document.getElementById('logout-form').submit();">
                     {{ __('Logout') }}

@@ -133,12 +133,13 @@ class FlatController extends Controller
         return [
             'title' => 'required|min:1|max:255',
             'description' => 'required|min:1|max:500',
-            'number_of_rooms' => 'required|integer|min:1',
-            'number_of_beds' => 'required|integer|min:1',
-            'number_of_bathrooms' => 'required|integer|min:1',
-            'square_meters' => 'required|integer|min:10',
+            'number_of_rooms' => 'required|integer|min:1|max:255',
+            'number_of_beds' => 'required|integer|min:1|max:255',
+            'number_of_bathrooms' => 'required|integer|min:1|max:255',
+            'square_meters' => 'required|integer|min:10|max:10000',
             'image' => 'image',
-            'services.*' => 'exists:services,id'
+            'services.*' => 'exists:services,id',
+            'is_active' => 'required|boolean'
         ];
     }
 

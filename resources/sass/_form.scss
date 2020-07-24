@@ -9,6 +9,13 @@
     padding: 0;
     margin: 0;
     list-style: none;
+    max-width: 100%;
+    .algolia-places {
+        width: 100%;
+        .ap-input {
+            max-width: 100%;
+        }
+    }
 }
 .form ul li {
     margin-bottom: 10px;
@@ -50,6 +57,34 @@
     background-color: $bg_airbnb;
 }
 
+.radio-input {
+    display: flex;
+    flex-direction: column;
+    // justify-content: space-between;
+    align-items: center;
+    .radio {
+        opacity: 0;
+        position: absolute;
+    }
+    .radio-label-form {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        width: 300px;
+        flex-basis: 45%;
+        padding: 10px;
+        margin-bottom: 5px;
+        text-align: center;
+        border: 1px solid $bg_airbnb;
+        font-size: 13px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    .radio:checked + .radio-label-form {
+        background: rgb(43, 158, 43);
+    }
+}
+
 textarea,
 textarea::placeholder,
 input::placeholder {
@@ -66,14 +101,6 @@ input::placeholder {
 
 @include desktop {
     .form {
-        max-width: 50%;
-        ul {
-            max-width: 100%;
-            .algolia-places {
-                .ap-input {
-                    max-width: 100%;
-                }
-            }
-        }
+        max-width: 100%;
     }
 }

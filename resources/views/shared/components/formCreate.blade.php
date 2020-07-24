@@ -33,7 +33,7 @@
                 <input class="field-style field-full" type="file" name="image" id="image" accept="image/*"
                     value="{{ old('image') }}">
             </li>
-            <li class="services text-center">
+            <li class="services text-center mt-20">
                 @foreach ($services as $service)
                 <div class="form-group d-flex">
                     <input class="mr-10 ml-10" type="checkbox" name="services[]" id="service-{{ $loop->iteration }}"
@@ -42,7 +42,17 @@
                 </div>
                 @endforeach
             </li>
-            <li>
+            <li class="radio-input mt-30">
+                <input class="radio" type="radio" name="is_active" id="is_active_yes" value="1" checked>
+                <label class="radio-label-form" for="is_active_yes">
+                    <i class="far fa-eye"></i> Visibile nelle ricerche
+                </label>
+                <input class="radio" type="radio" name="is_active" id="is_active_no" value="0">
+                <label class="radio-label-form" for="is_active_no">
+                    <i class="far fa-eye-slash"></i> Non visibile nelle ricerche
+                </label>
+            </li>
+            <li class="mt-30">
                 <input class="btn-search" type="submit" value="Aggiungi appartamento" />
             </li>
         </ul>

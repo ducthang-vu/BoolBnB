@@ -1,7 +1,7 @@
 #less-flats,
 #less-flats-blade {
     text-align: center;
-    box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.75);
     animation-name: fadeIn;
     animation-duration: 1s;
     animation-timing-function: ease;
@@ -13,31 +13,41 @@
         margin: 0 auto;
         margin-bottom: 30px;
     }
-    &.show{
+    &.show {
         display: inline;
     }
 }
-#less-flats{
+#less-flats {
     display: none;
+}
+
+.popup__image {
+    max-width: 100%;
 }
 
 // ANIMATION
 
 @keyframes fadeIn {
-    0% { opacity: 0;}
-    100% {opacity: 1;}
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }
 
-
 .index-search {
-    .search-cards{
+    .search-cards {
         flex-basis: 100%;
         height: auto;
         overflow: auto;
-        .card-row{
+        .card-row {
             background: rgba(238, 238, 238, 0.432);
             margin-bottom: 10px;
             flex-direction: column;
+            &.sponsored {
+                background-color: rgba(46, 146, 46, 0.5);
+            }
             .desc-card {
                 margin-left: 0px;
             }
@@ -48,72 +58,68 @@
     }
 }
 
-
-
 @include mobile {
-
 }
 /* Tablets (tablets, 768px and up) */
 @include tablet {
     #less-flats,
     #less-flats-blade {
-    h2 {
-        width: 80%;
-    }
-}
-/* Desktops (desktops, 992px and up) */
-@include desktop {
-    #less-flats,
-    #less-flats-blade {
-        position: absolute;
-        z-index: 99;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        text-align: center;
-        height: auto;
-        background-color: $red;
-        width: 600px;
-        h2{
-            margin-bottom: 0;
+        h2 {
+            width: 80%;
         }
     }
-    .index-search {
-        padding-bottom: 50px;
-        margin: 0 10px;
-        .search-cards{
-            flex-basis: 60%;
-            flex-wrap: wrap;
-            height: 100vh;
-            overflow: auto;
-            margin-right: 10px;
-            .card-row{
-                flex-direction: row;
-                .desc-card {
-                    margin-left: 10px;
+    /* Desktops (desktops, 992px and up) */
+    @include desktop {
+        #less-flats,
+        #less-flats-blade {
+            position: absolute;
+            z-index: 99;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            height: auto;
+            background-color: $red;
+            width: 600px;
+            h2 {
+                margin-bottom: 0;
+            }
+        }
+        .index-search {
+            padding-bottom: 50px;
+            margin: 0 10px;
+            .search-cards {
+                flex-basis: 60%;
+                flex-wrap: wrap;
+                height: 100vh;
+                overflow: auto;
+                margin-right: 10px;
+                .card-row {
+                    flex-direction: row;
+                    .desc-card {
+                        margin-left: 10px;
+                    }
+                }
+            }
+            .map {
+                z-index: 1;
+                display: inline-block;
+                flex-basis: 40%;
+                #mapid {
+                    height: 100vh;
                 }
             }
         }
-        .map {
-            z-index: 1;
-            display: inline-block;
-            flex-basis: 40%;
-            #mapid {
-                height: 100vh;
+    }
+    /* Large desktops (large desktops, 1200px and up) */
+    @include large-desktop {
+        .index-search {
+            .search-cards {
+                flex-basis: 50%;
+            }
+            .map {
+                flex-basis: 50%;
             }
         }
     }
-}
-/* Large desktops (large desktops, 1200px and up) */
-@include large-desktop {
-    .index-search {
-        .search-cards{
-            flex-basis: 50%;
-        }
-        .map {
-            flex-basis: 50%;
-        }
-    }
-
-}
 }

@@ -32,7 +32,7 @@ Route::prefix('admin')
         Route::get('home_admin', 'HomeController@index')->name('home');
         Route::get('flats/{flat}/statistics', 'FlatStatisticsController@show')->name('statistics');
         Route::resource('flats', 'FlatController')->except('index');
-        Route::resource('requests', 'RequestController');
+        Route::resource('requests', 'RequestController')->only(['index', 'create']);
         Route::resource('sponsorships', 'SponsorshipController')->only(['index', 'create', 'store']);
     });
 
