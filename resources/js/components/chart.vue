@@ -13,7 +13,7 @@
 export default {
     props: {
         props: {
-        type: Object
+            type: Object
         }
     },
     data() {

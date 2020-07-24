@@ -2139,13 +2139,6 @@ form .search-home__error {
   flex-wrap: wrap;
 }
 
-.cardFlatShow-page .cardFlatShow-page__container .notification-flat-hidden {
-  order: -2;
-  background: red;
-  color: white;
-  flex-basis: 100%;
-}
-
 .cardFlatShow-page .cardFlatShow-page__container > * {
   flex-basis: 100%;
 }
@@ -2184,6 +2177,58 @@ form .search-home__error {
   display: none;
 }
 
+.cardFlatShow-page .cardFlatShow-page__container .form-container .btn-link {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #e41d5c;
+  background: #fff;
+  text-decoration: none;
+  color: #222222;
+  border-radius: 5px;
+  font-family: "Montserrat";
+  font-size: 16px;
+}
+
+.cardFlatShow-page .cardFlatShow-page__container .form-container .btn-link:hover {
+  background-color: lightgray;
+}
+
+.cardFlatShow-page .cardFlatShow-page__container .form-container .popup-delete.d-flex {
+  display: flex;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border: 6px solid #e41d5c;
+  border-radius: 10px;
+  background: white;
+  z-index: 1003;
+}
+
+.cardFlatShow-page .cardFlatShow-page__container .form-container .popup-delete.d-flex > * {
+  width: 100%;
+  max-width: 450px;
+}
+
+.cardFlatShow-page .cardFlatShow-page__container .form-container .popup-delete.d-flex .form-group {
+  flex-wrap: wrap;
+}
+
+.cardFlatShow-page .cardFlatShow-page__container .form-container .popup-delete.d-flex .form-group * {
+  flex-basis: 100%;
+}
+
+.cardFlatShow-page .cardFlatShow-page__container .form-container .popup-delete.d-flex + .layer {
+  position: fixed;
+  z-index: 1002;
+  content: "";
+  left: 0%;
+  top: 0%;
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  height: 100%;
+}
+
 .cardFlatShow-page .map-section .map {
   display: flex;
   justify-content: center;
@@ -2194,6 +2239,39 @@ form .search-home__error {
   flex-basis: 100%;
   height: 320px;
   width: 320px;
+}
+
+.cardFlatShow-page .options-small {
+  position: fixed;
+  top: 100%;
+  left: 0;
+  transform: translateY(-100%);
+  width: 100%;
+  background: #6cb2eb;
+  z-index: 1001;
+}
+
+.cardFlatShow-page .options-small li {
+  width: calc(50% - 3px);
+}
+
+.cardFlatShow-page .options-small li * {
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  border: 0;
+}
+
+.cardFlatShow-page .options-small li *:hover {
+  background-color: lightgray;
+}
+
+.cardFlatShow-page .options-small li a {
+  text-decoration: none;
+}
+
+.cardFlatShow-page .options-small li button {
+  background: inherit;
 }
 
 @media (min-width: 768px) {
@@ -2227,6 +2305,10 @@ form .search-home__error {
     flex-basis: 100%;
     height: 400px;
     width: 320px;
+  }
+
+  .cardFlatShow-page .options-small li {
+    width: calc(25% - 4px);
   }
 }
 
@@ -2274,18 +2356,6 @@ form .search-home__error {
     flex-basis: 60%;
   }
 
-  .cardFlatShow-page .cardFlatShow-page__container .form-container .options-big .options-big__list .btn-link {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #e41d5c;
-    background: #fff;
-    text-decoration: none;
-    color: #222222;
-    border-radius: 5px;
-    font-family: "Montserrat";
-    font-size: 16px;
-  }
-
   .cardFlatShow-page .cardFlatShow-page__container .form-container .form {
     max-width: 100%;
   }
@@ -2300,6 +2370,10 @@ form .search-home__error {
     flex-basis: 100%;
     height: 500px;
     width: 320px;
+  }
+
+  .cardFlatShow-page .options-small {
+    display: none;
   }
 }
 
@@ -3245,6 +3319,17 @@ input::placeholder {
   .requestsIndex-page {
     min-width: 1200px;
   }
+}
+
+.adminFlatsShow-page .notification-flat-hidden {
+  background: red;
+  color: white;
+  flex-basis: 100%;
+}
+
+.adminFlatsShow-page .notification-flat-hidden .icon::after {
+  content: "";
+  margin-right: 15px;
 }
 
 .success-message,
