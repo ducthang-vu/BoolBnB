@@ -103,6 +103,12 @@ li {
     text-align: left;
 }
 
+@for $i from 50 through 200 {
+    .l-height-#{$i} {
+        line-height: $i * 1%;
+    }
+}
+
 // Display
 .inline {
     display: inline;
@@ -131,6 +137,10 @@ li {
 .df-column {
     display: flex;
     flex-direction: column;
+}
+
+.d-in-flex {
+    display: inline-flex;
 }
 
 .s-between {

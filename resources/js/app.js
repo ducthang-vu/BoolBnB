@@ -69,7 +69,7 @@ if (document.querySelector(".adminSponsorshipsCreate")) {
     adminSponsorshipsCreate();
 }
 
-if (document.querySelector(".card-show")) {
+if (document.querySelector(".cardFlatShow-page")) {
     let lat = document.querySelector("#lat").value;
     let lng = document.querySelector("#lng").value;
     let iconPath = "../markerIcon/real-estate.png";
