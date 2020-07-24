@@ -1,41 +1,80 @@
 <div class="cardFlatShow-page">
-    <header class="page-header mb-30 mt-30">
-        <h1 class="mb-10">
-            {{$flat->title}}
-        </h1>
-        <p>{{$flat->address}}</p>
-    </header>
-    <div class="cardFlatShow-page__jumbotron d-flex">
-        <img class="mb-20" src="{{ asset('storage/' . $flat->image ) }}" alt="{{$flat -> title}}">
-        <div class="details mb-20">
-            <h2 class="mb-10">Dettagli:</h2>
-            <ul>
-                <li class="pb-5 pt-5">Numero di stanze: <strong>{{$flat->number_of_rooms}}</strong></li>
-                <li class="pb-5 pt-5">Numero di posti letto: <strong>{{$flat->number_of_beds}}</strong></li>
-                <li class="pb-5 pt-5">Numero di bagni: <strong>{{$flat->number_of_bathrooms}}</strong></li>
-                <li class="pb-5 pt-5">Metri quadrati: <strong>{{$flat->square_meters}}</strong></li>
-                <li class="pb-5 pt-10"><strong>Servizi:</strong>
-                    <ul class="ml-15">
-                        @foreach ($flat->services as $service)
-                        <li class="services pb-5 pt-5">
-                            <div class="icon-box d-in-flex s-center align-center">
-                                {!! $service->getIcon() !!}
-                            </div>
-                            <span class="in-block">{{ $service->type }}</span>
-                        </li>
-                        @endforeach
-                    </ul>
+    <div class="cardFlatShow-page__container d-flex">
+        <h2 class="notification-flat-hidden p-10 mt-10 text-center"><i class="far fa-eye-slash"></i>Questo appartamento
+            non è visibile
+            nelle
+            ricerche.</h2>
+        <img class="main-image mb-20" src="{{ asset('storage/' . $flat->image ) }}" alt="{{$flat -> title}}">
+        <header class="page-header mb-15">
+            <h1 class="mb-10 weight-500">
+                {{$flat->title}}
+            </h1>
+            <p>{{$flat->address}}</p>
+        </header>
+        <ul class="mb-15 details-list">
+            <li class="pb-5 pt-5 in-block details">{{$flat->number_of_rooms}}
+                stanz{{$flat->number_of_rooms > 1 ? 'e' : 'a'}}</li>
+            <li class="pb-5 pt-5 in-block details">{{$flat->number_of_beds}}
+                lett{{$flat->number_of_beds > 1 ? 'i' : 'o'}}
+            </li>
+            <li class="pb-5 pt-5 in-block details">{{$flat->number_of_bathrooms}}
+                bagn{{$flat->number_of_bathrooms > 1 ? 'i' : 'o'}}
+            </li>
+            <li class="pb-5 pt-5 in-block details">{{$flat->square_meters}} mq</li>
+        </ul>
+        <section class="mb-30">
+            <h2 class="services-title pb-5 mb-5 weight-500">Servizi:</h2>
+            <ul class="services-list ml-15">
+                @foreach ($flat->services as $service)
+                <li class="services pb-5 pt-5">
+                    <div class="icon-box d-in-flex s-center align-center">
+                        {!! $service->getIcon() !!}
+                    </div>
+                    <span class="in-block">{{ $service->type }}</span>
                 </li>
+                @endforeach
             </ul>
+        </section>
+
+        <div class="row mb-40">
+            <h2 class="mb-10 weight-500">Descrizione</h2>
+            <p class=" row__description l-height-150">{{$flat->description}}</p>
         </div>
-    </div>
-    <div class="row mb-40">
-        <h2 class="mb-10">Descrizione</h2>
-        <p class=" row__description l-height-150">{{$flat->description}}</p>
-    </div>
-    <div>
-        <div class="df-column mb-20">
-            <form class="form form-message" action="{{ route('requests') }}" method="POST">
+        <div class="form-container df-column">
+            @if (Auth::check() && $flat->user_id == Auth::user()->id)
+            <div class="options-big p-30 text-center">
+                <h3 class="mb-15">Opzioni</h3>
+                <ul class="options-big__list d-flex s-center">
+                    <li class="pt-5 mb-15"><a class="btn-link d-flex s-center text-center"
+                            href="{{ route('admin.home')}}">Vai alla
+                            lista dei
+                            tuoi
+                            appartamenti</a>
+                    </li>
+                    <li class="pt-5"><a class="btn-link d-flex s-between pl-10 pr-10"
+                            href="{{ route('admin.statistics' , $flat->id) }}"><i
+                                class="far fa-chart-bar"></i><span>Statistiche</span></a></li>
+                    <li class="pt-5"><a class="btn-link d-flex s-between pl-10 pr-10"
+                            href="{{ route('admin.sponsorships.create', ['flat_id' => $flat->id]) }}"><i
+                                class="fas fa-medal"></i><span>Sponsorizza</span></a></li>
+                    <li class="pt-5"><a class="btn-link d-flex s-between pl-10 pr-10"
+                            href="{{ route('admin.flats.edit', $flat->id) }}"><i
+                                class="far fa-edit"></i><span>Modifica</span></a></li>
+                    <li class="pt-5"><button id="btn-delete-big" class="btn-link d-flex s-between pl-10 pr-10">
+                            <i class="far fa-trash-alt"></i><span>Elimina</span>
+                        </button></li>
+                </ul>
+            </div>
+            <form class="popup-delete" action="{{ route('admin.flats.destroy', $flat->id) }}" method="POST">
+                @csrf
+                @method('DELETE')
+                <h3>Sei sicuro di voler eliminare l'appartamento?</h3>
+                <button id="btn-cancel">Annulla</button>
+                <input type="submit" value="Elimina">
+
+            </form>
+            @else
+            <form class="form form-message mb-40" action="{{ route('requests') }}" method="POST">
                 <h3 class="mb-30">Scrivi al proprietario</h3>
                 @csrf
                 @method('POST')
@@ -52,7 +91,7 @@
                                 <label class="mb-5" for="form_surname">Cognome</label>
                                 <input type="text" class="field-style field-full" name="surname" id="form_surname"
                                     placeholder="Cognome" value="@auth {{ old('surname', Auth::user()->surname) }}@endauth
-                                @guest{{ old('surname') }} @endguest">
+                                        @guest{{ old('surname') }} @endguest">
                             </div>
                         </div>
                     </li>
@@ -76,15 +115,21 @@
                     </li>
                 </ul>
             </form>
+            @endif
         </div>
     </div>
-    <div class="map-description">
-        <h2 class="mt-40 mb-10">Posizione</h2>
+    <section class="map-section">
+        <h2 class="mt-20 mb-10 weight-500">Posizione</h2>
         <div class="map">
             <input type="hidden" name="latlong" id="lat" value="{{ $flat->lat}}">
             <input type="hidden" name="latlong" id="lng" value="{{ $flat->lng}}">
             <div id="mapid" class="map-container mb-20"></div>
         </div>
-
-    </div>
+    </section>
 </div>
+
+<script>
+    document.getElementById('btn-delete-big').addEventListener('click', function() {
+
+})
+</script>

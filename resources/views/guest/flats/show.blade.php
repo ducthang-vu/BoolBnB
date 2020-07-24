@@ -3,12 +3,12 @@
 
 @section('page-content')
 @if(session('created'))
-<div class="alert alert-success transition-invisible success-message">
-    <p>Your message have been sent to the host!</p>
+<div class="success-message message-animation">
+    <p>Il tuo messaggio è stato inviato!</p>
 </div>
 @endif
 @if ($errors->any())
-<div class="alert alert-danger error-message">
+<div class="error-message message-animation">
     <ul>
         @foreach ($errors->all() as $error)
         <li>{{ $error }}</li>

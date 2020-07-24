@@ -1045,6 +1045,14 @@ li {
   line-height: 200%;
 }
 
+.weight-500 {
+  font-weight: 500;
+}
+
+.w-100 {
+  width: 100%;
+}
+
 .inline {
   display: inline;
 }
@@ -1115,10 +1123,6 @@ li {
 
 .opacity-05 {
   opacity: 0.5;
-}
-
-.w-100 {
-  width: 100%;
 }
 
 /* Tablets (tablets, 768px and up) */
@@ -2131,37 +2135,172 @@ form .search-home__error {
 
 /* Large desktops (large desktops, 1200px and up) */
 
-.cardFlatShow-page .page-header h1 {
-  font-size: 25px;
-}
-
-.cardFlatShow-page__jumbotron {
+.cardFlatShow-page .cardFlatShow-page__container {
   flex-wrap: wrap;
 }
 
-.cardFlatShow-page__jumbotron > * {
-  max-width: 100%;
+.cardFlatShow-page .cardFlatShow-page__container .notification-flat-hidden {
+  order: -2;
+  background: red;
+  color: white;
   flex-basis: 100%;
 }
 
-.cardFlatShow-page__jumbotron .services .icon-box {
+.cardFlatShow-page .cardFlatShow-page__container > * {
+  flex-basis: 100%;
+}
+
+.cardFlatShow-page .cardFlatShow-page__container .main-image {
+  max-width: 100%;
+  border-radius: 5px;
+}
+
+.cardFlatShow-page .cardFlatShow-page__container .page-header h1 {
+  font-size: 25px;
+}
+
+.cardFlatShow-page .cardFlatShow-page__container .details h2 {
+  font-size: 20px;
+}
+
+.cardFlatShow-page .cardFlatShow-page__container .details:not(:last-child)::after {
+  content: " - ";
+  padding: 0 10px;
+}
+
+.cardFlatShow-page .cardFlatShow-page__container .icon-box {
   width: 50px;
 }
 
-.cardFlatShow-page .row__description {
+.cardFlatShow-page .cardFlatShow-page__container .row__description {
   text-align: justify;
 }
 
-.cardFlatShow-page .map-description .map {
+.cardFlatShow-page .cardFlatShow-page__container .form-container .options-big {
+  display: none;
+}
+
+.cardFlatShow-page .cardFlatShow-page__container .form-container .popup-delete {
+  display: none;
+}
+
+.cardFlatShow-page .map-section .map {
   display: flex;
   justify-content: center;
   padding-bottom: 20px;
 }
 
-.cardFlatShow-page .map-description .map .map-container {
+.cardFlatShow-page .map-section .map .map-container {
   flex-basis: 100%;
   height: 320px;
   width: 320px;
+}
+
+@media (min-width: 768px) {
+  .cardFlatShow-page .cardFlatShow-page__container .page-header {
+    order: -1;
+  }
+
+  .cardFlatShow-page .cardFlatShow-page__container .details-list {
+    margin-left: 35px;
+  }
+
+  .cardFlatShow-page .cardFlatShow-page__container .services-list li {
+    display: inline-block;
+    width: calc((100% - 15px) / 3);
+  }
+
+  .cardFlatShow-page .cardFlatShow-page__container .details section {
+    flex-basis: 50%;
+  }
+
+  .cardFlatShow-page .cardFlatShow-page__container .form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .cardFlatShow-page .map-section .map {
+    padding-bottom: 20px;
+  }
+
+  .cardFlatShow-page .map-section .map .map-container {
+    flex-basis: 100%;
+    height: 400px;
+    width: 320px;
+  }
+}
+
+@media (min-width: 992px) {
+  .cardFlatShow-page .cardFlatShow-page__container .page-header {
+    margin-top: 30px;
+    order: -2;
+  }
+
+  .cardFlatShow-page .cardFlatShow-page__container .page-header h1 {
+    font-weight: 700;
+  }
+
+  .cardFlatShow-page .cardFlatShow-page__container > * {
+    flex-basis: 60%;
+  }
+
+  .cardFlatShow-page .cardFlatShow-page__container .main-image {
+    order: -1;
+    max-width: 60%;
+  }
+
+  .cardFlatShow-page .cardFlatShow-page__container .form-container {
+    flex-basis: 30%;
+    align-self: flex-start;
+    order: -1;
+    margin: 0 auto;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 20px;
+    left: 0;
+  }
+
+  .cardFlatShow-page .cardFlatShow-page__container .form-container .options-big {
+    display: block;
+    border: 6px solid #e41d5c;
+    border-radius: 10px;
+  }
+
+  .cardFlatShow-page .cardFlatShow-page__container .form-container .options-big .options-big__list {
+    flex-wrap: wrap;
+  }
+
+  .cardFlatShow-page .cardFlatShow-page__container .form-container .options-big .options-big__list li {
+    flex-basis: 60%;
+  }
+
+  .cardFlatShow-page .cardFlatShow-page__container .form-container .options-big .options-big__list .btn-link {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #e41d5c;
+    background: #fff;
+    text-decoration: none;
+    color: #222222;
+    border-radius: 5px;
+    font-family: "Montserrat";
+    font-size: 16px;
+  }
+
+  .cardFlatShow-page .cardFlatShow-page__container .form-container .form {
+    max-width: 100%;
+  }
+
+  .cardFlatShow-page .map-section .map {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 20px;
+  }
+
+  .cardFlatShow-page .map-section .map .map-container {
+    flex-basis: 100%;
+    height: 500px;
+    width: 320px;
+  }
 }
 
 .edit-form {

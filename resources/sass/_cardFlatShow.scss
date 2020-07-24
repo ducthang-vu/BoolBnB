@@ -1,25 +1,49 @@
 .cardFlatShow-page {
-    .page-header {
-        h1 {
-            font-size: 25px;
-        }
-    }
-    &__jumbotron {
-        flex-wrap: wrap;
-        & > * {
-            max-width: 100%;
+    .cardFlatShow-page__container {
+        .notification-flat-hidden {
+            order: -2;
+            background: red;
+            color: white;
             flex-basis: 100%;
         }
-        .services {
-            .icon-box {
-                width: 50px;
+        flex-wrap: wrap;
+        & > * {
+            flex-basis: 100%;
+        }
+        .main-image {
+            max-width: 100%;
+            border-radius: 5px;
+        }
+        .page-header {
+            h1 {
+                font-size: 25px;
+            }
+        }
+        .details {
+            h2 {
+                font-size: 20px;
+            }
+        }
+        .details:not(:last-child)::after {
+            content: " - ";
+            padding: 0 10px;
+        }
+        .icon-box {
+            width: 50px;
+        }
+        .row__description {
+            text-align: justify;
+        }
+        .form-container {
+            .options-big {
+                display: none;
+            }
+            .popup-delete {
+                display: none;
             }
         }
     }
-    .row__description {
-        text-align: justify;
-    }
-    .map-description {
+    .map-section {
         .map {
             display: flex;
             justify-content: center;
@@ -29,6 +53,111 @@
                 width: 320px;
             }
             padding-bottom: 20px;
+        }
+    }
+}
+
+@include tablet {
+    .cardFlatShow-page {
+        .cardFlatShow-page__container {
+            .page-header {
+                order: -1;
+            }
+            .details-list {
+                margin-left: 35px;
+            }
+            .services-list {
+                li {
+                    display: inline-block;
+                    width: calc((100% - 15px) / 3);
+                }
+            }
+            .details {
+                section {
+                    flex-basis: 50%;
+                }
+            }
+            .form {
+                display: flex;
+                flex-direction: column;
+            }
+        }
+        .map-section {
+            .map {
+                .map-container {
+                    flex-basis: 100%;
+                    height: 400px;
+                    width: 320px;
+                }
+                padding-bottom: 20px;
+            }
+        }
+    }
+}
+
+@include desktop {
+    .cardFlatShow-page {
+        .cardFlatShow-page__container {
+            .page-header {
+                margin-top: 30px;
+                order: -2;
+                h1 {
+                    font-weight: 700;
+                }
+            }
+            & > * {
+                flex-basis: 60%;
+            }
+            .main-image {
+                order: -1;
+                max-width: 60%;
+            }
+            .form-container {
+                flex-basis: 30%;
+                align-self: flex-start;
+                order: -1;
+                margin: 0 auto;
+                position: sticky;
+                top: 20px;
+                left: 0;
+                .options-big {
+                    display: block;
+                    border: 6px solid $bg_airbnb;
+                    border-radius: 10px;
+                    .options-big__list {
+                        flex-wrap: wrap;
+                        li {
+                            flex-basis: 60%;
+                        }
+                        .btn-link {
+                            width: 100%;
+                            padding: 10px;
+                            border: 1px solid $bg_airbnb;
+                            background: #fff;
+                            text-decoration: none;
+                            color: $text;
+                            border-radius: 5px;
+                            font-family: "Montserrat";
+                            font-size: 16px;
+                        }
+                    }
+                }
+                .form {
+                    max-width: 100%;
+                }
+            }
+        }
+        .map-section {
+            .map {
+                display: flex;
+                justify-content: center;
+                .map-container {
+                    flex-basis: 100%;
+                    height: 500px;
+                    width: 320px;
+                }
+                padding-bottom: 20px;
+            }
         }
     }
 }

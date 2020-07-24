@@ -108,8 +108,15 @@ li {
         line-height: $i * 1%;
     }
 }
+.weight-500 {
+    font-weight: 500;
+}
 
 // Display
+.w-100 {
+    width: 100%;
+}
+
 .inline {
     display: inline;
 }
@@ -129,6 +136,7 @@ li {
 .no-visibility {
     visibility: hidden;
 }
+
 // Flex
 .d-flex {
     display: flex;
@@ -181,8 +189,4 @@ li {
 }
 .opacity-05 {
     opacity: 0.5;
-}
-
-.w-100 {
-    width: 100%;
 }

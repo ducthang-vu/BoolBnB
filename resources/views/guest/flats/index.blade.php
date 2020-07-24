@@ -10,9 +10,14 @@
     <div id="search-cards" class="search-cards"></div>
 
     <div class="map no-visibility">
-        @include('shared.components.mapAlgolia')
+        <div id="mapid"></div>
     </div>
 </div>
+
+<script>
+    let lat = '{{ $latlong[0] }}';
+    let lng = '{{ $latlong[1] }}';
+</script>
 
 <script id="card-template" type="text/x-handlebars-template">
     @{{#each flats}}
