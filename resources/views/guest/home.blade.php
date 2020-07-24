@@ -1,19 +1,33 @@
 @extends('layouts.main')
 
 @section('page-content')
-@include('shared.components.formAlgoliaHome')
 
-<h1 class="title-home text-center">Appartamenti sponsorizzati</h1>
-<div class="sponsorship-card d-flex s-center">
-    @foreach($sponsoredFlats as $sponsoredFlat)
+<div class="section-home">
+    <div class="pic-card d-flex s-center">
+        <img src="https://i.ibb.co/64Pxb9p/maxresdefault.jpg" alt="maxresdefault">
+        @include('shared.components.formAlgoliaHome')
+    </div>
 
-    <a class="card" href="{{ route('flats.show' , $sponsoredFlat->id) }}">
-        <img src="{{ asset('storage/' . $sponsoredFlat->image ) }}" alt="{{$sponsoredFlat->title}}">
-        <h3>{{$sponsoredFlat->title}}</h3>
-    </a>
 
-    @if ($loop->index == 5)
-    @break;
-    @endif
-    @endforeach
-    @endsection
+    <div class="sponsorship-card d-flex s-center">
+        @foreach($sponsoredFlats as $sponsoredFlat)
+
+        <a class="card" href="{{ route('flats.show' , $sponsoredFlat->id) }}">
+            <div class="image-dev">
+                <img src="{{ asset('storage/' . $sponsoredFlat->image ) }}" alt="{{$sponsoredFlat->title}}">
+            </div>
+            
+            <div class="text-card">
+                <h5>{{$sponsoredFlat->title}}</h5>
+                <p>{{$sponsoredFlat->address}}</p>
+            </div>
+        </a>
+
+        @if ($loop->index == 5)
+        @break;
+        @endif
+        @endforeach
+    </div>
+</div>
+
+@endsection
