@@ -14,29 +14,9 @@
         transform: translate(-50%, -50%);
         width: 100%;
     }
-    form{
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        align-items: center;
-        #address{
-            width: auto;
-            height: 45px;
-            font-size: 16px;
-            border-radius: 5px;
-            border : 1px solid #ccc;
-            padding: 10px;
-        }
-        .search-home__error {
-            flex-basis: 100%;
-            color: $red;
-        }
-    }
-
-    .btn-search {
-        @include button-serach-home;
-        margin-left: 10px;
-        height: 40px;
+    .search-home__error {
+        flex-basis: 100%;
+        color: $red;
     }
 
 }
