@@ -1,5 +1,7 @@
 .requestsIndex-page {
     .request-card {
+        width: 450px;
+        max-width: 100%;
         border-bottom: 1px solid $bg_airbnb;
         cursor: pointer;
         .request-date {
@@ -14,12 +16,28 @@
     }
 }
 
+@include mobile {
+    .requestsIndex-page {
+        .request-card {
+            width: 540px;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+    }
+}
+
+@include tablet {
+    .requestsIndex-page {
+        .request-card {
+            width: 730px;
+        }
+    }
+}
+
 @include desktop {
     .requestsIndex-page {
         .request-card {
             width: 950px;
-            padding-left: 20px;
-            padding-right: 20px;
         }
     }
 }
