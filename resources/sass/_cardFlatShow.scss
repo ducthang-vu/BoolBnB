@@ -111,6 +111,8 @@
                 height: 100%;
                 cursor: pointer;
                 border: 0;
+                color: #000;
+                font-family: inherit;
                 &:hover {
                     background-color: lightgray;
                 }

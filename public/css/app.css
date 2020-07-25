@@ -2260,6 +2260,8 @@ form .search-home__error {
   height: 100%;
   cursor: pointer;
   border: 0;
+  color: #000;
+  font-family: inherit;
 }
 
 .cardFlatShow-page .options-small li *:hover {
