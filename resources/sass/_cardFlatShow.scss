@@ -110,7 +110,7 @@
         }
         li {
             width: calc(50% - 3px);
-            &:not(:last-child) {
+            &:nth-child(2n - 1) {
                 border-right: 1px solid $bg_airbnb;
             }
             &:nth-child(-n+2) {
@@ -176,6 +176,9 @@
         .options-small {
             li {
                 width: calc(25% - 4px);
+                &:nth-child(2) {
+                    border-right: 1px solid $bg_airbnb;
+                }
                 &:nth-child(-n+2) {
                     border-bottom: 0;
                 }

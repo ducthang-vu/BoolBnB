@@ -2290,7 +2290,7 @@ li {
   width: calc(50% - 3px);
 }
 
-.cardFlatShow-page .options-small li:not(:last-child) {
+.cardFlatShow-page .options-small li:nth-child(2n-1) {
   border-right: 1px solid #e41d5c;
 }
 
@@ -2355,6 +2355,10 @@ li {
 
   .cardFlatShow-page .options-small li {
     width: calc(25% - 4px);
+  }
+
+  .cardFlatShow-page .options-small li:nth-child(2) {
+    border-right: 1px solid #e41d5c;
   }
 
   .cardFlatShow-page .options-small li:nth-child(-n+2) {
