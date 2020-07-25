@@ -1,26 +1,26 @@
 .success-message,
 .error-message {
+    padding: 20px;
     position: absolute;
     top: -50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, calc(-50% + 50px));
     text-align: center;
     background-color: $green;
-    width: 100%;
+    width: 100vw;
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 4px;
-    padding: 5px;
     font-weight: 500;
     margin-bottom: 10px;
-    z-index: 100;
+    z-index: 1500;
     opacity: 0;
+    color: #fff;
 }
 
 .error-message {
     background-color: $red;
-    color: #fff;
 }
 
 .message-animation {
@@ -56,15 +56,15 @@
 @include desktop {
     .success-message,
     .error-message {
-        height: 100px;
+        min-height: 100px;
     }
 
     @keyframes fadeOut {
         0% {
-    
+
             opacity: 0;
         }
-    
+
         15% {
             top: 8%;
             opacity: 1;
@@ -73,7 +73,7 @@
             top: 8%;
             opacity: 1;
         }
-    
+
         100% {
             opacity: 0;
         }
