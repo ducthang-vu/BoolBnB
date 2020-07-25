@@ -131,17 +131,17 @@
     @if (Auth::check() && $flat->user_id == Auth::user()->id)
         <nav class="options-small">
             <ul class="options-small__list text-center">
-                <li class="in-block">
-                    <a href="{{ route('admin.statistics' , $flat->id) }}" class="in-block text-center p-10">Statistiche</a>
+                <li class="in-block p-10">
+                    <a href="{{ route('admin.statistics' , $flat->id) }}" class="in-block text-center">Statistiche</a>
                 </li>
-                <li class="in-block">
-                    <a href="{{ route('admin.sponsorships.create', ['flat_id' => $flat->id]) }}" class="in-block text-center p-10">Sponsorizza</a>
+                <li class="in-block p-10">
+                    <a href="{{ route('admin.sponsorships.create', ['flat_id' => $flat->id]) }}" class="in-block text-center">Sponsorizza</a>
                 </li>
-                <li class="in-block">
-                    <a href="{{ route('admin.flats.edit', $flat->id) }}" class="in-block text-center p-10">Modifica</a>
+                <li class="in-block p-10">
+                    <a href="{{ route('admin.flats.edit', $flat->id) }}" class="in-block text-center">Modifica</a>
                 </li>
-                <li class="in-block">
-                    <button id="btn-delete-small" class="in-block text-center p-10">
+                <li class="in-block p-10">
+                    <button id="btn-delete-small" class="in-block text-center">
                         Elimina
                     </button>
                 </li>
