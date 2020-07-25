@@ -1,5 +1,9 @@
 .main-header {
     padding: 10px;
+    position:fixed;
+    width:100%;
+    background: $white;
+    z-index: 100;
     .navbar-header-page {
         display: flex;
         justify-content: space-between;
