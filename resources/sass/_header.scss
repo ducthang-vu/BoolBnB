@@ -1,7 +1,7 @@
 .main-header {
     padding: 10px;
-    position:fixed;
-    width:100%;
+    position: fixed;
+    width: 100%;
     background: $white;
     z-index: 100;
     .navbar-header-page {
@@ -79,7 +79,11 @@
             margin: 0;
             height: 10%;
             width: 100%;
-            background: linear-gradient(to left, rgb(146, 23, 77) 9.38%, rgb(228, 29, 92) 88.54%);
+            background: linear-gradient(
+                to left,
+                rgb(146, 23, 77) 9.38%,
+                rgb(228, 29, 92) 88.54%
+            );
             border-radius: 9.4px 0 0 0;
         }
         ul {
@@ -117,76 +121,35 @@
 
 //Hamburger animation
 @-webkit-keyframes fadeIn {
-    from {transform: scale(0)}
-    to {transform: scale(1)}
+    from {
+        transform: scale(0);
+    }
+    to {
+        transform: scale(1);
+    }
 }
 @keyframes fadeIn {
-    from {transform: scale(0)}
-    to {transform: scale(1)}
+    from {
+        transform: scale(0);
+    }
+    to {
+        transform: scale(1);
+    }
 }
 
 @keyframes sliding {
-    0% {right: -100px}
-    33% {right: 5px}
-    66% {right: 7.5px}
-    100% {right: 10px}
-}
-
-@include mobile {
-
-}
-/* Tablets (tablets, 768px and up) */
-@include tablet {
-    // .navbar-header-page {
-    //     display: flex;
-    //     justify-content: space-between;
-    //     align-items: center;
-    //     vertical-align: middle;
-    //     .logo-header-page {
-    //         text-decoration: none;
-    //         @include text_gradient;
-    //         i {
-    //             font-size: 30px;
-    //             vertical-align: middle;
-    //         }
-    //         span {
-    //             font-weight: 900;
-    //         }
-    //     }
-    //     ul {
-    //         li {
-    //             display: inline;
-    //             text-align: right;
-    //             list-style: none;
-    //             text-decoration: none;
-    //             margin-right: 8px;
-    //             font-size: 12px;
-    //             font-weight: 700;
-    //             a {
-    //                 display: inline-block;
-    //                 padding: 5px 10px;
-    //                 color: $text;
-    //                 text-decoration: none;
-    //                 border-radius: 5px;
-    //                 &.active {
-    //                     border-bottom: 3px solid $red;
-    //                 }
-    //                 &:hover {
-    //                     background: $tablebg;
-    //                 }
-    //             }
-    //         }
-    //     }
-    //     .hamburger-header-page {
-    //         display: none;
-    //     }
-    //     .big-navbar-header-page {
-    //         display: block;
-    //         ul li {
-    //             display: inline;
-    //         }
-    //     }
-    // }
+    0% {
+        right: -100px;
+    }
+    33% {
+        right: 5px;
+    }
+    66% {
+        right: 7.5px;
+    }
+    100% {
+        right: 10px;
+    }
 }
 
 /* Desktops (desktops, 992px and up) */
@@ -209,6 +172,7 @@
         }
         ul {
             li {
+                position: relative;
                 display: inline;
                 text-align: right;
                 list-style: none;
@@ -222,8 +186,14 @@
                     color: $text;
                     text-decoration: none;
                     border-radius: 5px;
-                    &.active {
-                        border-bottom: 3px solid $red;
+                    &.active::after {
+                        content: "";
+                        position: absolute;
+                        bottom: -5px;
+                        left: 50%;
+                        width: 80%;
+                        border-bottom: 2px solid $red;
+                        transform: translateX(-50%);
                     }
                     &:hover {
                         background: $tablebg;
@@ -241,8 +211,4 @@
             }
         }
     }
-}
-
-@include large-desktop {
-
 }
