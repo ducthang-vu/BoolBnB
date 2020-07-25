@@ -61,7 +61,7 @@ if (document.querySelector(".formAlgoliaIndex-page")) {
     guestIndexPage(lat, lng); // lat lng in mapAlgolia.blade
 }
 
-if (document.querySelector(".request-message-handler")) {
+if (document.querySelector(".requestsIndex-page")) {
     showRequestMessage();
 }
 

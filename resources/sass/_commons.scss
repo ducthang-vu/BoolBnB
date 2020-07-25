@@ -79,13 +79,13 @@ li {
 }
 
 @for $i from 1 through 10 {
-    .pr-#{$i} {
+    .pr-#{$i * 5} {
         padding-right: 5px * $i;
     }
 }
 
 @for $i from 1 through 10 {
-    .pl-#{$i} {
+    .pl-#{$i * 5} {
         padding-left: 5px * $i;
     }
 }
