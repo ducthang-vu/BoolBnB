@@ -25,11 +25,11 @@
         </div>
         <div class="checkbox-services mt-15">
             @foreach(App\Service::all() as $service)
-                <div class="services">
-                    <label for="service-{{ $service->id }}">{{ $service->type }}:</label>
-                    <input type="checkbox" class="service-checkbox" value="{{ $service->id }}"
-                        id="service-{{ $service->id }}">
-                </div>
+            <div class="services">
+                <label for="service-{{ $service->id }}">{{ $service->type }}:</label>
+                <input type="checkbox" class="service-checkbox" value="{{ $service->id }}"
+                    id="service-{{ $service->id }}">
+            </div>
             @endforeach
         </div>
     </div>

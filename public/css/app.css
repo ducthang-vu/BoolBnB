@@ -27,6 +27,8 @@ li {
 .main-content {
   max-width: 95%;
   margin: 0 auto;
+  transform: translateY(50px);
+  margin-bottom: 50px;
 }
 
 .m-5 {
@@ -1327,8 +1329,6 @@ li {
   }
 }
 
-/* Tablets (tablets, 768px and up) */
-
 /* Desktops (desktops, 992px and up) */
 
 @media (min-width: 992px) {
@@ -1356,6 +1356,7 @@ li {
   }
 
   .navbar-header-page ul li {
+    position: relative;
     display: inline;
     text-align: right;
     list-style: none;
@@ -1373,8 +1374,14 @@ li {
     border-radius: 5px;
   }
 
-  .navbar-header-page ul li a:last-child.active {
-    border-bottom: 3px solid #e3342f;
+  .navbar-header-page ul li a:last-child.active::after {
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    width: 80%;
+    border-bottom: 2px solid #e3342f;
+    transform: translateX(-50%);
   }
 
   .navbar-header-page ul li a:last-child:hover {
