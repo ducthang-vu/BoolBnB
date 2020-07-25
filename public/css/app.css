@@ -1380,7 +1380,7 @@ li {
     bottom: -5px;
     left: 50%;
     width: 80%;
-    border-bottom: 2px solid #e3342f;
+    border-bottom: 3px solid #e3342f;
     transform: translateX(-50%);
   }
 

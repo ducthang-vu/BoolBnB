@@ -71,7 +71,6 @@
         -webkit-box-shadow: 1px 1px 3px 0px $text;
         -moz-box-shadow: 1px 1px 3px 0px $text;
         box-shadow: 1px 1px 3px 0px $text;
-        // padding: 5px;
         z-index: 3;
         animation: sliding 0.6s;
         .emptydiv-header-page {
@@ -192,7 +191,7 @@
                         bottom: -5px;
                         left: 50%;
                         width: 80%;
-                        border-bottom: 2px solid $red;
+                        border-bottom: 3px solid $red;
                         transform: translateX(-50%);
                     }
                     &:hover {
