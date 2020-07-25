@@ -17,23 +17,17 @@
     </div>
     @endif
     @if ($sponsorships->count())
-    <div class="container p-25">
-        <a class="btn-sponsorship-index-page" href="{{ route('admin.home') }}">Go back to flat list</a>
+    <div class="pt-25 pb-25">
         <div class="mobile-sponsorship-page">
             @include ('admin.sponsorships.components.tableSponsorship')
         </div>
-        <div class="desktop-sponsorship-page">
-            @include ('admin.sponsorships.components.tableSponsorship')
-        </div>
-
-        <div class="active-legend-div-indexSponsorship-page">
-            <div class="greendiv-indexSponsorship-page"><i class="fas fa-circle"></i></div>
-            <span class="span-indexSponsorship-page">= la sponsorizzazione è attiva</span>
-        </div>
+        <p class="table-note text-right mt-10">
+            I righi verdi indicano sponsorizzazione attualmente attive.
+        </p>
     </div>
     @else
     <h1 class="empty-h1-sponsorship-page p-50">
-        Non hai ancora nessun appartamento sponsorizzato.
+        * Non hai ancora nessun appartamento sponsorizzato.
     </h1>
     @endif
 </div>
