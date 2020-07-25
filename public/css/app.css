@@ -2256,12 +2256,25 @@ li {
   left: 0;
   transform: translateY(-100%);
   width: 100%;
-  background: #6cb2eb;
+  background: snow;
+  border-top: 2px solid #e41d5c;
   z-index: 1001;
+}
+
+.cardFlatShow-page .options-small ul {
+  font-size: 0;
 }
 
 .cardFlatShow-page .options-small li {
   width: calc(50% - 3px);
+}
+
+.cardFlatShow-page .options-small li:not(:last-child) {
+  border-right: 1px solid #e41d5c;
+}
+
+.cardFlatShow-page .options-small li:nth-child(-n+2) {
+  border-bottom: 1px solid #e41d5c;
 }
 
 .cardFlatShow-page .options-small li * {
@@ -2321,6 +2334,10 @@ li {
 
   .cardFlatShow-page .options-small li {
     width: calc(25% - 4px);
+  }
+
+  .cardFlatShow-page .options-small li:nth-child(-n+2) {
+    border-bottom: 0;
   }
 }
 
