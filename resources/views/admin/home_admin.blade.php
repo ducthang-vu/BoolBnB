@@ -5,13 +5,13 @@
 <div class="section-home-admin mt-20">
     <div class="d-flex s-center transition-invisible">
         @if (session('flat-saved'))
-        <div class="success-message">
+        <div class="success-message message-animation">
             <p>{{ session('flat-saved') }} Aggiunto correttamente.</p>
         </div>
         @endif
         @if (session('flat-deleted'))
-        <div class="success-message">
-            <p>Appartamento n. {{ session('flat-deleted') }} Eliminato correttamente.</p>
+        <div class="success-message message-animation">
+            <p>Appartamento n. {{ session('flat-deleted') }} eliminato correttamente.</p>
         </div>
 
         @endif

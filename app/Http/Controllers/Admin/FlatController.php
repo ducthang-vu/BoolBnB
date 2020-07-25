@@ -114,14 +114,16 @@ class FlatController extends Controller
         if (empty($flat)) {
             abort('404');
         }
-
+        if (!$this->checkFlatUser($flat)) {
+            abort('403');
+        }
         $id = $flat->id;
         $flat->sponsorships()->detach();
         $flat->services()->detach();
         $deleted = $flat->delete();
         if ($deleted) {
             Storage::disk('public')->delete($flat->image);
-            return $this->checkFlatUser($flat) ? redirect()->route('admin.home')->with('flat-deleted', $id) : abort('403');
+            return redirect()->route('admin.home')->with('flat-deleted', $id);
         }
     }
 

@@ -1,0 +1,244 @@
+.cardFlatShow-page {
+    .cardFlatShow-page__container {
+        flex-wrap: wrap;
+        & > * {
+            flex-basis: 100%;
+        }
+        .main-image {
+            max-width: 100%;
+            border-radius: 5px;
+        }
+        .page-header {
+            h1 {
+                font-size: 25px;
+            }
+        }
+        .details {
+            h2 {
+                font-size: 20px;
+            }
+        }
+        .details:not(:last-child)::after {
+            content: " - ";
+            padding: 0 10px;
+        }
+        .icon-box {
+            width: 50px;
+        }
+        .row__description {
+            text-align: justify;
+        }
+        .form-container {
+            .options-big {
+                display: none;
+            }
+            .popup-delete {
+                display: none;
+            }
+
+            .btn-link {
+                width: 100%;
+                padding: 10px;
+                border: 1px solid $bg_airbnb;
+                background: #fff;
+                text-decoration: none;
+                color: $text;
+                border-radius: 5px;
+                font-family: "Montserrat";
+                font-size: 16px;
+                &:hover {
+                    background-color: lightgray;
+                }
+            }
+
+            .popup-delete.d-flex {
+                display: flex;
+                position: fixed;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
+                border: 6px solid $bg_airbnb;
+                border-radius: 10px;
+                background: white;
+                z-index: 1003;
+                & > * {
+                    width: 100%;
+                    max-width: 450px;
+                }
+                .form-group {
+                    flex-wrap: wrap;
+                    * {
+                        flex-basis: 100%;
+                    }
+                }
+                & + .layer {
+                    position: fixed;
+                    z-index: 1002;
+                    content: '';
+                    left: 0%;
+                    top: 0%;
+                    background-color: $black_rgba_opacity;
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+        }
+    }
+    .map-section {
+        .map {
+            display: flex;
+            justify-content: center;
+            .map-container {
+                flex-basis: 100%;
+                height: 320px;
+                width: 320px;
+            }
+            padding-bottom: 20px;
+        }
+    }
+    .options-small {
+        position: fixed;
+        top: 100%;
+        left: 0;
+        transform: translateY(-100%);
+        width: 100%;
+        background: snow;
+        border-top: 2px solid $bg_airbnb;
+        z-index: 1001;
+        ul {
+            font-size: 0;
+        }
+        li {
+            width: calc(50% - 3px);
+            &:not(:last-child) {
+                border-right: 1px solid $bg_airbnb;
+            }
+            &:nth-child(-n+2) {
+                border-bottom: 1px solid $bg_airbnb;
+            }
+            * {
+                width: 100%;
+                height: 100%;
+                cursor: pointer;
+                border: 0;
+                color: #000;
+                font-family: inherit;
+                font-size: 16px;
+                &:hover {
+                    background-color: lightgray;
+                }
+            }
+            a {
+                text-decoration: none;
+            }
+            button {
+                background: inherit;
+            }
+        }
+    }
+}
+
+@include tablet {
+    .cardFlatShow-page {
+        .cardFlatShow-page__container {
+            .page-header {
+                order: -1;
+            }
+            .details-list {
+                margin-left: 35px;
+            }
+            .services-list {
+                li {
+                    display: inline-block;
+                    width: calc((100% - 15px) / 3);
+                }
+            }
+            .details {
+                section {
+                    flex-basis: 50%;
+                }
+            }
+            .form {
+                display: flex;
+                flex-direction: column;
+            }
+        }
+        .map-section {
+            .map {
+                .map-container {
+                    flex-basis: 100%;
+                    height: 400px;
+                    width: 320px;
+                }
+                padding-bottom: 20px;
+            }
+        }
+        .options-small {
+            li {
+                width: calc(25% - 4px);
+                &:nth-child(-n+2) {
+                    border-bottom: 0;
+                }
+            }
+        }
+    }
+}
+
+@include desktop {
+    .cardFlatShow-page {
+        .cardFlatShow-page__container {
+            .page-header {
+                margin-top: 30px;
+                order: -2;
+                h1 {
+                    font-weight: 700;
+                }
+            }
+            & > * {
+                flex-basis: 60%;
+            }
+            .main-image {
+                order: -1;
+                max-width: 60%;
+            }
+            .form-container {
+                flex-basis: 30%;
+                align-self: flex-start;
+                order: -1;
+                margin: 0 auto;
+                position: sticky;
+                top: 20px;
+                left: 0;
+                .options-big {
+                    display: block;
+                    border: 6px solid $bg_airbnb;
+                    border-radius: 10px;
+                    .options-big__list {
+                        flex-wrap: wrap;
+                        li {
+                            flex-basis: 60%;
+                        }
+                    }
+                }
+                .form {
+                    max-width: 100%;
+                }
+            }
+        }
+        .map-section {
+            .map {
+                display: flex;
+                justify-content: center;
+                .map-container {
+                    flex-basis: 100%;
+                    height: 500px;
+                    width: 320px;
+                }
+                padding-bottom: 20px;
+            }
+        }
+        .options-small {
+            display: none;
+        }
+    }
+}
