@@ -1,6 +1,6 @@
 import places from "places.js";
 
-function place() {
+function place(address=false) {
     const inputAlgolia = document.querySelector("#address");
 
     // init places
@@ -18,6 +18,10 @@ function place() {
             }
         }
     });
+
+    if (address) {
+        placesAutocomplete.configure({type: 'address'})
+    }
 
     // get lat long
     placesAutocomplete.on("change", function(e) {

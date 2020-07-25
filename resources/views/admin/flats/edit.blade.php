@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('page-content')
-    <div class="section-home-admin mt-20">
+    <div class="adminFlatsEdit mt-20">
         @if ($errors->any())
             <div class="error-message message-animation">
                 <ul>

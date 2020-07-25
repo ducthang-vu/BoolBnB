@@ -1,7 +1,8 @@
 @extends('layouts.main')
 
 @section('page-content')
-    @if ($errors->any())
+    <div class="adminFlatsCreate">
+        @if ($errors->any())
         <div class="error-message message-animation">
             <ul>
                 @foreach ($errors->all() as $error)
@@ -10,15 +11,13 @@
             </ul>
         </div>
     @endif
-
-    <div class="section-home-admin mt-20">
-        <div class="title-flts text-center">
-            <h1 class="mt-20 mb-10">
-                Aggiungi un appartamento
-            </h1>
+        <div class="section-home-admin mt-20">
+            <div class="title-flts text-center">
+                <h1 class="mt-20 mb-10">
+                    Aggiungi un appartamento
+                </h1>
+            </div>
+            @include('shared.components.formCreate')
         </div>
-
-        @include('shared.components.formCreate')
-
     </div>
 @endsection
