@@ -1,5 +1,5 @@
 @include('shared.header')
-    <main class="main-content">
+    <main class="main-content mt-50">
         @yield('page-content')
     </main>
 @include('shared.footer')
