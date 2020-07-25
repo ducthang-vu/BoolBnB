@@ -3167,6 +3167,8 @@ form #address {
 }
 
 .requestsIndex-page .request-card {
+  width: 450px;
+  max-width: 100%;
   border-bottom: 1px solid #e41d5c;
   cursor: pointer;
 }
@@ -3183,11 +3185,23 @@ form #address {
   display: block;
 }
 
+@media (min-width: 576px) {
+  .requestsIndex-page .request-card {
+    width: 540px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+@media (min-width: 768px) {
+  .requestsIndex-page .request-card {
+    width: 730px;
+  }
+}
+
 @media (min-width: 992px) {
   .requestsIndex-page .request-card {
     width: 950px;
-    padding-left: 20px;
-    padding-right: 20px;
   }
 }
 
