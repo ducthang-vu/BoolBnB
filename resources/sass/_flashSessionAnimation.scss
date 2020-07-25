@@ -25,20 +25,26 @@
 
 .message-animation {
     animation-name: fadeOut;
-    animation-duration: 7s;
-    animation-timing-function: ease;
+    animation-duration: 10s;
+    animation-timing-function:ease;
 }
 
 @keyframes fadeOut {
     0% {
-        top: 20%;
+
         opacity: 0;
     }
-    25% {
+
+    15% {
+        top: 5%;
         opacity: 1;
     }
+    30% {
+        top: 5%;
+        opacity: 1;
+    }
+
     100% {
-        top: 20%;
         opacity: 0;
     }
 }
@@ -51,6 +57,26 @@
     .success-message,
     .error-message {
         height: 100px;
+    }
+
+    @keyframes fadeOut {
+        0% {
+    
+            opacity: 0;
+        }
+    
+        15% {
+            top: 8%;
+            opacity: 1;
+        }
+        30% {
+            top: 8%;
+            opacity: 1;
+        }
+    
+        100% {
+            opacity: 0;
+        }
     }
 }
 /* Large desktops (large desktops, 1200px and up) */
