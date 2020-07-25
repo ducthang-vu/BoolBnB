@@ -1,13 +1,13 @@
 <table class="table text-center mt-20">
     <thead>
         <tr class="head-row">
-            <th scope="col">#</th>
-            <th scope="col">Flat #</th>
-            <th scope="col">Sponsorship</th>
-            <th scope="col">Start</th>
-            <th scope="col">End</th>
-            <th scope="col">Price paid</th>
-            <th scope="col">Payment code</th>
+            <th scope="col">Codice</th>
+            <th scope="col">Appartamento</th>
+            <th scope="col">Tipo</th>
+            <th scope="col">Inizio</th>
+            <th scope="col">Fine</th>
+            <th scope="col">Prezzo</th>
+            <th scope="col">Codice pagamento</th>
         </tr>
     </thead>
     <tbody>
@@ -20,13 +20,13 @@
                     @endif
                     "
             >
-                <td scope="row">{{ $sponsorship->id }}</th>
-                <td>{{ $sponsorship->flat_id }}</td>
-                <td>{{ $sponsorship->sponsor_type }}</th>
-                <td>{{ Carbon\Carbon::parse($sponsorship->start)->format('d/m/Y h:m') }}</td>
-                <td>{{ Carbon\Carbon::parse($sponsorship->end)->format('d/m/Y h:m') }}</td>
-                <td>{{ $sponsorship->price }}</td>
-                <td>{{ $sponsorship->braintree_code }}</td>
+                <td scope="row" data-label="Codice">{{ $sponsorship->id }}</th>
+                <td data-label="Appartamento">{{ $sponsorship->flat_id }}</td>
+                <td data-label="Tipo">{{ $sponsorship->sponsor_type }}</th>
+                <td data-label="Inizio">{{ Carbon\Carbon::parse($sponsorship->start)->format('d/m/Y h:m') }}</td>
+                <td data-label="Fine">{{ Carbon\Carbon::parse($sponsorship->end)->format('d/m/Y h:m') }}</td>
+                <td data-label="Prezzo">€ {{ $sponsorship->price }}</td>
+                <td data-label="Codice pagamento">{{ $sponsorship->braintree_code }}</td>
             </tr>
         @endforeach
     </tbody>
