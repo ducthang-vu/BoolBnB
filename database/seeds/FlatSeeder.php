@@ -27,6 +27,7 @@ class FlatSeeder extends Seeder
             $new_flat->square_meters = rand(25, 255);
             $new_flat->address = $faker->unique()->address();
             $new_flat->image = sprintf('images_seeding/city%d.jpg', $i % 48);
+            $new_flat->created_at = new DateTime("2019-06-15");
 
             // geolocalization
             $new_flat->lat = 45.0677;

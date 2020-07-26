@@ -11,15 +11,15 @@ use Illuminate\Validation\Rule;
 
 class StatisticsController extends Controller
 {
-    private function createMonthsCounter($months) {
+    private function createMonthsCounter(Carbon $start) {
         $months_array = Array_map(function($date) {
                 return $date->year . ' - ' . $date->shortEnglishMonth;
             },
-            CarbonPeriod::create(Carbon::today()->subMonths($months), '1 month',  Carbon::today())->toArray());
+            CarbonPeriod::create($start, '1 month',  Carbon::today())->toArray());
         return collect(Array_fill_keys($months_array , 0));
     }
 
-    private function getFieldByYearMonth($field_collection) {
+    private function getFieldCounter($field_collection, Carbon $start) {
         $raw_collection = $field_collection
             ->groupBy(function($item) {
                 $date = Carbon::parse($item->created_at);
@@ -29,7 +29,7 @@ class StatisticsController extends Controller
             return Carbon::parse($a)->greaterThan(Carbon::parse($b));
         });
         $collection = collect($raw_collection)->map(function ($item) {return collect($item)->count();});
-        return $this->createMonthsCounter(11)->merge($collection);
+        return $this->createMonthsCounter($start)->merge($collection);
     }
 
     public function get(Request $request) {
@@ -47,8 +47,8 @@ class StatisticsController extends Controller
         }
 
         $flat = Flat::find($request->flat_id);
-        $result['visualisations'] = $this->getFieldByYearMonth($flat->visualisations);
-        $result['requests'] = $this->getFieldByYearMonth($flat->requests);
+        $result['visualisations'] = $this->getFieldCounter($flat->visualisations, $flat->created_at);
+        $result['requests'] = $this->getFieldCounter($flat->requests, $flat->created_at);
         return response()->json($result);
     }
 }

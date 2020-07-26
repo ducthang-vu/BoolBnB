@@ -3,7 +3,9 @@
         <h2>{{ title_capitalized }}</h2>
         <template v-if="fetched">
             <h3>Total {{ title }}: {{ Object.values(chart_data).reduce((x, y) => x + y) }}</h3>
-            <canvas :id="id" class="chart-canvas mt-10 mb-10"></canvas>
+            <div class="relative">
+                <canvas :id="id" class="chart-canvas mt-10 mb-10" height="250"></canvas>
+            </div>
         </template>
         <h3 v-else class="intermittent">Fetching data...</h3>
     </div>
@@ -36,7 +38,7 @@ export default {
                         labels: Object.keys(values),
                         datasets: [
                             {
-                                label: this.title_capitalized + " (last 12 months)",
+                                label: this.title_capitalized,
                                 data: Object.values(values),
                                 fill: false,
                                 borderColor: "rgb(75, 192, 192)",
@@ -50,13 +52,15 @@ export default {
                                 {
                                     ticks: {
                                         beginAtZero: true,
+                                        suggestedMax: Math.max(...Object.values(values)) + 1,
                                         stepSize: 1
                                     }
                                 }
                             ]
                         }
                     },
-                    responsive: true
+                    responsive: true,
+                    maintainAspectRatio: false
                     }
                 );
             });
