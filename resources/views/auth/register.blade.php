@@ -16,7 +16,7 @@
 
                     @error('name')
                     <span class="invalid-feedback-register-page block" role="alert">
-                        <strong>{{ $message }}</strong>
+                        {{ $message }}
                     </span>
                     @enderror
                 </div>
@@ -29,21 +29,21 @@
 
                     @error('surname')
                     <span class="invalid-feedback-register-page block" role="alert">
-                        <strong>{{ $message }}</strong>
+                        {{ $message }}
                     </span>
                     @enderror
                 </div>
 
 
                 <Div class="div-register-page pb-10">
-                    <input id="date_of_birth" type="text"
+                    <input id="date_of_birth" type="date"
                         class="form-control-register-page @error('date_of_birth') is-invalid @enderror"
                         name="date_of_birth" value="{{ old('date_of_birth') }}" required autocomplete="date_of_birth"
-                        placeholder="DATE OF BIRTHDAY YYYY-MM-DD" autofocus>
+                        autofocus>
 
                     @error('date_of_birth')
                     <span class="invalid-feedback-register-page block" role="alert">
-                        <strong>{{ $message }}</strong>
+                        {{ $message }}
                     </span>
                     @enderror
                 </div>
@@ -56,7 +56,7 @@
 
                     @error("email")
                     <span class="invalid-feedback-register-page block" role="alert">
-                        <strong>{{ $message }}</strong>
+                        {{ $message }}
                     </span>
                     @enderror
                 </div>
@@ -69,7 +69,7 @@
 
                     @error('password')
                     <span class="invalid-feedback block" role="alert">
-                        <strong>{{ $message }}</strong>
+                        {{ $message }}
                     </span>
                     @enderror
                 </div>

@@ -1,8 +1,7 @@
 //Wrapper per oscurare la pagina
 .popup-wrapper-header {
     display: none;
-    content: '';
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
@@ -13,23 +12,23 @@
 //Buttons
 #login-button-headerNavbar-page {
     background: none;
-	color: inherit;
-	border: none;
-	padding: 0;
-	font: inherit;
-	cursor: pointer;
-	outline: inherit;
+    color: inherit;
+    border: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
 }
 #register-button-headerNavbar-page {
     background: none;
-	color: inherit;
+    color: inherit;
     border: 0.5px solid #cac9c9;
     border-radius: 18px;
     padding: 10px;
     box-shadow: -1px 1px 1px 0px #cac9c9;
     font: inherit;
-	cursor: pointer;
-	outline: inherit;
+    cursor: pointer;
+    outline: inherit;
 }
 //close
 .close-popup-page {
@@ -68,12 +67,26 @@
             padding: 10px 7px;
             text-align: center;
             input {
-                margin: 5px 0 10px;
+                margin: 5px 0;
                 padding: 5px;
                 width: 80%;
             }
             button {
                 cursor: pointer;
+            }
+            .div-register-page,
+            .div-login-page {
+                flex-basis: 100%;
+                margin-bottom: 10px;
+                input[type="date" i] {
+                    font-family: "Montserrat";
+                }
+            }
+            .invalid-feedback-register-page,
+            .invalid-feedback-login-page {
+                width: 100%;
+                font-size: 70%;
+                color: rgb(227, 52, 47);
             }
         }
         .form-group {
@@ -108,15 +121,22 @@
 }
 //Animation
 @-webkit-keyframes fadeIn {
-    from {transform: scale(0)}
-    to {transform: scale(1)}
+    from {
+        transform: scale(0);
+    }
+    to {
+        transform: scale(1);
+    }
 }
 @keyframes fadeIn {
-    from {transform: scale(0)}
-    to {transform: scale(1)}
+    from {
+        transform: scale(0);
+    }
+    to {
+        transform: scale(1);
+    }
 }
 @include mobile {
-
 }
 /* Tablets (tablets, 768px and up) */
 @include tablet {
@@ -180,12 +200,9 @@
     }
 }
 
-
 /* Desktops (desktops, 992px and up) */
 @include desktop {
-
 }
 
 @include large-desktop {
-
 }

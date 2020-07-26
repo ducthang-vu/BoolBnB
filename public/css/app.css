@@ -1507,8 +1507,7 @@ li {
 
 .popup-wrapper-header {
   display: none;
-  content: "";
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -1588,7 +1587,7 @@ li {
 
 .container-register .card-popup .card-body input,
 .container-login .card-popup .card-body input {
-  margin: 5px 0 10px;
+  margin: 5px 0;
   padding: 5px;
   width: 80%;
 }
@@ -1596,6 +1595,30 @@ li {
 .container-register .card-popup .card-body button,
 .container-login .card-popup .card-body button {
   cursor: pointer;
+}
+
+.container-register .card-popup .card-body .div-register-page,
+.container-register .card-popup .card-body .div-login-page,
+.container-login .card-popup .card-body .div-register-page,
+.container-login .card-popup .card-body .div-login-page {
+  flex-basis: 100%;
+  margin-bottom: 10px;
+}
+
+.container-register .card-popup .card-body .div-register-page input[type=date i],
+.container-register .card-popup .card-body .div-login-page input[type=date i],
+.container-login .card-popup .card-body .div-register-page input[type=date i],
+.container-login .card-popup .card-body .div-login-page input[type=date i] {
+  font-family: "Montserrat";
+}
+
+.container-register .card-popup .card-body .invalid-feedback-register-page,
+.container-register .card-popup .card-body .invalid-feedback-login-page,
+.container-login .card-popup .card-body .invalid-feedback-register-page,
+.container-login .card-popup .card-body .invalid-feedback-login-page {
+  width: 100%;
+  font-size: 70%;
+  color: #e3342f;
 }
 
 .container-register .card-popup .form-group,
