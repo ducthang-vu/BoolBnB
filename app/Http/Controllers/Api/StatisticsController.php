@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Flat;
-use Carbon\Carbon;
+use Carbon\Carbon, Carbon\CarbonPeriod;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -11,18 +11,25 @@ use Illuminate\Validation\Rule;
 
 class StatisticsController extends Controller
 {
-    private function getFieldByYearMonth($id, $field_collection) {
+    private function createMonthsCounter($months) {
+        $months_array = Array_map(function($date) {
+                return $date->year . ' - ' . $date->shortEnglishMonth;
+            },
+            CarbonPeriod::create(Carbon::today()->subMonths($months), '1 month',  Carbon::today())->toArray());
+        return collect(Array_fill_keys($months_array , 0));
+    }
+
+    private function getFieldByYearMonth($field_collection) {
         $raw_collection = $field_collection
             ->groupBy(function($item) {
                 $date = Carbon::parse($item->created_at);
                 return $date->year . ' - ' . $date->shortEnglishMonth;}
             )->toArray();
         uksort($raw_collection, function($a, $b) {
-            $dateA = Carbon::parse($a);
-            $dateB = Carbon::parse($b);
-            return $dateA->greaterThan($dateB);
+            return Carbon::parse($a)->greaterThan(Carbon::parse($b));
         });
-        return collect($raw_collection)->map(function ($item) {return collect($item)->count();});
+        $collection = collect($raw_collection)->map(function ($item) {return collect($item)->count();});
+        return $this->createMonthsCounter(11)->merge($collection);
     }
 
     public function get(Request $request) {
@@ -40,8 +47,8 @@ class StatisticsController extends Controller
         }
 
         $flat = Flat::find($request->flat_id);
-        $result['visualisations'] = $this->getFieldByYearMonth($flat->id, $flat->visualisations);
-        $result['requests'] = $this->getFieldByYearMonth($flat->id, $flat->requests);
+        $result['visualisations'] = $this->getFieldByYearMonth($flat->visualisations);
+        $result['requests'] = $this->getFieldByYearMonth($flat->requests);
         return response()->json($result);
     }
 }
