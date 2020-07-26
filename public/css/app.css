@@ -3130,6 +3130,11 @@ form #address {
   border-collapse: collapse;
 }
 
+.adminSponsorshipIndex .table a {
+  text-decoration: none;
+  color: #222222;
+}
+
 .adminSponsorshipIndex .table td,
 .adminSponsorshipIndex .table th {
   padding: 12px 15px;

@@ -2,7 +2,10 @@
     .table {
         width: 100%;
         border-collapse: collapse;
-
+        a {
+            text-decoration: none;
+            color: $text;
+        }
         td,
         th {
             padding: 12px 15px;
@@ -29,7 +32,7 @@
         font-size: 12px;
     }
 
-    @media(max-width: 768px) {
+    @media (max-width: 768px) {
         .table {
             display: block;
             width: 100%;
@@ -71,9 +74,3 @@
         }
     }
 }
-
-
-
-
-
-
