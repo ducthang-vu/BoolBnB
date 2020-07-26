@@ -73,23 +73,23 @@
             border-width: 5px;
             border-style: solid;
             border-color: #f3f0f1 transparent transparent transparent;
-            }
         }
+    }
 }
 
 .btn-stat,
 .btn-spons,
 .btn-delete,
-.btn-edit{
-    &:hover{
-        .top-text{
+.btn-edit {
+    &:hover {
+        .top-text {
             visibility: visible;
             opacity: 1;
         }
     }
 }
 
-.button-card{
+.button-card {
     padding-bottom: 20px;
     border-bottom: 1px solid #ccc;
 }
@@ -104,7 +104,7 @@
 
 .logout-header-navbar {
     background: none;
-	color: inherit;
+    color: inherit;
     border: 0.5px solid #cac9c9;
     border-radius: 18px;
     padding: 10px;
@@ -114,3 +114,17 @@
     text-decoration: none;
 }
 
+.btn-link {
+    max-width: 100%;
+    padding: 10px;
+    border: 1px solid $bg_airbnb;
+    background: #fff;
+    text-decoration: none;
+    color: $text;
+    border-radius: 5px;
+    font-family: "Montserrat";
+    font-size: 16px;
+    &:hover {
+        background-color: lightgray;
+    }
+}
