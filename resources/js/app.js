@@ -44,6 +44,7 @@ import guestIndexPage from "./blade-components/guestIndexPage";
 import showRequestMessage from "./blade-components/requestsIndex";
 import adminSponsorshipsCreate from "./blade-components/adminSponsorshipCreate";
 import hamburgerHeader from "./blade-components/hamburgerHeader";
+import cardFlatShow from "./blade-components/cardFlatShow"
 
 if (document.querySelector(".main-header")) {
     hamburgerHeader();
@@ -72,6 +73,11 @@ if (document.querySelector(".requestsIndex-page")) {
 if (document.querySelector(".adminSponsorshipsCreate")) {
     adminSponsorshipsCreate();
 }
+
+if (document.querySelector('.cardFlatShow-page')) {
+    cardFlatShow()
+}
+
 
 if (document.querySelector(".cardFlatShow-page")) {
     let lat = document.querySelector("#lat").value;
