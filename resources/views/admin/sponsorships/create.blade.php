@@ -16,21 +16,23 @@
 
     <h1 class="mt-30 mb-30">Sponsorship for:</h1>
     <div class="createSponsorship-page d-flex">
-        <div id="search-cards" class="search-cards">
-            <div class="card-row d-flex">
-                <div class="image">
-                    @if (!empty($flat->image))
-                    <img src="{{ asset('storage/' . $flat->image ) }}" alt="{{$flat -> title}}">
-                    @else
-                    <img src="https://i.ibb.co/bRN3hZD/casa.jpg" alt="casa">
-                    @endif
-                </div>
-                <div class="desc-card ml-10">
-                    <h2 class="mb-10">{{$flat->title}}</h2>
-                    <p>{{$flat->address}}</p>
+        <a href="{{ route('admin.flats.show', $flat->id) }}">
+            <div id="search-cards" class="search-cards">
+                <div class="card-row d-flex">
+                    <div class="image">
+                        @if (!empty($flat->image))
+                        <img src="{{ asset('storage/' . $flat->image ) }}" alt="{{$flat -> title}}">
+                        @else
+                        <img src="https://i.ibb.co/bRN3hZD/casa.jpg" alt="casa">
+                        @endif
+                    </div>
+                    <div class="desc-card ml-10">
+                        <h2 class="mb-10">{{$flat->title}}</h2>
+                        <p>{{$flat->address}}</p>
+                    </div>
                 </div>
             </div>
-        </div>
+        </a>
 
         <form class="d-flex payment-form" method="post" id="payment-form"
             action="{{ route('admin.sponsorships.store') }}">
@@ -56,8 +58,6 @@
             </section>
 
             <div class="d-flex s-between align-center w-100">
-                <a class="btn-link in-block mt-20 mb-20" href="{{ route('admin.flats.show', $flat->id) }}">Torna
-                    all'appartamento</a>
                 <input id="nonce" name="payment_method_nonce" type="hidden" />
                 <button class="button btn-transaction mt-20 mb-20" type="submit"><span>Make transaction</span></button>
             </div>
