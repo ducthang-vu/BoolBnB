@@ -4,7 +4,7 @@ form{
     justify-content: center;
     align-items: center;
     #address{
-        width: auto;
+        max-width: 400px;
         height: 45px;
         font-size: 16px;
         border-radius: 5px;
@@ -27,6 +27,10 @@ form{
 }
 /* Desktops (desktops, 992px and up) */
 @include desktop {
+    
+}
+/* Large desktops (large desktops, 1200px and up) */
+@include large-desktop {
     form{
         #address{
             width: 600px;
@@ -37,8 +41,5 @@ form{
             height: 45px;
         }
     }
-}
-/* Large desktops (large desktops, 1200px and up) */
-@include large-desktop {
     
 }

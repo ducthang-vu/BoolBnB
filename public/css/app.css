@@ -1254,7 +1254,7 @@ li {
   width: 100%;
   border-top-left-radius: 16px;
   border-top-right-radius: 16px;
-  max-height: 285px;
+  max-height: 230px;
 }
 
 .sponsorship-card .text-card {
@@ -1279,6 +1279,10 @@ li {
     margin: 0 20px 20px 0;
   }
 
+  .sponsorship-card .card img {
+    max-height: 194px;
+  }
+
   .sponsorship-card .card:nth-of-type(2n) {
     margin-right: 0;
   }
@@ -1286,7 +1290,9 @@ li {
 
 /* Desktops (desktops, 992px and up) */
 
-@media (min-width: 992px) {
+/* Large desktops (large desktops, 1200px and up) */
+
+@media (min-width: 1200px) {
   .sponsorship-card .card {
     flex-basis: calc((100% / 3 ) - 20px);
   }
@@ -1309,8 +1315,6 @@ li {
     padding: 3px 0;
   }
 }
-
-/* Large desktops (large desktops, 1200px and up) */
 
 .card-row {
   flex-direction: column;
@@ -1404,7 +1408,7 @@ li {
   }
 
   .card-row img {
-    width: 330px;
+    max-width: 275px;
     margin-right: 10px;
     border-top-right-radius: 0;
     border-bottom-left-radius: 16px;
@@ -1433,6 +1437,12 @@ li {
 }
 
 /* Large desktops (large desktops, 1200px and up) */
+
+@media (min-width: 1200px) {
+  .card-row img {
+    max-width: 330px;
+  }
+}
 
 .search-cards {
   flex-wrap: wrap;
@@ -1963,7 +1973,7 @@ form {
 }
 
 form #address {
-  width: auto;
+  max-width: 400px;
   height: 45px;
   font-size: 16px;
   border-radius: 5px;
@@ -1989,7 +1999,9 @@ form #address {
 
 /* Desktops (desktops, 992px and up) */
 
-@media (min-width: 992px) {
+/* Large desktops (large desktops, 1200px and up) */
+
+@media (min-width: 1200px) {
   form #address {
     width: 600px;
     height: 50px;
@@ -2000,8 +2012,6 @@ form #address {
     height: 45px;
   }
 }
-
-/* Large desktops (large desktops, 1200px and up) */
 
 #less-flats,
 #less-flats-blade {
@@ -2755,12 +2765,12 @@ form #address {
   }
 
   15% {
-    top: 5%;
+    top: 4%;
     opacity: 1;
   }
 
   30% {
-    top: 5%;
+    top: 4%;
     opacity: 1;
   }
 
@@ -2775,12 +2785,12 @@ form #address {
   }
 
   15% {
-    top: 5%;
+    top: 4%;
     opacity: 1;
   }
 
   30% {
-    top: 5%;
+    top: 4%;
     opacity: 1;
   }
 

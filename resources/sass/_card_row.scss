@@ -66,6 +66,7 @@
 /* Tablets (tablets, 768px and up) */
 @include tablet {
     .card-row {
+        
         flex-basis: calc((100% / 2 ) - 20px);
             margin: 0 20px 20px 0;
             &:nth-of-type(2n) {
@@ -79,7 +80,7 @@
         flex-direction: row;
         text-align: left;
         img {
-            width: 330px;
+            max-width: 275px;
             margin-right: 10px;
             border-top-right-radius: 0;
             border-bottom-left-radius: 16px;
@@ -109,4 +110,10 @@
 }
 /* Large desktops (large desktops, 1200px and up) */
 @include large-desktop {
+
+    .card-row {
+        img {
+            max-width: 330px;
+        }
+    }
 }
