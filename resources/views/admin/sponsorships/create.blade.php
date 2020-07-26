@@ -3,10 +3,10 @@
 @section('page-content')
     <div class="adminSponsorshipsCreate">
         @if ($errors->any())
-            <div class="alert alert-danger">
+            <div class="error-message message-animation">
                 <ul>
                     @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
+                        <li><h2>{{ $error }}</h2></li>
                     @endforeach
                 </ul>
             </div>

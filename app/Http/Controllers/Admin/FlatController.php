@@ -83,7 +83,7 @@ class FlatController extends Controller
      */
     public function update(Request $request, Flat $flat)
     {
-        $request->validate($this->validateRules());
+        $request->validate($this->validateRules(true, true));
         $data = $request->all();
         $data['user_id'] = Auth::id();
         $latlong = explode(',', $request['latlong']);
@@ -130,16 +130,17 @@ class FlatController extends Controller
     /**
      * Validation rules
      */
-    private function validateRules()
+    private function validateRules($image_not_required=false, $adress_not_unique=false)
     {
         return [
             'title' => 'required|min:1|max:255',
             'description' => 'required|min:1|max:500',
+            'address' => 'required|max:255' . ($adress_not_unique ? '' : '|unique:flats'),
             'number_of_rooms' => 'required|integer|min:1|max:255',
             'number_of_beds' => 'required|integer|min:1|max:255',
             'number_of_bathrooms' => 'required|integer|min:1|max:255',
             'square_meters' => 'required|integer|min:10|max:10000',
-            'image' => 'image',
+            'image' => 'image' . ($image_not_required ? '' : '|required'),
             'services.*' => 'exists:services,id',
             'is_active' => 'required|boolean'
         ];

@@ -3,19 +3,26 @@
 
 @section('page-content')
 <div class="section-home-admin mt-20">
-    <div class="d-flex s-center transition-invisible">
-        @if (session('flat-saved'))
-        <div class="success-message message-animation">
-            <p>{{ session('flat-saved') }} Aggiunto correttamente.</p>
+    @if ($errors->any())
+        <div class="error-message message-animation">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li><h2>{{ $error }}</h2></li>
+                @endforeach
+            </ul>
         </div>
-        @endif
-        @if (session('flat-deleted'))
+    @endif
+    @if (session('flat-saved'))
         <div class="success-message message-animation">
-            <p>Appartamento n. {{ session('flat-deleted') }} eliminato correttamente.</p>
+            <h2>{{ session('flat-saved') }} aggiunto correttamente.</h2>
         </div>
+    @endif
+    @if (session('flat-deleted'))
+        <div class="success-message message-animation">
+            <h2>Appartamento n. {{ session('flat-deleted') }} eliminato correttamente.</h2>
+        </div>
+    @endif
 
-        @endif
-    </div>
     <div class="title-flts d-flex s-between align-center">
         <h1 class="mt-20 mb-20">
             Benvenuto {{Auth::user()->surname}} {{Auth::user()->name}}, questi sono i tuoi appartamenti
@@ -35,23 +42,6 @@
             <h2 class="mb-10">{{$flat->title}}</h2>
 
             <p>{{$flat->description}}</p>
-        </div>
-        <div class="button-card mb-20 d-flex">
-            <div class="left-btn d-flex">
-                <a class="btn btn-stat mb-5 mr-5" href="{{ route('admin.statistics' , $flat->id) }}"><i
-                        class="far fa-chart-bar"></i><span class="top-text">Statistiche</span></a>
-                <a class="btn btn-spons mb-5 mr-5"
-                    href="{{ route('admin.sponsorships.create', ['flat_id' => $flat->id]) }}"><i
-                        class="fas fa-medal"></i><span class="top-text">Sponsorizza</span></a>
-                <a class="btn btn-edit mb-5 mr-5" href="{{ route('admin.flats.edit', $flat->id) }}"><i
-                        class="far fa-edit"></i><span class="top-text">Modifica</span></a>
-                <form action="{{ route('admin.flats.destroy', $flat->id) }}" method="POST">
-                    @csrf
-                    @method('DELETE')
-                    <button type="submit" class="btn btn-delete"><i class="far fa-trash-alt"></i><span
-                            class="top-text">Elimina</span></button>
-                </form>
-            </div>
         </div>
     </a>
     @endforeach

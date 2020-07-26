@@ -73,7 +73,7 @@ class SponsorshipController extends Controller
         //dump($request->session()->get('_previous')['url']);
         $flat = Flat::findOrFail($request->flat_id);
         if ($flat->hasActiveSponsorship()) {
-            return redirect()->route('admin.sponsorships.index')->withErrors('Flat already sponsored');
+            return redirect()->route('admin.sponsorships.index')->withErrors('Appartamento già sponsorizzato');
         }
 
         $sponsorships = Sponsorship::all()->sortByDesc('price');

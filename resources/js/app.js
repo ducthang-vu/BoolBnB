@@ -50,7 +50,11 @@ if (document.querySelector(".main-header")) {
 }
 
 if (document.querySelector(".inputAlgolia-page")) {
-    place();
+    if (document.querySelector('.adminFlatsEdit') || document.querySelector('.adminFlatsCreate')) {
+        place(true);
+    } else {
+        place();
+    }
 }
 
 if (document.querySelector(".formAlgoliaHome-page")) {

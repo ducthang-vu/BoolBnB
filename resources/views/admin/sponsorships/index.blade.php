@@ -3,18 +3,18 @@
 @section('page-content')
 <div class="adminSponsorshipIndex">
     @if ($errors->any())
-    <div class="error-message">
+    <div class="error-message message-animation">
         <ul>
             @foreach ($errors->all() as $error)
-            <li>{{ $error }}</li>
+                <li><h2>{{ $error }}</h2></li>
             @endforeach
         </ul>
     </div>
     @endif
     @if (session('transactionId'))
-    <div class="success-message">
-        <strong>Payment made with id: #{{ session('transactionId') }} </strong>
-    </div>
+        <div class="success-message message-animation">
+            <h2>Payment made with id: {{ session('transactionId') }} </h2>
+        </div>
     @endif
     @if ($sponsorships->count())
     <div class="pt-25 pb-25">
