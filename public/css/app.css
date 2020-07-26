@@ -1877,6 +1877,22 @@ li {
   text-decoration: none;
 }
 
+.btn-link {
+  max-width: 100%;
+  padding: 10px;
+  border: 1px solid #e41d5c;
+  background: #fff;
+  text-decoration: none;
+  color: #222222;
+  border-radius: 5px;
+  font-family: "Montserrat";
+  font-size: 16px;
+}
+
+.btn-link:hover {
+  background-color: lightgray;
+}
+
 .sponsorship-card {
   flex-wrap: wrap;
   padding-bottom: 20px;
