@@ -13,6 +13,10 @@
             font-size: 14px;
         }
 
+        tr:hover {
+            background: rgba(228, 228, 228, 0.2);
+        }
+
         th {
             background-color: $bg_airbnb;
             color: #fff;
@@ -20,10 +24,16 @@
 
         tbody tr:nth-child(even) {
             background-color: #f5f5f5;
+            &:hover {
+                background-color: rgba(245, 245, 245, 0.2);
+            }
         }
 
         tbody tr.active {
             background-color: rgba(72, 156, 72, 0.678);
+            &:hover {
+                background-color:  rgba(72, 156, 72, 0.8);
+            }
         }
     }
 

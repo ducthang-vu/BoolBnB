@@ -3067,6 +3067,10 @@ form #address {
   font-size: 14px;
 }
 
+.adminSponsorshipIndex .table tr:hover {
+  background: rgba(228, 228, 228, 0.2);
+}
+
 .adminSponsorshipIndex .table th {
   background-color: #e41d5c;
   color: #fff;
@@ -3076,8 +3080,16 @@ form #address {
   background-color: #f5f5f5;
 }
 
+.adminSponsorshipIndex .table tbody tr:nth-child(even):hover {
+  background-color: rgba(245, 245, 245, 0.2);
+}
+
 .adminSponsorshipIndex .table tbody tr.active {
   background-color: rgba(72, 156, 72, 0.678);
+}
+
+.adminSponsorshipIndex .table tbody tr.active:hover {
+  background-color: rgba(72, 156, 72, 0.8);
 }
 
 .adminSponsorshipIndex .table-note {
