@@ -14,7 +14,7 @@
             width: 100%;
             border-top-left-radius: 16px;
             border-top-right-radius: 16px;
-            max-height: 285px;
+            max-height: 230px;
         }
     }
     .text-card {
@@ -39,6 +39,9 @@
 @include tablet {
     .sponsorship-card{
         .card{
+            img{
+                max-height: 194px;
+            }
             flex-basis: calc((100% / 2 ) - 20px);
             margin: 0 20px 20px 0;
             &:nth-of-type(2n) {
@@ -49,6 +52,10 @@
 }
 /* Desktops (desktops, 992px and up) */
 @include desktop {
+    
+}
+/* Large desktops (large desktops, 1200px and up) */
+@include large-desktop {
     .sponsorship-card{
         .card{
             &:nth-of-type(2n) {
@@ -68,8 +75,5 @@
             } 
         }
     }
-}
-/* Large desktops (large desktops, 1200px and up) */
-@include large-desktop {
 
 }
