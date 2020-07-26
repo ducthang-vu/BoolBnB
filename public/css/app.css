@@ -3138,6 +3138,10 @@ form #address {
   font-size: 90%;
 }
 
+.requestsIndex-page .request-card:hover {
+  background: rgba(228, 228, 228, 0.2);
+}
+
 .requestsIndex-page .request-card.active {
   background: #e4e4e4;
 }
