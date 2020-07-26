@@ -39,5 +39,3 @@ Route::prefix('admin')
 Route::get('/dev', function() {
     return view('welcome');
 });
-
-Route::get('/dev', 'devController@index')->name('welcome');
