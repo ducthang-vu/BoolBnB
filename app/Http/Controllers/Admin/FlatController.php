@@ -8,9 +8,41 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use App\Flat;
 use App\Service;
+use Illuminate\Validation\Rule;
+
 
 class FlatController extends Controller
 {
+        /**
+     * Validation rules
+     */
+    private function validateRules($id=null)
+    {
+        $address = ['required', 'max:255'];
+        $id ?
+            $address[] =  Rule::unique('flats', 'address')->ignore($id) :
+            $address[] = 'unique:flats';
+        return [
+            'title' => 'required|min:1|max:255',
+            'description' => 'required|min:1|max:500',
+            'address' => $address,
+            'number_of_rooms' => 'required|integer|min:1|max:255',
+            'number_of_beds' => 'required|integer|min:1|max:255',
+            'number_of_bathrooms' => 'required|integer|min:1|max:255',
+            'square_meters' => 'required|integer|min:10|max:10000',
+            'image' => 'image' . ($id ? '' : '|required'),
+            'services.*' => 'exists:services,id',
+            'is_active' => 'required|boolean'
+        ];
+    }
+
+    // check if auth id is = flat user_id
+    private function checkFlatUser(Flat $flat)
+    {
+        return $flat->user_id === Auth::id();
+    }
+
+
     /**
      * Show the form for creating a new resource.
      *
@@ -83,7 +115,7 @@ class FlatController extends Controller
      */
     public function update(Request $request, Flat $flat)
     {
-        $request->validate($this->validateRules(true, true));
+        $request->validate($this->validateRules($flat->id));
         $data = $request->all();
         $data['user_id'] = Auth::id();
         $latlong = explode(',', $request['latlong']);
@@ -125,30 +157,5 @@ class FlatController extends Controller
             Storage::disk('public')->delete($flat->image);
             return redirect()->route('admin.home')->with('flat-deleted', $id);
         }
-    }
-
-    /**
-     * Validation rules
-     */
-    private function validateRules($image_not_required=false, $adress_not_unique=false)
-    {
-        return [
-            'title' => 'required|min:1|max:255',
-            'description' => 'required|min:1|max:500',
-            'address' => 'required|max:255' . ($adress_not_unique ? '' : '|unique:flats'),
-            'number_of_rooms' => 'required|integer|min:1|max:255',
-            'number_of_beds' => 'required|integer|min:1|max:255',
-            'number_of_bathrooms' => 'required|integer|min:1|max:255',
-            'square_meters' => 'required|integer|min:10|max:10000',
-            'image' => 'image' . ($image_not_required ? '' : '|required'),
-            'services.*' => 'exists:services,id',
-            'is_active' => 'required|boolean'
-        ];
-    }
-
-    // check if auth id is = flat user_id
-    private function checkFlatUser(Flat $flat)
-    {
-        return $flat->user_id === Auth::id();
     }
 }
