@@ -43,15 +43,21 @@ function guestIndexPage(lat, lng) {
                 linkShow,
                 coordinates
             } = element;
-            const [latitude, longitude] = coordinates.split("-").map(item => parseFloat(item))
+            const [latitude, longitude] = coordinates
+                .split("-")
+                .map(item => parseFloat(item));
             let popup = L.popup().setContent(
                 `<img class="popup__image" src="${img}">
                 <p>${address}</p>
                 <a href="${linkShow}">Clicca qui per i dettagli</a>`
             );
-            let marker = L.marker([latitude, longitude], { icon: markerIcon }).addTo(map).bindPopup(popup)
-            cardElement.addEventListener("mouseover", () => marker.openPopup())
-            document.querySelector(".index-search").addEventListener("mouseleave", () => marker.closePopup())
+            let marker = L.marker([latitude, longitude], { icon: markerIcon })
+                .addTo(map)
+                .bindPopup(popup);
+            cardElement.addEventListener("mouseover", () => marker.openPopup());
+            document
+                .querySelector(".index-search")
+                .addEventListener("mouseleave", () => marker.closePopup());
         });
     }
 
@@ -75,7 +81,7 @@ function guestIndexPage(lat, lng) {
             "/api/flats/?";
         let params = new URLSearchParams({
             lat: latitude || getLatLng("inputAlgolia-search__latlong")[0],
-            lng: longitude ||  getLatLng("inputAlgolia-search__latlong")[1],
+            lng: longitude || getLatLng("inputAlgolia-search__latlong")[1],
             rooms_min: document.querySelector("#rooms_min").value,
             beds_min: document.querySelector("#beds_min").value,
             required_services: getServices("service-checkbox"),
@@ -104,12 +110,16 @@ function guestIndexPage(lat, lng) {
 
     function handlingApiError(e) {
         e instanceof InvalidParameters
-                    ? document.querySelector(".search-index__error").classList.remove("no-visibility")
-                    : console.log(e);
+            ? document
+                  .querySelector(".search-index__error")
+                  .classList.remove("no-visibility")
+            : console.log(e);
     }
 
     const Handlebars = require("handlebars");
-    const template = Handlebars.compile(document.getElementById("card-template").innerHTML);
+    const template = Handlebars.compile(
+        document.getElementById("card-template").innerHTML
+    );
     function repopulateCards(data) {
         let container = document.getElementById("search-cards");
         container.innerHTML = template({ flats: data.response });
@@ -119,9 +129,9 @@ function guestIndexPage(lat, lng) {
         if (data.number_records) {
             repopulateCards(data);
             remakeMapElement();
-            let lat, lng
+            let lat, lng;
             if (latitude && longitude) {
-                [lat, lng] = [latitude, longitude]
+                [lat, lng] = [latitude, longitude];
             } else {
                 [lat, lng] = getLatLng("inputAlgolia-search__latlong");
             }
@@ -135,7 +145,9 @@ function guestIndexPage(lat, lng) {
     }
 
     function fetchData(latitude, longitude) {
-        document.querySelector(".search-index__error").classList.add("no-visibility");
+        document
+            .querySelector(".search-index__error")
+            .classList.add("no-visibility");
         fetch(getUrlApi(latitude, longitude))
             .then(response => {
                 if (!response.ok) throw new InvalidParameters();
@@ -146,10 +158,10 @@ function guestIndexPage(lat, lng) {
     }
 
     /*  On page load */
-    fetchData(lat, lng)
+    fetchData(lat, lng);
     document.getElementById("algoliaForm").addEventListener("submit", e => {
-        e.preventDefault()
-        fetchData()
+        e.preventDefault();
+        fetchData();
     });
 
     // animazioni filtri ricerca
@@ -161,6 +173,13 @@ function guestIndexPage(lat, lng) {
             : animationService.classList.add("animation--service--open");
         this.isOpen = !this.isOpen;
     });
+    let slider = document.getElementById("distance");
+    let distanceOutput = document.querySelector(".distanceVal");
+
+    distanceOutput.innerHTML = slider.value;
+    slider.oninput = function() {
+        distanceOutput.innerHTML = this.value;
+    };
 }
 
 export default guestIndexPage;

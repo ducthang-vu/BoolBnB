@@ -2831,12 +2831,17 @@ form #address {
   flex-basis: 100%;
 }
 
+.formAlgoliaIndex-page .row .inputAlgolia-page {
+  width: 100%;
+}
+
 .formAlgoliaIndex-page .search-index__error {
   color: #e3342f;
   flex-basis: 100%;
 }
 
 .formAlgoliaIndex-page .btn-filter {
+  outline: none;
   flex-basis: 100%;
 }
 
@@ -2856,13 +2861,47 @@ form #address {
 }
 
 .formAlgoliaIndex-page .animation--service.animation--service--open {
-  height: 200px;
+  height: 280px;
   padding: 10px;
 }
 
 .formAlgoliaIndex-page .animation--service .search-services {
   display: flex;
   flex-direction: column;
+}
+
+.formAlgoliaIndex-page .animation--service .search-services .distance-group label {
+  width: 100%;
+}
+
+.formAlgoliaIndex-page .animation--service .search-services .distance-group .slider {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  width: 100%;
+  height: 5px;
+  border-radius: 5px;
+  outline: none;
+}
+
+.formAlgoliaIndex-page .animation--service .search-services .distance-group .slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+          appearance: none;
+  height: 15px;
+  width: 15px;
+  border: 1px solid lightgray;
+  border-radius: 50%;
+  background: white;
+}
+
+.formAlgoliaIndex-page .animation--service .search-services .distance-group .slider::-moz-range-thumb {
+  -moz-appearance: none;
+       appearance: none;
+  height: 15px;
+  width: 15px;
+  border: 1px solid lightgray;
+  border-radius: 50%;
+  background: white;
 }
 
 .formAlgoliaIndex-page .animation--service .search-services label {
@@ -2901,7 +2940,18 @@ form #address {
   }
 }
 
+@media (min-width: 768px) {
+  .formAlgoliaIndex-page .row {
+    flex-basis: 50%;
+  }
+}
+
 @media (min-width: 992px) {
+  .formAlgoliaIndex-page .row #address {
+    width: 100%;
+    max-width: 100%;
+  }
+
   .formAlgoliaIndex-page .animation--service {
     padding-left: 30px;
     padding-right: 30px;
@@ -2910,6 +2960,7 @@ form #address {
   }
 
   .formAlgoliaIndex-page .animation--service.animation--service--open {
+    height: 220px;
     padding: 30px;
   }
 
