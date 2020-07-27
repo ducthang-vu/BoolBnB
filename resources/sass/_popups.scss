@@ -54,7 +54,6 @@
         height: 100%;
         .card-header {
             justify-content: space-between;
-            padding: 0 auto 20px;
             border-bottom: 1px solid black;
             border-radius: 10px 10px 0 0;
             padding: 10px 15px;
@@ -63,21 +62,25 @@
             font-weight: bold;
         }
         .card-body {
-            margin: 10px 0;
             padding: 10px 7px;
             text-align: center;
             input {
-                margin: 5px 0;
+                border: 1px solid $bg_airbnb;
+                border-radius: 5px;
                 padding: 5px;
                 width: 80%;
             }
             button {
                 cursor: pointer;
             }
+            .div-container-login-page {
+                width: 100%;
+                margin: 5px 0 0;
+            }
             .div-register-page,
             .div-login-page {
                 flex-basis: 100%;
-                margin-bottom: 10px;
+                margin: 10px 0 7px;
                 input[type="date" i] {
                     font-family: "Montserrat";
                 }
@@ -87,6 +90,9 @@
                 width: 100%;
                 font-size: 70%;
                 color: rgb(227, 52, 47);
+            }
+            .label-login-page {
+                margin: 25px 0;
             }
         }
         .form-group {
@@ -162,7 +168,8 @@
         overflow: auto;
         z-index: 10;
     }
-    .container {
+    .container-login,
+    .container-register {
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -202,6 +209,9 @@
 
 /* Desktops (desktops, 992px and up) */
 @include desktop {
+    .div-container-login-page {
+        width: 100%;
+    }
 }
 
 @include large-desktop {

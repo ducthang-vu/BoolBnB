@@ -4,11 +4,11 @@
             <div class="footer-column mb-10">
                 <div class="footer-title">INFORMAZIONI</div>
                 <ul>
-                    <li><a href="">Come funziona Airbnb</a></li>
+                    <li><a href="">Come funziona Boolbnb</a></li>
                     <li><a href="">Diversità e appartenenza</a></li>
                     <li><a href="">Accessibilità</a></li>
                     <li><a href="">Affidabilità e sicurezza</a></li>
-                    <li><a href="">Airbnb Citizen</a></li>
+                    <li><a href="">Boolbnb Citizen</a></li>
                     <li><a href="">Olimpiadi</a></li>
                     <li><a href="">Newsroom</a></li>
                 </ul>
@@ -16,9 +16,9 @@
             <div class="footer-column mb-20">
                 <div class="footer-title">COMMUNITY</div>
                 <ul>
-                    <li><a href="">Airbnb Magazine</a></li>
-                    <li><a href="">Airbnb Associates</a></li>
-                    <li><a href="">Airbnb for Work</a></li>
+                    <li><a href="">Boolbnb Magazine</a></li>
+                    <li><a href="">Boolbnb Associates</a></li>
+                    <li><a href="">Boolbnb for Work</a></li>
                     <li><a href="">Invita degli amici</a></li>
                     <li><a href="">Opportunità di lavoro</a></li>
                 </ul>
@@ -28,7 +28,7 @@
                 <ul>
                     <li><a href="">Diventa un host</a></li>
                     <li><a href="">Offri un'esperienza online</a></li>
-                    <li><a href="">Messaggio dal CEO Brian Chesky</a></li>
+                    <li><a href="">Messaggio dal CEO Paolo Duzioni</a></li>
                     <li><a href="">Affittare responsabilmente</a></li>
                     <li><a href="">Open Homes</a></li>
                     <li><a href="">Centro risorse</a></li>
