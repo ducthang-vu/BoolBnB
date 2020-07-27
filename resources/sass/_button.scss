@@ -100,7 +100,7 @@
     display: block;
     text-decoration: none;
     padding: 10px 15px;
-    margin: 0 auto;
+    margin: 5px auto 0;
     font-weight: 600;
     width: 80%;
 }
@@ -111,6 +111,7 @@
     cursor: pointer;
     color: $text;
     font-size: 12px;
+    margin-top: 10px;
 }
 
 .logout-header-navbar {
