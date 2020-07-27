@@ -1,11 +1,14 @@
 .adminFlatsShow-page {
     .notification-flat-hidden {
-        background: red;
+        background: green;
         color: white;
         flex-basis: 100%;
         .icon::after {
             content: '';
             margin-right: 15px;
+        }
+        &.negative {
+            background: red;
         }
     }
 }

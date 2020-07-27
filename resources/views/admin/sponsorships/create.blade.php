@@ -14,7 +14,11 @@
     </div>
     @endif
 
-    <h1 class="mt-30 mb-30">Sponsorship for:</h1>
+    <header class="flatPagesHeader mb-25">
+        <a class="anchor" href="{{ route('admin.flats.show' , $flat->id) }}">Appartamento # {{ $flat->id}}</a>
+        <i class="fas fa-chevron-right"></i>
+        <span>Nuova sponsorizzazione</span>
+    </header>
     <div class="createSponsorship-page d-flex">
         <a href="{{ route('admin.flats.show', $flat->id) }}">
             <div id="search-cards" class="search-cards">
@@ -59,7 +63,7 @@
 
             <div class="d-flex s-center w-100">
                 <input id="nonce" name="payment_method_nonce" type="hidden" />
-                <button class="button btn-transaction mt-20 mb-20" type="submit"><span>Make transaction</span></button>
+                <button class="button btn-transaction mt-20 mb-20" type="submit"><span>Effettua pagamento</span></button>
             </div>
         </form>
     </div>

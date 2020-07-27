@@ -18,6 +18,7 @@
     @endif
     @if ($sponsorships->count())
     <div class="pt-25 pb-25">
+        <h1>Storico delle sponsorizzazioni</h1>
         <div class="mobile-sponsorship-page">
             @include ('admin.sponsorships.components.tableSponsorship')
         </div>

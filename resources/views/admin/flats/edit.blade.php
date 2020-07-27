@@ -14,13 +14,13 @@
     </div>
     @endif
 
-    <div class="title-flts text-center">
-        <h1 class="mt-20 mb-20">
-            Aggiorna i dati dell'appartamento #{{$flat->id}}
-        </h1>
-    </div>
+
+    <header class="flatPagesHeader mb-25">
+        <a class="anchor" href="{{ route('admin.flats.show' , $flat->id) }}">Appartamento # {{ $flat->id}}</a>
+        <i class="fas fa-chevron-right"></i>
+        <span>Modifica & aggiorna</span>
+    </header>
 
     @include('shared.components.formEdit')
-    <a class="btn-link in-block mb-20" href="{{ route('admin.flats.show' , $flat->id) }}">Torna all'appartamento</a>
 </div>
 @endsection

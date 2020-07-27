@@ -3445,7 +3445,7 @@ form #address {
 }
 
 .adminFlatsShow-page .notification-flat-hidden {
-  background: red;
+  background: green;
   color: white;
   flex-basis: 100%;
 }
@@ -3453,6 +3453,10 @@ form #address {
 .adminFlatsShow-page .notification-flat-hidden .icon::after {
   content: "";
   margin-right: 15px;
+}
+
+.adminFlatsShow-page .notification-flat-hidden.negative {
+  background: red;
 }
 
 .adminFlatsShow-page-popup .popup-delete {
@@ -3561,6 +3565,41 @@ form #address {
 @media (min-width: 992px) {
   .adminFlatsShow-page-popup .options-small {
     display: none;
+  }
+}
+
+.flatPagesHeader {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .flatPagesHeader {
+    display: block;
+    color: #000;
+    font-weight: bold;
+  }
+
+  .flatPagesHeader .anchor {
+    text-decoration: none;
+  }
+
+  .flatPagesHeader .anchor:active,
+  .flatPagesHeader .anchor:visited {
+    color: #000;
+  }
+
+  .flatPagesHeader .anchor:hover {
+    text-decoration: underline;
+  }
+
+  .flatPagesHeader .anchor:after {
+    content: "";
+    margin-left: 15px;
+  }
+
+  .flatPagesHeader .anchor + i + span:before {
+    content: "";
+    margin-left: 15px;
   }
 }
 

@@ -51,8 +51,8 @@
             </ul>
         @else
             <ul>
-                <li><a href="">Diventa un host</a></li>
-                <li><a href="">Assistenza</a></li>
+                <li><a href="{{route ('wip')}}">Diventa un host</a></li>
+                <li><a href="{{route ('wip')}}">Assistenza</a></li>
                 <li><button id="login-button-headerNavbar-page" onclick="showPopUpLogin()">Accedi</button></li>
                 <li><button id="register-button-headerNavbar-page" onclick="showPopUpRegister()">Registrati</button></li>
             </ul>

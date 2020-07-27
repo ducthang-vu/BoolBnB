@@ -3,7 +3,7 @@
     @auth
     <ul>
         <li>
-            <a @if(preg_match( '/^admin.(home|flats.(show|edit))$/', Route::currentRouteName() ))class="active" @endif
+            <a @if(preg_match( '/^admin.(home|flats.(show|edit)|sponsorships.create|statistics)$/', Route::currentRouteName() ))class="active" @endif
                 href="{{ route('admin.home') }}">Profilo
             </a>
         </li>

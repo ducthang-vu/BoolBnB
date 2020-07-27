@@ -16,32 +16,32 @@
             <div class="footer-column mb-20">
                 <div class="footer-title">COMMUNITY</div>
                 <ul>
-                    <li><a href="">Boolbnb Magazine</a></li>
-                    <li><a href="">Boolbnb Associates</a></li>
-                    <li><a href="">Boolbnb for Work</a></li>
-                    <li><a href="">Invita degli amici</a></li>
-                    <li><a href="">Opportunità di lavoro</a></li>
+                    <li><a href="{{route ('wip')}}">Boolbnb Magazine</a></li>
+                    <li><a href="{{route ('wip')}}">Boolbnb Associates</a></li>
+                    <li><a href="{{route ('wip')}}">Boolbnb for Work</a></li>
+                    <li><a href="{{route ('wip')}}">Invita degli amici</a></li>
+                    <li><a href="{{route ('wip')}}">Opportunità di lavoro</a></li>
                 </ul>
             </div>
             <div class="footer-column mb-20">
                 <div class="footer-title">OSPITA</div>
                 <ul>
-                    <li><a href="">Diventa un host</a></li>
-                    <li><a href="">Offri un'esperienza online</a></li>
-                    <li><a href="">Messaggio dal CEO Paolo Duzioni</a></li>
-                    <li><a href="">Affittare responsabilmente</a></li>
-                    <li><a href="">Open Homes</a></li>
-                    <li><a href="">Centro risorse</a></li>
-                    <li><a href="">Community Center</a></li>
+                    <li><a href="{{route ('wip')}}">Diventa un host</a></li>
+                    <li><a href="{{route ('wip')}}">Offri un'esperienza online</a></li>
+                    <li><a href="{{route ('wip')}}">Messaggio dal CEO Paolo Duzioni</a></li>
+                    <li><a href="{{route ('wip')}}">Affittare responsabilmente</a></li>
+                    <li><a href="{{route ('wip')}}">Open Homes</a></li>
+                    <li><a href="{{route ('wip')}}">Centro risorse</a></li>
+                    <li><a href="{{route ('wip')}}">Community Center</a></li>
                 </ul>
             </div>
             <div class="footer-column mb-20">
                 <div class="footer-title">ASSISTENZA</div>
                 <ul>
-                    <li><a href="">Aggiornamenti sulla pandemia di COVID-19</a></li>
-                    <li><a href="">Centro Assistenza</a></li>
-                    <li><a href="">Opzioni di cancellazione</a></li>
-                    <li><a href="">Servizio di assistenza di quartiere</a></li>
+                    <li><a href="{{route ('wip')}}">Aggiornamenti sulla pandemia di COVID-19</a></li>
+                    <li><a href="{{route ('wip')}}">Centro Assistenza</a></li>
+                    <li><a href="{{route ('wip')}}">Opzioni di cancellazione</a></li>
+                    <li><a href="{{route ('wip')}}">Servizio di assistenza di quartiere</a></li>
                 </ul>
             </div>
         </nav>
@@ -49,21 +49,21 @@
             <div class="footer-column pt-20 pb-20">
                 <ul>
                     <li class="footer-title">© 2020 boolbnb, Inc. All rights reserved</li>
-                    <li><a href="">Privacy</a></li>
-                    <li><a href="">Termini</a></li>
-                    <li><a href="">Mappa del sito</a></li>
-                    <li><a href="">Dettagli dell'azienda</a></li>
+                    <li><a href="{{route ('wip')}}">Privacy</a></li>
+                    <li><a href="{{route ('wip')}}">Termini</a></li>
+                    <li><a href="{{route ('wip')}}">Mappa del sito</a></li>
+                    <li><a href="{{route ('wip')}}">Dettagli dell'azienda</a></li>
                 </ul>
             </div>
             <div class="footer-column pt-20 pb-20">
                 <ul class="inline">
-                    <li class="mr-20"><a href=""><i class="fas fa-globe"></i>Italiano (IT)</a></li>
-                    <li class="mr-30"><a href=""><i class="fas fa-euro-sign"></i>EUR</a></li>
+                    <li class="mr-20"><a href="{{route ('wip')}}"><i class="fas fa-globe"></i>Italiano (IT)</a></li>
+                    <li class="mr-30"><a href="{{route ('wip')}}"><i class="fas fa-euro-sign"></i>EUR</a></li>
                 </ul>
                 <ul class="inline">
-                    <li><a href=""><i class="fab fa-facebook-f"></i></a></li>
-                    <li><a href=""><i class="fab fa-twitter"></i></a></li>
-                    <li><a href=""><i class="fab fa-instagram"></i></a></li>
+                    <li><a href="{{route ('wip')}}"><i class="fab fa-facebook-f"></i></a></li>
+                    <li><a href="{{route ('wip')}}"><i class="fab fa-twitter"></i></a></li>
+                    <li><a href="{{route ('wip')}}"><i class="fab fa-instagram"></i></a></li>
                 </ul>
             </div>
         </nav>

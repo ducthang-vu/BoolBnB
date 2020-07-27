@@ -18,8 +18,18 @@
         <h2> Appartamento modificato correttamente.</h2>
     </div>
     @endif
+    <header class="flatPagesHeader mb-10">
+        <a class="anchor" href="{{ route('admin.home') }}">Profilo</a>
+        <i class="fas fa-chevron-right"></i>
+        <span>Appartamento # {{ $flat->id}}</span>
+    </header>
+    @if (Auth::check() && $flat->user_id == Auth::user()->id && $flat->hasActiveSponsorship())
+        <h2 class="notification-flat-hidden p-10 mt-10 text-center">
+            <i class="icon fas fa-medal"></i><span>Questo appartamento è sponsorizzato.</span>
+        </h2>
+    @endif
     @if (Auth::check() && $flat->user_id == Auth::user()->id && !$flat->is_active)
-    <h2 class="notification-flat-hidden p-10 mt-10 text-center">
+    <h2 class="notification-flat-hidden p-10 mt-10 text-center negative">
         <i class="icon far fa-eye-slash"></i><span>Questo appartamento non è visibile nelle ricerche.</span>
     </h2>
     @endif
