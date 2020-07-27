@@ -59,4 +59,3 @@
         @endauth
     @endif
 </div>
-
