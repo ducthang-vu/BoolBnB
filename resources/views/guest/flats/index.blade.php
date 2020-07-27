@@ -10,10 +10,12 @@
 
 
     <div class="index-search d-flex s-center">
-        <div id="search-cards" class="search-cards d-flex s-center"></div>
+        <div id="search-cards" class="search-cards">
+        </div>
 
-    <div class="map no-visibility">
-        <div id="mapid"></div>
+        <div class="map no-visibility">
+            <div id="mapid"></div>
+        </div>
     </div>
 </div>
 
@@ -25,24 +27,26 @@
 <script id="card-template" type="text/x-handlebars-template">
     @{{#each flats}}
         @{{#if sponsored}}
-            <a class="card-row d-flex sponsored" href="{{ url('flats') }}/@{{ id }}" data-coordinates="@{{ lat }}-@{{ lng }}">
+            <a class="card-flat d-flex sponsored p-10 mb-10" href="{{ url('flats') }}/@{{ id }}" data-coordinates="@{{ lat }}-@{{ lng }}">
         @{{else}}
-            <a class="card-row d-flex" href="{{ url('flats') }}/@{{ id }}" data-coordinates="@{{ lat }}-@{{ lng }}">
+            <a class="card-flat d-flex p-10 mb-10" href="{{ url('flats') }}/@{{ id }}" data-coordinates="@{{ lat }}-@{{ lng }}">
         @{{/if}}
-                <img class="card-row__img" src="{{ asset('storage') }}/@{{ image }}" alt="@{{ title }}">
+                <div class="card__img-wrapper">
+                    <img class="card__img" src="{{ asset('storage') }}/@{{ image }}" alt="@{{ title }}">
+                </div>
 
-                <div class="desc-card ml-10">
+                <div class="card__desc ml-10">
                     <h3 class="mb-10">@{{ title }}</h3>
-                    <p class="desc-card__address">@{{address}}</p>
+                    <p class="card__desc__address">@{{address}}</p>
                     @{{#if sponsored}}
-                    <p class="desc-card__sponsored">Sponsorizzato</p>
-                    <i class="fas fa-medal"></i>
+                    <p class="card__desc__sponsored">Sponsorizzato</p>
                     @{{/if}}
                 </div>
                 <div class="overlay">
-                    <div class="overlay-left">Visualizza dettagli</div>
-                    <div class="overlay-right"></div>
                 </div>
+                @{{#if sponsored}}
+                <i class="fas fa-medal"></i>
+                @{{/if}}
             </a>
     @{{/each}}
 </script>
