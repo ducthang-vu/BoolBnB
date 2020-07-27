@@ -20,7 +20,7 @@
             </div>
             <div class="formgroup distance-group">
                 <label class="text-center" for="distance">Distanza: <span class="distanceVal"></span> km</label>
-                <input class="slider" type="range" name="distance" id="distance" min="1" max="100" value="20">
+                <input class="slider" type="range" name="distance" id="distance" min="1" max="40" value="20">
             </div>
         </div>
         <div class="checkbox-services mt-15">

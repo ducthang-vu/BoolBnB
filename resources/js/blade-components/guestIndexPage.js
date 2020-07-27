@@ -19,12 +19,14 @@ function guestIndexPage(lat, lng) {
 
     // inserimento marker su mappa
     function populateMap(map) {
-        let cards = [...document.querySelectorAll(".card-row")];
+        let cards = [...document.querySelectorAll(".card-flat")];
         let cardsData = cards.map(card => {
             return {
                 cardElement: card,
-                img: card.querySelector(".card-row__img").getAttribute("src"),
-                address: card.querySelector(".desc-card__address").innerHTML,
+                img: card
+                    .querySelector(".card__img-wrapper > img")
+                    .getAttribute("src"),
+                address: card.querySelector(".card__desc__address").innerHTML,
                 linkShow: card.getAttribute("href"),
                 coordinates: card.getAttribute("data-coordinates")
             };

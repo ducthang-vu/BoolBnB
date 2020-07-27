@@ -57,7 +57,7 @@
                 </div>
             </section>
 
-            <div class="d-flex s-between align-center w-100">
+            <div class="d-flex s-center w-100">
                 <input id="nonce" name="payment_method_nonce" type="hidden" />
                 <button class="button btn-transaction mt-20 mb-20" type="submit"><span>Make transaction</span></button>
             </div>
