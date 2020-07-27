@@ -42,7 +42,7 @@
                     </div>
                 </div>
 
-                <div class="div-container-login-page pb-5 pt-10">
+                <div class="div-container-login-page">
                     <div class="div-login-page">
                         <div class="form-check-login-page">
                             <input class="form-check-input-login-page" type="checkbox" name="remember" id="remember"
@@ -57,13 +57,13 @@
 
                 <div class="div-container-login-page">
                     <div class="div-login-page">
-                        <button type="submit" class="btn-login-page mb-10">
+                        <button type="submit" class="btn-login-page mb-20">
                             {{ __('Login') }}
                         </button>
 
                         @if (Route::has('password.request'))
-                        <a class="btn-login-page" href="{{ route('password.request') }}">
-                            {{ __('Forgot Your Password?') }}
+                        <a class="btn-forgot-login-page" href="{{ route('password.request') }}">
+                            {{ __('Hai dimenticato la password?') }}
                         </a>
                         @endif
                     </div>

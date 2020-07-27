@@ -98,9 +98,21 @@
 .btn-login-page,
 .btn-register-page {
     @include bg_gradient;
+    display: block;
     text-decoration: none;
     padding: 10px 15px;
+    margin: 5px auto 0;
     font-weight: 600;
+    width: 80%;
+}
+
+.btn-forgot-login-page {
+    display: block;
+    text-decoration: none;
+    cursor: pointer;
+    color: $text;
+    font-size: 12px;
+    margin-top: 10px;
 }
 
 .logout-header-navbar {

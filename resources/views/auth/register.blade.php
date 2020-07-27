@@ -10,7 +10,7 @@
             <form method="POST" action="{{ route('register') }}">
                 @csrf
 
-                <div class="div-register-page pb-10 pt-20">
+                <div class="div-register-page pt-20">
                     <input id="name" type="text" class="form-control-register-page @error('name') is-invalid @enderror"
                         name="name" value="{{ old('name') }}" required autocomplete="name" placeholder="NAME" autofocus>
 
@@ -22,7 +22,7 @@
                 </div>
 
 
-                <div class="div-register-page pb-10">
+                <div class="div-register-page">
                     <input id="surname" type="text"
                         class="form-control-register-page @error('surname') is-invalid @enderror" name="surname"
                         value="{{ old('surname') }}" required autocomplete="surname" placeholder="SURNAME" autofocus>
@@ -35,7 +35,7 @@
                 </div>
 
 
-                <Div class="div-register-page pb-10">
+                <Div class="div-register-page">
                     <input id="date_of_birth" type="date"
                         class="form-control-register-page @error('date_of_birth') is-invalid @enderror"
                         name="date_of_birth" value="{{ old('date_of_birth') }}" required autocomplete="date_of_birth"
@@ -49,7 +49,7 @@
                 </div>
 
 
-                <div class="div-register-page pb-10">
+                <div class="div-register-page">
                     <input id="email" type="email"
                         class="form-control-register-page @error('email') is-invalid @enderror" name="email"
                         value="{{ old('email') }}" placeholder="E-MAIL" required autocomplete="email">
@@ -62,7 +62,7 @@
                 </div>
 
 
-                <div class="div-register-page pb-10">
+                <div class="div-register-page">
                     <input id="password" type="password"
                         class="form-control-register-page @error('password') is-invalid @enderror" name="password"
                         required autocomplete="new-password" placeholder="PASSWORD">
@@ -75,12 +75,12 @@
                 </div>
 
 
-                <div class="div-register-page pb-10">
+                <div class="div-register-page">
                     <input id="password-confirm" type="password" class="form-control" name="password_confirmation"
                         required autocomplete="new-password" placeholder="CONFIRM PASSWORD">
                 </div>
 
-                <div class="div-register-page pb-10">
+                <div class="div-register-page">
                     <button type="submit" class="btn-register-page">
                         {{ __('Registrati') }}
                     </button>

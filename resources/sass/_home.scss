@@ -1,4 +1,4 @@
-.section-home{
+.section-home {
     .pic-card {
         position: relative;
         padding-bottom: 40px;
@@ -7,7 +7,7 @@
             height: 350px;
         }
     }
-    .search-home{
+    .search-home {
         position: absolute;
         top: 50%;
         left: 50%;
@@ -15,10 +15,9 @@
         width: 330px;
     }
     .search-home__error {
-        flex-basis: 100%;
-        color: $red;
+        flex-basis: 50%;
+        color: white;
     }
-
 }
 
 @include mobile {
@@ -28,24 +27,23 @@
 }
 /* Tablets (tablets, 768px and up) */
 @include tablet {
-    .section-home{
-        .search-home{
+    .section-home {
+        .search-home {
             width: 50%;
         }
     }
-    
 }
 /* Desktops (desktops, 992px and up) */
 @include desktop {
-    .section-home{
+    .section-home {
         .pic-card {
             padding-bottom: 50px;
             img {
                 height: 500px;
             }
         }
-        form{
-            #address{
+        form {
+            #address {
                 width: 600px;
                 height: 50px;
                 font-size: 25px;

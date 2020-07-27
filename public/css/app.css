@@ -26,7 +26,7 @@ li {
 }
 
 .main-content {
-  max-width: 95%;
+  max-width: 1600px;
   margin: 0 auto;
   transform: translateY(50px);
   margin-bottom: 50px;
@@ -1358,6 +1358,8 @@ li {
     justify-content: space-between;
     align-items: center;
     vertical-align: middle;
+    max-width: 1700px;
+    margin: 0 auto;
   }
 
   .navbar-header-page .logo-header-page {
@@ -1422,13 +1424,20 @@ li {
   }
 }
 
-.main-footer {
+.footer-container {
   background: #f7f7f7;
   width: 100%;
   border-top: 1px solid #cac9c9;
+}
+
+.main-footer {
+  background: #f7f7f7;
+  width: 100%;
+  max-width: 1700px;
   color: #222222;
   font-weight: 500;
   padding: 20px;
+  margin: 0 auto;
 }
 
 .nav-footer {
@@ -1590,7 +1599,6 @@ li {
 .container-register .card-popup .card-header,
 .container-login .card-popup .card-header {
   justify-content: space-between;
-  padding: 0 auto 20px;
   border-bottom: 1px solid black;
   border-radius: 10px 10px 0 0;
   padding: 10px 15px;
@@ -1601,14 +1609,14 @@ li {
 
 .container-register .card-popup .card-body,
 .container-login .card-popup .card-body {
-  margin: 10px 0;
   padding: 10px 7px;
   text-align: center;
 }
 
 .container-register .card-popup .card-body input,
 .container-login .card-popup .card-body input {
-  margin: 5px 0;
+  border: 1px solid #e41d5c;
+  border-radius: 5px;
   padding: 5px;
   width: 80%;
 }
@@ -1618,12 +1626,18 @@ li {
   cursor: pointer;
 }
 
+.container-register .card-popup .card-body .div-container-login-page,
+.container-login .card-popup .card-body .div-container-login-page {
+  width: 100%;
+  margin: 5px 0 0;
+}
+
 .container-register .card-popup .card-body .div-register-page,
 .container-register .card-popup .card-body .div-login-page,
 .container-login .card-popup .card-body .div-register-page,
 .container-login .card-popup .card-body .div-login-page {
   flex-basis: 100%;
-  margin-bottom: 10px;
+  margin: 10px 0 7px;
 }
 
 .container-register .card-popup .card-body .div-register-page input[type=date i],
@@ -1640,6 +1654,11 @@ li {
   width: 100%;
   font-size: 70%;
   color: #e3342f;
+}
+
+.container-register .card-popup .card-body .label-login-page,
+.container-login .card-popup .card-body .label-login-page {
+  margin: 25px 0;
 }
 
 .container-register .card-popup .form-group,
@@ -1719,7 +1738,8 @@ li {
     z-index: 10;
   }
 
-  .container {
+  .container-login,
+  .container-register {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -1728,11 +1748,13 @@ li {
     height: 100%;
   }
 
-  .container .card {
+  .container-login .card,
+  .container-register .card {
     height: 100%;
   }
 
-  .container .card .card-header {
+  .container-login .card .card-header,
+  .container-register .card .card-header {
     justify-content: space-between;
     padding: 0 auto 20px;
     border-bottom: 1px solid black;
@@ -1742,28 +1764,38 @@ li {
     color: #ffffff;
   }
 
-  .container .card .card-body {
+  .container-login .card .card-body,
+  .container-register .card .card-body {
     margin: 10px 0;
     padding: 5px 7px;
     text-align: center;
   }
 
-  .container .card .card-body input {
+  .container-login .card .card-body input,
+  .container-register .card .card-body input {
     border-radius: 8px;
     padding: 5px;
     width: 80%;
   }
 
-  .container .card .card-body button {
+  .container-login .card .card-body button,
+  .container-register .card .card-body button {
     cursor: pointer;
   }
 
-  .container .card .form-group {
+  .container-login .card .form-group,
+  .container-register .card .form-group {
     margin: 10px 0;
   }
 }
 
 /* Desktops (desktops, 992px and up) */
+
+@media (min-width: 992px) {
+  .div-container-login-page {
+    width: 100%;
+  }
+}
 
 .button-home {
   background: linear-gradient(to right, #92174d 9.38%, #e41d5c 88.54%);
@@ -1882,9 +1914,21 @@ li {
   font-weight: 500;
   border-radius: 5px;
   border: 1px solid transparent;
+  display: block;
   text-decoration: none;
   padding: 10px 15px;
+  margin: 5px auto 0;
   font-weight: 600;
+  width: 80%;
+}
+
+.btn-forgot-login-page {
+  display: block;
+  text-decoration: none;
+  cursor: pointer;
+  color: #222222;
+  font-size: 12px;
+  margin-top: 10px;
 }
 
 .logout-header-navbar {
@@ -2167,8 +2211,8 @@ li {
 }
 
 .section-home .search-home__error {
-  flex-basis: 100%;
-  color: #e3342f;
+  flex-basis: 50%;
+  color: white;
 }
 
 @media (min-width: 576px) {
@@ -2884,12 +2928,17 @@ form #address {
   flex-basis: 100%;
 }
 
+.formAlgoliaIndex-page .row .inputAlgolia-page {
+  width: 100%;
+}
+
 .formAlgoliaIndex-page .search-index__error {
   color: #e3342f;
   flex-basis: 100%;
 }
 
 .formAlgoliaIndex-page .btn-filter {
+  outline: none;
   flex-basis: 100%;
 }
 
@@ -2909,13 +2958,47 @@ form #address {
 }
 
 .formAlgoliaIndex-page .animation--service.animation--service--open {
-  height: 200px;
+  height: 280px;
   padding: 10px;
 }
 
 .formAlgoliaIndex-page .animation--service .search-services {
   display: flex;
   flex-direction: column;
+}
+
+.formAlgoliaIndex-page .animation--service .search-services .distance-group label {
+  width: 100%;
+}
+
+.formAlgoliaIndex-page .animation--service .search-services .distance-group .slider {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  width: 100%;
+  height: 5px;
+  border-radius: 5px;
+  outline: none;
+}
+
+.formAlgoliaIndex-page .animation--service .search-services .distance-group .slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+          appearance: none;
+  height: 15px;
+  width: 15px;
+  border: 1px solid lightgray;
+  border-radius: 50%;
+  background: white;
+}
+
+.formAlgoliaIndex-page .animation--service .search-services .distance-group .slider::-moz-range-thumb {
+  -moz-appearance: none;
+       appearance: none;
+  height: 15px;
+  width: 15px;
+  border: 1px solid lightgray;
+  border-radius: 50%;
+  background: white;
 }
 
 .formAlgoliaIndex-page .animation--service .search-services label {
@@ -2954,7 +3037,18 @@ form #address {
   }
 }
 
+@media (min-width: 768px) {
+  .formAlgoliaIndex-page .row {
+    flex-basis: 50%;
+  }
+}
+
 @media (min-width: 992px) {
+  .formAlgoliaIndex-page .row #address {
+    width: 100%;
+    max-width: 100%;
+  }
+
   .formAlgoliaIndex-page .animation--service {
     padding-left: 30px;
     padding-right: 30px;
@@ -2963,6 +3057,7 @@ form #address {
   }
 
   .formAlgoliaIndex-page .animation--service.animation--service--open {
+    height: 220px;
     padding: 30px;
   }
 
@@ -3365,7 +3460,7 @@ form #address {
   transform: translate(-50%, calc(-50% + 50px));
   text-align: center;
   background-color: #38c172;
-  width: 100vw;
+  width: 99vw;
   display: flex;
   justify-content: center;
   align-items: center;

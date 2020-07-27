@@ -6,6 +6,9 @@
         display: flex;
         justify-content: center;
         flex-basis: 100%;
+        .inputAlgolia-page {
+            width: 100%;
+        }
     }
     .search-index__error {
         color: $red;
@@ -13,6 +16,7 @@
     }
 
     .btn-filter {
+        outline: none;
         flex-basis: 100%;
     }
     .animation--service {
@@ -33,12 +37,40 @@
         flex-basis: 100%;
         transition: all 1s cubic-bezier(0.215, 0.61, 0.355, 1);
         &.animation--service--open {
-            height: 200px;
+            height: 280px;
             padding: 10px;
         }
         .search-services {
             display: flex;
             flex-direction: column;
+            .distance-group {
+                label {
+                    width: 100%;
+                }
+                .slider {
+                    appearance: none;
+                    width: 100%;
+                    height: 5px;
+                    border-radius: 5px;
+                    outline: none;
+                    &::-webkit-slider-thumb {
+                        appearance: none;
+                        height: 15px;
+                        width: 15px;
+                        border: 1px solid lightgray;
+                        border-radius: 50%;
+                        background: white;
+                    }
+                    &::-moz-range-thumb {
+                        appearance: none;
+                        height: 15px;
+                        width: 15px;
+                        border: 1px solid lightgray;
+                        border-radius: 50%;
+                        background: white;
+                    }
+                }
+            }
             label {
                 display: inline-block;
                 font-weight: 500;
@@ -76,20 +108,29 @@
     }
 }
 
-// @include tablet {
-//     .formAlgoliaIndex-page {
-
-//     }
-// }
+@include tablet {
+    .formAlgoliaIndex-page {
+        .row {
+            flex-basis: 50%;
+        }
+    }
+}
 
 @include desktop {
     .formAlgoliaIndex-page {
+        .row {
+            #address {
+                width: 100%;
+                max-width: 100%;
+            }
+        }
         .animation--service {
             padding-left: 30px;
             padding-right: 30px;
             flex-basis: 60%;
             border-radius: 15px;
             &.animation--service--open {
+                height: 220px;
                 padding: 30px;
             }
             .search-services {
