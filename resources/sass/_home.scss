@@ -18,10 +18,15 @@
         flex-basis: 50%;
         color: white;
     }
+    h1 {
+        font-weight: 500;
+        font-size: 3rem;
+        @include text_gradient;
+    }
 }
 
 @include mobile {
-    .search-home{
+    .search-home {
         width: 100%;
     }
 }
@@ -56,8 +61,8 @@
 }
 /* Large desktops (large desktops, 1200px and up) */
 @include large-desktop {
-    .section-home{
-        .search-home{
+    .section-home {
+        .search-home {
             width: 500px;
         }
     }
