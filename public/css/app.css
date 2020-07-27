@@ -26,7 +26,7 @@ li {
 }
 
 .main-content {
-  max-width: 95%;
+  max-width: 1600px;
   margin: 0 auto;
   transform: translateY(50px);
   margin-bottom: 50px;
@@ -1358,6 +1358,8 @@ li {
     justify-content: space-between;
     align-items: center;
     vertical-align: middle;
+    max-width: 1700px;
+    margin: 0 auto;
   }
 
   .navbar-header-page .logo-header-page {
@@ -1422,13 +1424,20 @@ li {
   }
 }
 
-.main-footer {
+.footer-container {
   background: #f7f7f7;
   width: 100%;
   border-top: 1px solid #cac9c9;
+}
+
+.main-footer {
+  background: #f7f7f7;
+  width: 100%;
+  max-width: 1700px;
   color: #222222;
   font-weight: 500;
   padding: 20px;
+  margin: 0 auto;
 }
 
 .nav-footer {
@@ -1881,9 +1890,20 @@ li {
   font-weight: 500;
   border-radius: 5px;
   border: 1px solid transparent;
+  display: block;
   text-decoration: none;
   padding: 10px 15px;
+  margin: 0 auto;
   font-weight: 600;
+  width: 80%;
+}
+
+.btn-forgot-login-page {
+  display: block;
+  text-decoration: none;
+  cursor: pointer;
+  color: #222222;
+  font-size: 12px;
 }
 
 .logout-header-navbar {

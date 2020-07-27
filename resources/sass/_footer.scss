@@ -1,11 +1,17 @@
 //FOOTER
-.main-footer {
+.footer-container {
     background: $footerbg;
     width: 100%;
     border-top: 1px solid #cac9c9;
+}
+.main-footer {
+    background: $footerbg;
+    width: 100%;
+    max-width: 1700px;
     color: $text;
     font-weight: 500;
     padding: 20px;
+    margin: 0 auto;
 }
 .nav-footer {
     display: flex;
