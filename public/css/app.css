@@ -2161,8 +2161,8 @@ li {
 }
 
 .section-home .search-home__error {
-  flex-basis: 100%;
-  color: #e3342f;
+  flex-basis: 50%;
+  color: white;
 }
 
 /* Tablets (tablets, 768px and up) */
@@ -3312,7 +3312,7 @@ form #address {
   transform: translate(-50%, calc(-50% + 50px));
   text-align: center;
   background-color: #38c172;
-  width: 100vw;
+  width: 99vw;
   display: flex;
   justify-content: center;
   align-items: center;
