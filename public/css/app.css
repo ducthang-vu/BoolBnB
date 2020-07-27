@@ -1975,6 +1975,7 @@ li {
   text-decoration: none;
   color: #000;
   margin: 20px 10px;
+  transition: transform 0.5s;
 }
 
 .sponsorship-card .card img,
@@ -1984,6 +1985,11 @@ li {
   border-top-left-radius: 16px;
   border-top-right-radius: 16px;
   max-height: 230px;
+}
+
+.sponsorship-card .card:hover,
+.card-home_profile .card:hover {
+  transform: translateY(-10px);
 }
 
 .sponsorship-card .text-card,
@@ -2006,7 +2012,7 @@ li {
 
 @media (min-width: 768px) {
   .sponsorship-card .card {
-    flex-basis: calc((100% / 2 ) - 20px);
+    flex-basis: calc((100% / 2) - 20px);
     margin: 0 20px 20px 0;
   }
 
@@ -2025,7 +2031,7 @@ li {
 
 @media (min-width: 1200px) {
   .sponsorship-card .card {
-    flex-basis: calc((100% / 3 ) - 20px);
+    flex-basis: calc((100% / 3) - 20px);
   }
 
   .sponsorship-card .card:nth-of-type(2n) {
@@ -2311,6 +2317,14 @@ li {
   color: white;
 }
 
+.section-home h1 {
+  font-weight: 500;
+  font-size: 3rem;
+  background: linear-gradient(to right, #92174d 9.38%, #e41d5c 88.54%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 @media (min-width: 576px) {
   .search-home {
     width: 100%;
@@ -2426,11 +2440,14 @@ li {
 /* Desktops (desktops, 992px and up) */
 
 @media (min-width: 992px) {
-  .info-admin {
+  .section-home-admin .info_card_admin {
+    overflow: hidden;
+  }
+
+  .section-home-admin .info_card_admin .info-admin {
     position: -webkit-sticky;
     position: sticky;
-    top: 20px;
-    left: 0;
+    top: 0;
   }
 }
 

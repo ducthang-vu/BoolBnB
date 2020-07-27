@@ -75,6 +75,9 @@ class SponsorshipController extends Controller
         if ($flat->hasActiveSponsorship()) {
             return redirect()->route('admin.sponsorships.index')->withErrors('Appartamento già sponsorizzato');
         }
+        if (!$flat->is_active) {
+            return redirect()->route('admin.flats.show', $flat->id)->withErrors('Il tuo appartamento non è visibile nelle ricerche');
+        }
 
         $sponsorships = Sponsorship::all()->sortByDesc('price');
         $gateway = $this->newBrainreeGateway();

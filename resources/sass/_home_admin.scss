@@ -1,11 +1,11 @@
-.section-home-admin{
+.section-home-admin {
     padding: 0 5px;
-    .title-flts{
+    .title-flts {
         padding-bottom: 20px;
-        h1{
+        h1 {
             font-size: 25px;
         }
-        .btn-add{
+        .btn-add {
             padding: 20px;
             display: flex;
             align-items: center;
@@ -13,19 +13,19 @@
     }
     .info_card_admin {
         flex-direction: column;
-        .info-admin{
+        .info-admin {
             width: 100%;
-            .up_text{
+            .up_text {
                 font-size: 20px;
                 font-weight: 500;
             }
-            p{
+            p {
                 font-size: 18px;
                 color: #333;
             }
         }
     }
-    .card-home_profile{
+    .card-home_profile {
         .text-card {
             height: auto;
         }
@@ -34,41 +34,42 @@
 
 /* Tablets (tablets, 768px and up) */
 @include tablet {
-    .section-home-admin{
-        .info_card_admin{
+    .section-home-admin {
+        .info_card_admin {
             flex-direction: row;
-            .info-admin{
+            .info-admin {
                 width: 100%;
-                .up_text{
+                .up_text {
                     font-size: 20px;
                     font-weight: 500;
                 }
-                p{
+                p {
                     font-size: 18px;
                     color: #333;
                 }
-                .card-home_profile{
-                    .card{
+                .card-home_profile {
+                    .card {
                         flex-basis: 100%;
                         margin: 0;
                         margin-bottom: 15px;
                     }
                 }
             }
-    	}
+        }
     }
-    
 }
 /* Desktops (desktops, 992px and up) */
 @include desktop {
-    .info-admin{
-        position: -webkit-sticky;
-        position: sticky;
-        top: 20px;
-        left: 0;
+    .section-home-admin {
+        .info_card_admin {
+            overflow: hidden;
+            .info-admin {
+                position: sticky;
+                top: 0;
+            }
+        }
     }
 }
 /* Large desktops (large desktops, 1200px and up) */
 @include large-desktop {
-    
 }
