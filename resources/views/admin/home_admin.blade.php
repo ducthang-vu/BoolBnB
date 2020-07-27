@@ -25,29 +25,50 @@
 
     <div class="title-flts d-flex s-between align-center">
         <h1 class="mt-20 mb-20">
-            Benvenuto {{Auth::user()->surname}} {{Auth::user()->name}}, questi sono i tuoi appartamenti
+            Benvenuto {{Auth::user()->name}} {{Auth::user()->surname}}
         </h1>
         <a class="btn btn-add" href="{{ route('admin.flats.create') }}"><i class="fas fa-plus"></i></a>
     </div>
-    @if($flats->count())
-    @foreach($flats as $flat)
-    <a class="card-row d-flex mb-10 @unless ($flat->is_active) opacity-05 @endunless"
-        href="{{ route('admin.flats.show' , $flat->id) }}">
-        <div class="image">
-            <img src="{{ asset('storage/' . $flat->image ) }}" alt="{{$flat -> title}}">
+    
+    <div class="info_card_admin d-flex">
+        <div class="info-admin">
+                <h3 class="mb-20">I tuoi dati</h3>
+                <p class="mb-5 up_text">Nome compleato:</p>
+                <p class="mb-20">{{Auth::user()->name}} {{Auth::user()->surname}}</p>
+                <p class="mb-5 up_text">Email:</p>
+                <p class="mb-20">{{Auth::user()->email}}</p>
+                <p class="mb-5 up_text">Data di nascita:</p>
+                <p class="mb-20">{{Auth::user()->date_of_birth}}</p>
+                <p class="mb-5 up_text">Inscritto dal: </p>
+                <p class="mb-20">{{Auth::user()->created_at}}</p>
+            </ul>
         </div>
-        <div class="desc-card ml-10">
-            <h3 class="text-red mb-10 @if ($flat->is_active) no-display @endif">Attualmente non visibile nelle ricerche
-                pubbliche</h3>
-            <h2 class="mb-10">{{$flat->title}}</h2>
 
-            <p>{{$flat->description}}</p>
+        <div class="card-home_profile df-column align-center">
+            <h3 class="mb-10">I tuoi appartamenti</h3>
+            @if($flats->count())
+            @foreach($flats as $flat)
+    
+            <a class="card @unless ($flat->is_active) opacity-05 @endunless" href="{{ route('admin.flats.show' , $flat->id) }}">
+                <div class="image-card">
+                    <img src="{{ asset('storage/' . $flat->image ) }}" alt="{{$flat -> title}}">
+                </div>
+    
+                <div class="text-card">
+                    <h3 class="text-red mb-10 @if ($flat->is_active) no-display @endif">Attualmente non visibile nelle ricerche
+                        pubbliche</h3>
+                    <h3 class="mb-10 mt-10">{{$flat->title}}</h3>
+                    <p>Creato il: {{$flat->created_at}}</p>
+                    <p class="mb-5">Ultima modifica: {{$flat->updated_at}}</p>
+                </div>
+            </a>
+            @endforeach
+            @else
+            <h2>Inserisci un primo appartamento</h2> <a href="">Inserisci</a>
+            @endif
         </div>
-    </a>
-    @endforeach
-    @else
-    <h2>Inserisci un primo appartamento</h2> <a href="">Inserisci</a>
-    @endif
+
+    </div>
     <div class="link-paginate">
         {{ $flats->links() }}
     </div>

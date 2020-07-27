@@ -22,6 +22,10 @@
             6px 6px 10px rgba(0, 0, 0, 0.2);
     }
     cursor: pointer;
+    &:active,
+    &:focus {
+        outline: none;
+    }
 }
 
 .btn-spons {
@@ -35,9 +39,6 @@
 .btn-delete {
     color: $red;
     cursor: pointer;
-    &:active {
-        border: 0;
-    }
 }
 
 .btn-add,

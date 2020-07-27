@@ -3,14 +3,14 @@
 @section('page-content')
     <div class="section-home">
         <div class="pic-card d-flex s-center">
-            <img src="https://i.ibb.co/64Pxb9p/maxresdefault.jpg" alt="maxresdefault">
+            <img src="https://i.ibb.co/ngcWP51/architecture-1867187.jpg" alt="maxresdefault">
             @include('shared.components.formAlgoliaHome')
         </div>
 
         <div class="sponsorship-card d-flex s-center">
             @foreach($sponsoredFlats as $sponsoredFlat)
                 <a class="card" href="{{ route('flats.show' , $sponsoredFlat->id) }}">
-                    <div class="image-dev">
+                    <div class="image-card">
                         <img src="{{ asset('storage/' . $sponsoredFlat->image ) }}" alt="{{$sponsoredFlat->title}}">
                     </div>
 
