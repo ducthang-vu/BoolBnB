@@ -7,7 +7,7 @@
                 <canvas :id="id" class="chart-canvas mt-10 mb-10" height="250"></canvas>
             </div>
         </template>
-        <h3 v-else class="intermittent">Fetching data...</h3>
+        <h3 v-else class="intermittent mt-15">Fetching data...</h3>
     </div>
 </template>
 

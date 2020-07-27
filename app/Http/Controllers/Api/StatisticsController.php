@@ -15,7 +15,7 @@ class StatisticsController extends Controller
         $months_array = Array_map(function($date) {
                 return $date->year . ' - ' . $date->shortEnglishMonth;
             },
-            CarbonPeriod::create($start, '1 month',  Carbon::today())->toArray());
+            CarbonPeriod::create($start->subDay(), '1 month',  Carbon::today())->toArray());
         return collect(Array_fill_keys($months_array , 0));
     }
 
