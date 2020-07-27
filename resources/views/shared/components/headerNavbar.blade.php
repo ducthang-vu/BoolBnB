@@ -3,6 +3,11 @@
     @auth
     <ul>
         <li>
+            <a @if(preg_match( '/^(home|flats.index)$/', Route::currentRouteName() ))class="active" @endif
+                href="{{ route('home') }}">Esplora
+            </a>
+        </li>
+        <li>
             <a @if(preg_match( '/^admin.(home|flats.(show|edit)|sponsorships.create|statistics)$/', Route::currentRouteName() ))class="active" @endif
                 href="{{ route('admin.home') }}">Profilo
             </a>
@@ -39,8 +44,8 @@
     </ul>
     @else
     <ul>
-        <li><a href="{{route ('wip')}}">Diventa un host</a></li>
-        <li><a href="{{route ('wip')}}">Assistenza</a></li>
+        <li><a href="{{route('wip')}}">Diventa un host</a></li>
+        <li><a href="{{route('wip')}}">Assistenza</a></li>
         <li>
             <button id="login-button-headerNavbar-page" onclick="showPopUpLogin()">Accedi</button>
         </li>

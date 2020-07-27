@@ -36,11 +36,11 @@ Route::prefix('admin')
         Route::resource('sponsorships', 'SponsorshipController')->only(['index', 'create', 'store']);
     });
 
-Route::get('/dev', function() {
-    return view('welcome');
-});
-
 Route::get('/wip', function() {
     return view('workinprogress');
 })->name('wip');
+
+Route::get('/dev', function() {
+    return view('welcome');
+});
 

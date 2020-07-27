@@ -33,7 +33,7 @@
                 <li>
                     <a
                         @if (Route::currentRouteNamed('assistance')) class="active" @endif
-                        href=""
+                        href="{{route ('wip')}}"
                     >Assistenza
                     </a>
                 </li>
