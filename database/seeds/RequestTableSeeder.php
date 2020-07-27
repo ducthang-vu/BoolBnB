@@ -14,7 +14,7 @@ class RequestTableSeeder extends Seeder
      */
     public function run(Faker $faker)
     {
-        for ($i=0; $i < 2000; $i++) {
+        for ($i=0; $i < 4000; $i++) {
             $newRequest = new Request();
 
             $newRequest->flat_id = Flat::all()->random()->id;
