@@ -4,13 +4,13 @@
             <div class="footer-column mb-10">
                 <div class="footer-title">INFORMAZIONI</div>
                 <ul>
-                    <li><a href="">Come funziona Boolbnb</a></li>
-                    <li><a href="">Diversità e appartenenza</a></li>
-                    <li><a href="">Accessibilità</a></li>
-                    <li><a href="">Affidabilità e sicurezza</a></li>
-                    <li><a href="">Boolbnb Citizen</a></li>
-                    <li><a href="">Olimpiadi</a></li>
-                    <li><a href="">Newsroom</a></li>
+                    <li><a href="{{route ('wip')}}">Come funziona Boolbnb</a></li>
+                    <li><a href="{{route ('wip')}}">Diversità e appartenenza</a></li>
+                    <li><a href="{{route ('wip')}}">Accessibilità</a></li>
+                    <li><a href="{{route ('wip')}}">Affidabilità e sicurezza</a></li>
+                    <li><a href="{{route ('wip')}}">Boolbnb Citizen</a></li>
+                    <li><a href="{{route ('wip')}}">Olimpiadi</a></li>
+                    <li><a href="{{route ('wip')}}">Newsroom</a></li>
                 </ul>
             </div>
             <div class="footer-column mb-20">

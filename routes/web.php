@@ -39,3 +39,8 @@ Route::prefix('admin')
 Route::get('/dev', function() {
     return view('welcome');
 });
+
+Route::get('/wip', function() {
+    return view('workinprogress');
+})->name('wip');
+
