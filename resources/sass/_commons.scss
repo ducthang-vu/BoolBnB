@@ -1,0 +1,216 @@
+// General Settings
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    height: 100vh;
+    flex-direction: column;
+    font-family: "Montserrat", sans-serif;
+}
+
+button,
+a {
+    cursor: pointer;
+    text-decoration: none;
+}
+
+main {
+    flex-grow: 1;
+}
+
+li {
+    list-style: none;
+}
+
+.main-content {
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 20px;
+    transform: translateY(50px);
+    margin-bottom: 50px;
+}
+
+// Margins and Paddings
+@for $i from 1 through 10 {
+    .m-#{$i * 5} {
+        margin: 5px * $i;
+    }
+}
+
+@for $i from 1 through 10 {
+    .mt-#{$i * 5} {
+        margin-top: 5px * $i;
+    }
+}
+
+@for $i from 1 through 10 {
+    .mb-#{$i * 5} {
+        margin-bottom: 5px * $i;
+    }
+}
+
+@for $i from 1 through 10 {
+    .mr-#{$i * 5} {
+        margin-right: 5px * $i;
+    }
+}
+
+@for $i from 1 through 10 {
+    .ml-#{$i * 5} {
+        margin-left: 5px * $i;
+    }
+}
+
+@for $i from 1 through 10 {
+    .p-#{$i * 5} {
+        padding: 5px * $i;
+    }
+}
+
+@for $i from 1 through 10 {
+    .pt-#{$i * 5} {
+        padding-top: 5px * $i;
+    }
+}
+
+@for $i from 1 through 10 {
+    .pb-#{$i * 5} {
+        padding-bottom: 5px * $i;
+    }
+}
+
+@for $i from 1 through 10 {
+    .pr-#{$i * 5} {
+        padding-right: 5px * $i;
+    }
+}
+
+@for $i from 1 through 10 {
+    .pl-#{$i * 5} {
+        padding-left: 5px * $i;
+    }
+}
+
+// text
+.text-center {
+    text-align: center;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.text-left {
+    text-align: left;
+}
+
+@for $i from 50 through 200 {
+    .l-height-#{$i} {
+        line-height: $i * 1%;
+    }
+}
+.weight-500 {
+    font-weight: 500;
+}
+
+// Display
+.w-100 {
+    width: 100%;
+}
+
+.inline {
+    display: inline;
+}
+
+.in-block {
+    display: inline-block;
+}
+
+.block {
+    display: block;
+}
+
+.no-display {
+    display: none;
+}
+
+.no-visibility {
+    visibility: hidden;
+}
+
+.relative {
+    position: relative;
+}
+
+// Flex
+.d-flex {
+    display: flex;
+}
+
+.df-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.d-in-flex {
+    display: inline-flex;
+}
+
+.s-between {
+    justify-content: space-between;
+}
+
+.s-around {
+    justify-content: space-around;
+}
+
+.s-center {
+    justify-content: center;
+}
+
+.align-center {
+    align-items: center;
+}
+
+// Buttons
+
+.li-button {
+    border: 0.5px solid #cac9c9;
+    border-radius: 18px;
+    padding: 10px;
+    box-shadow: -1px 1px 1px 0px #cac9c9;
+}
+
+// text color
+.text-red {
+    color: red;
+}
+
+.radius-5 {
+    border-radius: 5px;
+}
+.bg-gray {
+    background: rgb(233, 232, 232);
+}
+.opacity-05 {
+    opacity: 0.5;
+}
+
+.btn-link {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid $bg_airbnb;
+    background: #fff;
+    text-decoration: none;
+    color: $text;
+    border-radius: 5px;
+    font-family: "Montserrat";
+    font-size: 16px;
+    &:hover {
+        background-color: lightgray;
+    }
+}

@@ -1,0 +1,136 @@
+// Body
+$body-bg: #f8fafc;
+
+// Typography
+$font-family-sans-serif: "Nunito", sans-serif;
+$font-size-base: 0.9rem;
+$line-height-base: 1.6;
+
+// Colors
+$blue: #3490dc;
+$indigo: #6574cd;
+$purple: #9561e2;
+$pink: #f66d9b;
+$red: #e3342f;
+$orange: #f6993f;
+$yellow: #ffed4a;
+$green: #38c172;
+$teal: #4dc0b5;
+$cyan: #6cb2eb;
+//colors airbnb
+$black: #000;
+$white: #ffffff;
+$footerbg: #f7f7f7;
+$tablebg: #f6f6f6b9;
+$text: #222222;
+$bg_airbnb: rgb(228, 29, 92);
+$black_rgba_opacity: rgba(0, 0, 0, 0.5);
+$tr_hover: #cec9c9;
+
+@mixin text_gradient {
+    background: linear-gradient(
+        to right,
+        rgb(146, 23, 77) 9.38%,
+        rgb(228, 29, 92) 88.54%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+@mixin bg_gradient {
+    background: linear-gradient(
+        to right,
+        rgb(146, 23, 77) 9.38%,
+        rgb(228, 29, 92) 88.54%
+    );
+    color: $white;
+    font-size: 13px;
+    font-weight: 500;
+    border-radius: 5px;
+    border: 1px solid transparent;
+}
+@mixin bg_gradient_2 {
+    background: linear-gradient(
+        to right,
+        rgb(192, 19, 94) 9.38%,
+        rgb(243, 29, 97) 88.54%
+    );
+    color: $white;
+    font-size: 13px;
+    font-weight: 500;
+    border-radius: 5px;
+    border: 1px solid transparent;
+}
+
+@mixin bg_hambuger_menu {
+    background: rgba(255, 255, 255, 1);
+    background: -moz-linear-gradient(
+        top,
+        rgba(255, 255, 255, 1) 0%,
+        rgba(255, 255, 255, 1) 38%,
+        rgba(246, 246, 246, 1) 77%,
+        rgba(237, 237, 237, 1) 100%
+    );
+    background: -webkit-gradient(
+        left top,
+        left bottom,
+        color-stop(0%, rgba(255, 255, 255, 1)),
+        color-stop(38%, rgba(255, 255, 255, 1)),
+        color-stop(77%, rgba(246, 246, 246, 1)),
+        color-stop(100%, rgba(237, 237, 237, 1))
+    );
+    background: -webkit-linear-gradient(
+        top,
+        rgba(255, 255, 255, 1) 0%,
+        rgba(255, 255, 255, 1) 38%,
+        rgba(246, 246, 246, 1) 77%,
+        rgba(237, 237, 237, 1) 100%
+    );
+    background: -o-linear-gradient(
+        top,
+        rgba(255, 255, 255, 1) 0%,
+        rgba(255, 255, 255, 1) 38%,
+        rgba(246, 246, 246, 1) 77%,
+        rgba(237, 237, 237, 1) 100%
+    );
+    background: -ms-linear-gradient(
+        top,
+        rgba(255, 255, 255, 1) 0%,
+        rgba(255, 255, 255, 1) 38%,
+        rgba(246, 246, 246, 1) 77%,
+        rgba(237, 237, 237, 1) 100%
+    );
+    background: linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 1) 0%,
+        rgba(255, 255, 255, 1) 38%,
+        rgba(246, 246, 246, 1) 77%,
+        rgba(237, 237, 237, 1) 100%
+    );
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ededed', GradientType=0 );
+}
+
+@mixin bg_gradient_even {
+    background: $tablebg;
+    color: $text;
+    font-size: 13px;
+    font-weight: 500;
+    border-radius: 5px;
+    border: 1px solid transparent;
+}
+
+@mixin button-serach-home($width: 70px) {
+    background: linear-gradient(
+        to right,
+        rgb(146, 23, 77) 9.38%,
+        rgb(228, 29, 92) 88.54%
+    );
+    color: $white;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 5px;
+    border: 1px solid transparent;
+    height: 50px;
+    width: $width;
+}

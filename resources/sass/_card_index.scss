@@ -1,0 +1,25 @@
+.search-cards {
+    flex-wrap: wrap;
+    height: 100vh;
+    overflow: auto;
+}
+
+@include mobile {
+
+}
+    
+/* Tablets (tablets, 768px and up) */
+@include tablet {
+    
+}
+/* Desktops (desktops, 992px and up) */
+@include desktop {
+    .search-cards {
+        margin-right: 10px;
+    }
+    
+}
+/* Large desktops (large desktops, 1200px and up) */
+@include large-desktop {
+    
+}

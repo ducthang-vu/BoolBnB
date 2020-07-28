@@ -1,0 +1,109 @@
+.form {
+    background: #fafafa;
+    padding: 30px;
+    box-shadow: 1px 1px 25px rgba(0, 0, 0, 0.35);
+    border-radius: 10px;
+    border: 6px solid $bg_airbnb;
+}
+.form ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    max-width: 100%;
+    .algolia-places {
+        width: 100%;
+        .ap-input {
+            max-width: 100%;
+        }
+    }
+}
+.form ul li {
+    margin-bottom: 10px;
+    min-height: 35px;
+}
+.form ul li .field-style {
+    padding: 8px;
+    outline: none;
+    border: 1px solid $bg_airbnb;
+    transition: all 0.3s ease-in-out;
+}
+.form ul li .field-style:focus {
+    box-shadow: 0 0 5px $bg_airbnb;
+    border: 1px solid $bg_airbnb;
+}
+.form ul li .field-split {
+    width: 49%;
+}
+.form ul li .field-full {
+    width: 100%;
+}
+.form ul li input.align-left {
+    float: left;
+}
+.form ul li input.align-right {
+    float: right;
+}
+.form ul li textarea {
+    width: 100%;
+    height: 100px;
+}
+.form ul li input[type="button"],
+.form ul li input[type="submit"] {
+    @include button-serach-home(100%);
+}
+.form ul li input[type="button"]:hover,
+.form ul li input[type="submit"]:hover {
+    background: $bg_airbnb;
+    background-color: $bg_airbnb;
+}
+.radio-input {
+    display: flex;
+    flex-direction: column;
+    // justify-content: space-between;
+    align-items: center;
+    .radio {
+        opacity: 0;
+        position: absolute;
+    }
+    .radio-label-form {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        width: 300px;
+        flex-basis: 45%;
+        padding: 10px;
+        margin-bottom: 5px;
+        text-align: center;
+        border: 1px solid $bg_airbnb;
+        font-size: 13px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    .radio:checked + .radio-label-form {
+        background: rgb(43, 158, 43);
+    }
+}
+
+textarea,
+textarea::placeholder,
+input::placeholder {
+    font-family: "Montserrat", sans-serif;
+}
+
+@include tablet {
+    .form {
+        #address {
+            width: 100%;
+            max-width: 100%;
+        }
+        .btn-search {
+            margin-left: 0;
+        }
+    }
+}
+
+@include desktop {
+    .form {
+        max-width: 100%;
+    }
+}

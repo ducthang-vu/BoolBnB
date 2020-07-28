@@ -1,0 +1,45 @@
+form{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    #address{
+        max-width: 400px;
+        height: 45px;
+        font-size: 16px;
+        border-radius: 5px;
+        border : 1px solid #ccc;
+        padding: 10px;
+    }
+}
+.btn-search {
+    @include button-serach-home;
+    margin-left: 10px;
+    height: 40px;
+}
+
+@include mobile {
+    
+}
+/* Tablets (tablets, 768px and up) */
+@include tablet {
+    
+}
+/* Desktops (desktops, 992px and up) */
+@include desktop {
+    
+}
+/* Large desktops (large desktops, 1200px and up) */
+@include large-desktop {
+    form{
+        #address{
+            width: 600px;
+            height: 50px;
+            font-size: 25px;
+        }
+        .btn-search {
+            height: 45px;
+        }
+    }
+    
+}

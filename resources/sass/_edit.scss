@@ -1,0 +1,97 @@
+.edit-form{
+    padding: 0 5px;
+    label{
+        font-weight: 600;
+        margin-bottom: 5px;
+    }
+    input,
+    textarea{
+        width: 300px;
+        margin-bottom: 10px;
+        border: none;
+        border-bottom: 1px solid #ccc;
+        padding: 5px;
+        font-size: 18px;
+
+    }
+    .desc-two{
+        label{
+            width: 90px;
+        }
+        input{
+            width: 60px;
+            margin-bottom: 20px;
+            margin-right: 10px;
+        }
+        margin-bottom: 20px;
+    }
+    .services{
+        label{
+            font-weight: 600;
+        }
+    }
+}
+
+
+@include mobile {
+    
+}
+/* Tablets (tablets, 768px and up) */
+@include tablet {
+    .edit-form{
+        .desc-two{
+            label{
+                width: 170px;
+            }
+            input{
+                width: 80px;
+                margin-bottom: 20px;
+                margin-right: 10px;
+            }
+        }
+    }
+    
+}
+/* Desktops (desktops, 992px and up) */
+@include desktop {
+    .edit-form{
+        label{
+        margin-bottom: 5px;
+        }
+        input,
+        textarea{
+            width: 500px;
+            margin-bottom: 30px;
+        }
+        .edit-description{
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            .desc-two{
+                input{
+                    width: 130px;
+                }
+            }
+        }
+        .services{
+            padding: 20px 0;
+            flex-direction: row;
+            label{
+                font-weight: 600;
+            }
+            input{
+                width: 80px;
+                margin-bottom: 0px;
+                border: none;
+                border-bottom: 1px solid #ccc;
+                padding: 0px;
+                font-size: 18px;
+            }
+        }
+    }
+}
+/* Large desktops (large desktops, 1200px and up) */
+@include large-desktop {
+    
+}

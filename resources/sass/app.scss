@@ -1,1 +1,55 @@
-//
+// Fonts
+@import url("https://fonts.googleapis.com/css?family=Nunito");
+
+// Variables
+@import "variables";
+
+// Utilities
+@import "commons";
+@import "responsive_util";
+@import "header";
+@import "footer";
+@import "popups";
+@import "button";
+@import "lostPassword";
+
+// Card
+@import "card";
+@import "card_row";
+@import "card_index";
+@import "card-flat";
+
+// home page style
+@import "home";
+@import "home_admin";
+
+// show page styles
+// @import "show";
+@import "cardFlatShow";
+
+// edit & show page styles
+@import "edit";
+
+@import "form";
+@import "search-form";
+@import "search_index";
+@import "formAlgoliaApi";
+@import "createSponsorship";
+@import "adminSponsorshipsIndex";
+@import "requestsIndex";
+@import "adminFlatsShow";
+@import "flatPagesHeader";
+
+// flash sessions animation
+@import "flashSessionAnimation";
+
+// error pages
+@import "errors";
+
+// Bootstrap
+// @import '~bootstrap/scss/bootstrap';
+
+// Fontawesome
+// @import "~@fortawesome/fontawesome-free/scss/fontawesome";
+// @import "~@fortawesome/fontawesome-free/scss/solid";
+// @import "~@fortawesome/fontawesome-free/scss/brands.scss";

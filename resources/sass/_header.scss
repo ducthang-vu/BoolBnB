@@ -1,0 +1,215 @@
+.main-header {
+    padding: 10px;
+    position: fixed;
+    width: 100%;
+    background: $white;
+    z-index: 100;
+    .navbar-header-page {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .logo-header-page {
+            text-decoration: none;
+            @include text_gradient;
+            display: flex;
+            align-items: center;
+            i {
+                font-size: 30px;
+            }
+            span {
+                font-weight: 900;
+            }
+        }
+        #hamburger-btn {
+            background: $white;
+            border: none;
+            padding: 5px;
+            &:focus {
+                outline: none;
+            }
+            i {
+                font-size: 20px;
+            }
+        }
+    }
+    .mobile-navbar-header-page {
+        display: none;
+        &.show {
+            display: block;
+        }
+    }
+    .big-navbar-header-page {
+        ul li {
+            display: none;
+        }
+    }
+}
+
+.hamburger-header-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    vertical-align: middle;
+    .logo-header-page {
+        text-decoration: none;
+        @include text_gradient;
+        i {
+            font-size: 30px;
+            vertical-align: middle;
+        }
+        span {
+            font-weight: 900;
+        }
+    }
+    .mobile-navbar-header-page {
+        position: fixed;
+        top: 36px;
+        right: 10px;
+        @include bg_hambuger_menu;
+        border: 1px solid $text;
+        border-radius: 10px 0 0 10px;
+        -webkit-box-shadow: 1px 1px 3px 0px $text;
+        -moz-box-shadow: 1px 1px 3px 0px $text;
+        box-shadow: 1px 1px 3px 0px $text;
+        z-index: 3;
+        animation: sliding 0.6s;
+        .emptydiv-header-page {
+            padding: 0;
+            margin: 0;
+            height: 10%;
+            width: 100%;
+            background: linear-gradient(
+                to left,
+                rgb(146, 23, 77) 9.38%,
+                rgb(228, 29, 92) 88.54%
+            );
+            border-radius: 9.4px 0 0 0;
+        }
+        ul {
+            padding: 5px;
+            i {
+                display: none;
+            }
+            li {
+                text-align: left;
+                list-style: none;
+                text-decoration: none;
+                padding: 5px;
+                margin-right: 8px;
+                font-size: 12px;
+                font-weight: 500;
+                a {
+                    color: $text;
+                    text-decoration: none;
+                }
+                #register-button {
+                    background: none;
+                    color: inherit;
+                    border: none;
+                    padding: 0;
+                    font: inherit;
+                    cursor: pointer;
+                    outline: inherit;
+                    box-shadow: none;
+                    border-radius: none;
+                }
+            }
+        }
+    }
+}
+
+//Hamburger animation
+@-webkit-keyframes fadeIn {
+    from {
+        transform: scale(0);
+    }
+    to {
+        transform: scale(1);
+    }
+}
+@keyframes fadeIn {
+    from {
+        transform: scale(0);
+    }
+    to {
+        transform: scale(1);
+    }
+}
+
+@keyframes sliding {
+    0% {
+        right: -100px;
+    }
+    33% {
+        right: 5px;
+    }
+    66% {
+        right: 7.5px;
+    }
+    100% {
+        right: 10px;
+    }
+}
+
+/* Desktops (desktops, 992px and up) */
+@include desktop {
+    .navbar-header-page {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        vertical-align: middle;
+        max-width: 1700px;
+        margin: 0 auto;
+        .logo-header-page {
+            text-decoration: none;
+            @include text_gradient;
+            i {
+                font-size: 30px;
+                vertical-align: middle;
+            }
+            span {
+                font-weight: 900;
+            }
+        }
+        ul {
+            li {
+                position: relative;
+                display: inline;
+                text-align: right;
+                list-style: none;
+                text-decoration: none;
+                margin-right: 8px;
+                font-size: 12px;
+                font-weight: 700;
+                a:last-child {
+                    display: inline-block;
+                    padding: 5px 10px;
+                    color: $text;
+                    text-decoration: none;
+                    border-radius: 5px;
+                    &.active::after {
+                        content: "";
+                        position: absolute;
+                        bottom: -5px;
+                        left: 50%;
+                        width: 80%;
+                        border-bottom: 3px solid $red;
+                        transform: translateX(-50%);
+                    }
+                    &:hover {
+                        background: $tablebg;
+                    }
+                }
+            }
+        }
+        .hamburger-header-page {
+            display: none;
+        }
+        .big-navbar-header-page {
+            display: block;
+            ul li {
+                display: inline;
+            }
+        }
+    }
+}

@@ -1,0 +1,29 @@
+.flatPagesHeader {
+    display: none;
+
+    @include tablet{
+        display: block;
+        color: $black;
+        font-weight: bold;
+
+        .anchor {
+            text-decoration: none;
+            &:active,
+            &:visited {
+                color: $black;
+            }
+            &:hover {
+                text-decoration: underline;
+            }
+            &:after {
+                content: '';
+                margin-left: 15px;
+            }
+            & + i + span:before {
+                content: '';
+                margin-left: 15px;
+            }
+        }
+    }
+}
+

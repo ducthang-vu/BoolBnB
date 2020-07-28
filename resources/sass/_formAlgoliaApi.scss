@@ -1,0 +1,176 @@
+.formAlgoliaIndex-page {
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    .row {
+        display: flex;
+        justify-content: center;
+        flex-basis: 100%;
+        .inputAlgolia-page {
+            width: 100%;
+        }
+    }
+
+    .search-index__error {
+        color: $red;
+        flex-basis: 100%;
+    }
+
+    .btn-filter {
+        outline: none;
+        flex-basis: 100%;
+    }
+    .animation--service {
+        padding-left: 10px;
+        padding-right: 10px;
+        border-radius: 5px;
+        color: $white;
+        background: linear-gradient(
+            to right,
+            rgb(146, 23, 77) 9.38%,
+            rgb(228, 29, 92) 88.54%
+        );
+        overflow: hidden;
+        height: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        flex-basis: 100%;
+        transition: all 1s cubic-bezier(0.215, 0.61, 0.355, 1);
+        &.animation--service--open {
+            height: 280px;
+            padding: 10px;
+        }
+        .search-services {
+            display: flex;
+            flex-direction: column;
+            .distance-group {
+                label {
+                    width: 100%;
+                }
+                .slider {
+                    appearance: none;
+                    width: 100%;
+                    height: 5px;
+                    border-radius: 5px;
+                    outline: none;
+                    &::-webkit-slider-thumb {
+                        appearance: none;
+                        height: 15px;
+                        width: 15px;
+                        border: 1px solid lightgray;
+                        border-radius: 50%;
+                        background: white;
+                    }
+                    &::-moz-range-thumb {
+                        appearance: none;
+                        height: 15px;
+                        width: 15px;
+                        border: 1px solid lightgray;
+                        border-radius: 50%;
+                        background: white;
+                    }
+                }
+            }
+            label {
+                display: inline-block;
+                font-weight: 500;
+                width: 240px;
+                margin-bottom: 5px;
+            }
+            input {
+                width: 60px;
+                margin-right: 10px;
+            }
+        }
+        .checkbox-services {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            label {
+                display: inline-block;
+                width: 170px;
+                margin-bottom: 5px;
+                font-weight: 500;
+            }
+            input {
+                margin-right: 10px;
+            }
+        }
+    }
+}
+
+@include mobile {
+    .formAlgoliaIndex-page {
+        .btn-filter {
+            flex-basis: 100%;
+            max-width: 50%;
+        }
+    }
+}
+
+@include tablet {
+    .formAlgoliaIndex-page {
+        .row {
+            flex-basis: 50%;
+        }
+    }
+}
+
+@include desktop {
+    .formAlgoliaIndex-page {
+        .row {
+            #address {
+                width: 100%;
+                max-width: 100%;
+            }
+        }
+        .animation--service {
+            padding-left: 30px;
+            padding-right: 30px;
+            flex-basis: 60%;
+            border-radius: 15px;
+            &.animation--service--open {
+                height: 220px;
+                padding: 30px;
+            }
+            .search-services {
+                flex-direction: column;
+                label {
+                    width: 225px;
+                    margin-bottom: 5px;
+                }
+                input {
+                    width: 60px;
+                    margin-right: 10px;
+                }
+                &:last-child {
+                    label {
+                        width: 80px;
+                    }
+                }
+            }
+            .checkbox-services {
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+                flex-direction: row;
+                flex-wrap: wrap;
+                .services {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    flex-basis: calc(100% / 3);
+                    label {
+                        width: 100px;
+                        font-weight: 500;
+                        margin-bottom: 0;
+                    }
+                    input {
+                        margin-right: 15px;
+                    }
+                }
+            }
+        }
+    }
+}

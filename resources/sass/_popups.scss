@@ -1,0 +1,218 @@
+//Wrapper per oscurare la pagina
+.popup-wrapper-header {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 4;
+}
+//Buttons
+#login-button-headerNavbar-page {
+    background: none;
+    color: inherit;
+    border: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+}
+#register-button-headerNavbar-page {
+    background: none;
+    color: inherit;
+    border: 0.5px solid #cac9c9;
+    border-radius: 18px;
+    padding: 10px;
+    box-shadow: -1px 1px 1px 0px #cac9c9;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+}
+//close
+.close-popup-page {
+    float: right;
+    text-align: right;
+    color: $white;
+    opacity: 0.9;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.close-popup-page:hover {
+    color: $text;
+}
+.container-register,
+.container-login {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    width: 100%;
+    height: 100%;
+    .card-popup {
+        height: 100%;
+        .card-header {
+            justify-content: space-between;
+            border-bottom: 1px solid black;
+            border-radius: 10px 10px 0 0;
+            padding: 10px 15px;
+            background: $bg_airbnb;
+            color: $white;
+            font-weight: bold;
+        }
+        .card-body {
+            padding: 10px 7px;
+            text-align: center;
+            input {
+                border: 1px solid $bg_airbnb;
+                border-radius: 5px;
+                padding: 5px;
+                width: 80%;
+            }
+            button {
+                cursor: pointer;
+            }
+            .div-container-login-page {
+                width: 100%;
+                margin: 5px 0 0;
+            }
+            .div-register-page,
+            .div-login-page {
+                flex-basis: 100%;
+                margin: 10px 0 7px;
+                input[type="date" i] {
+                    font-family: "Montserrat";
+                }
+            }
+            .invalid-feedback-register-page,
+            .invalid-feedback-login-page {
+                width: 100%;
+                font-size: 70%;
+                color: rgb(227, 52, 47);
+            }
+            .label-login-page {
+                margin: 25px 0;
+            }
+        }
+        .form-group {
+            margin: 10px 0;
+        }
+        #remember {
+            width: 30px;
+        }
+    }
+}
+//Popup form
+.popup-form {
+    background: $white;
+    border: 0px solid transparent;
+    border-radius: 10px;
+    height: 100%;
+    color: $text;
+    -webkit-animation: fadeIn 0.7s;
+    animation: fadeIn 0.7s;
+}
+//Popup wrapper
+.popup {
+    display: none;
+    position: fixed;
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+    z-index: 10000000;
+}
+//Animation
+@-webkit-keyframes fadeIn {
+    from {
+        transform: scale(0);
+    }
+    to {
+        transform: scale(1);
+    }
+}
+@keyframes fadeIn {
+    from {
+        transform: scale(0);
+    }
+    to {
+        transform: scale(1);
+    }
+}
+@include mobile {
+}
+/* Tablets (tablets, 768px and up) */
+@include tablet {
+    //Popup form
+    .popup-form {
+        background: $white;
+        border: 0px solid transparent;
+        border-radius: 10px;
+        height: auto;
+        color: $text;
+        -webkit-animation: fadeIn 0.7s;
+        animation: fadeIn 0.7s;
+    }
+    //Popup wrapper
+    .popup {
+        display: none;
+        position: fixed;
+        left: 50%;
+        top: 20%;
+        transform: translateX(-50%);
+        height: 100%;
+        width: 300px;
+        overflow: auto;
+        z-index: 10;
+    }
+    .container-login,
+    .container-register {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin: 0 auto;
+        width: 100%;
+        height: 100%;
+        .card {
+            height: 100%;
+            .card-header {
+                justify-content: space-between;
+                padding: 0 auto 20px;
+                border-bottom: 1px solid black;
+                border-radius: 10px 10px 0 0;
+                padding: 5px 7px;
+                background: $bg_airbnb;
+                color: $white;
+            }
+            .card-body {
+                margin: 10px 0;
+                padding: 5px 7px;
+                text-align: center;
+                input {
+                    border-radius: 8px;
+                    padding: 5px;
+                    width: 80%;
+                }
+                button {
+                    cursor: pointer;
+                }
+            }
+            .form-group {
+                margin: 10px 0;
+            }
+        }
+    }
+}
+
+/* Desktops (desktops, 992px and up) */
+@include desktop {
+    .div-container-login-page {
+        width: 100%;
+    }
+}
+
+@include large-desktop {
+}

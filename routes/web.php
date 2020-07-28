@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +14,33 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+// Home
+Route::get('/', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+// Guest routes
+Route::resource('flats', 'FlatController')->only(['index', 'show']);
+Route::post('flats/requests', 'RequestController@store')->name('requests');
+
+// Admin route
+Route::prefix('admin')
+    ->name('admin.')
+    ->namespace('Admin')
+    ->middleware('auth')
+    ->group(function () {
+        Route::get('home_admin', 'HomeController@index')->name('home');
+        Route::get('flats/{flat}/statistics', 'FlatStatisticsController@show')->name('statistics');
+        Route::resource('flats', 'FlatController')->except('index');
+        Route::resource('requests', 'RequestController')->only(['index', 'create']);
+        Route::resource('sponsorships', 'SponsorshipController')->only(['index', 'create', 'store']);
+    });
+
+Route::get('/wip', function() {
+    return view('workinprogress');
+})->name('wip');
+
+Route::get('/dev', function() {
     return view('welcome');
 });
+

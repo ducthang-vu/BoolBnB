@@ -1,0 +1,46 @@
+.requestsIndex-page {
+    .request-card {
+        width: 450px;
+        max-width: 100%;
+        border-bottom: 1px solid $bg_airbnb;
+        cursor: pointer;
+        .request-date {
+            font-size: 90%;
+        }
+        &:hover {
+            background: rgba(228, 228, 228, 0.2);
+        }
+        &.active {
+            background: rgb(228, 228, 228);
+            .message-text {
+                display: block;
+            }
+        }
+    }
+}
+
+@include mobile {
+    .requestsIndex-page {
+        .request-card {
+            width: 540px;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+    }
+}
+
+@include tablet {
+    .requestsIndex-page {
+        .request-card {
+            width: 730px;
+        }
+    }
+}
+
+@include desktop {
+    .requestsIndex-page {
+        .request-card {
+            width: 950px;
+        }
+    }
+}
