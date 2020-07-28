@@ -1,5 +1,11 @@
 @extends('layouts.main')
 
+@section('page-popup')
+<div class="show-map btn-link">
+    Mostra mappa
+</div>
+
+@endsection
 @section('page-content')
 <div class="search-section df-column align-center">
 
@@ -7,16 +13,17 @@
     <div class="error-message">
         <h2>Non ci sono appartamenti per questa ricerca</h2>
     </div>
-
-
     <div class="index-search d-flex s-center">
         <div id="search-cards" class="search-cards">
         </div>
 
-        <div class="map no-visibility">
+
+        <div class="map">
             <div id="mapid"></div>
         </div>
+
     </div>
+
 </div>
 
 <script>

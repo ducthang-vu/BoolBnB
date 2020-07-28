@@ -182,6 +182,21 @@ function guestIndexPage(lat, lng) {
     slider.oninput = function() {
         distanceOutput.innerHTML = this.value;
     };
+
+    let showMap = document.querySelector(".show-map");
+    let mapPopup = document.querySelector(".map");
+
+    showMap.addEventListener("click", function() {
+        this.isOpen = this.isOpen || false;
+        if (this.isOpen) {
+            mapPopup.classList.remove("popup-open");
+            showMap.innerHTML = "Mostra mappa";
+        } else {
+            mapPopup.classList.add("popup-open");
+            showMap.innerHTML = "Chiudi mappa";
+        }
+        this.isOpen = !this.isOpen;
+    });
 }
 
 export default guestIndexPage;
