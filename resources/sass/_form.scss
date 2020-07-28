@@ -56,7 +56,6 @@
     background: $bg_airbnb;
     background-color: $bg_airbnb;
 }
-
 .radio-input {
     display: flex;
     flex-direction: column;
@@ -93,6 +92,10 @@ input::placeholder {
 
 @include tablet {
     .form {
+        #address {
+            width: 100%;
+            max-width: 100%;
+        }
         .btn-search {
             margin-left: 0;
         }
