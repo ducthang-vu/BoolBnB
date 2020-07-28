@@ -2828,6 +2828,11 @@ input::placeholder {
 }
 
 @media (min-width: 768px) {
+  .form #address {
+    width: 100%;
+    max-width: 100%;
+  }
+
   .form .btn-search {
     margin-left: 0;
   }
