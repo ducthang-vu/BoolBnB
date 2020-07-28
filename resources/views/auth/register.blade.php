@@ -68,7 +68,7 @@
                         required autocomplete="new-password" placeholder="PASSWORD">
 
                     @error('password')
-                    <span class="invalid-feedback block" role="alert">
+                    <span class="invalid-feedback-register-page block" role="alert">
                         {{ $message }}
                     </span>
                     @enderror
