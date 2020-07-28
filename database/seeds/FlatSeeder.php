@@ -13,8 +13,12 @@ class FlatSeeder extends Seeder
      *
      * @return void
      */
+
     public function run(Faker $faker)
     {
+        $TurinLat = 45.0677;
+        $TurnLng = 7.6824;
+        $LngPerKm = 0.013;
 
         for ($i = 0; $i < 100; $i++) {
             $new_flat = new Flat();
@@ -30,9 +34,15 @@ class FlatSeeder extends Seeder
             $new_flat->created_at = new DateTime("2019-06-15");
 
             // geolocalization
-            $new_flat->lat = 45.0677;
-            $new_flat->lng =  7.6824 + $i * 0.013;
-            // $new_flat->geolocation = DB::raw("(GeomFromText('POINT(45.0677 " . $lng . ")'))");
+            if ($i < 50 ) {
+                $new_flat->lat = $TurinLat;
+                $new_flat->lng = $TurnLng  + $i * $LngPerKm;
+                // $new_flat->geolocation = DB::raw("(GeomFromText('POINT(45.0677 " . $lng . ")'))");
+            } else {
+                $new_flat->lat = $faker->randomFloat(4, $TurinLat - 5 * $LngPerKm, $TurinLat + 5 *  $LngPerKm);
+                $new_flat->lng = $faker->randomFloat(4, $TurnLng - 5 * $LngPerKm, $TurnLng + 5 * $LngPerKm);
+            }
+
 
             $new_flat->save();
         }
