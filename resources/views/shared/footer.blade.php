@@ -104,7 +104,12 @@ function closePopUpRegister() {
 
 @php if (in_array('These credentials do not match our records.', $errors->all()))
     echo 'showPopUpLogin()';
-    if (in_array('The email has already been taken.', $errors->all()))
+    $registerErrors = [
+        'The email has already been taken.',
+        'The password must be at least 8 characters.',
+        'The password confirmation does not match.'
+    ];
+    if (count(array_intersect($registerErrors, $errors->all())))
     echo 'showPopUpRegister()';
 @endphp
 

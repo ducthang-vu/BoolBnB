@@ -13,7 +13,7 @@
     <div class="div-error-page">
         <div class="container-error-page">
             <span class="i-error-page"><i class="fas fa-hammer"></i></i></span>
-            <span class="text-error-page">Thang says: "Work in Progress"</span>
+            <span class="text-error-page">Work in Progress</span>
         </div>
         <a href="{{ route ('home') }}">...torna alla Home...</a>
     </div>
