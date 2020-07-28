@@ -2936,6 +2936,10 @@ form #address {
   margin-top: 50px;
 }
 
+.index-search {
+  width: 100%;
+}
+
 .index-search .search-cards {
   flex-basis: 100%;
   height: auto;
@@ -3610,6 +3614,7 @@ form #address {
 
 .success-message,
 .error-message {
+  width: 100%;
   padding: 20px;
   position: absolute;
   top: -50%;
@@ -3617,7 +3622,6 @@ form #address {
   transform: translate(-50%, calc(-50% + 50px));
   text-align: center;
   background-color: #38c172;
-  width: 99vw;
   display: flex;
   justify-content: center;
   align-items: center;

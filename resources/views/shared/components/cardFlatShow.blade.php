@@ -99,7 +99,7 @@
                     </li>
                     <li class="mt-20">
                         <input type="hidden" class="form-control" name="flat_id" id="flat_id" value="{{ $flat->id }}">
-                        <input type="submit" value="Invia" class="btn btn-search">
+                        <input type="submit" value="Invia">
                     </li>
                 </ul>
             </form>
