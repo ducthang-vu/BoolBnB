@@ -2217,6 +2217,11 @@ li {
   border: 1px solid transparent;
 }
 
+.card-flat:last-child {
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+
 .card-flat .card__img-wrapper {
   flex-basis: 100%;
   width: 100%;
