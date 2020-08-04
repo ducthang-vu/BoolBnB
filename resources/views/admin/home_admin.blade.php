@@ -46,11 +46,11 @@
                 </li>
                 <li>
                     <p class="mb-5 up_text">Data di nascita:</p>
-                    <p class="mb-20">{{Auth::user()->date_of_birth}}</p>
+                    <p class="mb-20">{{ Carbon\Carbon::parse(Auth::user()->date_of_birth)->format('d/m/Y') }}</p>
                 </li>
                 <li>
                     <p class="mb-5 up_text">Inscritto dal: </p>
-                    <p class="mb-20">{{Auth::user()->created_at}}</p>
+                    <p class="mb-20">{{ Carbon\Carbon::parse(Auth::user()->created_at)->format('d/m/Y') }}</p>
                 </li>
             </ul>
         </div>
