@@ -13,20 +13,30 @@ Inoltre, i proprietari di un appartamento possono decidere di pagare per sponsor
 ![](dev_miscellaneous/images_promo/home_page.png)
 
 
+
+
 ## Ricerca dell'appartamento
 ![](dev_miscellaneous/images_promo/ricerca.png)
+
+
 
 
 ## Mappa interattiva con i risultati della ricerca
 ![](dev_miscellaneous/images_promo/search_map.png)
 
 
+
+
 ## Popup per loggarsi
 ![](dev_miscellaneous/images_promo/login.png)
 
 
+
+
 ## L'utente registrato può consultare i messaggi ricevuti
 ![](dev_miscellaneous/images_promo/messaggi.png)
+
+
 
 
 ## L'utente registrato può sponsorizzare il suo appartamento
