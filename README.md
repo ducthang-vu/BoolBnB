@@ -19,7 +19,7 @@ Inoltre, i proprietari di un appartamento possono decidere di pagare per sponsor
 ![](dev_miscellaneous/images_promo/search.png)
 
 
-## Popur per loggarsi
+## Popup per loggarsi
 ![](dev_miscellaneous/images_promo/login.png)
 
 ## L'utente registrato può consultare i messaggi ricevuti
