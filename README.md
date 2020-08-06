@@ -8,9 +8,9 @@ Gli utenti interessati ad un appartamento, utilizzando i filtri di una apposita 
  
 Inoltre, i proprietari di un appartamento possono decidere di pagare per sponsorizzare l’annuncio del proprio appartamento per fare in modo che il loro annuncio sia maggiormente in evidenza rispetto a quelli non sponsorizzati.
  
-![](images_promo/home_page.png)
-![](images_promo/login.png)
-![](images_promo/messaggi.png)
-![](images_promo/pagamento.png)
-![](images_promo/ricerca.png)
-![](images_promo/search.png)
+![](dev_miscellaneous/images_promo/home_page.png)
+![](dev_miscellaneous/images_promo/login.png)
+![](dev_miscellaneous/images_promo/messaggi.png)
+![](dev_miscellaneous/images_promo/pagamento.png)
+![](dev_miscellaneous/images_promo/ricerca.png)
+![](dev_miscellaneous/images_promo/search.png)
