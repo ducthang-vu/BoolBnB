@@ -7,3 +7,10 @@ Gli utenti che vogliono mettere in affitto un appartamento devono registrarsi al
 Gli utenti interessati ad un appartamento, utilizzando i filtri di una apposita pagina di ricerca, vedono una lista di possibili appartamenti e cliccando su ognuno possono vedere una pagina di dettaglio. Una volta trovato l’appartamento desiderato, l’utente interessato può contattare l’utente proprietario per fare domande. 
  
 Inoltre, i proprietari di un appartamento possono decidere di pagare per sponsorizzare l’annuncio del proprio appartamento per fare in modo che il loro annuncio sia maggiormente in evidenza rispetto a quelli non sponsorizzati.
+ 
+![](images_promo/home_page.png)
+![](images_promo/login.png)
+![](images_promo/messaggi.png)
+![](images_promo/pagamento.png)
+![](images_promo/ricerca.png)
+![](images_promo/search.png)
