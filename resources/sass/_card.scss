@@ -12,6 +12,7 @@
         margin: 20px 10px;
         transition: transform 0.5s;
         img {
+            object-fit: cover;
             margin-bottom: 5px;
             width: 100%;
             border-top-left-radius: 16px;
@@ -43,7 +44,7 @@
     .sponsorship-card {
         .card {
             img {
-                max-height: 194px;
+                max-height: 170px;
             }
             flex-basis: calc((100% / 2) - 20px);
             margin: 0 20px 20px 0;

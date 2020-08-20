@@ -101,3 +101,9 @@ php artisan migrate:fresh --seed
 
 ## L'utente registrato può sponsorizzare il suo appartamento
 ![](dev_miscellaneous/images_promo/pagamento.png)
+
+
+
+
+## L'utente può prendere visione delle statistiche degli appartamenti da lui pubblicati
+![](dev_miscellaneous/images_promo/statistiche.png)
