@@ -46,9 +46,7 @@ PLACES_API_KEY
 ALGOLIA_APP_ID
 ALGOLIA_SECRET
 SCOUT_QUEUE
-
-
-
+```
 
 Lancia i seguenti comandi:
 ```
