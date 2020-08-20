@@ -31,12 +31,24 @@ npm install
 Crea il file .env, seguendo l'esempio fornito da .env.example (si trova nella cartella root). Di particolare importanza i seguenti parametri:
 
 ```
-DB_HOST=
-DB_PORT=
-DB_DATABASE=
-DB_USERNAME=
-DB_PASSWORD=
-```
+DB_HOST
+DB_PORT
+DB_DATABASE
+DB_USERNAME
+DB_PASSWORD
+
+BT_MERCHANT_ID
+BT_PUBLIC_KEY
+BT_PRIVATE_KEY
+
+PLACES_APP_ID
+PLACES_API_KEY
+ALGOLIA_APP_ID
+ALGOLIA_SECRET
+SCOUT_QUEUE
+
+
+
 
 Lancia i seguenti comandi:
 ```
