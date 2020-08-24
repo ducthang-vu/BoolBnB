@@ -16,6 +16,7 @@ PHP 7.2.5
 MySQL 10.4.11   
 Node.js 13.12.0  
 
+Inoltre, è necessario avere un Sandbox account **[Braintree]**(https://www.braintreepayments.com/), e un account **[Algolia]**(https://www.algolia.com/).
 
 ## Uso
 Installa dapprima i moduli necessari:
@@ -28,7 +29,7 @@ composer install
 npm install
 ```
 
-Crea il file .env, seguendo l'esempio fornito da .env.example (si trova nella cartella root). Di particolare importanza i seguenti parametri:
+Crea il file .env, seguendo l'esempio fornito da .env.example (si trova nella cartella root). Di particolare importanza i seguenti parametri in riferimento al database (MySql), all'account Braintree, e all'account Algolia:
 
 ```
 DB_HOST
