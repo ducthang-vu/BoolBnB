@@ -9,7 +9,7 @@ Gli utenti interessati ad un appartamento, utilizzando i filtri di una apposita 
 Inoltre, i proprietari di un appartamento possono decidere di pagare per sponsorizzare l’annuncio del proprio appartamento per fare in modo che il loro annuncio sia maggiormente in evidenza rispetto a quelli non sponsorizzati.
 
 ## Requisiti minimi
-laPasticceria è basato sul framework Php **Laravel**. 
+BoolBnB è basato sul framework Php **Laravel**. 
 
 Composer 1.10.7  
 PHP 7.2.5  
