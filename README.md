@@ -1,25 +1,26 @@
 # BoolBnB
 
-BoolBnB è una applicazione per trovare e gestire l’affitto di appartamenti. Attraverso BoolBnB i proprietari di appartamento possono inserire le informazioni degli appartamenti che vogliono affittare per cercare utenti interessati. 
- 
-Gli utenti che vogliono mettere in affitto un appartamento devono registrarsi alla piattaforma; una volta registrati hanno la possibilità di inserire uno o più appartamenti. 
- 
-Gli utenti interessati ad un appartamento, utilizzando i filtri di una apposita pagina di ricerca, vedono una lista di possibili appartamenti e cliccando su ognuno possono vedere una pagina di dettaglio. Una volta trovato l’appartamento desiderato, l’utente interessato può contattare l’utente proprietario per fare domande. 
- 
-Inoltre, i proprietari di un appartamento possono decidere di pagare per sponsorizzare l’annuncio del proprio appartamento per fare in modo che il loro annuncio sia maggiormente in evidenza rispetto a quelli non sponsorizzati.
+**BoolBnB** is an application which provides an online vacation online marketplace. 
 
-## Requisiti minimi
-BoolBnB è basato sul framework Php **Laravel**. 
+Upon registration into the platform, flat owners and managers may enter one or many flats they want to rent.
+
+Common users may search for a flat in the search page, and then view the detail page of the flat they are interested in. Once the desired apartment has been found, the interested user can send a message to the owner through the app.
+
+Furthermore, owners may require their apartment to be listed more prominently in the search results by paying a fee.
+
+## Minimum requirements 
+BoolBnB is  built on the PHP framework Laravel **Laravel**. 
 
 Composer 1.10.7  
 PHP 7.2.5  
 MySQL 10.4.11   
 Node.js 13.12.0  
 
-Inoltre, è necessario avere un Sandbox account **[Braintree](https://www.braintreepayments.com/)**, e un account **[Algolia](https://www.algolia.com/)**.
+The following are also required: **[Braintree](https://www.braintreepayments.com/)** Sandbox account; **[Algolia](https://www.algolia.com/)** account.
+
 
 ## Uso
-Installa dapprima i moduli necessari:
+Download the repository, then install the required packages:
 
 ```
 composer install
@@ -29,7 +30,7 @@ composer install
 npm install
 ```
 
-Crea il file .env, seguendo l'esempio fornito da .env.example (si trova nella cartella root). Di particolare importanza i seguenti parametri in riferimento al database (MySql), all'account Braintree, e all'account Algolia:
+Create a .env fil, following the example .env.example (in root folder). The following variable are most important: database variables (MySql), Braintree account keys, and Algolia account keys:
 
 ```
 DB_HOST
@@ -48,7 +49,7 @@ ALGOLIA_APP_ID
 ALGOLIA_SECRET
 ```
 
-Lancia i seguenti comandi:
+Then do:
 ```
 php artisan key:generate 
  ```
@@ -59,51 +60,52 @@ php artisan serve
 
 ```
 npm run watch
- ```
+```
 
 
-Esegui le migrazioni e il seeding:
+Migrate and seed:
 
- ```
+```
 php artisan migrate:fresh --seed
- ```
+```
 
-# Anteprima
+# Preview
 ## Homepage
 ![](dev_miscellaneous/images_promo/home_page.png)
 
 
 
 
-## Ricerca dell'appartamento
+## Searching a flat
 ![](dev_miscellaneous/images_promo/ricerca.png)
 
 
 
 
-## Mappa interattiva con i risultati della ricerca
+## Interactive map with search results:  
 ![](dev_miscellaneous/images_promo/search_map.png)
 
 
 
 
-## Popup per loggarsi
+## Log in into the app
 ![](dev_miscellaneous/images_promo/login.png)
 
 
 
 
-## L'utente registrato può consultare i messaggi ricevuti
+## Logged user can read received messages
 ![](dev_miscellaneous/images_promo/messaggi.png)
 
 
 
 
-## L'utente registrato può sponsorizzare il suo appartamento
+## Logged user may his apartment to be listed  more prominently in the search results by paying a fee.
 ![](dev_miscellaneous/images_promo/pagamento.png)
 
 
 
 
-## L'utente può prendere visione delle statistiche degli appartamenti da lui pubblicati
+## Logged user may consult statistics on the flats he has entered into the platform. 
 ![](dev_miscellaneous/images_promo/statistiche.png)
+
