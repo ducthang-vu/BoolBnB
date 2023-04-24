@@ -25,7 +25,7 @@
     },
     "dependencies": {
         "@fortawesome/fontawesome-free": "^5.13.1",
-        "braintree-web-drop-in": "^1.33.7",
+        "braintree-web-drop-in": "^1.36.1",
         "chart.js": "^2.9.4",
         "handlebars": "^4.7.7",
         "leaflet": "^1.6.0",
